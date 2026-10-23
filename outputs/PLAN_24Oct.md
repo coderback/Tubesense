@@ -127,3 +127,44 @@ This uses `scripts/mag_compare.py`.
   vertices between stations on either line.
 - **Truth:** the independent truth comes from yaw curve edges, so a section with no curves has no
   truth inside it.
+
+## Addendum: H5, absolute levels from the NIOSH Sound Level Meter app
+
+Added Sat 24 Oct 2026, 00:45 BST, before the rides. The rest of the plan is unchanged. No analysis
+code for H5 exists yet. It will be written after the rides, and it will do exactly what is specified
+here; anything beyond this is labelled post-hoc.
+
+**Collection**
+
+- **Preferred:** a second phone running the NIOSH SLM app, next to the main phone in the same
+  placement, on the same rides. Start it at the start knock or clap. iOS generally won't let the app
+  and Voice Memos record from one phone's microphone at the same time.
+- **Fallback:** with only one phone, record one or two runs per section with NIOSH instead of Voice
+  Memos, starting and stopping at the stations.
+- **Settings:** A-weighted. Note the device model, and whether the app lists it as calibrated or an
+  external measurement microphone is used.
+- **Log** in `data/raw/niosh.csv`, one row per run and section (levels only; no audio is kept):
+  `run_id, line, from, to, device, mic, LAeq_dBA, LAFmax_dBA, LCpeak_dB, start_time, end_time, notes`.
+
+**H5 (descriptive, no threshold)**
+
+1. **Absolute section level:** LAeq per line, section and direction, as mean ± sd over runs, labelled
+   *indicative*. Report it against the HSE 85 dB(A) upper action level. Compare Liverpool Street →
+   Bethnal Green with TfL's FOI figure of 92.8 dB for that section.
+2. **Offset to our relative levels:** NIOSH LAeq minus the Voice Memos section LAeq (dBFS(A)) for the
+   same section of the same ride, with both phones together.
+   - Report the median offset and its spread across sections.
+   - Report the slope of the offset against level. A slope above 0 at the loud end is the Voice
+     Memos limiter's compression.
+3. **The loudness question again:** the within-trip difference, Liverpool Street → Bethnal Green minus
+   Bethnal Green → Mile End, using NIOSH levels. Compare it with the +0.6 dB found from Voice Memos
+   on 23 Oct.
+
+**Known limits, stated in advance**
+
+- **Above 85 dB(A) the readings may be low.** The app on an iPhone's built-in microphone was validated
+  to about 0.5 dB(A) only up to about 85 dB (Huyan et al. 2023, JMIR, PMC10686533). Tube sections
+  near 90 dB are above that range and may be underestimated, unless an external measurement
+  microphone is used.
+- **It is not a certified meter.** All absolute levels are indicative.
+- **Placement differs.** Two phones in slightly different positions add some offset noise.
