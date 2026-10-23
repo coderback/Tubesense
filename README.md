@@ -35,7 +35,7 @@ the `.m4a` file of a run share the same stem. Station codes and routes are liste
 ## Run
 
 ```
-.venv/Scripts/python scripts/run_gonogo.py           # whole chain, about 9-10 min
+.venv/Scripts/python scripts/run_gonogo.py           # whole chain, about 11-12 min
 .venv/Scripts/python scripts/run_gonogo.py --clean   # wipe outputs/ first (keeps FINDINGS.md)
 ```
 
@@ -50,6 +50,7 @@ The chain runs these steps in order. Each step is also a standalone script in `s
 | qc | `tubesense/qc.py` | `outputs/qc.json` (messy-input flags), `outputs/qc/*.png` |
 | repeatability | `tubesense/features.py`, `tubesense/repeat.py` | `outputs/gonogo/repeatability.json`, `gyro_*.png`, `mag_*.png` |
 | mag_anomaly | `tubesense/features.py` (`mag_destep`, `field_anomaly`) | `outputs/gonogo/mag_anomaly.json`, `mag_anomaly.png`: bias-free magnetometer follow-up |
+| ablation | `tubesense/position.py` | `outputs/positioning/ablation.json`, `ablation.png`, `gap_length.png`, `improvement_log.md`: held-out positioning error per sensor set (L0, L1, DTW) |
 | loudness | `tubesense/loudness.py` | `outputs/gonogo/loudness.json`, `loudness_sections.csv/png`, `loudness_<stem>.png` |
 
 Time conventions: sensor time is phyphox experiment time, which stops while phyphox is paused.

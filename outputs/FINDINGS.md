@@ -1,6 +1,6 @@
 # Tubesense go/no-go: rides of Fri 23 Oct 2026
 
-Regenerate with `.venv/Scripts/python scripts/run_gonogo.py --clean` (~9.5 min). Numbers come from
+Regenerate with `.venv/Scripts/python scripts/run_gonogo.py --clean` (~11.5 min). Numbers come from
 `outputs/*.json`; plot paths are relative to `outputs/`. Every result below was built by one agent,
 attacked by an independent skeptic agent, and the confirmed issues fixed before this run.
 
@@ -11,6 +11,7 @@ attacked by an independent skeptic agent, and the confirmed issues fixed before 
 | (a) gyro yaw rate | **GO** | Curve signatures repeat run to run, far above chance. LST–BTH is the positioning showcase; BTH–MLE carries little positional detail. |
 | (b) magnetometer | **\|B\| NO-GO; bias-free field anomaly WEAK** | \|B\| is spoiled by iOS recalibration jumps and the raw hard-iron bias. The size of the field's deviation from its section average repeats, and part of it survives removing the train's own traction field. |
 | (c) loudness LST→BTH vs BTH→MLE | **WEAK** | LST–BTH is louder on 5/5 trips, but only by +0.6 dB, inside the Voice Memos processing uncertainty. |
+| (e) positioning ablation | **gyro GO; every other sensor NO-GO at equal weight** | DTW on yaw places held-out curve edges to a median 6 m (CI 3–12), against 24 m for L0. That is curve fixes plus bridging the gaps between them, and it is no better than plain interpolation. No other sensor beats that, and the magnetometer field anomaly makes it worse. Long straights are untested. |
 
 ## Inventory (`inventory.md`)
 
@@ -56,8 +57,7 @@ the phone sits. Each clean pair of runs is scored against 200 spectrum-matched r
 - **Which section to demo:** LST–BTH has five distinct curves, so it is the positioning showcase.
   BTH–MLE is essentially one long curve.
 - **L1 dead reckoning does not beat L0** (time fraction). Its dead-reckoned lengths come out at
-  0.46–1.7 km, against about 1.5 and 2.2 km real. The DTW positioning step (L2) is the next thing
-  to try.
+  0.46–1.7 km, against about 1.5 and 2.2 km real. The DTW positioning step (L2) is tested in (e).
 - Plots: `gonogo/gyro_EB_LST-BTH.png` (best single picture), `gyro_EB_BTH-MLE.png`,
   `gyro_WB_BTH-LST.png`, `gyro_WB_MLE-BTH.png`, `gyro_summary.png`, `gyro_matrix.png`.
 
@@ -142,6 +142,137 @@ Levels are uncalibrated dBFS(A): relative only, never comparable with TfL's 92.8
   CYL→STP +0.9 above it.
 - Plots: `gonogo/loudness_sections.png`, `loudness_<stem>.png`.
 
+## (e) Positioning ablation: which sensors help
+
+Files: `positioning/ablation.json`, `ablation.png`, `gap_length.png`, `landmarks.png`,
+`alignment_example.png`, `improvement_log.md`. Regenerate with `.venv/Scripts/python scripts/ablation.py`
+(~2 min, deterministic).
+
+**Metric: held-out landmark error.** There is no position truth in the tunnel.
+
+- **Truth = curve edges found from yaw.** A curve is |yaw| > 0.6°/s for at least 4 s. Its edges are
+  where yaw falls to half the curve's level. Edges cut off by a station or a pause are dropped.
+- **Sample:** 27 physical curve edges, 114 scored rows. Every ordered pair of clean runs is used:
+  6 pairs on EB LST→BTH, 6 on EB BTH→MLE and 2 on WB BTH→LST (a single run pair).
+- **Hiding the landmark:** for each edge, the held-out run's yaw is hidden within ±0.08 of the
+  section around it (a gap of about 350 m on LST–BTH). Heading is re-integrated across the gap so it
+  cannot carry the hidden turn.
+- **Alignment:** the held-out run is aligned to a reference run with multivariate DTW. Channels are
+  z-normalised, weights are equal, and the ends are pinned at depart and arrive.
+- **Error** = |warp(a) − b| × section length. CIs are 95% bootstrap over physical curve edges, with
+  mirrored pairs and shared runs resampled together.
+
+**Section lengths are straight lines:** LST–BTH 2,206 m and BTH–MLE 1,531 m, from the station
+coordinates. The TfL Route/Sequence lineStrings, fetched 23 Oct, have no vertices between these
+stations, so they only give the same chord. Integrating yaw suggests the real track is 5–6% longer on
+LST–BTH and 13–14% longer on BTH–MLE, so the metre errors are low by about that much.
+
+| step (median m, 95% CI) | EB LST→BTH | EB BTH→MLE | WB BTH→LST | overall |
+|---|---|---|---|---|
+| L0 time fraction | 37 (32–54) | 23 (17–58) | 18 (6–26) | 24 (18–35) |
+| L0 + one offset from the other curve edges (no DTW) | 12 (6–14) | 15 (12–47) | 16 (9–30) | 12 (11–16) |
+| L1 dead reckoning | 70 (42–82) | 26 (19–52) | 18 (9–32) | 40 (26–64) |
+| Interpolate between the other curve edges (no DTW) | 3 (1–11) | 18 (3–33) | 6 (1–21) | 6 (2–16) |
+| **L2 DTW yaw (headline)** | **3 (1–9)** | **18 (12–32)** | **6 (4–13)** | **6 (3–12)** |
+| L2 DTW yaw, ends open ±5 s (added after seeing the data) | 2 (1–3) | 14 (12–32) | 6 (3–9) | 4 (2–7) |
+| L2 DTW yaw + heading (no leak) | 12 (4–29) | 14 (11–23) | 12 (4–20) | 13 (10–18) |
+| L2 DTW yaw + drive | 9 (2–40) | 11 (6–62) | 20 (11–32) | 12 (6–31) |
+| L2 DTW all six, equal weights | 16 (4–114) | 13 (6–46) | 22 (11–92) | 16 (10–32) |
+| Exploratory: all six, weights tuned on this data | 7 | 6 | 8 | 7 |
+
+**What the numbers say**
+
+- **The gyro does the positioning.**
+  - DTW on yaw beats L0: −18 m overall (CI −29 to −9). It also wins on LST→BTH and WB BTH→LST.
+  - On BTH→MLE there is no detectable effect (−5, CI −44 to +8). That section is essentially one long
+    curve.
+- **With yaw hidden, DTW is no better than interpolating.** Its error matches plain linear
+  interpolation between the neighbouring curve edges with no DTW at all (+0.6 m, CI −5.8 to +4.9).
+  - What we measured is curve fixes every 150–350 m, with the gap in between bridged.
+  - Error grows with the gap. At about 350 / 530 / 1,060 m hidden on LST–BTH, DTW yaw gives
+    6 / 12 / 14 m, interpolation 6 / 8 / 13 m, and L0 24 m throughout.
+  - Positioning on long straights with no curves is untested.
+- **L0's 37 m on LST→BTH comes mostly from boundary timing, not from differences in driving.**
+  R3's departure is timed from the barometer only. L0 and DTW yaw per run pair:
+  - R1–R5, the only pair with both boundaries observed: 13 → 3 m
+  - R1–R3: 57 → 4 m
+  - R3–R5: 48 → 3 m
+  - The honest demo line is "13 m → 3 m on the clean pair", not "37 → 3".
+- **Station ends are worse.**
+  - Landmarks within 0.1 of a station (24 rows): DTW yaw 15 m, against 4 m mid-section. The pinned
+    ends fight inaccurate boundaries.
+  - Opening the ends by ±5 s gives 4 vs 3 m, and 3.8 m overall (−2.4 m, CI −7.2 to −0.1). This is a
+    sensitivity check, not the headline.
+
+**Which sensors help** (±0.08 gap, overall). "Worse" means worse than bridging the gap between curve
+fixes: inside the gap the remaining channels take the full weight. The synthetic check shows this
+mechanism directly. Mask a clean channel and leave one unrelated noise channel in, and the error
+inside the window is 21 bins; without the noise channel it is 0.5 bins.
+
+| channel | alone (m) | alone minus interpolation | added to yaw | verdict |
+|---|---|---|---|---|
+| yaw (gyro) | 6 | +0.6 (−5.8, +4.9) | – | **helps** vs L0; matches interpolation |
+| heading (no leak) | 52 | +46 (16, 77) | +6.7 (0.8, 12.9) | slightly worse; nothing beyond yaw |
+| drive (\|horizontal accel\|) | 12 | +6.1 (−4.9, 20.8) | +6.0 (−1.9, 25.6) | no detectable effect |
+| vib (3–40 Hz energy) | 42 | +36 (13, 53) | +35.5 (12.5, 49.8) | worse |
+| baro (in-section) | 148 | +142 (102, 175) | +102 (65, 140) | worse |
+| mag (field anomaly) | 63 | +57 (27, 87) | +56 (25, 79) | worse |
+
+- **Drive is the only competitive non-gyro channel.** It sees no yaw at all and still scores 12 m,
+  with no detectable difference from L0 (−12.7, CI −26 to +2) or from interpolation.
+  - It works because drivers run each section the same way; it is not locked to position.
+  - Expect it to fail with unplanned tunnel stops or a different driver.
+- **Vib and mag help only inside the mix.** Leaving one out of the six raises the error: vib +30.5
+  (CI 0.7 to 62), mag +17.8 (CI 5.5 to 28).
+  - They seem to offset the other noisy channels. On their own, both lose to interpolation.
+  - Every other leave-one-out shows no detectable effect.
+- **The magnetometer answer is no positioning benefit on these runs.**
+  - Feature tested: the field anomaly, low-passed at 1 Hz and given equal weight. It is worse than
+    interpolation, both alone and added to yaw.
+  - That holds for raw+calibrated pairs (alone 47 m, 36 rows) and for calibrated pairs (70 m,
+    78 rows).
+  - Scope: this one feature, ±0.08 gaps, these runs. It was not tested on long straights.
+- **Heading leaked in the first version.** Heading after the gap carried the hidden turn. The jump
+  alone located the hidden edge to about 12 m, with no reference run and no DTW.
+  - The earlier "best set, 5 m" (yaw+heading) was that leak: 4.8 m leaky, 13 m with the leak removed.
+- **L1 dead reckoning is probably worse than L0:** +15.7 m (CI 0.1 to 36).
+
+**Robustness and stress test**
+
+- **Speed-independent truth:** taking curve edges at 15% and 85% of each curve's turn gives L0 22,
+  interpolation 5, DTW yaw 6 and all six 19 m.
+- **Distance-domain metric:** converting through the reference run's dead-reckoned distance gives
+  yaw 6.1 m (vs 6.2) and L0 22.7 m (vs 24.4).
+- **Normalisation** (scratch check, not in `ablation.json`): normalising the held-out run with the
+  reference run's statistics moves yaw from 6.2 to 6.6 m overall (each section by about 1–2 m). All
+  six goes from 16 to 47 m. Equal-weight multi-sensor sets are fragile.
+- **Synthetic DTW check:** a known warp of up to 31 bins is recovered to a median of 0.27 bins
+  (worst 2.6).
+- **R4 stress test** (the excluded run against clean runs, 26 rows per role):
+  - Unmasked, yaw still locks onto R4's curves (2 m).
+  - Masked, R4 held out scores 11 m against L0's 12 m; as the reference it scores 16 m.
+  - Pause, handheld and floor runs should not be used as references.
+- **Exploratory, tuned on this same data:**
+  - Tuned weights for all six (drive 4; heading, baro and mag 0.25) give 7 m. Picking the weights on
+    two sections and scoring the third gives 7 / 6 / 8 m.
+  - A step penalty of 0.5 gives all six 5 m; yaw alone at penalty 0.02–0.2 gives 3.4 m.
+  - None of these beats yaw.
+
+**Caveats**
+
+- **Small sample.** 2–3 runs per section, one phone, one morning. WB BTH→LST rests on one run pair,
+  so its CI reflects only the spread across landmarks.
+- **Thresholds set by eye.** The landmark thresholds were tuned on this data.
+- **The truth comes from yaw itself.** So unmasked yaw (1.5 m) is close to circular. Only curve edges
+  are scored, so the straights in between have no truth.
+- **Offline alignment with both station ends known.** The live demo needs an online, open-end
+  variant. Here only the ±5 s open-end version is tested.
+- **Some design choices came after seeing the data.** Yaw was picked as the headline because it is
+  the one position-locked channel, but only after the leaky "best set" had been seen. The open-end
+  and heading-edge variants were also added after seeing the data.
+- **The alignment example shows a boundary artefact.** The 60 m step in its first bins is R3's
+  barometer-only departure time, not real motion.
+
 ## Messy inputs, detected automatically (`qc.json`)
 
 - **R4 is floor-like.**
@@ -177,6 +308,8 @@ Levels are uncalibrated dBFS(A): relative only, never comparable with TfL's 92.8
 6. The Victoria hotspot is not especially loud in our ranking. Different line and rolling stock,
    one run, and the absolute levels are uncalibrated.
 7. The LST–BTH gap is only +0.6 dB: consistent, but small.
+8. The first positioning result was flattered by a leak: heading after a masked gap still carried the
+   hidden turn. The fix took yaw+heading from 5 m to 13 m.
 
 ## Caveats
 
@@ -198,5 +331,6 @@ Levels are uncalibrated dBFS(A): relative only, never comparable with TfL's 92.8
    LST→BTH runs to separate location from traction.
 4. Keep the phone's placement constant and note it in the filename. Record more LST→BTH runs and
    more WB runs.
-5. Transcribe the announcements, then run L2 DTW positioning on yaw rate, with LST–BTH as the demo
-   section.
+5. Transcribe the announcements. For positioning, build an online, open-end version of the yaw DTW
+   for the live demo, and record runs that cover long straights. Do both before claiming anything
+   between curves.

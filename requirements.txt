@@ -8,3 +8,4 @@ av>=13            # decodes iPhone .m4a (ALAC/AAC) without a system ffmpeg
 soundfile>=0.12
 phonometry==3.3.0
 dtaidistance==2.5.1
+numba>=0.61         # JIT for the multivariate DTW in tubesense/position.py

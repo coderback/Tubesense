@@ -1,0 +1,66 @@
+{
+ "straight_line_m": {
+  "LST-BTH": 2205.9,
+  "BTH-MLE": 1530.6
+ },
+ "tfl": {
+  "LST-BTH": {
+   "direction": "outbound",
+   "intermediate_vertices": 0,
+   "polyline_m": 2205.9
+  },
+  "BTH-MLE": {
+   "direction": "outbound",
+   "intermediate_vertices": 0,
+   "polyline_m": 1530.6
+  }
+ },
+ "fetched_utc": "2026-10-23T20:01:23Z",
+ "used_m": {
+  "LST-BTH": 2205.9,
+  "BTH-MLE": 1530.6
+ },
+ "source": {
+  "LST-BTH": "straight line between station coords",
+  "BTH-MLE": "straight line between station coords"
+ },
+ "warning": "TfL lineStrings for the Central line join consecutive stations with single straight segments (0 intermediate vertices between LST, BTH and MLE), so they give the chord, not the along-track length. FALLING BACK to straight-line lengths. True track is longer by the arc/chord ratio (see yaw_arc_chord); errors in metres scale with it.",
+ "urls": [
+  "https://api.tfl.gov.uk/Line/central/Route/Sequence/outbound",
+  "https://api.tfl.gov.uk/Line/central/Route/Sequence/inbound"
+ ],
+ "yaw_arc_chord": {
+  "R1:LST-BTH": {
+   "L0": 1.0561,
+   "L1": 1.0473
+  },
+  "R3:LST-BTH": {
+   "L0": 1.0601,
+   "L1": 1.0519
+  },
+  "R5:LST-BTH": {
+   "L0": 1.061,
+   "L1": 1.0523
+  },
+  "R1.5:BTH-MLE": {
+   "L0": 1.1414,
+   "L1": 1.1366
+  },
+  "R3:BTH-MLE": {
+   "L0": 1.1296,
+   "L1": 1.1424
+  },
+  "R5:BTH-MLE": {
+   "L0": 1.1271,
+   "L1": 1.1399
+  },
+  "R2:BTH-LST": {
+   "L0": 1.0617,
+   "L1": 1.0553
+  },
+  "R6:BTH-LST": {
+   "L0": 1.0595,
+   "L1": 1.053
+  }
+ }
+}

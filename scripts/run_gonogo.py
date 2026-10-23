@@ -3,7 +3,8 @@
     .venv/Scripts/python scripts/run_gonogo.py           # rebuild all outputs
     .venv/Scripts/python scripts/run_gonogo.py --clean   # wipe outputs/ first (keeps FINDINGS.md)
 
-Order matters: noise -> sync -> segment -> qc feed repeatability and loudness.
+Order matters: noise -> sync -> segment -> qc feed repeatability and loudness; repeatability
+feeds the positioning ablation (which also fetches the public TfL Route/Sequence for track lengths).
 The parquet sensor cache in data/interim/sensors is reused; audio is decoded in memory
 only (never written to disk).
 """
@@ -16,7 +17,7 @@ import time
 
 from tubesense.ingest import ROOT
 
-STEPS = ["inventory", "noise", "sync", "segment", "qc", "repeatability", "mag_anomaly", "loudness"]
+STEPS = ["inventory", "noise", "sync", "segment", "qc", "repeatability", "mag_anomaly", "ablation", "loudness"]
 KEEP = {"FINDINGS.md"}
 
 
