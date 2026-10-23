@@ -4,13 +4,119 @@ Tubesense turns ordinary London Underground rides, recorded on a phone, into a p
 section-by-section noise map. It needs no GPS: phone sensors find the station stops and the curves,
 which places the train between stations. The goal is a rail-corrugation map that an agent can check
 against TfL's own noise and grinding records, so that it can draft a cited evidence pack for a
-London Assembly member. A human approves the pack before it is sent. This repository currently holds
-the first stage, a go/no-go analysis of one morning of rides (23 Oct 2026). It tests whether the
-sensor signals repeat between rides and whether phone audio can rank sections by loudness. The
-results are in [`outputs/FINDINGS.md`](outputs/FINDINGS.md).
+London Assembly member. A human approves the pack before it is sent.
+
+This repository holds the sensing half, built from one morning of rides on 23 Oct 2026:
+- a go/no-go analysis of which phone signals repeat between rides;
+- section loudness from phone audio;
+- GPS-free positioning between stations;
+- a live tracker for the demo.
+
+The results are in [`outputs/FINDINGS.md`](outputs/FINDINGS.md).
 
 All levels are relative (dB(A) re digital full scale, from an uncalibrated phone). Tubesense is not
 a sound level meter, a safety system or a hearing-loss claim.
+
+## Submission (Encode London Hackathon 2026)
+
+**Problem.** Parts of the Tube exceed 90 dB. TfL's own FOI figures put Liverpool Street–Bethnal Green
+at 92.8 dB, the second-loudest section. The main cause is rail corrugation, ripples worn into the
+rail head that come back after grinding. The London Assembly has asked TfL to publish noise data
+section by section since May 2023, and it is still not public.
+
+**Named user.** Elly Baker AM, Labour transport spokesperson and Deputy Chair of the London Assembly
+Transport Committee. Tubesense gives her section-level evidence gathered by riders, without waiting
+for TfL to publish.
+
+**Tracks entered:** Google DeepMind (Build with Gemini 4 Argon), MongoDB Atlas, The Real World, and
+Agents That Ship.
+
+**Demo video:** TODO: add the link to the 3-minute video.
+
+**Built during the hackathon.** Every commit in this repo dates from Fri 23 Oct 2026, after kickoff.
+The data is our own rides from the morning of 23 Oct.
+
+### What works today, and the evidence
+
+| result | verdict | evidence (in `outputs/`) |
+|---|---|---|
+| Phone gyro curve signatures repeat ride to ride | **GO**: same-section r 0.76–0.99 vs different-section 0.20 | `FINDINGS.md` (a), `gonogo/gyro_*.png` |
+| Positioning between stations without GPS (offline) | DTW on yaw places held-out curve edges to a median 6 m, against 24 m for the time-fraction baseline | `FINDINGS.md` (e), `positioning/improvement_log.md` |
+| Live tracker (causal, what the demo runs) | Median 2.2 m on held-out rides against an independent truth, vs 11.2 m for a timetable. Between curves it is no better than the timetable (11 vs 16 m). Its 90 % band covers the truth 92 % of the time | `FINDINGS.md` (f), `online/online_eval.json` |
+| Section loudness from phone audio | **WEAK**: Liverpool Street→Bethnal Green is louder than Bethnal Green→Mile End on 5 of 5 trips, by only +0.6 dB (relative levels) | `FINDINGS.md` (c), `gonogo/loudness_sections.png` |
+| Magnetometer as a position fingerprint | **NO-GO** for \|B\|; the bias-free field anomaly is **WEAK** and adds nothing to positioning | `FINDINGS.md` (b), (e) |
+
+### Verification loop
+
+- **Leave-one-run-out.** Every positioning number comes from a ride the map was not built from. The
+  demo rebuilds its map without the ride being shown.
+- **Independent truth.** There is no GPS in a tunnel, so the truth comes from physical landmarks: the
+  start and end of each curve, matched across rides. The headline tracker number is scored against
+  interpolation between those landmarks with no DTW, so it doesn't share the tracker's method.
+- **Fair tests.** The gyro is hidden around each landmark to test positioning between curves, and that
+  result is reported even though it is unflattering.
+- **Adversarial review.** Each result was attacked by independent checking passes before being
+  reported. They caught a heading leak, an inflated "37 m → 3 m" demo line, a metre axis that was
+  really clock time, and a departure detector that fired on braking. All of these are fixed and
+  documented in `FINDINGS.md`.
+- **Reproducible.** `scripts/run_gonogo.py --clean` regenerates every number and plot (~12 min).
+
+### Messy inputs, handled automatically (The Real World)
+
+None of these were hand-coded by run name; all are detected from the data and listed in `outputs/qc.json`:
+
+- **A phone on the floor.** Found from its tilt and how much vibration got through.
+- **Two phyphox pauses** (a false start, and a battery alert mid-section). phyphox hides pauses in its
+  timestamps; they were recovered from its event log.
+- **A trip split across two files**, after getting off at the wrong stop.
+- **Which runs had a calibrated vs raw magnetometer.** This reversed our own notes.
+- **iOS recalibrating the magnetometer mid-ride.**
+- **Triple-tap sync marks that turned out to be silent in the audio.** Sync falls back to matching
+  vibration against sound.
+
+### Responsibility
+
+- **Privacy.** Raw audio never leaves the laptop and is never written anywhere. Only 1-second levels
+  and frequency bands are kept, and speech cannot be reconstructed from them. See *Privacy* below.
+- **Honesty about uncertainty.**
+  - Levels are relative, not certified dB.
+  - The tracker shows a 90 % band, and that band is checked against the truth.
+  - Weak results are labelled WEAK or NO-GO.
+  - The limits are listed in `FINDINGS.md`: 2–3 rides per section, one phone, one morning.
+
+### Gemini models and agents used
+
+> **TODO before submission:** no Gemini model is called by the code in this repo yet. List here only
+> what is actually wired in, with the files that call each model. The plan is:
+> - `gemini-3.5-transcribe` to read station announcements;
+> - `gemini-4-argon` as the investigator that reasons over TfL's grinding and noise records and
+>   drafts the cited evidence pack.
+
+### MongoDB Atlas
+
+> **TODO before submission:** Atlas is not integrated yet. List the collections and features actually
+> used, for example time series, Vector Search and Automated Embedding.
+
+### Where the human approves
+
+> **TODO before submission:** the evidence-pack approval step is not built yet. Describe where the
+> human approves the pack before anything is sent, and what they see when they do.
+
+### Data sources
+
+- **Our own rides:** 9 recordings on 23 Oct 2026 (Victoria and Central lines), made on an iPhone 12 with
+  phyphox 1.2.1 (accelerometer, gyroscope, magnetometer, barometer) and Voice Memos audio. Raw files
+  are not published.
+- **TfL Unified API:** the public `Line/central/Route/Sequence`, fetched for track geometry. Its
+  lineStrings join stations with straight segments, so straight-line lengths are used and flagged.
+  Station coordinates are in `tubesense/stops.py`.
+- **TfL FOI noise figures** (reported March 2026), for context and ranking checks only. No TfL figure
+  is used in a calculation.
+- **Prior work** we build on and cite:
+  - Royal Holloway 2019 (Sensors 19(19):4184) and 2017 (arXiv 1704.00148)
+  - MLoc (arXiv 2003.10531)
+  - Dieckow et al. 2025 (arXiv 2507.19327)
+  - Huyan et al. 2023 (JMIR, PMC10686533)
 
 ## Setup
 
