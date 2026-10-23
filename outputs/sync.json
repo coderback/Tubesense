@@ -1,0 +1,704 @@
+{
+ "R0_NB_VIC_OXC": {
+  "a": 15.0,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": null,
+  "drift_resolution_ppm": 69.66443950023822,
+  "sensor_span_wall_s": 215.3178882598877,
+  "audio_duration_s": 303.95733333333334,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 15.200000000000001,
+  "xcorr_peak": 0.022117783251143518,
+  "xcorr_z": 2.797946750219944,
+  "xcorr_band_hz": [
+   20,
+   60
+  ],
+  "xcorr_first_lag_s": 12.44,
+  "xcorr_last_lag_s": 14.25,
+  "coarse_lag_s": 15.0,
+  "coarse_support": "6/9",
+  "coarse_peak_margin": 0.11417263045567261,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    15.2,
+    0.31,
+    "acc5-45/aud20-200"
+   ],
+   [
+    14.7,
+    0.366,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    15.0,
+    0.367,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    15.1,
+    0.435,
+    "acc15-45/aud20-200"
+   ],
+   [
+    14.7,
+    0.379,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    15.0,
+    0.436,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    42.3,
+    0.288,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    79.3,
+    0.325,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    42.0,
+    0.308,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_coarse",
+  "confidence": "low",
+  "notes": "rejected chance tap matches: start triple offset 16.560s (unconfirmed); no tap triple matched at either end; b fixed at 1 (same-device clocks); fine lag unconfirmed or first/last thirds disagree by >1 s; offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr inconclusive (z=2.8)",
+  "wall0": 1792750592.030803
+ },
+ "R0.5_EB_OXC-LST": {
+  "a": 17.86,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": 0.0,
+  "drift_resolution_ppm": 25.723214090827035,
+  "sensor_span_wall_s": 583.1308617591858,
+  "audio_duration_s": 671.488,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 17.86,
+  "xcorr_peak": 0.05009142348603142,
+  "xcorr_z": 7.3311927934549574,
+  "xcorr_band_hz": [
+   20,
+   60
+  ],
+  "xcorr_first_lag_s": 17.86,
+  "xcorr_last_lag_s": 17.86,
+  "coarse_lag_s": 17.7,
+  "coarse_support": "9/9",
+  "coarse_peak_margin": 0.19827633593789523,
+  "uncertainty_s": 0.1,
+  "coarse_combos": [
+   [
+    17.8,
+    0.551,
+    "acc5-45/aud20-200"
+   ],
+   [
+    17.5,
+    0.463,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    17.7,
+    0.488,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    17.8,
+    0.604,
+    "acc15-45/aud20-200"
+   ],
+   [
+    17.5,
+    0.5,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    17.7,
+    0.538,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    18.0,
+    0.519,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    17.6,
+    0.416,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    17.9,
+    0.462,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_fine",
+  "confidence": "medium",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks)",
+  "wall0": 1792751123.855476
+ },
+ "R1_EB_LST-BTH": {
+  "a": 16.450000000000003,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": null,
+  "drift_resolution_ppm": 88.32672320331547,
+  "sensor_span_wall_s": 169.82402896881104,
+  "audio_duration_s": 206.42133333333334,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 17.45,
+  "xcorr_peak": 0.03461428909755916,
+  "xcorr_z": 3.7485144311968197,
+  "xcorr_band_hz": [
+   50,
+   400
+  ],
+  "xcorr_first_lag_s": 18.1,
+  "xcorr_last_lag_s": 17.39,
+  "coarse_lag_s": 16.450000000000003,
+  "coarse_support": "6/9",
+  "coarse_peak_margin": 0.10873834439884461,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    -20.0,
+    0.297,
+    "acc5-45/aud20-200"
+   ],
+   [
+    16.6,
+    0.477,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    16.3,
+    0.44,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    -20.0,
+    0.267,
+    "acc15-45/aud20-200"
+   ],
+   [
+    16.7,
+    0.4,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    16.7,
+    0.366,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    -20.0,
+    0.397,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    16.3,
+    0.45,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    15.6,
+    0.431,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_coarse",
+  "confidence": "low",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); fine lag unconfirmed or first/last thirds disagree by >1 s; offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr inconclusive (z=3.7)",
+  "wall0": 1792751815.940772
+ },
+ "R1.5_EB_BTH-MLE": {
+  "a": 16.48,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": 8366.135458616993,
+  "drift_resolution_ppm": 104.57669323271232,
+  "sensor_span_wall_s": 143.43540167808533,
+  "audio_duration_s": 255.488,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 16.48,
+  "xcorr_peak": 0.04192105326689438,
+  "xcorr_z": 4.05788736092504,
+  "xcorr_band_hz": [
+   20,
+   60
+  ],
+  "xcorr_first_lag_s": 16.47,
+  "xcorr_last_lag_s": 17.27,
+  "coarse_lag_s": 16.3,
+  "coarse_support": "9/9",
+  "coarse_peak_margin": 0.22443988655190994,
+  "uncertainty_s": 0.5,
+  "coarse_combos": [
+   [
+    16.3,
+    0.428,
+    "acc5-45/aud20-200"
+   ],
+   [
+    16.7,
+    0.604,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    16.4,
+    0.542,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    16.3,
+    0.532,
+    "acc15-45/aud20-200"
+   ],
+   [
+    15.7,
+    0.668,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    15.8,
+    0.628,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    15.8,
+    0.25,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    16.9,
+    0.393,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    16.5,
+    0.333,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_fine",
+  "confidence": "low",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); 10 ms xcorr first/last thirds disagree (16.47/17.27 s)",
+  "wall0": 1792752838.855567
+ },
+ "R2_WB_MLE-LST": {
+  "a": 4.15,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": null,
+  "drift_resolution_ppm": 48.156966757243374,
+  "sensor_span_wall_s": 311.4814119338989,
+  "audio_duration_s": 402.2613333333333,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 4.12,
+  "xcorr_peak": 0.02282825809845162,
+  "xcorr_z": 3.516357804318974,
+  "xcorr_band_hz": [
+   50,
+   400
+  ],
+  "xcorr_first_lag_s": 4.14,
+  "xcorr_last_lag_s": 3.5300000000000002,
+  "coarse_lag_s": 4.15,
+  "coarse_support": "6/9",
+  "coarse_peak_margin": 0.031685464939017305,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    4.2,
+    0.262,
+    "acc5-45/aud20-200"
+   ],
+   [
+    4.5,
+    0.292,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    4.3,
+    0.319,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    4.1,
+    0.348,
+    "acc15-45/aud20-200"
+   ],
+   [
+    4.1,
+    0.355,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    4.1,
+    0.395,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    33.5,
+    0.265,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    42.1,
+    0.226,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    33.8,
+    0.184,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_coarse",
+  "confidence": "low",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); correlation peak not unique (median margin 0.032 over the best lag >5 s away); offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr inconclusive (z=3.5)",
+  "wall0": 1792753322.1218472
+ },
+ "R3_EB_LST-MLE": {
+  "a": 3.6,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": null,
+  "drift_resolution_ppm": 50.942753274367455,
+  "sensor_span_wall_s": 294.44816064834595,
+  "audio_duration_s": 414.72,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 1.47,
+  "xcorr_peak": 0.021970816992366936,
+  "xcorr_z": 3.2454840982302864,
+  "xcorr_band_hz": [
+   20,
+   60
+  ],
+  "xcorr_first_lag_s": 2.67,
+  "xcorr_last_lag_s": 6.26,
+  "coarse_lag_s": 3.6,
+  "coarse_support": "6/9",
+  "coarse_peak_margin": 0.030043463671438397,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    53.6,
+    0.203,
+    "acc5-45/aud20-200"
+   ],
+   [
+    3.6,
+    0.433,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    3.7,
+    0.368,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    53.2,
+    0.215,
+    "acc15-45/aud20-200"
+   ],
+   [
+    3.6,
+    0.474,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    3.7,
+    0.409,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    60.1,
+    0.229,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    3.5,
+    0.332,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    3.6,
+    0.291,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_coarse",
+  "confidence": "low",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); correlation peak not unique (median margin 0.030 over the best lag >5 s away); offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr inconclusive (z=3.2)",
+  "wall0": 1792753746.753057
+ },
+ "R4_WB_MLE-LST": {
+  "a": -3.7,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": 11898.432452828438,
+  "drift_resolution_ppm": 49.57680188678516,
+  "sensor_span_wall_s": 302.5608637332916,
+  "audio_duration_s": 357.5466666666667,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": -3.7,
+  "xcorr_peak": 0.04199338017347988,
+  "xcorr_z": 4.666066867737934,
+  "xcorr_band_hz": [
+   50,
+   400
+  ],
+  "xcorr_first_lag_s": -6.12,
+  "xcorr_last_lag_s": -3.72,
+  "coarse_lag_s": -3.9000000000000004,
+  "coarse_support": "5/9",
+  "coarse_peak_margin": 0.1443950506446531,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    -4.0,
+    0.273,
+    "acc5-45/aud20-200"
+   ],
+   [
+    -2.1,
+    0.391,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    -3.9,
+    0.397,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    -4.0,
+    0.258,
+    "acc15-45/aud20-200"
+   ],
+   [
+    -3.9,
+    0.377,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    -3.9,
+    0.406,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    -1.7,
+    0.212,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    15.7,
+    0.257,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    15.5,
+    0.214,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_fine",
+  "confidence": "low",
+  "notes": "2 phyphox pause(s); sensors mapped via to_wall, audio inside pauses has no sensor data; no tap triple matched at either end; b fixed at 1 (same-device clocks); fine lag unconfirmed or first/last thirds disagree by >1 s; offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr first/last thirds disagree (-6.12/-3.72 s); only 99.6% of sensor samples fall inside the audio (audio starts 3.7 s after phyphox START)",
+  "wall0": 1792754175.1247091
+ },
+ "R5_EB_LST-MLE": {
+  "a": 1.6,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": null,
+  "drift_resolution_ppm": 50.23115021628292,
+  "sensor_span_wall_s": 298.6194808483124,
+  "audio_duration_s": 350.80533333333335,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 1.18,
+  "xcorr_peak": 0.025352261270597518,
+  "xcorr_z": 3.6134925245029326,
+  "xcorr_band_hz": [
+   50,
+   400
+  ],
+  "xcorr_first_lag_s": 1.18,
+  "xcorr_last_lag_s": 2.72,
+  "coarse_lag_s": 1.6,
+  "coarse_support": "4/9",
+  "coarse_peak_margin": 0.0008220256350003896,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    -4.0,
+    0.159,
+    "acc5-45/aud20-200"
+   ],
+   [
+    1.6,
+    0.362,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    3.6,
+    0.308,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    0.6,
+    0.232,
+    "acc15-45/aud20-200"
+   ],
+   [
+    1.7,
+    0.464,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    1.6,
+    0.415,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    8.2,
+    0.153,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    6.6,
+    0.286,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    6.8,
+    0.26,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_coarse",
+  "confidence": "low",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); correlation peak not unique (median margin 0.001 over the best lag >5 s away); offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr inconclusive (z=3.6); coarse band combos disagree (4/9 within 1 s); offset may be wrong by seconds",
+  "wall0": 1792754615.132907
+ },
+ "R6_WB_MLE-LST": {
+  "a": 9.36,
+  "b": 1.0,
+  "drift_ppm": 0.0,
+  "drift_ppm_xcorr_first_vs_last": -9145.65028725564,
+  "drift_resolution_ppm": 49.97623107789966,
+  "sensor_span_wall_s": 300.14268136024475,
+  "audio_duration_s": 376.14933333333335,
+  "start_taps_sensor_wall": null,
+  "start_taps_audio": null,
+  "end_taps_sensor_wall": null,
+  "end_taps_audio": null,
+  "residuals_ms": [],
+  "xcorr_lag_s": 9.36,
+  "xcorr_peak": 0.044106640322385045,
+  "xcorr_z": 5.343212386476246,
+  "xcorr_band_hz": [
+   20,
+   60
+  ],
+  "xcorr_first_lag_s": 11.18,
+  "xcorr_last_lag_s": 9.35,
+  "coarse_lag_s": 9.1,
+  "coarse_support": "9/9",
+  "coarse_peak_margin": 0.2713424240480244,
+  "uncertainty_s": 5.0,
+  "coarse_combos": [
+   [
+    9.0,
+    0.342,
+    "acc5-45/aud20-200"
+   ],
+   [
+    9.0,
+    0.557,
+    "acc5-45/aud200-2000"
+   ],
+   [
+    9.1,
+    0.53,
+    "acc5-45/aud50-8000"
+   ],
+   [
+    9.1,
+    0.344,
+    "acc15-45/aud20-200"
+   ],
+   [
+    9.0,
+    0.554,
+    "acc15-45/aud200-2000"
+   ],
+   [
+    9.1,
+    0.513,
+    "acc15-45/aud50-8000"
+   ],
+   [
+    9.2,
+    0.317,
+    "gyr2-45/aud20-200"
+   ],
+   [
+    9.1,
+    0.398,
+    "gyr2-45/aud200-2000"
+   ],
+   [
+    9.2,
+    0.43,
+    "gyr2-45/aud50-8000"
+   ]
+  ],
+  "method": "xcorr_fine",
+  "confidence": "low",
+  "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); fine lag unconfirmed or first/last thirds disagree by >1 s; offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr first/last thirds disagree (11.18/9.35 s)",
+  "wall0": 1792754990.5525842
+ }
+}
