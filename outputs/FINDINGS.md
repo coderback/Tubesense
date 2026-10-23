@@ -9,7 +9,7 @@ attacked by an independent skeptic agent, and the confirmed issues fixed before 
 | check | verdict | one line |
 |---|---|---|
 | (a) gyro yaw rate | **GO** | Curve signatures repeat run to run, far above chance. LST–BTH is the positioning showcase; BTH–MLE carries little positional detail. |
-| (b) magnetometer \|B\| | **NO-GO** | No position-locked map. iOS recalibration jumps hit 5 of the 7 calibrated runs. |
+| (b) magnetometer | **\|B\| NO-GO; bias-free field anomaly WEAK** | \|B\| is spoiled by iOS recalibration jumps and the raw hard-iron bias. The size of the field's deviation from its section average repeats, and part of it survives removing the train's own traction field. |
 | (c) loudness LST→BTH vs BTH→MLE | **WEAK** | LST–BTH is louder on 5/5 trips, but only by +0.6 dB, inside the Voice Memos processing uncertainty. |
 
 ## Inventory (`inventory.md`)
@@ -61,7 +61,43 @@ the phone sits. Each clean pair of runs is scored against 200 spectrum-matched r
 - Plots: `gonogo/gyro_EB_LST-BTH.png` (best single picture), `gyro_EB_BTH-MLE.png`,
   `gyro_WB_BTH-LST.png`, `gyro_WB_MLE-BTH.png`, `gyro_summary.png`, `gyro_matrix.png`.
 
-## (b) Magnetometer: NO-GO (raw and calibrated kept separate)
+## (b) Magnetometer: |B| NO-GO, bias-free field anomaly WEAK
+
+### Follow-up: de-stepping and the field anomaly (`gonogo/mag_anomaly.json`, `mag_anomaly.png`)
+
+`|B|` can't be compared across runs: the calibrated stream's offset keeps changing and the raw stream
+carries a fixed bias. Two fixes:
+
+- **De-stepping:** `features.mag_destep` measures each one-sample iOS offset step and subtracts it.
+  It is applied to calibrated runs only, and removed R1.5 ×1, R2 ×4, R3 ×1, R4 ×5 and R6 ×6 steps.
+  It does not remove the gradual re-convergence ramps, and it leaves one unknown bias per run.
+- **The field anomaly:** `features.field_anomaly` takes |B⃗ − section mean B⃗|. Any constant bias
+  cancels in the subtraction, so raw and calibrated runs become comparable. This assumes the phone
+  doesn't rotate in the train during the section.
+
+| feature (clean same-section pairs, L0 grid) | same-section mean r | pairs p < 0.05 vs surrogates | different-section null mean / p95 |
+|---|---|---|---|
+| de-stepped \|B\| (calibrated only) | 0.46 | 1/5 | 0.29 / 0.67 |
+| field anomaly | 0.69 | 5/7 | 0.39 / 0.71 |
+| field anomaly − linear driving model | 0.53 | 6/7 | 0.22 / 0.43 |
+| same, mid-section only (fraction 0.25–0.85) | 0.59 | 4/7 | 0.24 / 0.58 |
+
+- **The train's own field dominates.** Driving proxies (acceleration, traction, speed) explain a
+  median 47% of the anomaly. The anomaly peaks while the train pulls away, which fits Royal Holloway
+  2017.
+- **A position-locked part remains.** The residual repeats above the different-section null, also in
+  the middle of each section, away from the traction peaks.
+- **The best case is LST→BTH.** Mid-section, the driving model barely repeats (r 0.20–0.35), but the
+  anomaly repeats at 0.65–0.75. Raw R1 against calibrated R5 gives r 0.75, p 0.005.
+- **De-stepping barely matters here.** The anomaly scores about the same without it (0.70), because
+  the test sections contain few steps.
+- **Verdict: WEAK.** There is a modest position-locked magnetic signal, strongest on LST→BTH. It can't
+  yet be separated from non-linear traction effects that repeat because drivers run each section the
+  same way. Add it to the DTW stack at low weight and let the ablation decide.
+- **Unvalidated:** the step detector's thresholds were set on this data, and the 4-term driving model
+  is linear.
+
+### Original check (|B|, kept for the record)
 
 - **Detected from the data:**
   - Raw: R0.5 and R1. They have their own 98.8 Hz clock and a fixed hard-iron bias of about
@@ -78,7 +114,7 @@ the phone sits. Each clean pair of runs is scored against 200 spectrum-matched r
 - **The driving repeats, the field doesn't.** Along-track acceleration repeats at r 0.96 for the
   same section, but also scores 0.60 between different sections. So this test can't show whether
   the train's traction current drives |B|.
-- No open magnetic map from this data. The next experiment should be raw-only.
+- |B| gives no open magnetic map. The follow-up above is the better test.
 - Plots: `gonogo/mag_*.png`, `mag_summary.png`, `mag_traction_test.png`, `qc/magnetometer_mode.png`.
 
 ## (c) Loudness: WEAK
@@ -129,8 +165,9 @@ Levels are uncalibrated dBFS(A): relative only, never comparable with TfL's 92.8
 
 ## What surprised us
 
-1. iOS recalibrates the magnetometer mid-ride, with jumps of 80–369 µT. Any magnetic work needs the
-   raw stream.
+1. iOS recalibrates the magnetometer mid-ride, with jumps of 80–369 µT. A bias-free feature (the
+   field anomaly) gets around it. Raw and calibrated runs then match each other (R1 raw vs R3
+   calibrated, r 0.88).
 2. The calibrated-magnetometer guess was reversed: 2 runs were raw, not 2 calibrated.
 3. The "floor" run looks isolated rather than hard-coupled.
 4. The eastbound tunnel vibrates 2–10× more than the westbound tunnel between the same stations.
@@ -157,7 +194,8 @@ Levels are uncalibrated dBFS(A): relative only, never comparable with TfL's 92.8
    still.
 2. Record audio without AGC or the limiter (e.g. phyphox audio or a raw recorder app), plus one
    calibration reference.
-3. Use the raw magnetometer only.
+3. Prefer the raw magnetometer: its bias is fixed and the field anomaly handles it. Record more
+   LST→BTH runs to separate location from traction.
 4. Keep the phone's placement constant and note it in the filename. Record more LST→BTH runs and
    more WB runs.
 5. Transcribe the announcements, then run L2 DTW positioning on yaw rate, with LST–BTH as the demo

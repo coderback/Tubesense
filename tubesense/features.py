@@ -101,6 +101,50 @@ def dead_reckon(run: Run, t0: float, t1: float, gaps: list[tuple[float, float]] 
     return pd.DataFrame({"t": t, "a_long": a, "v": v, "s": s, "frac": s / s[-1]})
 
 
+def mag_destep(run: Run, min_ut: float = 8.0, k: float = 8.0, w: int = 20,
+               calm_rad_s: float = 0.5) -> tuple[pd.DataFrame, list[dict]]:
+    """Remove one-sample offset steps from the magnetometer vector (iOS calibration updates).
+
+    A step is a one-sample jump > `min_ut` and > k x the local sample-to-sample change, with the
+    gyro calm, whose new level persists (not a handling spike). Each step is subtracted from the
+    rest of the run, so the output carries one unknown constant bias, like a raw stream.
+    Gradual re-convergence of the iOS estimate is not removed.
+    Returns the corrected t,x,y,z frame and the steps [{t, step_uT: [x, y, z], size_uT}].
+    """
+    from scipy.ndimage import median_filter
+
+    mag = run.sensors["mag"]
+    t = mag.t.values
+    M = mag[["x", "y", "z"]].values.copy()
+    gn = np.linalg.norm(_on(run.sensors["gyr"], t), axis=1)
+    dn = np.linalg.norm(np.diff(M, axis=0), axis=1)
+    loc = median_filter(dn, size=101, mode="nearest")
+    steps, last = [], -np.inf
+    for i in np.flatnonzero((dn > min_ut) & (dn > k * (loc + 0.3))):
+        if i < w or i + 1 + 5 * w > len(M) or gn[max(0, i - 10): i + 10].max() > calm_rad_s or t[i] - last < 0.5:
+            continue
+        pre, post = np.median(M[i - w + 1: i + 1], 0), np.median(M[i + 1: i + 1 + w], 0)
+        late = np.median(M[i + 1 + 4 * w: i + 1 + 5 * w], 0)
+        s = post - pre
+        if np.linalg.norm(s) > 0.6 * dn[i] and np.linalg.norm(late - post) < 0.7 * np.linalg.norm(s):
+            steps.append((i + 1, s))
+            last = t[i]
+    for i, s in steps:
+        M[i:] -= s
+    out = pd.DataFrame({"t": t, "x": M[:, 0], "y": M[:, 1], "z": M[:, 2]})
+    return out, [{"t": round(float(t[i]), 2), "step_uT": np.round(s, 1).tolist(),
+                  "size_uT": round(float(np.linalg.norm(s)), 1)} for i, s in steps]
+
+
+def field_anomaly(V: np.ndarray) -> np.ndarray:
+    """|B - mean(B)| over a section's (n, 3) field samples: free of any constant bias.
+
+    Valid for raw and calibrated streams alike, as long as the phone does not rotate in the
+    train during the section (rotation-invariant otherwise).
+    """
+    return np.linalg.norm(V - np.nanmean(V, axis=0), axis=1)
+
+
 def mag_norm(run: Run, fc: float = 1.0) -> pd.DataFrame:
     """|B| (uT) low-passed, plus the low-passed vector. Columns: t, B, x, y, z."""
     mag = run.sensors["mag"]
