@@ -188,6 +188,8 @@ class SectionRun:
     depart_shift_s: float      # causal onset minus the offline depart (s); NaN if not detected
     departure: dict | None = None  # the armed detector's event, also when it is not this departure
     gaps: list = field(default_factory=list)  # phyphox pauses [(t, missing_s)]
+    clean: bool = True         # repeatability.json "clean" (no pause, handling, truncation)
+    truncated: bool = False    # an end of the section was not observed (cannot be scored)
 
 
 MATCH_S = 15.0  # an armed detection within this of the offline departure counts as that departure
@@ -348,7 +350,7 @@ def track(tpl: Template, feat: pd.DataFrame, wall0: float, wall1: float, start: 
 
 
 # --------------------------------------------------------------------------- loading
-TRACKS = [("EB", "LST", "BTH"), ("EB", "BTH", "MLE"), ("WB", "BTH", "LST"), ("WB", "MLE", "BTH")]
+EXCLUDE_RUNS = {"R0"}  # Victoria-line noise reference, not a repeat ride
 
 
 def track_name(d: str, a: str, b: str) -> str:
@@ -356,18 +358,23 @@ def track_name(d: str, a: str, b: str) -> str:
 
 
 def section_runs(clean_only: bool = True) -> dict[str, list[SectionRun]]:
-    """SectionRuns per track from outputs/sections.json; clean flags from outputs/gonogo/repeatability.json."""
+    """SectionRuns per track from outputs/sections.json, for every section ridden at least twice (as the
+    ablation); clean flags from outputs/gonogo/repeatability.json."""
     import json
 
     from .ingest import ROOT, load_run
 
     secs = json.load(open(ROOT / "outputs" / "sections.json"))
     meta = json.load(open(ROOT / "outputs" / "gonogo" / "repeatability.json"))["sections"]
+    use = [x for x in secs["sections"] if x["run_id"] not in EXCLUDE_RUNS]
+    n = {}
+    for x in use:
+        n[(x["direction"], x["from"], x["to"])] = n.get((x["direction"], x["from"], x["to"]), 0) + 1
     out, cache = {}, {}
-    for sec in secs["sections"]:
+    for sec in use:
         trk = (sec["direction"], sec["from"], sec["to"])
         key = f"{sec['run_id']}:{sec['from']}-{sec['to']}"
-        if trk not in TRACKS or key not in meta or (clean_only and not meta[key]["clean"]):
+        if n[trk] < 2 or key not in meta or (clean_only and not meta[key]["clean"]):
             continue
         stem = sec["stem"]
         if stem not in cache:
@@ -378,7 +385,10 @@ def section_runs(clean_only: bool = True) -> dict[str, list[SectionRun]]:
         run, bias, feat = cache[stem]
         # armed at the previous arrival in this recording (stand-in for the tracker's own arrival), else at its start
         prev = [x["arrive_wall"] for x in secs["sections"] if x["stem"] == stem and x["arrive_wall"] <= sec["depart_wall"]]
-        out.setdefault(track_name(*trk), []).append(section_run(key, run, sec, bias, feat, max(prev) if prev else None))
+        sr = section_run(key, run, sec, bias, feat, max(prev) if prev else None)
+        sr.clean = bool(meta[key]["clean"])
+        sr.truncated = any(f["type"] == "section_truncated" for f in meta[key]["flags"])
+        out.setdefault(track_name(*trk), []).append(sr)
     return out
 
 

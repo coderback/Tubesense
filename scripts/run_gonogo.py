@@ -17,8 +17,8 @@ import time
 
 from tubesense.ingest import ROOT
 
-STEPS = ["inventory", "noise", "sync", "segment", "qc", "repeatability", "mag_anomaly", "ablation", "online_eval", "loudness"]
-KEEP = {"FINDINGS.md"}
+STEPS = ["inventory", "noise", "sync", "segment", "qc", "repeatability", "mag_anomaly", "mag_compare", "ablation", "online_eval", "forward_test", "loudness"]
+KEEP = {"FINDINGS.md", "PLAN_24Oct.md", "prereg"}  # prereg: maps frozen before the 24 Oct rides
 
 
 def main(clean: bool = False) -> None:

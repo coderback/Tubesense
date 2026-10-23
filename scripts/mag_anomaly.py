@@ -11,7 +11,6 @@ Run: .venv/Scripts/python scripts/mag_anomaly.py
 """
 from __future__ import annotations
 
-import itertools
 import json
 
 import matplotlib
@@ -23,53 +22,10 @@ import numpy as np
 from tubesense import features as F
 from tubesense import repeat as R
 from tubesense.ingest import ROOT, load_run
+from tubesense.magnetics import MID, add_mid, score, section_features
 
 OUT = ROOT / "outputs" / "gonogo"
-LINE_RUNS = {"R0.5", "R1", "R1.5", "R2", "R3", "R4", "R5", "R6"}  # Central line
-N_SURR = 200
-MID = (0.25, 0.85)  # section fraction away from the pull-away / braking traction peaks
-
-
-def section_features(run, sec, mag, mag_fixed):
-    """|B| (de-stepped), field anomaly with and without de-stepping, and driving proxies on the L0 grid."""
-    tg = R.time_grid(run, sec)
-
-    def grid(df):
-        return np.column_stack([R.sample(df.t.values, df[c].values, tg) for c in "xyz"])
-    V, V0 = grid(mag_fixed), grid(mag)
-    dr = F.dead_reckon(run, sec["depart_t"], sec["arrive_t"])
-    a = R.sample(dr.t.values, dr.a_long.values, tg)
-    v = R.sample(dr.t.values, dr.v.values, tg)
-    anom = F.field_anomaly(V)
-    # traction proxy: linear model of the anomaly on |a|, traction-only a, and speed
-    X = np.column_stack([np.ones_like(a), np.abs(a), np.clip(a, 0, None), v / (np.nanmax(v) + 1e-9)])
-    ok = np.isfinite(anom) & np.isfinite(X).all(1)
-    beta = np.linalg.lstsq(X[ok], anom[ok], rcond=None)[0]
-    drive = np.full_like(anom, np.nan)
-    drive[ok] = X[ok] @ beta
-    return {"B": np.linalg.norm(V, axis=1), "anom": anom, "anom_nodestep": F.field_anomaly(V0),
-            "drive": drive, "resid": anom - drive, "r2_drive": float(1 - np.nanvar(anom - drive) / np.nanvar(anom))}
-
-
-def score(sig, meta, key, rng, modes=("raw", "calibrated")):
-    """Same-section pairs (surrogate p) vs the different-section null, clean sections only."""
-    keys = [k for k in sig if meta[k]["clean"] and meta[k]["mag_mode"] in modes]
-    trk = lambda k: (meta[k]["dir"], meta[k]["from"], meta[k]["to"])
-    same, diff = [], []
-    for a, b in itertools.combinations(keys, 2):
-        r = R.best_shift_r(sig[a][key], sig[b][key])[0]
-        if trk(a) != trk(b):
-            diff.append(r)
-            continue
-        sur = [R.best_shift_r(sig[a][key], R.phase_surrogate(np.nan_to_num(sig[b][key]), rng))[0] for _ in range(N_SURR)]
-        same.append({"pair": f"{a} vs {b}", "modes": [meta[a]["mag_mode"], meta[b]["mag_mode"]], "r": round(r, 3),
-                     "surrogate_p": round(float(np.mean(np.array(sur) >= r)), 3),
-                     "surrogate_p99": round(float(np.percentile(sur, 99)), 3)})
-    rs = np.array([s["r"] for s in same])
-    return {"pairs": same, "same_mean_r": round(float(rs.mean()), 3), "same_min_r": round(float(rs.min()), 3),
-            "n_significant": int(sum(s["surrogate_p"] < 0.05 for s in same)), "n_pairs": len(same),
-            "null_mean_r": round(float(np.mean(diff)), 3), "null_p95_r": round(float(np.percentile(diff, 95)), 3),
-            "null_n": len(diff)}
+EXCLUDE_RUNS = {"R0"}  # Victoria-line noise reference, not a repeat ride
 
 
 def verdict(res):
@@ -128,7 +84,7 @@ def main():
     rng = np.random.default_rng(0)
     sig, steps, cache = {}, {}, {}
     for sec in secs:
-        if sec["run_id"] not in LINE_RUNS:
+        if sec["run_id"] in EXCLUDE_RUNS:
             continue
         stem = sec["stem"]
         if stem not in cache:
@@ -141,10 +97,7 @@ def main():
         run, mag, fixed = cache[stem]
         sig[f"{sec['run_id']}:{sec['from']}-{sec['to']}"] = section_features(run, sec, mag, fixed)
     # the anomaly peaks while pulling away (peak traction current): re-score the mid-section alone
-    mid = (R.GRID >= MID[0]) & (R.GRID <= MID[1])
-    for s in sig.values():
-        for f in ("anom", "resid", "drive"):
-            s[f"{f}_mid"] = np.where(mid, s[f], np.nan)
+    add_mid(sig)
     res = {"B": score(sig, meta, "B", rng, modes=("calibrated",)),
            "anom": score(sig, meta, "anom", rng), "anom_nodestep": score(sig, meta, "anom_nodestep", rng),
            "resid": score(sig, meta, "resid", rng), "drive": score(sig, meta, "drive", rng),

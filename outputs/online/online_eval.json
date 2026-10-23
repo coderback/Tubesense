@@ -33,8 +33,8 @@
  "lengths_m": {
   "EB LST->BTH": 2205.9,
   "EB BTH->MLE": 1530.6,
-  "WB BTH->LST": 2205.9,
-  "WB MLE->BTH": 1530.6
+  "WB MLE->BTH": 1530.6,
+  "WB BTH->LST": 2205.9
  },
  "overall": {
   "n_runs": 8,
@@ -1586,5 +1586,5 @@
    }
   }
  ],
- "doc": "Leave-one-run-out test of the online tracker, plus the maps for the live demo.\n\nFor each track with >= 2 clean runs and each held-out run A: build the map from the OTHER clean runs,\nreplay A's causal features step by step from its departure (online.track), and score the posterior\nMAP (headline; chosen after seeing that the posterior mean trails the train at curve edges, both are\nreported). Metres are the map's dead-reckoned distance (online.Template.metres), scaled to the\nstraight-line section length. Two truths:\n- proxy: A's offline alignment onto the map's base run (zero-phase yaw DTW, step penalty, open\n  ends). It shares the base run and the yaw signal with the tracker, so agreement with it is\n  optimistic;\n- independent: linear interpolation between A's curve edges matched to the base run's\n  (position.curve_landmarks, no DTW), anchored at departure and arrival.\nAlso: the timetable baseline (time since departure / the map's mean section time); a masked test\n(A's yaw hidden within +-MASK of the section around each curve edge, read at that edge: positioning\nbetween curves); 90 % band coverage against both truths; clip mode from several start positions with\na uniform prior (time to lock, and how often the demo's \"confident\" display is > 50 m wrong);\ndeparture detection armed at the previous arrival / recording start, unhinted; the R4 stress test.\nWrites outputs/online/{maps.json, online_eval.json, online_eval.png, clip_lock.png, track_<key>.png}.\nRun: .venv/Scripts/python scripts/online_eval.py\n"
+ "doc": "Leave-one-run-out test of the online tracker, plus the maps for the live demo.\n\nFor each track with >= 2 clean runs and each held-out run A: build the map from the OTHER clean runs,\nreplay A's causal features step by step from its departure (online.track), and score the posterior\nMAP (headline; chosen after seeing that the posterior mean trails the train at curve edges, both are\nreported). Metres are the map's dead-reckoned distance (online.Template.metres), scaled to the\nstraight-line section length. Two truths:\n- proxy: A's offline alignment onto the map's base run (zero-phase yaw DTW, step penalty, open\n  ends). It shares the base run and the yaw signal with the tracker, so agreement with it is\n  optimistic;\n- independent: linear interpolation between A's curve edges matched to the base run's\n  (position.curve_landmarks, no DTW), anchored at departure and arrival.\nAlso: the timetable baseline (time since departure / the map's mean section time); a masked test\n(A's yaw hidden within +-MASK of the section around each curve edge, read at that edge: positioning\nbetween curves); 90 % band coverage against both truths; clip mode from several start positions with\na uniform prior (time to lock, and how often the demo's \"confident\" display is > 50 m wrong);\ndeparture detection armed at the previous arrival / recording start, unhinted; a stress test on\nexcluded sections that still have both ends (pause, handling, floor: today R4).\nWrites outputs/online/{maps.json, online_eval.json, online_eval.png, clip_lock.png, track_<key>.png}.\nRun: .venv/Scripts/python scripts/online_eval.py\n"
 }

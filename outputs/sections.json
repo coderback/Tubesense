@@ -4,6 +4,7 @@
   {
    "stem": "R0_NB_VIC_OXC",
    "run_id": "R0",
+   "line": "victoria",
    "direction": "NB",
    "from": "VIC",
    "to": "GPK",
@@ -29,6 +30,7 @@
   {
    "stem": "R0_NB_VIC_OXC",
    "run_id": "R0",
+   "line": "victoria",
    "direction": "NB",
    "from": "GPK",
    "to": "OXC",
@@ -49,6 +51,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "from": "OXC",
    "to": "TCR",
@@ -69,6 +72,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "from": "TCR",
    "to": "HOL",
@@ -89,6 +93,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "from": "HOL",
    "to": "CYL",
@@ -109,6 +114,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "from": "CYL",
    "to": "STP",
@@ -129,6 +135,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "from": "STP",
    "to": "BNK",
@@ -149,6 +156,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "from": "BNK",
    "to": "LST",
@@ -169,6 +177,7 @@
   {
    "stem": "R1_EB_LST-BTH",
    "run_id": "R1",
+   "line": "central",
    "direction": "EB",
    "from": "LST",
    "to": "BTH",
@@ -189,6 +198,7 @@
   {
    "stem": "R1.5_EB_BTH-MLE",
    "run_id": "R1.5",
+   "line": "central",
    "direction": "EB",
    "from": "BTH",
    "to": "MLE",
@@ -209,6 +219,7 @@
   {
    "stem": "R2_WB_MLE-LST",
    "run_id": "R2",
+   "line": "central",
    "direction": "WB",
    "from": "MLE",
    "to": "BTH",
@@ -229,6 +240,7 @@
   {
    "stem": "R2_WB_MLE-LST",
    "run_id": "R2",
+   "line": "central",
    "direction": "WB",
    "from": "BTH",
    "to": "LST",
@@ -249,6 +261,7 @@
   {
    "stem": "R3_EB_LST-MLE",
    "run_id": "R3",
+   "line": "central",
    "direction": "EB",
    "from": "LST",
    "to": "BTH",
@@ -269,6 +282,7 @@
   {
    "stem": "R3_EB_LST-MLE",
    "run_id": "R3",
+   "line": "central",
    "direction": "EB",
    "from": "BTH",
    "to": "MLE",
@@ -289,6 +303,7 @@
   {
    "stem": "R4_WB_MLE-LST",
    "run_id": "R4",
+   "line": "central",
    "direction": "WB",
    "from": "MLE",
    "to": "BTH",
@@ -309,6 +324,7 @@
   {
    "stem": "R4_WB_MLE-LST",
    "run_id": "R4",
+   "line": "central",
    "direction": "WB",
    "from": "BTH",
    "to": "LST",
@@ -329,6 +345,7 @@
   {
    "stem": "R5_EB_LST-MLE",
    "run_id": "R5",
+   "line": "central",
    "direction": "EB",
    "from": "LST",
    "to": "BTH",
@@ -349,6 +366,7 @@
   {
    "stem": "R5_EB_LST-MLE",
    "run_id": "R5",
+   "line": "central",
    "direction": "EB",
    "from": "BTH",
    "to": "MLE",
@@ -369,6 +387,7 @@
   {
    "stem": "R6_WB_MLE-LST",
    "run_id": "R6",
+   "line": "central",
    "direction": "WB",
    "from": "MLE",
    "to": "BTH",
@@ -389,6 +408,7 @@
   {
    "stem": "R6_WB_MLE-LST",
    "run_id": "R6",
+   "line": "central",
    "direction": "WB",
    "from": "BTH",
    "to": "LST",
@@ -411,6 +431,7 @@
   {
    "stem": "R0_NB_VIC_OXC",
    "run_id": "R0",
+   "line": "victoria",
    "direction": "NB",
    "stations": [
     "VIC",
@@ -476,6 +497,7 @@
   {
    "stem": "R0.5_EB_OXC-LST",
    "run_id": "R0.5",
+   "line": "central",
    "direction": "EB",
    "stations": [
     "OXC",
@@ -596,6 +618,7 @@
   {
    "stem": "R1_EB_LST-BTH",
    "run_id": "R1",
+   "line": "central",
    "direction": "EB",
    "stations": [
     "LST",
@@ -641,6 +664,7 @@
   {
    "stem": "R1.5_EB_BTH-MLE",
    "run_id": "R1.5",
+   "line": "central",
    "direction": "EB",
    "stations": [
     "BTH",
@@ -686,6 +710,7 @@
   {
    "stem": "R2_WB_MLE-LST",
    "run_id": "R2",
+   "line": "central",
    "direction": "WB",
    "stations": [
     "MLE",
@@ -746,6 +771,7 @@
   {
    "stem": "R3_EB_LST-MLE",
    "run_id": "R3",
+   "line": "central",
    "direction": "EB",
    "stations": [
     "LST",
@@ -806,6 +832,7 @@
   {
    "stem": "R4_WB_MLE-LST",
    "run_id": "R4",
+   "line": "central",
    "direction": "WB",
    "stations": [
     "MLE",
@@ -866,6 +893,7 @@
   {
    "stem": "R5_EB_LST-MLE",
    "run_id": "R5",
+   "line": "central",
    "direction": "EB",
    "stations": [
     "LST",
@@ -926,6 +954,7 @@
   {
    "stem": "R6_WB_MLE-LST",
    "run_id": "R6",
+   "line": "central",
    "direction": "WB",
    "stations": [
     "MLE",

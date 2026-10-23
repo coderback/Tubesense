@@ -35,19 +35,19 @@ from tubesense import features as F
 from tubesense import position as P
 from tubesense import repeat as R
 from tubesense.ingest import ROOT, load_run
-from tubesense.stops import pauses
+from tubesense.stops import STATIONS as STOPS
+from tubesense.stops import line_and_route, pauses
 
 OUT = ROOT / "outputs" / "positioning"
-TRACKS = [("EB", "LST", "BTH"), ("EB", "BTH", "MLE"), ("WB", "BTH", "LST"), ("WB", "MLE", "BTH")]
-STATIONS = {"LST": (51.517372, -0.083182), "BTH": (51.527222, -0.055506), "MLE": (51.525122, -0.03364)}
-TFL = "https://api.tfl.gov.uk/Line/central/Route/Sequence/{}"
+EXCLUDE_RUNS = {"R0"}  # Victoria-line noise reference, not a repeat ride
+STATIONS = {k: (v[1], v[2]) for k, v in STOPS.items()}  # code -> (lat, lon)
+TFL = "https://api.tfl.gov.uk/Line/{}/Route/Sequence/{}"
 MASKS = (0.04, 0.08, 0.12, 0.16, 0.24)
 HEAD = "m0.08"  # headline mask
 HEADLINE = "yaw"  # headline L2 set: the one position-locked channel (not picked as the minimum over sets)
 CURVE = ("yaw", "head")  # channels masked around the landmark
 SLACK = 0.035  # open-end variant: +-0.035 of the section ~ +-5 s, the boundary accuracy
 N_BOOT = 2000
-STRESS = ["R4:BTH-LST", "R4:MLE-BTH"]  # excluded runs (pause / handheld / floor), stress test only
 
 ALL = list(P.FEATURES)
 FIXES = ("L0 + offset", "interp curve fixes", "interp curve fixes, open ends")
@@ -73,22 +73,30 @@ def _haversine(a, b):
 
 
 # --------------------------------------------------------------------------- 1. track lengths
-def track_lengths() -> dict:
-    """Along-track LST-BTH / BTH-MLE from TfL lineStrings if detailed, else the straight line."""
-    straight = {"LST-BTH": _haversine(STATIONS["LST"], STATIONS["BTH"]),
-                "BTH-MLE": _haversine(STATIONS["BTH"], STATIONS["MLE"])}
+def track_key(a: str, b: str) -> str:
+    """Direction-free physical track id, stations in STATIONS order, e.g. "LST-BTH"."""
+    return "-".join(sorted([a, b], key=list(STATIONS).index))
+
+
+def track_lengths(tracks: list[str]) -> dict:
+    """Along-track length per physical track from TfL lineStrings if detailed, else the straight line."""
+    straight = {k: _haversine(STATIONS[k.split("-")[0]], STATIONS[k.split("-")[1]]) for k in tracks}
+    lines = sorted({line_and_route(k)[0] for k in tracks})
     out = {"straight_line_m": {k: round(v, 1) for k, v in straight.items()}, "tfl": {}, "fetched_utc": None}
     try:
         polys = []
-        for d in ("outbound", "inbound"):
-            req = urllib.request.Request(TFL.format(d), headers={"User-Agent": "tubesense-hackathon"})
-            j = json.loads(urllib.request.urlopen(req, timeout=10).read())
-            polys += [(d, np.array(p)) for ls in j["lineStrings"] for p in json.loads(ls)]
+        for ln in lines:
+            for d in ("outbound", "inbound"):
+                req = urllib.request.Request(TFL.format(ln, d), headers={"User-Agent": "tubesense-hackathon"})
+                j = json.loads(urllib.request.urlopen(req, timeout=10).read())
+                polys += [(ln, d, np.array(p)) for ls in j["lineStrings"] for p in json.loads(ls)]
         out["fetched_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         for k in straight:
             a, b = k.split("-")
             best = None
-            for d, p in polys:  # p: (n, 2) lon, lat
+            for ln, d, p in polys:  # p: (n, 2) lon, lat
+                if ln != line_and_route(k)[0]:
+                    continue
                 near = {s: int(np.argmin([_haversine(STATIONS[s], (q[1], q[0])) for q in p])) for s in (a, b)}
                 off = max(_haversine(STATIONS[s], (p[near[s]][1], p[near[s]][0])) for s in (a, b))
                 if off > 100:
@@ -105,11 +113,11 @@ def track_lengths() -> dict:
     out["source"] = {k: ("TfL Route/Sequence lineString" if k in detailed else "straight line between station coords")
                      for k in straight}
     if len(detailed) < len(straight):
-        out["warning"] = ("TfL lineStrings for the Central line join consecutive stations with single straight "
-                          "segments (0 intermediate vertices between LST, BTH and MLE), so they give the chord, "
-                          "not the along-track length. FALLING BACK to straight-line lengths. True track is "
-                          "longer by the arc/chord ratio (see yaw_arc_chord); errors in metres scale with it.")
-    out["urls"] = [TFL.format(d) for d in ("outbound", "inbound")]
+        out["warning"] = (f"TfL lineStrings join consecutive stations with single straight segments for "
+                          f"{sorted(set(straight) - set(detailed))} (< 3 intermediate vertices), so they give the "
+                          "chord, not the along-track length. FALLING BACK to straight-line lengths there. True "
+                          "track is longer by the arc/chord ratio (see yaw_arc_chord); errors in metres scale with it.")
+    out["urls"] = [TFL.format(ln, d) for ln in lines for d in ("outbound", "inbound")]
     return out
 
 
@@ -119,8 +127,12 @@ def build():
     qc = json.load(open(ROOT / "outputs" / "qc.json"))["runs"]
     meta = json.load(open(ROOT / "outputs" / "gonogo" / "repeatability.json"))["sections"]
     sig, lm, lm_h, dist, baro_only, cache = {}, {}, {}, {}, {}, {}
-    for sec in secs["sections"]:
-        if (sec["direction"], sec["from"], sec["to"]) not in TRACKS:
+    use = [x for x in secs["sections"] if x["run_id"] not in EXCLUDE_RUNS]
+    n = {}
+    for x in use:
+        n[(x["direction"], x["from"], x["to"])] = n.get((x["direction"], x["from"], x["to"]), 0) + 1
+    for sec in use:
+        if n[(sec["direction"], sec["from"], sec["to"])] < 2:  # a section ridden once has nothing to align to
             continue
         stem = sec["stem"]
         if stem not in cache:
@@ -144,14 +156,26 @@ def build():
 def groups(meta, sig):
     g = {}
     for k, m in meta.items():
-        if k in sig and (m["dir"], m["from"], m["to"]) in TRACKS and m["clean"]:
+        if k in sig and m["clean"]:
             g.setdefault(f"{m['dir']} {m['from']}->{m['to']}", []).append(k)
     return {n: ks for n, ks in g.items() if len(ks) >= 2}
 
 
 def length_of(key, L):
-    a, b = key.split(":")[1].split("-")
-    return L["-".join(sorted([a, b], key=lambda s: list(STATIONS).index(s)))]
+    return L[track_key(*key.split(":")[1].split("-"))]
+
+
+def stress_sections(meta, sig):
+    """Excluded (not clean) sections that still have both ends (pause, handling, floor) and at least one
+    clean run of the same section to be compared with."""
+    g = lambda m: f"{m['dir']} {m['from']}->{m['to']}"
+    clean = {g(m) for k, m in meta.items() if k in sig and m["clean"]}
+    return [k for k, m in meta.items() if k in sig and not m["clean"] and g(m) in clean
+            and not any(f["type"] == "section_truncated" for f in m["flags"])]
+
+
+def line_of_group(g: str) -> str:
+    return line_and_route("-".join(g.split()[1].split("->")))[0]
 
 
 def arc_chord(sig, dist, keys):
@@ -313,7 +337,12 @@ def _channel(d, removed):
 
 
 def scopes_of(rows, sections):
-    return {**{s: [r for r in rows if r["section"] == s] for s in sections}, "overall": rows}
+    """Per section, per line (only when more than one line is present), and overall."""
+    out = {s: [r for r in rows if r["section"] == s] for s in sections}
+    lines = sorted({line_of_group(s) for s in sections})
+    if len(lines) > 1:
+        out.update({f"line {ln}": [r for r in rows if line_of_group(r["section"]) == ln] for ln in lines})
+    return {**out, "overall": rows}
 
 
 def aggregate(rows, sections, names, masks=MASKS):
@@ -381,7 +410,8 @@ def weight_sweep(sig, lm, dist, pairs, L, combo, sections, anchors, sec_of):
         w = {"yaw": 1.0, **dict(zip(others, ws))}
         rows, _ = evaluate(sig, lm, dist, pairs, L, {"tuned": (combo, 0, False)}, w, masks=(0.08,), diag=False)
         tag_rows(rows, lm, anchors, sec_of)
-        per = {s: float(np.median([r["err"]["tuned"][HEAD] for r in rows if r["section"] == s])) for s in sections}
+        per = {s: float(np.median([r["err"]["tuned"][HEAD] for r in rs]))
+               for s, rs in scopes_of(rows, sections).items() if s != "overall"}  # sections (and lines)
         res.append({"weights": w, "median_m": float(np.median(_x(rows, "tuned", HEAD))), "per_section": per, "rows": rows})
     best = min(res, key=lambda d: d["median_m"])
     loso = {}  # leave-one-section-out: choose weights on the other sections, score on the held-out one
@@ -422,7 +452,7 @@ def style(ax):
     ax.set_axisbelow(True)
 
 
-def plot_landmarks(sig, lm, lm_h, meta, G):
+def plot_landmarks(sig, lm, lm_h, meta, G, STRESS=()):
     fig, axes = plt.subplots(len(G), 1, figsize=(11, 3.0 * len(G)), squeeze=False)
     for ax, (g, keys) in zip(axes[:, 0], G.items()):
         style(ax)
@@ -496,7 +526,8 @@ GAP_SETS = ["L0 time fraction", "L0 + offset", "interp curve fixes", "yaw", "yaw
 def plot_gap(agg, L):
     fig, ax = plt.subplots(figsize=(8.5, 4.6))
     style(ax)
-    xs = np.array(MASKS) * 2 * L["LST-BTH"]
+    ref = "LST-BTH" if "LST-BTH" in L else next(iter(L))
+    xs = np.array(MASKS) * 2 * L[ref]
     ends = []
     for i, n in enumerate(GAP_SETS):
         med = np.array([agg["overall"][n][f"m{m}"]["median_m"] for m in MASKS])
@@ -513,7 +544,7 @@ def plot_gap(agg, L):
     for yv, n, c in ends:
         ax.annotate(n, (xs[-1] + 30, yv), fontsize=7, color=c, va="center")
     ax.set_xlim(0, xs[-1] + 260)
-    ax.set_xlabel("hidden gap around the curve edge (m on LST-BTH; the same section fraction elsewhere)",
+    ax.set_xlabel(f"hidden gap around the curve edge (m on {ref}; the same section fraction elsewhere)",
                   color=INK2, fontsize=8)
     ax.set_ylabel("median landmark error, all sections (m)", color=INK2, fontsize=8)
     ax.set_title("Error vs the length of the hidden gap (bars: 95 % CI over curve edges; drive never sees yaw, "
@@ -574,15 +605,17 @@ def plot_example(sig, lm, dist, A, B, chans, L, k_frac):
 def main():
     t_start = time.time()
     OUT.mkdir(parents=True, exist_ok=True)
-    tl = track_lengths()
+    sig, lm, lm_h, dist, meta, baro_only = build()
+    G = groups(meta, sig)
+    tracks = sorted({track_key(*k.split(":")[1].split("-")) for k in sig}, key=lambda t: list(STATIONS).index(t[:3]))
+    tl = track_lengths(tracks)
     L = tl["used_m"]
     if "warning" in tl:
         print("WARNING:", tl["warning"])
-    sig, lm, lm_h, dist, meta, baro_only = build()
-    G = groups(meta, sig)
+    STRESS = stress_sections(meta, sig)
     tl["yaw_arc_chord"] = arc_chord(sig, dist, [k for ks in G.values() for k in ks])
     json.dump(tl, open(OUT / "track_lengths.json", "w"), indent=1)
-    plot_landmarks(sig, lm, lm_h, meta, G)
+    plot_landmarks(sig, lm, lm_h, meta, G, STRESS)
     synth = [P.synthetic_check(np.random.default_rng(s)) for s in range(10)]
     synth_sum = {k: round(float(np.median([s[k] for s in synth])), 2) for k in synth[0]}
     synth_sum["worst_max_err_bins"] = round(max(s["max_err_bins"] for s in synth), 2)
@@ -610,7 +643,7 @@ def main():
     sweep_all = weight_sweep(sig, lm, dist, pairs, L, ALL, sections, anchors, sec_of)
     pen = penalty_sweep(sig, lm, dist, pairs, L, ["yaw", "drive", "yaw+drive", "all"], sections, anchors, sec_of)
 
-    # stress test: excluded R4 sections against the clean runs of the same section, both ways
+    # stress test: excluded sections (pause / handling / floor) against the clean runs of the same section, both ways
     stress_pairs = []
     for s in STRESS:
         g = f"{meta[s]['dir']} {meta[s]['from']}->{meta[s]['to']}"
@@ -624,14 +657,15 @@ def main():
     tag_rows(srows, lm, anchors, sec_of)
     stress = {}
     for role in ("held_out", "reference"):
-        rs = [r for r in srows if r["A"].startswith("R4") == (role == "held_out")]
+        rs = [r for r in srows if (r["A"] in STRESS) == (role == "held_out")]
         for r in rs:
-            r["R4_role"] = role
+            r["stress_role"] = role
         if rs:
             Wn = boot_weights(rs)
-            stress[f"R4_{role}"] = {n: {m: summary(rs, n, m, Wn) for m in ("unmasked", HEAD)} for n in st_names}
+            stress[role] = {n: {m: summary(rs, n, m, Wn) for m in ("unmasked", HEAD)} for n in st_names}
 
-    example = plot_example(sig, lm, dist, "R3:LST-BTH", "R5:LST-BTH", ["yaw"], L["LST-BTH"], 0.5)
+    ex = ("R3:LST-BTH", "R5:LST-BTH") if {"R3:LST-BTH", "R5:LST-BTH"} <= set(sig) else tuple(next(iter(G.values()))[:2])
+    example = plot_example(sig, lm, dist, *ex, ["yaw"], length_of(ex[0], L), 0.5)
     pp = per_pair(rows, baro_only)
     ev = ends_vs_mid(rows, ["L0 time fraction", "interp curve fixes", "interp curve fixes, open ends", "yaw",
                             "yaw, open ends", "all"])
@@ -672,7 +706,7 @@ def main():
         "summary": agg, "deltas": deltas, "per_pair": pp, "ends_vs_mid": ev, "mag_by_mode": mm,
         "robustness_heading_landmarks": robust, "distance_fraction_check": dist_check,
         "weight_sweep_EXPLORATORY": {"all": sweep_all}, "step_penalty_sweep_EXPLORATORY": pen,
-        "stress_test_R4": stress, "whole_path_disagreement_vs_all_m_DIAGNOSTIC": diag, "alignment_example": example,
+        "stress_test": stress, "stress_sections": STRESS, "whole_path_disagreement_vs_all_m_DIAGNOSTIC": diag, "alignment_example": example,
         "rows": rows, "stress_rows": srows, "path_rows": paths, "runtime_s": None}
     out["runtime_s"] = round(time.time() - t_start, 1)
     json.dump(out, open(OUT / "ablation.json", "w"), indent=1, default=float)
@@ -693,7 +727,7 @@ LOG_STEPS = [("L0 time fraction", "L0 time fraction"),
 
 
 def write_log(agg, sections, deltas, pp, ev, sweep_all, pen, robust, tl):
-    cols = ["EB LST->BTH"] + [s for s in sections if s != "EB LST->BTH"] + ["overall"]
+    cols = [c for c in agg if c == "EB LST->BTH"] + [c for c in agg if c != "EB LST->BTH"]  # sections, lines, overall
     cell = lambda c, n, m=HEAD: (f"{agg[c][n][m]['median_m']:.0f} ({agg[c][n][m]['ci95_median_m'][0]:.0f}-"
                                  f"{agg[c][n][m]['ci95_median_m'][1]:.0f})")
     lines = ["# Positioning improvement log", "",

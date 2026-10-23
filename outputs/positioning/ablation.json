@@ -10479,8 +10479,8 @@
    }
   }
  },
- "stress_test_R4": {
-  "R4_held_out": {
+ "stress_test": {
+  "held_out": {
    "L0 time fraction": {
     "unmasked": {
      "median_m": 11.6,
@@ -10626,7 +10626,7 @@
     }
    }
   },
-  "R4_reference": {
+  "reference": {
    "L0 time fraction": {
     "unmasked": {
      "median_m": 11.6,
@@ -10773,6 +10773,10 @@
    }
   }
  },
+ "stress_sections": [
+  "R4:MLE-BTH",
+  "R4:BTH-LST"
+ ],
  "whole_path_disagreement_vs_all_m_DIAGNOSTIC": {
   "L0 time fraction": 55.1,
   "L1 dead reckoning": 60.0,
@@ -41373,2074 +41377,6 @@
  ],
  "stress_rows": [
   {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 0,
-   "jb": 0,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.0128,
-   "fb": 0.0286,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 34.7,
-     "m0.08": 34.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 38.7,
-     "m0.08": 38.7
-    },
-    "interp curve fixes": {
-     "unmasked": 28.4,
-     "m0.08": 34.1
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 30.3
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 1.6
-    },
-    "all": {
-     "unmasked": 13.3,
-     "m0.08": 13.3
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 10.6,
-    "L1 dead reckoning": 11.4,
-    "interp curve fixes": 10.5,
-    "yaw": 9.7,
-    "yaw, open ends": 0.6,
-    "all": 4.8
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#0",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 1,
-   "jb": 1,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.0725,
-   "fb": 0.0887,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 35.7,
-     "m0.08": 35.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 52.5,
-     "m0.08": 52.5
-    },
-    "interp curve fixes": {
-     "unmasked": 4.1,
-     "m0.08": 31.9
-    },
-    "yaw": {
-     "unmasked": 2.5,
-     "m0.08": 19.9
-    },
-    "yaw, open ends": {
-     "unmasked": 2.5,
-     "m0.08": 2.5
-    },
-    "all": {
-     "unmasked": 8.2,
-     "m0.08": 13.7
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 27.3,
-    "L1 dead reckoning": 39.1,
-    "interp curve fixes": 24.5,
-    "yaw": 15.6,
-    "yaw, open ends": 2.0,
-    "all": 11.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#1",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 2,
-   "jb": 2,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.3366,
-   "fb": 0.3446,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 17.6,
-     "m0.08": 17.6
-    },
-    "L1 dead reckoning": {
-     "unmasked": 44.9,
-     "m0.08": 44.9
-    },
-    "interp curve fixes": {
-     "unmasked": 0.9,
-     "m0.08": 0.9
-    },
-    "yaw": {
-     "unmasked": 1.1,
-     "m0.08": 5.1
-    },
-    "yaw, open ends": {
-     "unmasked": 1.1,
-     "m0.08": 5.1
-    },
-    "all": {
-     "unmasked": 1.1,
-     "m0.08": 303.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 21.3,
-    "L1 dead reckoning": 54.1,
-    "interp curve fixes": 1.1,
-    "yaw": 6.2,
-    "yaw, open ends": 6.2,
-    "all": 375.5
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#2",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 3,
-   "jb": 4,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.5482,
-   "fb": 0.5488,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 1.5,
-     "m0.08": 1.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 19.9,
-     "m0.08": 19.9
-    },
-    "interp curve fixes": {
-     "unmasked": 0.2,
-     "m0.08": 0.2
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 1.9
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 1.9
-    },
-    "all": {
-     "unmasked": 1.5,
-     "m0.08": 199.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 2.0,
-    "L1 dead reckoning": 26.1,
-    "interp curve fixes": 0.3,
-    "yaw": 2.5,
-    "yaw, open ends": 2.5,
-    "all": 266.3
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#4",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 4,
-   "jb": 5,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.6461,
-   "fb": 0.6432,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 6.3,
-     "m0.08": 6.3
-    },
-    "L1 dead reckoning": {
-     "unmasked": 8.9,
-     "m0.08": 8.9
-    },
-    "interp curve fixes": {
-     "unmasked": 0.1,
-     "m0.08": 0.3
-    },
-    "yaw": {
-     "unmasked": 0.8,
-     "m0.08": 9.1
-    },
-    "yaw, open ends": {
-     "unmasked": 0.8,
-     "m0.08": 9.1
-    },
-    "all": {
-     "unmasked": 0.8,
-     "m0.08": 0.8
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 8.6,
-    "L1 dead reckoning": 12.1,
-    "interp curve fixes": 0.4,
-    "yaw": 12.4,
-    "yaw, open ends": 12.4,
-    "all": 1.1
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#5",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 5,
-   "jb": 6,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.6747,
-   "fb": 0.6708,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 8.5,
-     "m0.08": 8.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 4.1,
-     "m0.08": 4.1
-    },
-    "interp curve fixes": {
-     "unmasked": 0.0,
-     "m0.08": 3.0
-    },
-    "yaw": {
-     "unmasked": 2.6,
-     "m0.08": 5.7
-    },
-    "yaw, open ends": {
-     "unmasked": 2.6,
-     "m0.08": 5.7
-    },
-    "all": {
-     "unmasked": 2.6,
-     "m0.08": 3.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 11.7,
-    "L1 dead reckoning": 5.6,
-    "interp curve fixes": 4.1,
-    "yaw": 7.8,
-    "yaw, open ends": 7.8,
-    "all": 4.1
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#6",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 6,
-   "jb": 7,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.7529,
-   "fb": 0.7464,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 14.3,
-     "m0.08": 14.3
-    },
-    "L1 dead reckoning": {
-     "unmasked": 8.8,
-     "m0.08": 8.8
-    },
-    "interp curve fixes": {
-     "unmasked": 3.4,
-     "m0.08": 4.0
-    },
-    "yaw": {
-     "unmasked": 1.0,
-     "m0.08": 0.5
-    },
-    "yaw, open ends": {
-     "unmasked": 1.0,
-     "m0.08": 0.5
-    },
-    "all": {
-     "unmasked": 19.8,
-     "m0.08": 19.8
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 14.8,
-    "L1 dead reckoning": 9.2,
-    "interp curve fixes": 4.2,
-    "yaw": 0.5,
-    "yaw, open ends": 0.5,
-    "all": 20.3
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#7",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 7,
-   "jb": 8,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.8841,
-   "fb": 0.8692,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 33.1,
-     "m0.08": 33.1
-    },
-    "L1 dead reckoning": {
-     "unmasked": 16.8,
-     "m0.08": 16.8
-    },
-    "interp curve fixes": {
-     "unmasked": 1.8,
-     "m0.08": 18.5
-    },
-    "yaw": {
-     "unmasked": 0.1,
-     "m0.08": 11.0
-    },
-    "yaw, open ends": {
-     "unmasked": 0.1,
-     "m0.08": 11.0
-    },
-    "all": {
-     "unmasked": 1.1,
-     "m0.08": 1.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 22.8,
-    "L1 dead reckoning": 11.5,
-    "interp curve fixes": 12.7,
-    "yaw": 7.6,
-    "yaw, open ends": 7.6,
-    "all": 0.8
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#8",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 8,
-   "jb": 9,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.9296,
-   "fb": 0.9128,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 37.2,
-     "m0.08": 37.2
-    },
-    "L1 dead reckoning": {
-     "unmasked": 23.1,
-     "m0.08": 23.1
-    },
-    "interp curve fixes": {
-     "unmasked": 0.4,
-     "m0.08": 33.1
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 32.1
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 26.1
-    },
-    "all": {
-     "unmasked": 1.5,
-     "m0.08": 20.6
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 27.1,
-    "L1 dead reckoning": 16.8,
-    "interp curve fixes": 24.2,
-    "yaw": 23.4,
-    "yaw, open ends": 19.0,
-    "all": 15.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#9",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 9,
-   "jb": 10,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.9347,
-   "fb": 0.9179,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 37.2,
-     "m0.08": 37.2
-    },
-    "L1 dead reckoning": {
-     "unmasked": 23.5,
-     "m0.08": 23.5
-    },
-    "interp curve fixes": {
-     "unmasked": 2.1,
-     "m0.08": 33.4
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 27.2
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 15.1
-    },
-    "all": {
-     "unmasked": 1.5,
-     "m0.08": 20.6
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 27.3,
-    "L1 dead reckoning": 17.2,
-    "interp curve fixes": 24.5,
-    "yaw": 19.9,
-    "yaw, open ends": 11.0,
-    "all": 15.1
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#10",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R2:BTH-LST",
-   "ia": 10,
-   "jb": 11,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.9824,
-   "fb": 0.9757,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 14.8,
-     "m0.08": 14.8
-    },
-    "L1 dead reckoning": {
-     "unmasked": 9.1,
-     "m0.08": 9.1
-    },
-    "interp curve fixes": {
-     "unmasked": 4.8,
-     "m0.08": 9.8
-    },
-    "yaw": {
-     "unmasked": 3.8,
-     "m0.08": 7.9
-    },
-    "yaw, open ends": {
-     "unmasked": 3.8,
-     "m0.08": 23.9
-    },
-    "all": {
-     "unmasked": 31.4,
-     "m0.08": 31.4
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 3.4,
-    "L1 dead reckoning": 2.3,
-    "interp curve fixes": 2.4,
-    "yaw": 2.0,
-    "yaw, open ends": 8.2,
-    "all": 5.8
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#11",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 0,
-   "jb": 0,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.0286,
-   "fb": 0.0128,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 34.7,
-     "m0.08": 34.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 44.3,
-     "m0.08": 44.3
-    },
-    "interp curve fixes": {
-     "unmasked": 23.2,
-     "m0.08": 33.3
-    },
-    "yaw": {
-     "unmasked": 0.7,
-     "m0.08": 26.1
-    },
-    "yaw, open ends": {
-     "unmasked": 0.7,
-     "m0.08": 1.6
-    },
-    "all": {
-     "unmasked": 73.4,
-     "m0.08": 76.7
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 8.2,
-    "L1 dead reckoning": 11.4,
-    "interp curve fixes": 7.8,
-    "yaw": 5.7,
-    "yaw, open ends": 0.3,
-    "all": 24.8
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#0",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 1,
-   "jb": 1,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.0887,
-   "fb": 0.0725,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 35.7,
-     "m0.08": 35.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 57.3,
-     "m0.08": 57.3
-    },
-    "interp curve fixes": {
-     "unmasked": 4.2,
-     "m0.08": 31.1
-    },
-    "yaw": {
-     "unmasked": 2.5,
-     "m0.08": 65.9
-    },
-    "yaw, open ends": {
-     "unmasked": 2.5,
-     "m0.08": 65.9
-    },
-    "all": {
-     "unmasked": 3.0,
-     "m0.08": 5.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 23.5,
-    "L1 dead reckoning": 39.1,
-    "interp curve fixes": 20.4,
-    "yaw": 45.7,
-    "yaw, open ends": 45.7,
-    "all": 3.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#1",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 2,
-   "jb": 2,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.3446,
-   "fb": 0.3366,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 17.6,
-     "m0.08": 17.6
-    },
-    "L1 dead reckoning": {
-     "unmasked": 43.1,
-     "m0.08": 43.1
-    },
-    "interp curve fixes": {
-     "unmasked": 1.0,
-     "m0.08": 1.0
-    },
-    "yaw": {
-     "unmasked": 1.1,
-     "m0.08": 1.0
-    },
-    "yaw, open ends": {
-     "unmasked": 1.1,
-     "m0.08": 1.0
-    },
-    "all": {
-     "unmasked": 1.1,
-     "m0.08": 1.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 22.1,
-    "L1 dead reckoning": 54.1,
-    "interp curve fixes": 1.2,
-    "yaw": 1.3,
-    "yaw, open ends": 1.3,
-    "all": 1.3
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#2",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 4,
-   "jb": 3,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.5488,
-   "fb": 0.5482,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 1.5,
-     "m0.08": 1.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 20.0,
-     "m0.08": 20.0
-    },
-    "interp curve fixes": {
-     "unmasked": 0.2,
-     "m0.08": 0.2
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 7.0
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 7.0
-    },
-    "all": {
-     "unmasked": 1.5,
-     "m0.08": 192.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 2.0,
-    "L1 dead reckoning": 26.1,
-    "interp curve fixes": 0.3,
-    "yaw": 9.2,
-    "yaw, open ends": 9.2,
-    "all": 245.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#4",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 5,
-   "jb": 4,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.6432,
-   "fb": 0.6461,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 6.3,
-     "m0.08": 6.3
-    },
-    "L1 dead reckoning": {
-     "unmasked": 8.6,
-     "m0.08": 8.6
-    },
-    "interp curve fixes": {
-     "unmasked": 0.1,
-     "m0.08": 0.3
-    },
-    "yaw": {
-     "unmasked": 0.8,
-     "m0.08": 44.9
-    },
-    "yaw, open ends": {
-     "unmasked": 0.8,
-     "m0.08": 44.9
-    },
-    "all": {
-     "unmasked": 0.8,
-     "m0.08": 1.8
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 8.9,
-    "L1 dead reckoning": 12.1,
-    "interp curve fixes": 0.4,
-    "yaw": 62.7,
-    "yaw, open ends": 62.7,
-    "all": 2.5
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#5",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 6,
-   "jb": 5,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.6708,
-   "fb": 0.6747,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 8.5,
-     "m0.08": 8.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 3.9,
-     "m0.08": 3.9
-    },
-    "interp curve fixes": {
-     "unmasked": 0.1,
-     "m0.08": 3.2
-    },
-    "yaw": {
-     "unmasked": 2.6,
-     "m0.08": 8.9
-    },
-    "yaw, open ends": {
-     "unmasked": 2.6,
-     "m0.08": 8.9
-    },
-    "all": {
-     "unmasked": 2.6,
-     "m0.08": 3.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 12.2,
-    "L1 dead reckoning": 5.6,
-    "interp curve fixes": 4.6,
-    "yaw": 12.9,
-    "yaw, open ends": 12.9,
-    "all": 4.3
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#6",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 7,
-   "jb": 6,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.7464,
-   "fb": 0.7529,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 14.3,
-     "m0.08": 14.3
-    },
-    "L1 dead reckoning": {
-     "unmasked": 8.5,
-     "m0.08": 8.5
-    },
-    "interp curve fixes": {
-     "unmasked": 3.6,
-     "m0.08": 4.3
-    },
-    "yaw": {
-     "unmasked": 0.9,
-     "m0.08": 125.7
-    },
-    "yaw, open ends": {
-     "unmasked": 0.9,
-     "m0.08": 125.7
-    },
-    "all": {
-     "unmasked": 14.3,
-     "m0.08": 19.8
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 15.6,
-    "L1 dead reckoning": 9.2,
-    "interp curve fixes": 4.4,
-    "yaw": 149.1,
-    "yaw, open ends": 149.1,
-    "all": 21.7
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#7",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 8,
-   "jb": 7,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.8692,
-   "fb": 0.8841,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 33.1,
-     "m0.08": 33.1
-    },
-    "L1 dead reckoning": {
-     "unmasked": 16.3,
-     "m0.08": 16.3
-    },
-    "interp curve fixes": {
-     "unmasked": 1.9,
-     "m0.08": 18.5
-    },
-    "yaw": {
-     "unmasked": 0.1,
-     "m0.08": 13.7
-    },
-    "yaw, open ends": {
-     "unmasked": 0.1,
-     "m0.08": 13.7
-    },
-    "all": {
-     "unmasked": 9.9,
-     "m0.08": 9.9
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 23.1,
-    "L1 dead reckoning": 11.5,
-    "interp curve fixes": 13.0,
-    "yaw": 9.7,
-    "yaw, open ends": 9.7,
-    "all": 7.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#8",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 9,
-   "jb": 8,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.9128,
-   "fb": 0.9296,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 37.2,
-     "m0.08": 37.2
-    },
-    "L1 dead reckoning": {
-     "unmasked": 22.7,
-     "m0.08": 22.7
-    },
-    "interp curve fixes": {
-     "unmasked": 0.5,
-     "m0.08": 32.3
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 26.1
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 26.1
-    },
-    "all": {
-     "unmasked": 1.5,
-     "m0.08": 29.6
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 27.2,
-    "L1 dead reckoning": 16.8,
-    "interp curve fixes": 23.7,
-    "yaw": 19.3,
-    "yaw, open ends": 19.3,
-    "all": 21.7
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#9",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 10,
-   "jb": 9,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.9179,
-   "fb": 0.9347,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 37.2,
-     "m0.08": 37.2
-    },
-    "L1 dead reckoning": {
-     "unmasked": 22.8,
-     "m0.08": 22.8
-    },
-    "interp curve fixes": {
-     "unmasked": 1.8,
-     "m0.08": 32.6
-    },
-    "yaw": {
-     "unmasked": 1.5,
-     "m0.08": 31.6
-    },
-    "yaw, open ends": {
-     "unmasked": 1.5,
-     "m0.08": 31.6
-    },
-    "all": {
-     "unmasked": 1.5,
-     "m0.08": 20.6
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 27.7,
-    "L1 dead reckoning": 17.2,
-    "interp curve fixes": 24.3,
-    "yaw": 23.6,
-    "yaw, open ends": 23.6,
-    "all": 15.6
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#10",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R2:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 11,
-   "jb": 10,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.9757,
-   "fb": 0.9824,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 14.8,
-     "m0.08": 14.8
-    },
-    "L1 dead reckoning": {
-     "unmasked": 9.0,
-     "m0.08": 9.0
-    },
-    "interp curve fixes": {
-     "unmasked": 3.8,
-     "m0.08": 8.7
-    },
-    "yaw": {
-     "unmasked": 7.7,
-     "m0.08": 16.1
-    },
-    "yaw, open ends": {
-     "unmasked": 7.7,
-     "m0.08": 20.4
-    },
-    "all": {
-     "unmasked": 10.9,
-     "m0.08": 10.9
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 4.0,
-    "L1 dead reckoning": 2.3,
-    "interp curve fixes": 2.2,
-    "yaw": 4.4,
-    "yaw, open ends": 6.0,
-    "all": 2.8
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#11",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 0,
-   "jb": 0,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.0128,
-   "fb": 0.0194,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 14.5,
-     "m0.08": 14.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 16.8,
-     "m0.08": 16.8
-    },
-    "interp curve fixes": {
-     "unmasked": 12.9,
-     "m0.08": 14.6
-    },
-    "yaw": {
-     "unmasked": 2.1,
-     "m0.08": 13.8
-    },
-    "yaw, open ends": {
-     "unmasked": 2.1,
-     "m0.08": 9.0
-    },
-    "all": {
-     "unmasked": 9.0,
-     "m0.08": 9.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 3.2,
-    "L1 dead reckoning": 3.6,
-    "interp curve fixes": 3.2,
-    "yaw": 3.1,
-    "yaw, open ends": 2.1,
-    "all": 2.1
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#0",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 1,
-   "jb": 1,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.0725,
-   "fb": 0.0766,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 9.1,
-     "m0.08": 9.1
-    },
-    "L1 dead reckoning": {
-     "unmasked": 18.7,
-     "m0.08": 18.7
-    },
-    "interp curve fixes": {
-     "unmasked": 2.1,
-     "m0.08": 9.8
-    },
-    "yaw": {
-     "unmasked": 2.0,
-     "m0.08": 6.5
-    },
-    "yaw, open ends": {
-     "unmasked": 2.0,
-     "m0.08": 3.6
-    },
-    "all": {
-     "unmasked": 2.0,
-     "m0.08": 7.3
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 6.3,
-    "L1 dead reckoning": 12.7,
-    "interp curve fixes": 6.8,
-    "yaw": 4.5,
-    "yaw, open ends": 2.5,
-    "all": 5.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#1",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 2,
-   "jb": 2,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.3366,
-   "fb": 0.335,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 3.4,
-     "m0.08": 3.4
-    },
-    "L1 dead reckoning": {
-     "unmasked": 2.2,
-     "m0.08": 2.2
-    },
-    "interp curve fixes": {
-     "unmasked": 1.8,
-     "m0.08": 1.8
-    },
-    "yaw": {
-     "unmasked": 2.2,
-     "m0.08": 14.7
-    },
-    "yaw, open ends": {
-     "unmasked": 2.2,
-     "m0.08": 14.7
-    },
-    "all": {
-     "unmasked": 3.4,
-     "m0.08": 158.2
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 4.0,
-    "L1 dead reckoning": 2.6,
-    "interp curve fixes": 2.1,
-    "yaw": 17.4,
-    "yaw, open ends": 17.4,
-    "all": 191.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#2",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 3,
-   "jb": 4,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.5482,
-   "fb": 0.5436,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 10.1,
-     "m0.08": 10.1
-    },
-    "L1 dead reckoning": {
-     "unmasked": 8.7,
-     "m0.08": 8.7
-    },
-    "interp curve fixes": {
-     "unmasked": 0.6,
-     "m0.08": 0.6
-    },
-    "yaw": {
-     "unmasked": 0.9,
-     "m0.08": 0.8
-    },
-    "yaw, open ends": {
-     "unmasked": 0.9,
-     "m0.08": 0.8
-    },
-    "all": {
-     "unmasked": 4.6,
-     "m0.08": 209.4
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 13.9,
-    "L1 dead reckoning": 11.9,
-    "interp curve fixes": 0.8,
-    "yaw": 1.1,
-    "yaw, open ends": 1.1,
-    "all": 277.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#4",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 4,
-   "jb": 5,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.6461,
-   "fb": 0.6404,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 12.5,
-     "m0.08": 12.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 2.9,
-     "m0.08": 2.9
-    },
-    "interp curve fixes": {
-     "unmasked": 0.4,
-     "m0.08": 1.3
-    },
-    "yaw": {
-     "unmasked": 0.8,
-     "m0.08": 4.2
-    },
-    "yaw, open ends": {
-     "unmasked": 0.8,
-     "m0.08": 4.2
-    },
-    "all": {
-     "unmasked": 1.4,
-     "m0.08": 1.4
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 18.0,
-    "L1 dead reckoning": 4.2,
-    "interp curve fixes": 1.9,
-    "yaw": 6.0,
-    "yaw, open ends": 6.0,
-    "all": 2.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#5",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 5,
-   "jb": 6,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.6747,
-   "fb": 0.6685,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 13.7,
-     "m0.08": 13.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 2.6,
-     "m0.08": 2.6
-    },
-    "interp curve fixes": {
-     "unmasked": 1.3,
-     "m0.08": 4.1
-    },
-    "yaw": {
-     "unmasked": 2.9,
-     "m0.08": 5.7
-    },
-    "yaw, open ends": {
-     "unmasked": 2.9,
-     "m0.08": 5.7
-    },
-    "all": {
-     "unmasked": 2.9,
-     "m0.08": 9.5
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 20.3,
-    "L1 dead reckoning": 3.8,
-    "interp curve fixes": 6.1,
-    "yaw": 8.4,
-    "yaw, open ends": 8.4,
-    "all": 14.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#6",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 6,
-   "jb": 7,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.7529,
-   "fb": 0.7474,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 12.2,
-     "m0.08": 12.2
-    },
-    "L1 dead reckoning": {
-     "unmasked": 5.1,
-     "m0.08": 5.1
-    },
-    "interp curve fixes": {
-     "unmasked": 0.3,
-     "m0.08": 1.4
-    },
-    "yaw": {
-     "unmasked": 1.1,
-     "m0.08": 4.5
-    },
-    "yaw, open ends": {
-     "unmasked": 1.1,
-     "m0.08": 4.5
-    },
-    "all": {
-     "unmasked": 1.1,
-     "m0.08": 4.4
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 11.8,
-    "L1 dead reckoning": 5.1,
-    "interp curve fixes": 1.4,
-    "yaw": 4.6,
-    "yaw, open ends": 4.6,
-    "all": 4.6
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#7",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 7,
-   "jb": 8,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.8841,
-   "fb": 0.8802,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 8.7,
-     "m0.08": 8.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 5.2,
-     "m0.08": 5.2
-    },
-    "interp curve fixes": {
-     "unmasked": 1.1,
-     "m0.08": 2.7
-    },
-    "yaw": {
-     "unmasked": 2.5,
-     "m0.08": 0.4
-    },
-    "yaw, open ends": {
-     "unmasked": 2.5,
-     "m0.08": 0.4
-    },
-    "all": {
-     "unmasked": 3.1,
-     "m0.08": 3.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 6.0,
-    "L1 dead reckoning": 3.6,
-    "interp curve fixes": 1.8,
-    "yaw": 0.3,
-    "yaw, open ends": 0.3,
-    "all": 2.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#8",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 8,
-   "jb": 9,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.9296,
-   "fb": 0.9256,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 8.9,
-     "m0.08": 8.9
-    },
-    "L1 dead reckoning": {
-     "unmasked": 4.9,
-     "m0.08": 4.9
-    },
-    "interp curve fixes": {
-     "unmasked": 0.0,
-     "m0.08": 5.5
-    },
-    "yaw": {
-     "unmasked": 2.1,
-     "m0.08": 16.6
-    },
-    "yaw, open ends": {
-     "unmasked": 2.1,
-     "m0.08": 25.5
-    },
-    "all": {
-     "unmasked": 2.1,
-     "m0.08": 14.9
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 6.9,
-    "L1 dead reckoning": 3.8,
-    "interp curve fixes": 4.2,
-    "yaw": 12.8,
-    "yaw, open ends": 19.9,
-    "all": 11.5
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#9",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 9,
-   "jb": 10,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.9347,
-   "fb": 0.9307,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 9.0,
-     "m0.08": 9.0
-    },
-    "L1 dead reckoning": {
-     "unmasked": 4.7,
-     "m0.08": 4.7
-    },
-    "interp curve fixes": {
-     "unmasked": 0.1,
-     "m0.08": 5.8
-    },
-    "yaw": {
-     "unmasked": 2.1,
-     "m0.08": 11.5
-    },
-    "yaw, open ends": {
-     "unmasked": 2.1,
-     "m0.08": 14.5
-    },
-    "all": {
-     "unmasked": 2.1,
-     "m0.08": 9.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 7.0,
-    "L1 dead reckoning": 3.7,
-    "interp curve fixes": 4.5,
-    "yaw": 9.0,
-    "yaw, open ends": 11.4,
-    "all": 7.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#10",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R4:BTH-LST",
-   "B": "R6:BTH-LST",
-   "ia": 10,
-   "jb": 11,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.9824,
-   "fb": 0.9775,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 10.7,
-     "m0.08": 10.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 8.0,
-     "m0.08": 8.0
-    },
-    "interp curve fixes": {
-     "unmasked": 8.3,
-     "m0.08": 9.4
-    },
-    "yaw": {
-     "unmasked": 7.9,
-     "m0.08": 15.7
-    },
-    "yaw, open ends": {
-     "unmasked": 7.9,
-     "m0.08": 38.3
-    },
-    "all": {
-     "unmasked": 27.3,
-     "m0.08": 27.3
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 2.6,
-    "L1 dead reckoning": 2.0,
-    "interp curve fixes": 2.3,
-    "yaw": 3.5,
-    "yaw, open ends": 6.2,
-    "all": 5.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#11",
-   "R4_role": "held_out"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 0,
-   "jb": 0,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.0194,
-   "fb": 0.0128,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 14.5,
-     "m0.08": 14.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 17.9,
-     "m0.08": 17.9
-    },
-    "interp curve fixes": {
-     "unmasked": 12.2,
-     "m0.08": 14.7
-    },
-    "yaw": {
-     "unmasked": 2.1,
-     "m0.08": 13.4
-    },
-    "yaw, open ends": {
-     "unmasked": 2.1,
-     "m0.08": 9.0
-    },
-    "all": {
-     "unmasked": 9.0,
-     "m0.08": 9.0
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 2.8,
-    "L1 dead reckoning": 3.6,
-    "interp curve fixes": 2.8,
-    "yaw": 2.5,
-    "yaw, open ends": 1.6,
-    "all": 1.6
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#0",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 1,
-   "jb": 1,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.0766,
-   "fb": 0.0725,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 9.1,
-     "m0.08": 9.1
-    },
-    "L1 dead reckoning": {
-     "unmasked": 19.8,
-     "m0.08": 19.8
-    },
-    "interp curve fixes": {
-     "unmasked": 2.2,
-     "m0.08": 9.9
-    },
-    "yaw": {
-     "unmasked": 2.0,
-     "m0.08": 9.1
-    },
-    "yaw, open ends": {
-     "unmasked": 2.0,
-     "m0.08": 9.1
-    },
-    "all": {
-     "unmasked": 2.0,
-     "m0.08": 5.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 5.8,
-    "L1 dead reckoning": 12.7,
-    "interp curve fixes": 6.3,
-    "yaw": 5.8,
-    "yaw, open ends": 5.8,
-    "all": 3.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#1",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 2,
-   "jb": 2,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.335,
-   "fb": 0.3366,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 3.4,
-     "m0.08": 3.4
-    },
-    "L1 dead reckoning": {
-     "unmasked": 2.1,
-     "m0.08": 2.1
-    },
-    "interp curve fixes": {
-     "unmasked": 1.8,
-     "m0.08": 1.8
-    },
-    "yaw": {
-     "unmasked": 2.2,
-     "m0.08": 24.5
-    },
-    "yaw, open ends": {
-     "unmasked": 2.2,
-     "m0.08": 24.5
-    },
-    "all": {
-     "unmasked": 3.4,
-     "m0.08": 178.5
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 4.2,
-    "L1 dead reckoning": 2.6,
-    "interp curve fixes": 2.2,
-    "yaw": 30.6,
-    "yaw, open ends": 30.6,
-    "all": 214.3
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#2",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 4,
-   "jb": 3,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.5436,
-   "fb": 0.5482,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 10.1,
-     "m0.08": 10.1
-    },
-    "L1 dead reckoning": {
-     "unmasked": 9.2,
-     "m0.08": 9.2
-    },
-    "interp curve fixes": {
-     "unmasked": 0.6,
-     "m0.08": 0.6
-    },
-    "yaw": {
-     "unmasked": 0.9,
-     "m0.08": 0.9
-    },
-    "yaw, open ends": {
-     "unmasked": 0.9,
-     "m0.08": 0.9
-    },
-    "all": {
-     "unmasked": 4.9,
-     "m0.08": 183.4
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 13.2,
-    "L1 dead reckoning": 11.9,
-    "interp curve fixes": 0.8,
-    "yaw": 1.2,
-    "yaw, open ends": 1.2,
-    "all": 246.9
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#4",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 5,
-   "jb": 4,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.6404,
-   "fb": 0.6461,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 12.5,
-     "m0.08": 12.5
-    },
-    "L1 dead reckoning": {
-     "unmasked": 3.0,
-     "m0.08": 3.0
-    },
-    "interp curve fixes": {
-     "unmasked": 0.5,
-     "m0.08": 1.4
-    },
-    "yaw": {
-     "unmasked": 1.4,
-     "m0.08": 37.3
-    },
-    "yaw, open ends": {
-     "unmasked": 1.4,
-     "m0.08": 37.3
-    },
-    "all": {
-     "unmasked": 1.4,
-     "m0.08": 0.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 17.5,
-    "L1 dead reckoning": 4.2,
-    "interp curve fixes": 1.9,
-    "yaw": 52.2,
-    "yaw, open ends": 52.2,
-    "all": 0.1
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#5",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 6,
-   "jb": 5,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.6685,
-   "fb": 0.6747,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 13.7,
-     "m0.08": 13.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 2.7,
-     "m0.08": 2.7
-    },
-    "interp curve fixes": {
-     "unmasked": 1.3,
-     "m0.08": 4.1
-    },
-    "yaw": {
-     "unmasked": 2.9,
-     "m0.08": 74.0
-    },
-    "yaw, open ends": {
-     "unmasked": 2.9,
-     "m0.08": 74.0
-    },
-    "all": {
-     "unmasked": 2.9,
-     "m0.08": 18.7
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 19.7,
-    "L1 dead reckoning": 3.8,
-    "interp curve fixes": 5.9,
-    "yaw": 105.1,
-    "yaw, open ends": 105.1,
-    "all": 27.1
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#6",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 7,
-   "jb": 6,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.7474,
-   "fb": 0.7529,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 12.2,
-     "m0.08": 12.2
-    },
-    "L1 dead reckoning": {
-     "unmasked": 4.7,
-     "m0.08": 4.7
-    },
-    "interp curve fixes": {
-     "unmasked": 0.3,
-     "m0.08": 1.4
-    },
-    "yaw": {
-     "unmasked": 1.1,
-     "m0.08": 143.7
-    },
-    "yaw, open ends": {
-     "unmasked": 1.1,
-     "m0.08": 143.7
-    },
-    "all": {
-     "unmasked": 1.1,
-     "m0.08": 4.4
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 13.2,
-    "L1 dead reckoning": 5.1,
-    "interp curve fixes": 1.5,
-    "yaw": 175.5,
-    "yaw, open ends": 175.5,
-    "all": 4.6
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#7",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 8,
-   "jb": 7,
-   "kind": "on",
-   "sign": 1,
-   "fa": 0.8802,
-   "fb": 0.8841,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 8.7,
-     "m0.08": 8.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 5.1,
-     "m0.08": 5.1
-    },
-    "interp curve fixes": {
-     "unmasked": 1.1,
-     "m0.08": 2.6
-    },
-    "yaw": {
-     "unmasked": 3.1,
-     "m0.08": 8.7
-    },
-    "yaw, open ends": {
-     "unmasked": 3.1,
-     "m0.08": 8.7
-    },
-    "all": {
-     "unmasked": 3.1,
-     "m0.08": 3.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 6.1,
-    "L1 dead reckoning": 3.6,
-    "interp curve fixes": 1.9,
-    "yaw": 6.2,
-    "yaw, open ends": 6.2,
-    "all": 2.2
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#8",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 9,
-   "jb": 8,
-   "kind": "off",
-   "sign": 1,
-   "fa": 0.9256,
-   "fb": 0.9296,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 8.9,
-     "m0.08": 8.9
-    },
-    "L1 dead reckoning": {
-     "unmasked": 5.0,
-     "m0.08": 5.0
-    },
-    "interp curve fixes": {
-     "unmasked": 0.0,
-     "m0.08": 5.4
-    },
-    "yaw": {
-     "unmasked": 2.1,
-     "m0.08": 14.2
-    },
-    "yaw, open ends": {
-     "unmasked": 2.1,
-     "m0.08": 20.0
-    },
-    "all": {
-     "unmasked": 2.1,
-     "m0.08": 16.1
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 6.7,
-    "L1 dead reckoning": 3.8,
-    "interp curve fixes": 4.0,
-    "yaw": 10.6,
-    "yaw, open ends": 14.8,
-    "all": 12.0
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#9",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 10,
-   "jb": 9,
-   "kind": "on",
-   "sign": -1,
-   "fa": 0.9307,
-   "fb": 0.9347,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 9.0,
-     "m0.08": 9.0
-    },
-    "L1 dead reckoning": {
-     "unmasked": 4.8,
-     "m0.08": 4.8
-    },
-    "interp curve fixes": {
-     "unmasked": 0.1,
-     "m0.08": 5.7
-    },
-    "yaw": {
-     "unmasked": 2.1,
-     "m0.08": 16.6
-    },
-    "yaw, open ends": {
-     "unmasked": 2.1,
-     "m0.08": 25.6
-    },
-    "all": {
-     "unmasked": 2.1,
-     "m0.08": 18.2
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 6.9,
-    "L1 dead reckoning": 3.7,
-    "interp curve fixes": 4.3,
-    "yaw": 12.6,
-    "yaw, open ends": 19.2,
-    "all": 13.8
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#10",
-   "R4_role": "reference"
-  },
-  {
-   "A": "R6:BTH-LST",
-   "B": "R4:BTH-LST",
-   "ia": 11,
-   "jb": 10,
-   "kind": "off",
-   "sign": -1,
-   "fa": 0.9775,
-   "fb": 0.9824,
-   "err": {
-    "L0 time fraction": {
-     "unmasked": 10.7,
-     "m0.08": 10.7
-    },
-    "L1 dead reckoning": {
-     "unmasked": 7.9,
-     "m0.08": 7.9
-    },
-    "interp curve fixes": {
-     "unmasked": 7.8,
-     "m0.08": 9.1
-    },
-    "yaw": {
-     "unmasked": 10.5,
-     "m0.08": 13.1
-    },
-    "yaw, open ends": {
-     "unmasked": 10.5,
-     "m0.08": 21.8
-    },
-    "all": {
-     "unmasked": 22.0,
-     "m0.08": 27.3
-    }
-   },
-   "err_dist": {
-    "L0 time fraction": 2.7,
-    "L1 dead reckoning": 2.0,
-    "interp curve fixes": 2.3,
-    "yaw": 3.5,
-    "yaw, open ends": 6.5,
-    "all": 8.7
-   },
-   "section": "WB BTH->LST",
-   "phys": "WB BTH->LST#11",
-   "R4_role": "reference"
-  },
-  {
    "A": "R4:MLE-BTH",
    "B": "R6:MLE-BTH",
    "ia": 0,
@@ -43485,7 +41421,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#2",
-   "R4_role": "held_out"
+   "stress_role": "held_out"
   },
   {
    "A": "R4:MLE-BTH",
@@ -43532,7 +41468,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#3",
-   "R4_role": "held_out"
+   "stress_role": "held_out"
   },
   {
    "A": "R4:MLE-BTH",
@@ -43579,7 +41515,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#4",
-   "R4_role": "held_out"
+   "stress_role": "held_out"
   },
   {
    "A": "R4:MLE-BTH",
@@ -43626,7 +41562,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#5",
-   "R4_role": "held_out"
+   "stress_role": "held_out"
   },
   {
    "A": "R6:MLE-BTH",
@@ -43673,7 +41609,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#2",
-   "R4_role": "reference"
+   "stress_role": "reference"
   },
   {
    "A": "R6:MLE-BTH",
@@ -43720,7 +41656,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#3",
-   "R4_role": "reference"
+   "stress_role": "reference"
   },
   {
    "A": "R6:MLE-BTH",
@@ -43767,7 +41703,7 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#4",
-   "R4_role": "reference"
+   "stress_role": "reference"
   },
   {
    "A": "R6:MLE-BTH",
@@ -43814,7 +41750,2075 @@
    },
    "section": "WB MLE->BTH",
    "phys": "WB MLE->BTH#5",
-   "R4_role": "reference"
+   "stress_role": "reference"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 0,
+   "jb": 0,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.0128,
+   "fb": 0.0286,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 34.7,
+     "m0.08": 34.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 38.7,
+     "m0.08": 38.7
+    },
+    "interp curve fixes": {
+     "unmasked": 28.4,
+     "m0.08": 34.1
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 30.3
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 1.6
+    },
+    "all": {
+     "unmasked": 13.3,
+     "m0.08": 13.3
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 10.6,
+    "L1 dead reckoning": 11.4,
+    "interp curve fixes": 10.5,
+    "yaw": 9.7,
+    "yaw, open ends": 0.6,
+    "all": 4.8
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#0",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 1,
+   "jb": 1,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.0725,
+   "fb": 0.0887,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 35.7,
+     "m0.08": 35.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 52.5,
+     "m0.08": 52.5
+    },
+    "interp curve fixes": {
+     "unmasked": 4.1,
+     "m0.08": 31.9
+    },
+    "yaw": {
+     "unmasked": 2.5,
+     "m0.08": 19.9
+    },
+    "yaw, open ends": {
+     "unmasked": 2.5,
+     "m0.08": 2.5
+    },
+    "all": {
+     "unmasked": 8.2,
+     "m0.08": 13.7
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 27.3,
+    "L1 dead reckoning": 39.1,
+    "interp curve fixes": 24.5,
+    "yaw": 15.6,
+    "yaw, open ends": 2.0,
+    "all": 11.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#1",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 2,
+   "jb": 2,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.3366,
+   "fb": 0.3446,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 17.6,
+     "m0.08": 17.6
+    },
+    "L1 dead reckoning": {
+     "unmasked": 44.9,
+     "m0.08": 44.9
+    },
+    "interp curve fixes": {
+     "unmasked": 0.9,
+     "m0.08": 0.9
+    },
+    "yaw": {
+     "unmasked": 1.1,
+     "m0.08": 5.1
+    },
+    "yaw, open ends": {
+     "unmasked": 1.1,
+     "m0.08": 5.1
+    },
+    "all": {
+     "unmasked": 1.1,
+     "m0.08": 303.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 21.3,
+    "L1 dead reckoning": 54.1,
+    "interp curve fixes": 1.1,
+    "yaw": 6.2,
+    "yaw, open ends": 6.2,
+    "all": 375.5
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#2",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 3,
+   "jb": 4,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.5482,
+   "fb": 0.5488,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 1.5,
+     "m0.08": 1.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 19.9,
+     "m0.08": 19.9
+    },
+    "interp curve fixes": {
+     "unmasked": 0.2,
+     "m0.08": 0.2
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 1.9
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 1.9
+    },
+    "all": {
+     "unmasked": 1.5,
+     "m0.08": 199.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 2.0,
+    "L1 dead reckoning": 26.1,
+    "interp curve fixes": 0.3,
+    "yaw": 2.5,
+    "yaw, open ends": 2.5,
+    "all": 266.3
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#4",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 4,
+   "jb": 5,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.6461,
+   "fb": 0.6432,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 6.3,
+     "m0.08": 6.3
+    },
+    "L1 dead reckoning": {
+     "unmasked": 8.9,
+     "m0.08": 8.9
+    },
+    "interp curve fixes": {
+     "unmasked": 0.1,
+     "m0.08": 0.3
+    },
+    "yaw": {
+     "unmasked": 0.8,
+     "m0.08": 9.1
+    },
+    "yaw, open ends": {
+     "unmasked": 0.8,
+     "m0.08": 9.1
+    },
+    "all": {
+     "unmasked": 0.8,
+     "m0.08": 0.8
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 8.6,
+    "L1 dead reckoning": 12.1,
+    "interp curve fixes": 0.4,
+    "yaw": 12.4,
+    "yaw, open ends": 12.4,
+    "all": 1.1
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#5",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 5,
+   "jb": 6,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.6747,
+   "fb": 0.6708,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 8.5,
+     "m0.08": 8.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 4.1,
+     "m0.08": 4.1
+    },
+    "interp curve fixes": {
+     "unmasked": 0.0,
+     "m0.08": 3.0
+    },
+    "yaw": {
+     "unmasked": 2.6,
+     "m0.08": 5.7
+    },
+    "yaw, open ends": {
+     "unmasked": 2.6,
+     "m0.08": 5.7
+    },
+    "all": {
+     "unmasked": 2.6,
+     "m0.08": 3.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 11.7,
+    "L1 dead reckoning": 5.6,
+    "interp curve fixes": 4.1,
+    "yaw": 7.8,
+    "yaw, open ends": 7.8,
+    "all": 4.1
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#6",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 6,
+   "jb": 7,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.7529,
+   "fb": 0.7464,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 14.3,
+     "m0.08": 14.3
+    },
+    "L1 dead reckoning": {
+     "unmasked": 8.8,
+     "m0.08": 8.8
+    },
+    "interp curve fixes": {
+     "unmasked": 3.4,
+     "m0.08": 4.0
+    },
+    "yaw": {
+     "unmasked": 1.0,
+     "m0.08": 0.5
+    },
+    "yaw, open ends": {
+     "unmasked": 1.0,
+     "m0.08": 0.5
+    },
+    "all": {
+     "unmasked": 19.8,
+     "m0.08": 19.8
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 14.8,
+    "L1 dead reckoning": 9.2,
+    "interp curve fixes": 4.2,
+    "yaw": 0.5,
+    "yaw, open ends": 0.5,
+    "all": 20.3
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#7",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 7,
+   "jb": 8,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.8841,
+   "fb": 0.8692,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 33.1,
+     "m0.08": 33.1
+    },
+    "L1 dead reckoning": {
+     "unmasked": 16.8,
+     "m0.08": 16.8
+    },
+    "interp curve fixes": {
+     "unmasked": 1.8,
+     "m0.08": 18.5
+    },
+    "yaw": {
+     "unmasked": 0.1,
+     "m0.08": 11.0
+    },
+    "yaw, open ends": {
+     "unmasked": 0.1,
+     "m0.08": 11.0
+    },
+    "all": {
+     "unmasked": 1.1,
+     "m0.08": 1.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 22.8,
+    "L1 dead reckoning": 11.5,
+    "interp curve fixes": 12.7,
+    "yaw": 7.6,
+    "yaw, open ends": 7.6,
+    "all": 0.8
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#8",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 8,
+   "jb": 9,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.9296,
+   "fb": 0.9128,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 37.2,
+     "m0.08": 37.2
+    },
+    "L1 dead reckoning": {
+     "unmasked": 23.1,
+     "m0.08": 23.1
+    },
+    "interp curve fixes": {
+     "unmasked": 0.4,
+     "m0.08": 33.1
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 32.1
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 26.1
+    },
+    "all": {
+     "unmasked": 1.5,
+     "m0.08": 20.6
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 27.1,
+    "L1 dead reckoning": 16.8,
+    "interp curve fixes": 24.2,
+    "yaw": 23.4,
+    "yaw, open ends": 19.0,
+    "all": 15.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#9",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 9,
+   "jb": 10,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.9347,
+   "fb": 0.9179,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 37.2,
+     "m0.08": 37.2
+    },
+    "L1 dead reckoning": {
+     "unmasked": 23.5,
+     "m0.08": 23.5
+    },
+    "interp curve fixes": {
+     "unmasked": 2.1,
+     "m0.08": 33.4
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 27.2
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 15.1
+    },
+    "all": {
+     "unmasked": 1.5,
+     "m0.08": 20.6
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 27.3,
+    "L1 dead reckoning": 17.2,
+    "interp curve fixes": 24.5,
+    "yaw": 19.9,
+    "yaw, open ends": 11.0,
+    "all": 15.1
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#10",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R2:BTH-LST",
+   "ia": 10,
+   "jb": 11,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.9824,
+   "fb": 0.9757,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 14.8,
+     "m0.08": 14.8
+    },
+    "L1 dead reckoning": {
+     "unmasked": 9.1,
+     "m0.08": 9.1
+    },
+    "interp curve fixes": {
+     "unmasked": 4.8,
+     "m0.08": 9.8
+    },
+    "yaw": {
+     "unmasked": 3.8,
+     "m0.08": 7.9
+    },
+    "yaw, open ends": {
+     "unmasked": 3.8,
+     "m0.08": 23.9
+    },
+    "all": {
+     "unmasked": 31.4,
+     "m0.08": 31.4
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 3.4,
+    "L1 dead reckoning": 2.3,
+    "interp curve fixes": 2.4,
+    "yaw": 2.0,
+    "yaw, open ends": 8.2,
+    "all": 5.8
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#11",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 0,
+   "jb": 0,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.0286,
+   "fb": 0.0128,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 34.7,
+     "m0.08": 34.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 44.3,
+     "m0.08": 44.3
+    },
+    "interp curve fixes": {
+     "unmasked": 23.2,
+     "m0.08": 33.3
+    },
+    "yaw": {
+     "unmasked": 0.7,
+     "m0.08": 26.1
+    },
+    "yaw, open ends": {
+     "unmasked": 0.7,
+     "m0.08": 1.6
+    },
+    "all": {
+     "unmasked": 73.4,
+     "m0.08": 76.7
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 8.2,
+    "L1 dead reckoning": 11.4,
+    "interp curve fixes": 7.8,
+    "yaw": 5.7,
+    "yaw, open ends": 0.3,
+    "all": 24.8
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#0",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 1,
+   "jb": 1,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.0887,
+   "fb": 0.0725,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 35.7,
+     "m0.08": 35.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 57.3,
+     "m0.08": 57.3
+    },
+    "interp curve fixes": {
+     "unmasked": 4.2,
+     "m0.08": 31.1
+    },
+    "yaw": {
+     "unmasked": 2.5,
+     "m0.08": 65.9
+    },
+    "yaw, open ends": {
+     "unmasked": 2.5,
+     "m0.08": 65.9
+    },
+    "all": {
+     "unmasked": 3.0,
+     "m0.08": 5.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 23.5,
+    "L1 dead reckoning": 39.1,
+    "interp curve fixes": 20.4,
+    "yaw": 45.7,
+    "yaw, open ends": 45.7,
+    "all": 3.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#1",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 2,
+   "jb": 2,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.3446,
+   "fb": 0.3366,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 17.6,
+     "m0.08": 17.6
+    },
+    "L1 dead reckoning": {
+     "unmasked": 43.1,
+     "m0.08": 43.1
+    },
+    "interp curve fixes": {
+     "unmasked": 1.0,
+     "m0.08": 1.0
+    },
+    "yaw": {
+     "unmasked": 1.1,
+     "m0.08": 1.0
+    },
+    "yaw, open ends": {
+     "unmasked": 1.1,
+     "m0.08": 1.0
+    },
+    "all": {
+     "unmasked": 1.1,
+     "m0.08": 1.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 22.1,
+    "L1 dead reckoning": 54.1,
+    "interp curve fixes": 1.2,
+    "yaw": 1.3,
+    "yaw, open ends": 1.3,
+    "all": 1.3
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#2",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 4,
+   "jb": 3,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.5488,
+   "fb": 0.5482,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 1.5,
+     "m0.08": 1.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 20.0,
+     "m0.08": 20.0
+    },
+    "interp curve fixes": {
+     "unmasked": 0.2,
+     "m0.08": 0.2
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 7.0
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 7.0
+    },
+    "all": {
+     "unmasked": 1.5,
+     "m0.08": 192.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 2.0,
+    "L1 dead reckoning": 26.1,
+    "interp curve fixes": 0.3,
+    "yaw": 9.2,
+    "yaw, open ends": 9.2,
+    "all": 245.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#4",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 5,
+   "jb": 4,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.6432,
+   "fb": 0.6461,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 6.3,
+     "m0.08": 6.3
+    },
+    "L1 dead reckoning": {
+     "unmasked": 8.6,
+     "m0.08": 8.6
+    },
+    "interp curve fixes": {
+     "unmasked": 0.1,
+     "m0.08": 0.3
+    },
+    "yaw": {
+     "unmasked": 0.8,
+     "m0.08": 44.9
+    },
+    "yaw, open ends": {
+     "unmasked": 0.8,
+     "m0.08": 44.9
+    },
+    "all": {
+     "unmasked": 0.8,
+     "m0.08": 1.8
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 8.9,
+    "L1 dead reckoning": 12.1,
+    "interp curve fixes": 0.4,
+    "yaw": 62.7,
+    "yaw, open ends": 62.7,
+    "all": 2.5
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#5",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 6,
+   "jb": 5,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.6708,
+   "fb": 0.6747,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 8.5,
+     "m0.08": 8.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 3.9,
+     "m0.08": 3.9
+    },
+    "interp curve fixes": {
+     "unmasked": 0.1,
+     "m0.08": 3.2
+    },
+    "yaw": {
+     "unmasked": 2.6,
+     "m0.08": 8.9
+    },
+    "yaw, open ends": {
+     "unmasked": 2.6,
+     "m0.08": 8.9
+    },
+    "all": {
+     "unmasked": 2.6,
+     "m0.08": 3.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 12.2,
+    "L1 dead reckoning": 5.6,
+    "interp curve fixes": 4.6,
+    "yaw": 12.9,
+    "yaw, open ends": 12.9,
+    "all": 4.3
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#6",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 7,
+   "jb": 6,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.7464,
+   "fb": 0.7529,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 14.3,
+     "m0.08": 14.3
+    },
+    "L1 dead reckoning": {
+     "unmasked": 8.5,
+     "m0.08": 8.5
+    },
+    "interp curve fixes": {
+     "unmasked": 3.6,
+     "m0.08": 4.3
+    },
+    "yaw": {
+     "unmasked": 0.9,
+     "m0.08": 125.7
+    },
+    "yaw, open ends": {
+     "unmasked": 0.9,
+     "m0.08": 125.7
+    },
+    "all": {
+     "unmasked": 14.3,
+     "m0.08": 19.8
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 15.6,
+    "L1 dead reckoning": 9.2,
+    "interp curve fixes": 4.4,
+    "yaw": 149.1,
+    "yaw, open ends": 149.1,
+    "all": 21.7
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#7",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 8,
+   "jb": 7,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.8692,
+   "fb": 0.8841,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 33.1,
+     "m0.08": 33.1
+    },
+    "L1 dead reckoning": {
+     "unmasked": 16.3,
+     "m0.08": 16.3
+    },
+    "interp curve fixes": {
+     "unmasked": 1.9,
+     "m0.08": 18.5
+    },
+    "yaw": {
+     "unmasked": 0.1,
+     "m0.08": 13.7
+    },
+    "yaw, open ends": {
+     "unmasked": 0.1,
+     "m0.08": 13.7
+    },
+    "all": {
+     "unmasked": 9.9,
+     "m0.08": 9.9
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 23.1,
+    "L1 dead reckoning": 11.5,
+    "interp curve fixes": 13.0,
+    "yaw": 9.7,
+    "yaw, open ends": 9.7,
+    "all": 7.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#8",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 9,
+   "jb": 8,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.9128,
+   "fb": 0.9296,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 37.2,
+     "m0.08": 37.2
+    },
+    "L1 dead reckoning": {
+     "unmasked": 22.7,
+     "m0.08": 22.7
+    },
+    "interp curve fixes": {
+     "unmasked": 0.5,
+     "m0.08": 32.3
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 26.1
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 26.1
+    },
+    "all": {
+     "unmasked": 1.5,
+     "m0.08": 29.6
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 27.2,
+    "L1 dead reckoning": 16.8,
+    "interp curve fixes": 23.7,
+    "yaw": 19.3,
+    "yaw, open ends": 19.3,
+    "all": 21.7
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#9",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 10,
+   "jb": 9,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.9179,
+   "fb": 0.9347,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 37.2,
+     "m0.08": 37.2
+    },
+    "L1 dead reckoning": {
+     "unmasked": 22.8,
+     "m0.08": 22.8
+    },
+    "interp curve fixes": {
+     "unmasked": 1.8,
+     "m0.08": 32.6
+    },
+    "yaw": {
+     "unmasked": 1.5,
+     "m0.08": 31.6
+    },
+    "yaw, open ends": {
+     "unmasked": 1.5,
+     "m0.08": 31.6
+    },
+    "all": {
+     "unmasked": 1.5,
+     "m0.08": 20.6
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 27.7,
+    "L1 dead reckoning": 17.2,
+    "interp curve fixes": 24.3,
+    "yaw": 23.6,
+    "yaw, open ends": 23.6,
+    "all": 15.6
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#10",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R2:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 11,
+   "jb": 10,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.9757,
+   "fb": 0.9824,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 14.8,
+     "m0.08": 14.8
+    },
+    "L1 dead reckoning": {
+     "unmasked": 9.0,
+     "m0.08": 9.0
+    },
+    "interp curve fixes": {
+     "unmasked": 3.8,
+     "m0.08": 8.7
+    },
+    "yaw": {
+     "unmasked": 7.7,
+     "m0.08": 16.1
+    },
+    "yaw, open ends": {
+     "unmasked": 7.7,
+     "m0.08": 20.4
+    },
+    "all": {
+     "unmasked": 10.9,
+     "m0.08": 10.9
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 4.0,
+    "L1 dead reckoning": 2.3,
+    "interp curve fixes": 2.2,
+    "yaw": 4.4,
+    "yaw, open ends": 6.0,
+    "all": 2.8
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#11",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 0,
+   "jb": 0,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.0128,
+   "fb": 0.0194,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 14.5,
+     "m0.08": 14.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 16.8,
+     "m0.08": 16.8
+    },
+    "interp curve fixes": {
+     "unmasked": 12.9,
+     "m0.08": 14.6
+    },
+    "yaw": {
+     "unmasked": 2.1,
+     "m0.08": 13.8
+    },
+    "yaw, open ends": {
+     "unmasked": 2.1,
+     "m0.08": 9.0
+    },
+    "all": {
+     "unmasked": 9.0,
+     "m0.08": 9.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 3.2,
+    "L1 dead reckoning": 3.6,
+    "interp curve fixes": 3.2,
+    "yaw": 3.1,
+    "yaw, open ends": 2.1,
+    "all": 2.1
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#0",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 1,
+   "jb": 1,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.0725,
+   "fb": 0.0766,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 9.1,
+     "m0.08": 9.1
+    },
+    "L1 dead reckoning": {
+     "unmasked": 18.7,
+     "m0.08": 18.7
+    },
+    "interp curve fixes": {
+     "unmasked": 2.1,
+     "m0.08": 9.8
+    },
+    "yaw": {
+     "unmasked": 2.0,
+     "m0.08": 6.5
+    },
+    "yaw, open ends": {
+     "unmasked": 2.0,
+     "m0.08": 3.6
+    },
+    "all": {
+     "unmasked": 2.0,
+     "m0.08": 7.3
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 6.3,
+    "L1 dead reckoning": 12.7,
+    "interp curve fixes": 6.8,
+    "yaw": 4.5,
+    "yaw, open ends": 2.5,
+    "all": 5.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#1",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 2,
+   "jb": 2,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.3366,
+   "fb": 0.335,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 3.4,
+     "m0.08": 3.4
+    },
+    "L1 dead reckoning": {
+     "unmasked": 2.2,
+     "m0.08": 2.2
+    },
+    "interp curve fixes": {
+     "unmasked": 1.8,
+     "m0.08": 1.8
+    },
+    "yaw": {
+     "unmasked": 2.2,
+     "m0.08": 14.7
+    },
+    "yaw, open ends": {
+     "unmasked": 2.2,
+     "m0.08": 14.7
+    },
+    "all": {
+     "unmasked": 3.4,
+     "m0.08": 158.2
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 4.0,
+    "L1 dead reckoning": 2.6,
+    "interp curve fixes": 2.1,
+    "yaw": 17.4,
+    "yaw, open ends": 17.4,
+    "all": 191.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#2",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 3,
+   "jb": 4,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.5482,
+   "fb": 0.5436,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 10.1,
+     "m0.08": 10.1
+    },
+    "L1 dead reckoning": {
+     "unmasked": 8.7,
+     "m0.08": 8.7
+    },
+    "interp curve fixes": {
+     "unmasked": 0.6,
+     "m0.08": 0.6
+    },
+    "yaw": {
+     "unmasked": 0.9,
+     "m0.08": 0.8
+    },
+    "yaw, open ends": {
+     "unmasked": 0.9,
+     "m0.08": 0.8
+    },
+    "all": {
+     "unmasked": 4.6,
+     "m0.08": 209.4
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 13.9,
+    "L1 dead reckoning": 11.9,
+    "interp curve fixes": 0.8,
+    "yaw": 1.1,
+    "yaw, open ends": 1.1,
+    "all": 277.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#4",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 4,
+   "jb": 5,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.6461,
+   "fb": 0.6404,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 12.5,
+     "m0.08": 12.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 2.9,
+     "m0.08": 2.9
+    },
+    "interp curve fixes": {
+     "unmasked": 0.4,
+     "m0.08": 1.3
+    },
+    "yaw": {
+     "unmasked": 0.8,
+     "m0.08": 4.2
+    },
+    "yaw, open ends": {
+     "unmasked": 0.8,
+     "m0.08": 4.2
+    },
+    "all": {
+     "unmasked": 1.4,
+     "m0.08": 1.4
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 18.0,
+    "L1 dead reckoning": 4.2,
+    "interp curve fixes": 1.9,
+    "yaw": 6.0,
+    "yaw, open ends": 6.0,
+    "all": 2.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#5",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 5,
+   "jb": 6,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.6747,
+   "fb": 0.6685,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 13.7,
+     "m0.08": 13.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 2.6,
+     "m0.08": 2.6
+    },
+    "interp curve fixes": {
+     "unmasked": 1.3,
+     "m0.08": 4.1
+    },
+    "yaw": {
+     "unmasked": 2.9,
+     "m0.08": 5.7
+    },
+    "yaw, open ends": {
+     "unmasked": 2.9,
+     "m0.08": 5.7
+    },
+    "all": {
+     "unmasked": 2.9,
+     "m0.08": 9.5
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 20.3,
+    "L1 dead reckoning": 3.8,
+    "interp curve fixes": 6.1,
+    "yaw": 8.4,
+    "yaw, open ends": 8.4,
+    "all": 14.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#6",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 6,
+   "jb": 7,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.7529,
+   "fb": 0.7474,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 12.2,
+     "m0.08": 12.2
+    },
+    "L1 dead reckoning": {
+     "unmasked": 5.1,
+     "m0.08": 5.1
+    },
+    "interp curve fixes": {
+     "unmasked": 0.3,
+     "m0.08": 1.4
+    },
+    "yaw": {
+     "unmasked": 1.1,
+     "m0.08": 4.5
+    },
+    "yaw, open ends": {
+     "unmasked": 1.1,
+     "m0.08": 4.5
+    },
+    "all": {
+     "unmasked": 1.1,
+     "m0.08": 4.4
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 11.8,
+    "L1 dead reckoning": 5.1,
+    "interp curve fixes": 1.4,
+    "yaw": 4.6,
+    "yaw, open ends": 4.6,
+    "all": 4.6
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#7",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 7,
+   "jb": 8,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.8841,
+   "fb": 0.8802,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 8.7,
+     "m0.08": 8.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 5.2,
+     "m0.08": 5.2
+    },
+    "interp curve fixes": {
+     "unmasked": 1.1,
+     "m0.08": 2.7
+    },
+    "yaw": {
+     "unmasked": 2.5,
+     "m0.08": 0.4
+    },
+    "yaw, open ends": {
+     "unmasked": 2.5,
+     "m0.08": 0.4
+    },
+    "all": {
+     "unmasked": 3.1,
+     "m0.08": 3.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 6.0,
+    "L1 dead reckoning": 3.6,
+    "interp curve fixes": 1.8,
+    "yaw": 0.3,
+    "yaw, open ends": 0.3,
+    "all": 2.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#8",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 8,
+   "jb": 9,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.9296,
+   "fb": 0.9256,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 8.9,
+     "m0.08": 8.9
+    },
+    "L1 dead reckoning": {
+     "unmasked": 4.9,
+     "m0.08": 4.9
+    },
+    "interp curve fixes": {
+     "unmasked": 0.0,
+     "m0.08": 5.5
+    },
+    "yaw": {
+     "unmasked": 2.1,
+     "m0.08": 16.6
+    },
+    "yaw, open ends": {
+     "unmasked": 2.1,
+     "m0.08": 25.5
+    },
+    "all": {
+     "unmasked": 2.1,
+     "m0.08": 14.9
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 6.9,
+    "L1 dead reckoning": 3.8,
+    "interp curve fixes": 4.2,
+    "yaw": 12.8,
+    "yaw, open ends": 19.9,
+    "all": 11.5
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#9",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 9,
+   "jb": 10,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.9347,
+   "fb": 0.9307,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 9.0,
+     "m0.08": 9.0
+    },
+    "L1 dead reckoning": {
+     "unmasked": 4.7,
+     "m0.08": 4.7
+    },
+    "interp curve fixes": {
+     "unmasked": 0.1,
+     "m0.08": 5.8
+    },
+    "yaw": {
+     "unmasked": 2.1,
+     "m0.08": 11.5
+    },
+    "yaw, open ends": {
+     "unmasked": 2.1,
+     "m0.08": 14.5
+    },
+    "all": {
+     "unmasked": 2.1,
+     "m0.08": 9.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 7.0,
+    "L1 dead reckoning": 3.7,
+    "interp curve fixes": 4.5,
+    "yaw": 9.0,
+    "yaw, open ends": 11.4,
+    "all": 7.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#10",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R4:BTH-LST",
+   "B": "R6:BTH-LST",
+   "ia": 10,
+   "jb": 11,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.9824,
+   "fb": 0.9775,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 10.7,
+     "m0.08": 10.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 8.0,
+     "m0.08": 8.0
+    },
+    "interp curve fixes": {
+     "unmasked": 8.3,
+     "m0.08": 9.4
+    },
+    "yaw": {
+     "unmasked": 7.9,
+     "m0.08": 15.7
+    },
+    "yaw, open ends": {
+     "unmasked": 7.9,
+     "m0.08": 38.3
+    },
+    "all": {
+     "unmasked": 27.3,
+     "m0.08": 27.3
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 2.6,
+    "L1 dead reckoning": 2.0,
+    "interp curve fixes": 2.3,
+    "yaw": 3.5,
+    "yaw, open ends": 6.2,
+    "all": 5.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#11",
+   "stress_role": "held_out"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 0,
+   "jb": 0,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.0194,
+   "fb": 0.0128,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 14.5,
+     "m0.08": 14.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 17.9,
+     "m0.08": 17.9
+    },
+    "interp curve fixes": {
+     "unmasked": 12.2,
+     "m0.08": 14.7
+    },
+    "yaw": {
+     "unmasked": 2.1,
+     "m0.08": 13.4
+    },
+    "yaw, open ends": {
+     "unmasked": 2.1,
+     "m0.08": 9.0
+    },
+    "all": {
+     "unmasked": 9.0,
+     "m0.08": 9.0
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 2.8,
+    "L1 dead reckoning": 3.6,
+    "interp curve fixes": 2.8,
+    "yaw": 2.5,
+    "yaw, open ends": 1.6,
+    "all": 1.6
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#0",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 1,
+   "jb": 1,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.0766,
+   "fb": 0.0725,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 9.1,
+     "m0.08": 9.1
+    },
+    "L1 dead reckoning": {
+     "unmasked": 19.8,
+     "m0.08": 19.8
+    },
+    "interp curve fixes": {
+     "unmasked": 2.2,
+     "m0.08": 9.9
+    },
+    "yaw": {
+     "unmasked": 2.0,
+     "m0.08": 9.1
+    },
+    "yaw, open ends": {
+     "unmasked": 2.0,
+     "m0.08": 9.1
+    },
+    "all": {
+     "unmasked": 2.0,
+     "m0.08": 5.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 5.8,
+    "L1 dead reckoning": 12.7,
+    "interp curve fixes": 6.3,
+    "yaw": 5.8,
+    "yaw, open ends": 5.8,
+    "all": 3.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#1",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 2,
+   "jb": 2,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.335,
+   "fb": 0.3366,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 3.4,
+     "m0.08": 3.4
+    },
+    "L1 dead reckoning": {
+     "unmasked": 2.1,
+     "m0.08": 2.1
+    },
+    "interp curve fixes": {
+     "unmasked": 1.8,
+     "m0.08": 1.8
+    },
+    "yaw": {
+     "unmasked": 2.2,
+     "m0.08": 24.5
+    },
+    "yaw, open ends": {
+     "unmasked": 2.2,
+     "m0.08": 24.5
+    },
+    "all": {
+     "unmasked": 3.4,
+     "m0.08": 178.5
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 4.2,
+    "L1 dead reckoning": 2.6,
+    "interp curve fixes": 2.2,
+    "yaw": 30.6,
+    "yaw, open ends": 30.6,
+    "all": 214.3
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#2",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 4,
+   "jb": 3,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.5436,
+   "fb": 0.5482,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 10.1,
+     "m0.08": 10.1
+    },
+    "L1 dead reckoning": {
+     "unmasked": 9.2,
+     "m0.08": 9.2
+    },
+    "interp curve fixes": {
+     "unmasked": 0.6,
+     "m0.08": 0.6
+    },
+    "yaw": {
+     "unmasked": 0.9,
+     "m0.08": 0.9
+    },
+    "yaw, open ends": {
+     "unmasked": 0.9,
+     "m0.08": 0.9
+    },
+    "all": {
+     "unmasked": 4.9,
+     "m0.08": 183.4
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 13.2,
+    "L1 dead reckoning": 11.9,
+    "interp curve fixes": 0.8,
+    "yaw": 1.2,
+    "yaw, open ends": 1.2,
+    "all": 246.9
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#4",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 5,
+   "jb": 4,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.6404,
+   "fb": 0.6461,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 12.5,
+     "m0.08": 12.5
+    },
+    "L1 dead reckoning": {
+     "unmasked": 3.0,
+     "m0.08": 3.0
+    },
+    "interp curve fixes": {
+     "unmasked": 0.5,
+     "m0.08": 1.4
+    },
+    "yaw": {
+     "unmasked": 1.4,
+     "m0.08": 37.3
+    },
+    "yaw, open ends": {
+     "unmasked": 1.4,
+     "m0.08": 37.3
+    },
+    "all": {
+     "unmasked": 1.4,
+     "m0.08": 0.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 17.5,
+    "L1 dead reckoning": 4.2,
+    "interp curve fixes": 1.9,
+    "yaw": 52.2,
+    "yaw, open ends": 52.2,
+    "all": 0.1
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#5",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 6,
+   "jb": 5,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.6685,
+   "fb": 0.6747,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 13.7,
+     "m0.08": 13.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 2.7,
+     "m0.08": 2.7
+    },
+    "interp curve fixes": {
+     "unmasked": 1.3,
+     "m0.08": 4.1
+    },
+    "yaw": {
+     "unmasked": 2.9,
+     "m0.08": 74.0
+    },
+    "yaw, open ends": {
+     "unmasked": 2.9,
+     "m0.08": 74.0
+    },
+    "all": {
+     "unmasked": 2.9,
+     "m0.08": 18.7
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 19.7,
+    "L1 dead reckoning": 3.8,
+    "interp curve fixes": 5.9,
+    "yaw": 105.1,
+    "yaw, open ends": 105.1,
+    "all": 27.1
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#6",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 7,
+   "jb": 6,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.7474,
+   "fb": 0.7529,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 12.2,
+     "m0.08": 12.2
+    },
+    "L1 dead reckoning": {
+     "unmasked": 4.7,
+     "m0.08": 4.7
+    },
+    "interp curve fixes": {
+     "unmasked": 0.3,
+     "m0.08": 1.4
+    },
+    "yaw": {
+     "unmasked": 1.1,
+     "m0.08": 143.7
+    },
+    "yaw, open ends": {
+     "unmasked": 1.1,
+     "m0.08": 143.7
+    },
+    "all": {
+     "unmasked": 1.1,
+     "m0.08": 4.4
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 13.2,
+    "L1 dead reckoning": 5.1,
+    "interp curve fixes": 1.5,
+    "yaw": 175.5,
+    "yaw, open ends": 175.5,
+    "all": 4.6
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#7",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 8,
+   "jb": 7,
+   "kind": "on",
+   "sign": 1,
+   "fa": 0.8802,
+   "fb": 0.8841,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 8.7,
+     "m0.08": 8.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 5.1,
+     "m0.08": 5.1
+    },
+    "interp curve fixes": {
+     "unmasked": 1.1,
+     "m0.08": 2.6
+    },
+    "yaw": {
+     "unmasked": 3.1,
+     "m0.08": 8.7
+    },
+    "yaw, open ends": {
+     "unmasked": 3.1,
+     "m0.08": 8.7
+    },
+    "all": {
+     "unmasked": 3.1,
+     "m0.08": 3.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 6.1,
+    "L1 dead reckoning": 3.6,
+    "interp curve fixes": 1.9,
+    "yaw": 6.2,
+    "yaw, open ends": 6.2,
+    "all": 2.2
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#8",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 9,
+   "jb": 8,
+   "kind": "off",
+   "sign": 1,
+   "fa": 0.9256,
+   "fb": 0.9296,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 8.9,
+     "m0.08": 8.9
+    },
+    "L1 dead reckoning": {
+     "unmasked": 5.0,
+     "m0.08": 5.0
+    },
+    "interp curve fixes": {
+     "unmasked": 0.0,
+     "m0.08": 5.4
+    },
+    "yaw": {
+     "unmasked": 2.1,
+     "m0.08": 14.2
+    },
+    "yaw, open ends": {
+     "unmasked": 2.1,
+     "m0.08": 20.0
+    },
+    "all": {
+     "unmasked": 2.1,
+     "m0.08": 16.1
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 6.7,
+    "L1 dead reckoning": 3.8,
+    "interp curve fixes": 4.0,
+    "yaw": 10.6,
+    "yaw, open ends": 14.8,
+    "all": 12.0
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#9",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 10,
+   "jb": 9,
+   "kind": "on",
+   "sign": -1,
+   "fa": 0.9307,
+   "fb": 0.9347,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 9.0,
+     "m0.08": 9.0
+    },
+    "L1 dead reckoning": {
+     "unmasked": 4.8,
+     "m0.08": 4.8
+    },
+    "interp curve fixes": {
+     "unmasked": 0.1,
+     "m0.08": 5.7
+    },
+    "yaw": {
+     "unmasked": 2.1,
+     "m0.08": 16.6
+    },
+    "yaw, open ends": {
+     "unmasked": 2.1,
+     "m0.08": 25.6
+    },
+    "all": {
+     "unmasked": 2.1,
+     "m0.08": 18.2
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 6.9,
+    "L1 dead reckoning": 3.7,
+    "interp curve fixes": 4.3,
+    "yaw": 12.6,
+    "yaw, open ends": 19.2,
+    "all": 13.8
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#10",
+   "stress_role": "reference"
+  },
+  {
+   "A": "R6:BTH-LST",
+   "B": "R4:BTH-LST",
+   "ia": 11,
+   "jb": 10,
+   "kind": "off",
+   "sign": -1,
+   "fa": 0.9775,
+   "fb": 0.9824,
+   "err": {
+    "L0 time fraction": {
+     "unmasked": 10.7,
+     "m0.08": 10.7
+    },
+    "L1 dead reckoning": {
+     "unmasked": 7.9,
+     "m0.08": 7.9
+    },
+    "interp curve fixes": {
+     "unmasked": 7.8,
+     "m0.08": 9.1
+    },
+    "yaw": {
+     "unmasked": 10.5,
+     "m0.08": 13.1
+    },
+    "yaw, open ends": {
+     "unmasked": 10.5,
+     "m0.08": 21.8
+    },
+    "all": {
+     "unmasked": 22.0,
+     "m0.08": 27.3
+    }
+   },
+   "err_dist": {
+    "L0 time fraction": 2.7,
+    "L1 dead reckoning": 2.0,
+    "interp curve fixes": 2.3,
+    "yaw": 3.5,
+    "yaw, open ends": 6.5,
+    "all": 8.7
+   },
+   "section": "WB BTH->LST",
+   "phys": "WB BTH->LST#11",
+   "stress_role": "reference"
   }
  ],
  "path_rows": [
@@ -44225,5 +44229,5 @@
    "all-mag": 17.5
   }
  ],
- "runtime_s": 105.6
+ "runtime_s": 115.1
 }

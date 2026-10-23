@@ -155,10 +155,17 @@ The chain runs these steps in order. Each step is also a standalone script in `s
 | segment | `tubesense/stops.py` | `outputs/sections.json` (dwells and station-to-station sections), `outputs/segment/<stem>.png` |
 | qc | `tubesense/qc.py` | `outputs/qc.json` (messy-input flags), `outputs/qc/*.png` |
 | repeatability | `tubesense/features.py`, `tubesense/repeat.py` | `outputs/gonogo/repeatability.json`, `gyro_*.png`, `mag_*.png` |
-| mag_anomaly | `tubesense/features.py` (`mag_destep`, `field_anomaly`) | `outputs/gonogo/mag_anomaly.json`, `mag_anomaly.png`: bias-free magnetometer follow-up |
-| ablation | `tubesense/position.py` | `outputs/positioning/ablation.json`, `ablation.png`, `gap_length.png`, `improvement_log.md`: held-out positioning error per sensor set (L0, L1, DTW) |
+| mag_anomaly | `tubesense/magnetics.py`, `features.py` (`mag_destep`, `field_anomaly`) | `outputs/gonogo/mag_anomaly.json`, `mag_anomaly.png`: bias-free magnetometer follow-up |
+| mag_compare | `tubesense/magnetics.py` | `outputs/gonogo/mag_compare.json`, `mag_compare.png`: field-anomaly repeatability per line (deep tube vs sub-surface), raw vs calibrated; platform signatures once a `CAL_*` recording validates |
+| ablation | `tubesense/position.py` | `outputs/positioning/ablation.json`, `ablation.png`, `gap_length.png`, `improvement_log.md`: held-out positioning error per sensor set (L0, L1, DTW), per section, per line and overall |
 | online_eval | `tubesense/online.py` | `outputs/online/online_eval.json`, `online_eval.png`, `clip_lock.png`, `track_<run>.png`: leave-one-run-out test of the live tracker; `maps.json`: the demo maps |
+| forward_test | `tubesense/online.py` | `outputs/online/forward_test.json`: rides recorded after the freeze, tracked with the frozen maps in `outputs/prereg/` |
 | loudness | `tubesense/loudness.py` | `outputs/gonogo/loudness.json`, `loudness_sections.csv/png`, `loudness_<stem>.png` |
+
+Lines and stations live in `tubesense/stops.py` (`STATIONS`, `LINES`). A new route only needs its stations
+there; every analysis then picks up any section ridden at least twice. The 24 Oct rides (second line:
+Hammersmith & City) are analysed under the pre-registered plan in [`outputs/PLAN_24Oct.md`](outputs/PLAN_24Oct.md),
+frozen at git tag `prereg-24oct`.
 
 Time conventions: sensor time is phyphox experiment time, which stops while phyphox is paused.
 `Run.to_wall()` maps it to wall-clock time, and `sync.sensor_to_audio()` maps it to seconds in the

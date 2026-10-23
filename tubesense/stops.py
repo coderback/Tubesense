@@ -33,6 +33,17 @@ STATIONS = {
     "LST": ("Liverpool Street", 51.517372, -0.083182),
     "BTH": ("Bethnal Green", 51.527222, -0.055506),
     "MLE": ("Mile End", 51.525122, -0.03364),
+    # Hammersmith & City (TfL Unified API Route/Sequence, 23 Oct 2026); LST shares 940GZZLULVT
+    "ALE": ("Aldgate East", 51.515037, -0.072384),
+    "WCL": ("Whitechapel", 51.519518, -0.059971),
+}
+
+# Line -> station order (only the stretches ridden). A route FROM-TO not in ROUTES is the slice of
+# the one line that has both stations, in travel order. TfL line ids, for the Unified API.
+LINES = {
+    "victoria": ["VIC", "GPK", "OXC"],
+    "central": ["OXC", "TCR", "HOL", "CYL", "STP", "BNK", "LST", "BTH", "MLE"],
+    "hammersmith-city": ["LST", "ALE", "WCL"],
 }
 
 ROUTES = {
@@ -45,8 +56,24 @@ ROUTES = {
 }
 
 
+def line_and_route(route: str) -> tuple[str, list[str]]:
+    """(TfL line id, station sequence) for a filename route such as "LST-WCL" or "VIC_OXC"."""
+    a, b = route.replace("_", "-").split("-")
+    lines = [ln for ln, st in LINES.items() if a in st and b in st]
+    if len(lines) != 1:
+        raise ValueError(f"route {route}: {a}->{b} is on {len(lines)} known lines {lines}; add it to LINES/ROUTES")
+    st = LINES[lines[0]]
+    i, j = st.index(a), st.index(b)
+    seq = st[i: j + 1] if i < j else st[j: i + 1][::-1]
+    return lines[0], ROUTES.get(route, seq)
+
+
 def route_stations(run: Run) -> list[str]:
-    return ROUTES[run.route]
+    return line_and_route(run.route)[1]
+
+
+def line_of(run: Run) -> str:
+    return line_and_route(run.route)[0]
 
 
 def distance_m(a: str, b: str) -> float:
@@ -362,7 +389,7 @@ def segment_run(run: Run) -> dict:
             ev.append("boundary falls in a handled period (taps/phone in hand); timing from barometer only")
             conf -= 0.1
         sections.append({
-            "stem": run.stem, "run_id": run.run_id, "direction": run.direction,
+            "stem": run.stem, "run_id": run.run_id, "line": line_of(run), "direction": run.direction,
             "from": d0["station"], "to": d1["station"],
             "depart_t": round(dep, 2), "arrive_t": round(arr, 2),
             "depart_wall": round(w0, 2), "arrive_wall": round(w1, 2),
@@ -371,7 +398,7 @@ def segment_run(run: Run) -> dict:
             "tunnel_stops": ts, "approach_stops": near, "overlaps_pause": bool(ov),
             "confidence": round(max(conf, 0.05), 2), "evidence": "; ".join(ev),
         })
-    return {"stem": run.stem, "run_id": run.run_id, "direction": run.direction,
+    return {"stem": run.stem, "run_id": run.run_id, "line": line_of(run), "direction": run.direction,
             "stations": stations, "assign_cost": round(float(cost), 2),
             "usable": [float(lead), float(trail)], "dwells": dwells, "sections": sections,
             "other_stops": [[float(r.t0), float(r.t1)] for r in others],

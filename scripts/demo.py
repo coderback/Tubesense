@@ -30,8 +30,9 @@ import numpy as np
 from tubesense import online as O
 from tubesense import repeat as R
 from tubesense.ingest import ROOT, load_run
+from tubesense.stops import STATIONS
 
-STATION_NAMES = {"LST": "Liverpool Street", "BTH": "Bethnal Green", "MLE": "Mile End"}
+STATION_NAMES = {k: v[0] for k, v in STATIONS.items()}
 PRE_S = 8.0       # platform time shown before the departure
 FPS = 8.0         # target drawn frames per second
 LOCKED = 0.5      # posterior mass within 50 m of the estimate that counts as locked

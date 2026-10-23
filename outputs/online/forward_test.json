@@ -1,0 +1,11 @@
+{
+ "frozen_maps": "outputs/prereg/maps_23Oct.json",
+ "overall": {
+  "n_sections": 0,
+  "tracker_median_of_runs_m": null,
+  "timetable_median_of_runs_m": null,
+  "band90_coverage_mean": null
+ },
+ "runs": [],
+ "doc": "Forward-in-time test: track new rides with the maps frozen before they were recorded.\n\nThe maps in outputs/prereg/maps_23Oct.json were built from the 23 Oct rides only and frozen (git tag\nprereg-24oct) before the 24 Oct rides. Every clean section of a later ride on a mapped track is tracked\nwith the frozen map (online.track, frozen settings) and scored like scripts/online_eval.py: MAP vs the\nindependent truth (the ride's curve edges matched to the map's base run, interpolated, no DTW), the\ntimetable baseline, and 90 % band coverage. Pre-registered criteria: outputs/PLAN_24Oct.md (H2b).\nWrites outputs/online/forward_test.json. Run: .venv/Scripts/python scripts/forward_test.py\n"
+}

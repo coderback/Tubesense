@@ -20,8 +20,8 @@ from tubesense.ingest import ROOT, load_run
 from tubesense.stops import pauses
 
 OUT = ROOT / "outputs" / "gonogo"
-LINE_RUNS = {"R0.5", "R1", "R1.5", "R2", "R3", "R4", "R5", "R6"}  # Central line
-TRACKS = [("EB", "LST", "BTH"), ("EB", "BTH", "MLE"), ("WB", "MLE", "BTH"), ("WB", "BTH", "LST")]
+EXCLUDE_RUNS = {"R0"}  # Victoria-line noise reference (calibrated magnetometer by design), not a repeat ride
+REVERSED = {"WB", "SB"}  # directions mapped into the opposite direction's orientation for cross-direction tests
 QUALITY_FLAGS = {"handheld", "handled_mid_ride", "floor_like_placement", "section_truncated",
                  "section_overlaps_pause", "atypical_coupling"}
 EXCLUDE = {"handheld", "section_truncated", "section_overlaps_pause"}  # from the "clean" subset
@@ -59,7 +59,7 @@ def build():
     raw_centre = np.mean(raw_vecs, 0) if raw_vecs else np.zeros(3)
     sig, meta, cache = {}, {}, {}
     for sec in secs:
-        if sec["run_id"] not in LINE_RUNS:
+        if sec["run_id"] in EXCLUDE_RUNS:
             continue
         stem = sec["stem"]
         if stem not in cache:
@@ -103,21 +103,32 @@ def build():
 
 
 def groups(meta):
+    """Sections grouped by (direction, from, to), for every group ridden at least twice (first-seen order)."""
     g = {}
     for k, m in meta.items():
-        t = (m["dir"], m["from"], m["to"])
-        if t in TRACKS:
-            g.setdefault(t, []).append(k)
-    return g
+        g.setdefault((m["dir"], m["from"], m["to"]), []).append(k)
+    return {t: ks for t, ks in g.items() if len(ks) >= 2}
+
+
+def direction_pairs(G):
+    """(forward, reverse) groups over the same physical track, forward = the first seen."""
+    out, seen = [], set()
+    for t in G:
+        rev = next((u for u in G if u[1:] == (t[2], t[1]) and u[0] != t[0]), None)
+        if rev and t not in seen and rev not in seen:
+            fwd, bwd = (rev, t) if t[0] in REVERSED else (t, rev)
+            out.append((fwd, bwd))
+            seen |= {t, rev}
+    return out
 
 
 def to_eb(meta):
     """Map a westbound signal into eastbound orientation: reverse fraction, flip yaw sign."""
     def tf_yaw(k, x):
-        return -x[::-1] if meta[k]["dir"] == "WB" else x
+        return -x[::-1] if meta[k]["dir"] in REVERSED else x
 
     def tf_mag(k, x):
-        return x[::-1] if meta[k]["dir"] == "WB" else x
+        return x[::-1] if meta[k]["dir"] in REVERSED else x
     return tf_yaw, tf_mag
 
 
@@ -154,12 +165,12 @@ def analyse(sig, meta):
 
     # cross-direction: EB vs WB over the same physical track, WB mapped into EB orientation
     tf_yaw, tf_mag = to_eb(meta)
-    for eb, wb in ((("EB", "LST", "BTH"), ("WB", "BTH", "LST")), (("EB", "BTH", "MLE"), ("WB", "MLE", "BTH"))):
+    for eb, wb in direction_pairs(G):
         sets = {"yaw": ([k for k in G[eb] if meta[k]["clean"]], [k for k in G[wb] if meta[k]["clean"]]),
                 "B": ([k for k in G[eb] if meta[k]["mag_step_free"]], [k for k in G[wb] if meta[k]["mag_step_free"]]),
                 "dB": ([k for k in G[eb] if meta[k]["mag_usable_masked"]],
                        [k for k in G[wb] if meta[k]["mag_usable_masked"]])}
-        name = f"{eb[1]}-{eb[2]} EB vs WB(reversed)"
+        name = f"{eb[1]}-{eb[2]} {eb[0]} vs {wb[0]}(reversed)"
         res["cross_direction"][name] = {s: R.summarise(R.cross_table(sig, *sets[s.split("_")[0]], s, tf)) for s, tf in
                                         (("yaw_dist", tf_yaw), ("yaw_time", tf_yaw), ("B_dist", tf_mag), ("dB_dist", tf_mag))}
         # plain r, fitted shift and a +-25 % search (is the +-10 % result bound-limited?), with surrogates
@@ -351,12 +362,15 @@ def plot_mag(sig, meta, G):
         plt.close(fig)
 
 
+def matrix_blocks(G):
+    """Groups in display order: each forward/reverse pair, then unpaired groups."""
+    blocks = [t for pair in direction_pairs(G) for t in pair]
+    return blocks + [t for t in G if t not in blocks]
+
+
 def matrix_order(meta, G):
-    order = []
-    for t in (("EB", "LST", "BTH"), ("WB", "BTH", "LST"), ("EB", "BTH", "MLE"), ("WB", "MLE", "BTH")):
-        order += G[t]
-    order += [k for k in meta if meta[k]["run"] == "R0.5"]
-    return order
+    order = [k for t in matrix_blocks(G) for k in G[t]]
+    return order + [k for k in meta if k not in order]  # sections ridden once (e.g. the R0.5 bonus sections)
 
 
 def plot_matrix(sig, meta, G, key, tf, fname, title):
@@ -371,8 +385,7 @@ def plot_matrix(sig, meta, G, key, tf, fname, title):
     labs = [f"{k}{'' if meta[k]['clean'] else ' *'}" for k in order]
     ax.set_xticks(range(len(order)), labs, rotation=90, fontsize=8)
     ax.set_yticks(range(len(order)), labs, fontsize=8)
-    for edge in np.cumsum([len(G[t]) for t in (("EB", "LST", "BTH"), ("WB", "BTH", "LST"),
-                                                ("EB", "BTH", "MLE"), ("WB", "MLE", "BTH"))]):
+    for edge in np.cumsum([len(G[t]) for t in matrix_blocks(G)]):
         ax.axhline(edge - 0.5, color="k", lw=1)
         ax.axvline(edge - 0.5, color="k", lw=1)
     for i in range(len(order)):
@@ -566,12 +579,11 @@ def main():
 
     plot_gyro(sig, meta, G)
     plot_mag(sig, meta, G)
+    blocks = " | ".join(f"{d} {a}-{b}" for d, a, b in matrix_blocks(G)) + " | sections ridden once   (* = flagged)"
     plot_matrix(sig, meta, G, "yaw_dist", tf_yaw, "gyro_matrix.png",
-                "Yaw-rate similarity, all Central sections (L1 distance grid; WB reversed + sign-flipped)\n"
-                "blocks: EB LST-BTH | WB BTH-LST | EB BTH-MLE | WB MLE-BTH | R0.5 bonus sections   (* = flagged)")
+                "Yaw-rate similarity, all sections (L1 distance grid; WB reversed + sign-flipped)\nblocks: " + blocks)
     plot_matrix(sig, meta, G, "B_dist", tf_mag, "mag_matrix.png",
-                "|B| similarity, all Central sections (L1 distance grid; WB reversed)\n"
-                "blocks: EB LST-BTH | WB BTH-LST | EB BTH-MLE | WB MLE-BTH | R0.5 bonus sections   (* = flagged)")
+                "|B| similarity, all sections (L1 distance grid; WB reversed)\nblocks: " + blocks)
     plot_summary(res, "gyro_summary.png", ["yaw_time", "yaw_dist"],
                  "(a) Gyro yaw rate: same section vs null baselines (clean runs)")
     plot_summary(res, "mag_summary.png", ["B_dist", "dB_dist"],

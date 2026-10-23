@@ -14,7 +14,8 @@ Also: the timetable baseline (time since departure / the map's mean section time
 (A's yaw hidden within +-MASK of the section around each curve edge, read at that edge: positioning
 between curves); 90 % band coverage against both truths; clip mode from several start positions with
 a uniform prior (time to lock, and how often the demo's "confident" display is > 50 m wrong);
-departure detection armed at the previous arrival / recording start, unhinted; the R4 stress test.
+departure detection armed at the previous arrival / recording start, unhinted; a stress test on
+excluded sections that still have both ends (pause, handling, floor: today R4).
 Writes outputs/online/{maps.json, online_eval.json, online_eval.png, clip_lock.png, track_<key>.png}.
 Run: .venv/Scripts/python scripts/online_eval.py
 """
@@ -32,6 +33,7 @@ from tubesense import online as O
 from tubesense import position as P
 from tubesense import repeat as R
 from tubesense.ingest import ROOT
+from tubesense.stops import STATIONS
 
 OUT = ROOT / "outputs" / "online"
 MASK = 0.08                      # as the ablation headline
@@ -40,10 +42,11 @@ CLIP_STARTS = (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7)
 LOCKED, PAINT_BAND_M, HOLD = 0.5, 200.0, 8  # the demo's "confident" rule (scripts/demo.py)
 
 
-def lengths() -> dict:
+def lengths(tracks) -> dict:
+    """Track name -> metres, from the ablation's track_lengths.json (physical track, stations in STATIONS order)."""
     tl = json.load(open(ROOT / "outputs" / "positioning" / "track_lengths.json"))["used_m"]
-    order = "LST BTH MLE".split()
-    return {O.track_name(*k): tl["-".join(sorted(k[1:], key=order.index))] for k in O.TRACKS}
+    key = lambda t: "-".join(sorted(t.split()[1].split("->"), key=list(STATIONS).index))
+    return {t: tl[key(t)] for t in tracks}
 
 
 def noise_of(srs):
@@ -218,8 +221,9 @@ def pooled(rows, key):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    L = lengths()
     S = O.section_runs()
+    S_all = O.section_runs(clean_only=False)
+    L = lengths(S_all)
     rows, clips = [], []
     for trk, srs in S.items():
         if len(srs) < 2:
@@ -235,8 +239,9 @@ def main():
                   f"{row['edges_masked_map_m']['median']} tt {row['edges_masked_timetable_m']['median']} | "
                   f"cov {row['band90_coverage_independent']:.2f} | clip lock {[c['lock_s'] for c in row['clip'].values()]}")
     stress = []
-    for trk, srs in O.section_runs(clean_only=False).items():
-        for a in [s for s in srs if s.key.startswith("R4")]:
+    # stress test: excluded sections that still have both ends (pause, handling, floor), against the clean map
+    for trk, srs in S_all.items():
+        for a in [s for s in srs if not s.clean and not s.truncated]:
             clean = S.get(trk, [])
             if clean:
                 row, est, tpl, tp, ti, _ = held_out(trk, clean + [a], L[trk], a)

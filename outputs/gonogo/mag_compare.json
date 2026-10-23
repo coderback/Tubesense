@@ -1,0 +1,655 @@
+{
+ "lines": {
+  "central": {
+   "sections": 18,
+   "median_section_s": 105.0,
+   "clean_by_mode": {
+    "all": 15,
+    "raw": 7,
+    "calibrated": 8
+   },
+   "anom/all": {
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R3:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.875,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.686
+     },
+     {
+      "pair": "R1:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.748,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.613
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.57,
+      "surrogate_p": 0.08,
+      "surrogate_p99": 0.636
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.522,
+      "surrogate_p": 0.17,
+      "surrogate_p99": 0.662
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.68,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.581
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.721,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.631
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.698,
+      "surrogate_p": 0.015,
+      "surrogate_p99": 0.705
+     }
+    ],
+    "same_mean_r": 0.688,
+    "same_min_r": 0.522,
+    "n_significant": 5,
+    "n_pairs": 7,
+    "null_mean_r": 0.388,
+    "null_p95_r": 0.713,
+    "null_n": 98,
+    "excess_r": 0.3,
+    "ci95": [
+     0.214,
+     0.393
+    ]
+   },
+   "anom/raw": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 21,
+    "note": "not enough sections"
+   },
+   "anom/calibrated": {
+    "pairs": [
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.57,
+      "surrogate_p": 0.08,
+      "surrogate_p99": 0.646
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.522,
+      "surrogate_p": 0.145,
+      "surrogate_p99": 0.648
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.68,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.643
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.721,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.618
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.698,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.694
+     }
+    ],
+    "same_mean_r": 0.638,
+    "same_min_r": 0.522,
+    "n_significant": 3,
+    "n_pairs": 5,
+    "null_mean_r": 0.462,
+    "null_p95_r": 0.742,
+    "null_n": 23,
+    "excess_r": 0.176,
+    "ci95": [
+     0.071,
+     0.282
+    ]
+   },
+   "resid/all": {
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R3:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.633,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.475
+     },
+     {
+      "pair": "R1:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.558,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.392
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.507,
+      "surrogate_p": 0.05,
+      "surrogate_p99": 0.551
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.587,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.575
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.338,
+      "surrogate_p": 0.055,
+      "surrogate_p99": 0.385
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.454,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.42
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.657,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.623
+     }
+    ],
+    "same_mean_r": 0.533,
+    "same_min_r": 0.338,
+    "n_significant": 5,
+    "n_pairs": 7,
+    "null_mean_r": 0.224,
+    "null_p95_r": 0.427,
+    "null_n": 98,
+    "excess_r": 0.31,
+    "ci95": [
+     0.231,
+     0.383
+    ]
+   },
+   "resid/raw": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 21,
+    "note": "not enough sections"
+   },
+   "resid/calibrated": {
+    "pairs": [
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.507,
+      "surrogate_p": 0.045,
+      "surrogate_p99": 0.574
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.587,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.569
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.338,
+      "surrogate_p": 0.055,
+      "surrogate_p99": 0.433
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.454,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.42
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.657,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.596
+     }
+    ],
+    "same_mean_r": 0.509,
+    "same_min_r": 0.338,
+    "n_significant": 4,
+    "n_pairs": 5,
+    "null_mean_r": 0.231,
+    "null_p95_r": 0.456,
+    "null_n": 23,
+    "excess_r": 0.278,
+    "ci95": [
+     0.167,
+     0.383
+    ]
+   },
+   "anom_mid/all": {
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R3:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.651,
+      "surrogate_p": 0.075,
+      "surrogate_p99": 0.728
+     },
+     {
+      "pair": "R1:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.748,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.719
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.317,
+      "surrogate_p": 0.325,
+      "surrogate_p99": 0.512
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.304,
+      "surrogate_p": 0.465,
+      "surrogate_p99": 0.588
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.679,
+      "surrogate_p": 0.075,
+      "surrogate_p99": 0.747
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.709,
+      "surrogate_p": 0.065,
+      "surrogate_p99": 0.76
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.239,
+      "surrogate_p": 0.62,
+      "surrogate_p99": 0.667
+     }
+    ],
+    "same_mean_r": 0.521,
+    "same_min_r": 0.239,
+    "n_significant": 1,
+    "n_pairs": 7,
+    "null_mean_r": 0.333,
+    "null_p95_r": 0.66,
+    "null_n": 98,
+    "excess_r": 0.188,
+    "ci95": [
+     0.028,
+     0.341
+    ]
+   },
+   "anom_mid/raw": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 21,
+    "note": "not enough sections"
+   },
+   "anom_mid/calibrated": {
+    "pairs": [
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.317,
+      "surrogate_p": 0.32,
+      "surrogate_p99": 0.527
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.304,
+      "surrogate_p": 0.44,
+      "surrogate_p99": 0.588
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.679,
+      "surrogate_p": 0.065,
+      "surrogate_p99": 0.748
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.709,
+      "surrogate_p": 0.095,
+      "surrogate_p99": 0.774
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.239,
+      "surrogate_p": 0.565,
+      "surrogate_p99": 0.662
+     }
+    ],
+    "same_mean_r": 0.45,
+    "same_min_r": 0.239,
+    "n_significant": 0,
+    "n_pairs": 5,
+    "null_mean_r": 0.324,
+    "null_p95_r": 0.617,
+    "null_n": 23,
+    "excess_r": 0.126,
+    "ci95": [
+     -0.07,
+     0.346
+    ]
+   },
+   "resid_mid/all": {
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R3:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.613,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.629
+     },
+     {
+      "pair": "R1:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "raw",
+       "calibrated"
+      ],
+      "r": 0.729,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.713
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.558,
+      "surrogate_p": 0.1,
+      "surrogate_p99": 0.635
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.503,
+      "surrogate_p": 0.17,
+      "surrogate_p99": 0.643
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.398,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.37
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.7,
+      "surrogate_p": 0.095,
+      "surrogate_p99": 0.782
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.61,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.6
+     }
+    ],
+    "same_mean_r": 0.587,
+    "same_min_r": 0.398,
+    "n_significant": 4,
+    "n_pairs": 7,
+    "null_mean_r": 0.244,
+    "null_p95_r": 0.584,
+    "null_n": 98,
+    "excess_r": 0.343,
+    "ci95": [
+     0.252,
+     0.429
+    ]
+   },
+   "resid_mid/raw": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 21,
+    "note": "not enough sections"
+   },
+   "resid_mid/calibrated": {
+    "pairs": [
+     {
+      "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.558,
+      "surrogate_p": 0.12,
+      "surrogate_p99": 0.628
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.503,
+      "surrogate_p": 0.175,
+      "surrogate_p99": 0.632
+     },
+     {
+      "pair": "R2:BTH-LST vs R6:BTH-LST",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.398,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.385
+     },
+     {
+      "pair": "R3:LST-BTH vs R5:LST-BTH",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.7,
+      "surrogate_p": 0.075,
+      "surrogate_p99": 0.764
+     },
+     {
+      "pair": "R3:BTH-MLE vs R5:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "calibrated"
+      ],
+      "r": 0.61,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.64
+     }
+    ],
+    "same_mean_r": 0.554,
+    "same_min_r": 0.398,
+    "n_significant": 2,
+    "n_pairs": 5,
+    "null_mean_r": 0.145,
+    "null_p95_r": 0.518,
+    "null_n": 23,
+    "excess_r": 0.408,
+    "ci95": [
+     0.271,
+     0.547
+    ]
+   }
+  }
+ },
+ "primary": {
+  "feature": "resid_mid",
+  "modes": "raw"
+ },
+ "hard_iron": {
+  "c": null,
+  "reason": "no CAL_*.xlsx figure-of-eight recording"
+ },
+ "platform_signatures": {},
+ "platform_signatures_note": "not computed: no CAL_*.xlsx figure-of-eight recording"
+}
