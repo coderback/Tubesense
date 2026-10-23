@@ -1,0 +1,25 @@
+/CLAUDE.md
+
+# Raw recordings never leave this machine (privacy: see README).
+data/raw/
+data/interim/
+
+# Any audio, anywhere in the tree.
+*.m4a
+*.wav
+*.mp3
+*.aac
+*.flac
+*.caf
+*.ogg
+*.opus
+*.aiff
+*.aif
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+*.egg-info/

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tubesense"
+version = "0.1.0"
+description = "Phone-sensor noise and rail-corrugation mapping for the London Underground"
+requires-python = ">=3.13"
+dynamic = ["dependencies"]
+
+[tool.setuptools]
+packages = ["tubesense"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
