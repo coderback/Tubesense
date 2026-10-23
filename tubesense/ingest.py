@@ -129,9 +129,14 @@ def load_audio(run: Run, sr: int | None = None) -> tuple[np.ndarray, int]:
         native = stream.rate
         resampler = av.AudioResampler(format="flt", layout="mono", rate=sr or native)
         chunks = []
-        for frame in c.decode(stream):
-            for f in resampler.resample(frame):
-                chunks.append(f.to_ndarray().reshape(-1))
+        for packet in c.demux(stream):
+            try:
+                frames = packet.decode()
+            except av.error.InvalidDataError:
+                continue  # every Voice Memos ALAC file ends with one undecodable packet
+            for frame in frames:
+                for f in resampler.resample(frame):
+                    chunks.append(f.to_ndarray().reshape(-1))
         for f in resampler.resample(None):
             chunks.append(f.to_ndarray().reshape(-1))
     return np.concatenate(chunks).astype(np.float32), sr or native
