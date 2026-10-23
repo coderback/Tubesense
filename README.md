@@ -51,11 +51,31 @@ The chain runs these steps in order. Each step is also a standalone script in `s
 | repeatability | `tubesense/features.py`, `tubesense/repeat.py` | `outputs/gonogo/repeatability.json`, `gyro_*.png`, `mag_*.png` |
 | mag_anomaly | `tubesense/features.py` (`mag_destep`, `field_anomaly`) | `outputs/gonogo/mag_anomaly.json`, `mag_anomaly.png`: bias-free magnetometer follow-up |
 | ablation | `tubesense/position.py` | `outputs/positioning/ablation.json`, `ablation.png`, `gap_length.png`, `improvement_log.md`: held-out positioning error per sensor set (L0, L1, DTW) |
+| online_eval | `tubesense/online.py` | `outputs/online/online_eval.json`, `online_eval.png`, `clip_lock.png`, `track_<run>.png`: leave-one-run-out test of the live tracker; `maps.json`: the demo maps |
 | loudness | `tubesense/loudness.py` | `outputs/gonogo/loudness.json`, `loudness_sections.csv/png`, `loudness_<stem>.png` |
 
 Time conventions: sensor time is phyphox experiment time, which stops while phyphox is paused.
 `Run.to_wall()` maps it to wall-clock time, and `sync.sensor_to_audio()` maps it to seconds in the
 audio file.
+
+## Live demo
+
+`scripts/demo.py` replays a ride through the online tracker: a dot moves along a strip map of the
+section coloured by the map's noise level, with a 90 % band, while the ride's own 1-s noise is painted
+where the tracker puts it. Everything shown at a moment uses only data up to that moment. If the ride
+is one of the map's runs, the map is rebuilt without it (leave-one-out).
+
+```
+.venv/Scripts/python scripts/demo.py R5 --track "EB LST->BTH"                 # window, real time
+.venv/Scripts/python scripts/demo.py R5 --track "EB LST->BTH" --speed 6 --truth  # 6x, with the offline check
+.venv/Scripts/python scripts/demo.py R5 --track "EB LST->BTH" --clip 45        # start mid-section, position unknown
+.venv/Scripts/python scripts/demo.py R5 --track "EB BTH->MLE" --after 160     # second leg: arm after the BTH arrival
+.venv/Scripts/python scripts/demo.py R5 --track "EB LST->BTH" --save outputs/online/demo.mp4 --speed 6
+```
+
+A new ride (e.g. Sunday's) only needs `data/raw/phyphox/<stem>.xlsx` and `data/raw/audio/<stem>.m4a`;
+sync and 1-s levels are computed on the fly if missing. Saving an MP4 takes ~4 min at 6x (frames are
+drawn by matplotlib); the live window redraws only the moving parts.
 
 ## Privacy
 

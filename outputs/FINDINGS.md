@@ -12,6 +12,7 @@ attacked by an independent skeptic agent, and the confirmed issues fixed before 
 | (b) magnetometer | **\|B\| NO-GO; bias-free field anomaly WEAK** | \|B\| is spoiled by iOS recalibration jumps and the raw hard-iron bias. The size of the field's deviation from its section average repeats, and part of it survives removing the train's own traction field. |
 | (c) loudness LST→BTH vs BTH→MLE | **WEAK** | LST–BTH is louder on 5/5 trips, but only by +0.6 dB, inside the Voice Memos processing uncertainty. |
 | (e) positioning ablation | **gyro GO; every other sensor NO-GO at equal weight** | DTW on yaw places held-out curve edges to a median 6 m (CI 3–12), against 24 m for L0. That is curve fixes plus bridging the gaps between them, and it is no better than plain interpolation. No other sensor beats that, and the magnetometer field anomaly makes it worse. Long straights are untested. |
+| (f) online tracker (live demo) | **GO on LST↔BTH; WEAK on BTH→MLE** | A causal HMM on gyro yaw tracks held-out rides at a median 2 m (LST↔BTH), against 11 m for a timetable, with honest 90 % bands. It snaps to curves; between curves it is no better than the timetable. |
 
 ## Inventory (`inventory.md`)
 
@@ -273,6 +274,104 @@ inside the window is 21 bins; without the noise channel it is 0.5 bins.
 - **The alignment example shows a boundary artefact.** The 60 m step in its first bins is R3's
   barometer-only departure time, not real motion.
 
+## (f) Online tracker for the live demo: GO on LST↔BTH, WEAK on BTH→MLE
+
+Files: `tubesense/online.py`, `scripts/online_eval.py` → `online/online_eval.json`, `online_eval.png`,
+`clip_lock.png`, `track_<run>.png`, `maps.json`; `scripts/demo.py` (replay with a moving dot, see README).
+Regenerate with `.venv/Scripts/python scripts/online_eval.py` (~45 s).
+
+**What it is.** At each 0.25 s it uses only data up to that moment:
+
+- **Attitude:** a gyro-propagated attitude filter.
+- **Signals:** causal yaw, and horizontal acceleration for departure detection.
+- **Tracker:** an HMM over (map position × speed level). It advances along the map at the map's
+  typical speed profile, and the yaw match pulls it into place. The likelihood is tempered and has
+  an outlier floor.
+- **Maps:** one per section, built from the other clean runs. Each stores the mean yaw, the time
+  per map bin, a dead-reckoned distance axis and the noise level per ~55 m bin.
+- **Estimate shown:** the posterior MAP. The posterior mean trails the train at curve edges by
+  11–15 m, because hypotheses already past an edge are cut off before the edge is seen. MAP was
+  picked after seeing that, and both are reported.
+
+**Truth.** The headline truth is independent: linear interpolation between the held-out ride's
+curve edges, matched to the map's, with no DTW. Agreement with the offline-DTW proxy is also
+reported, but it is optimistic: it shares the base run and the yaw signal.
+
+**Metres.** Metres are dead-reckoned and scaled to the straight-line length (TfL's lineStrings give
+no along-track length). Speed therefore starts from 0, not from a constant.
+
+| held out | tracker vs truth, median / p90 (m) | timetable median / p90 (m) | between curves*: tracker MAP / mean / timetable (m) | 90 % band coverage |
+|---|---|---|---|---|
+| R1 LST→BTH | 1.9 / 4.6 | 1.5 / 4.1 | 11.6 / 9.0 / 2.2 | 1.00 |
+| R3 LST→BTH ‡ | 2.2 / 15.5 | 114 / 125 | 7.5 / 7.2 / 117 | 0.89 |
+| R5 LST→BTH | 1.6 / 3.8 | 4.4 / 8.1 | 10.8 / 4.0 / 3.4 | 1.00 |
+| R1.5 BTH→MLE | 9.6 / 47 | 31.5 / 159 | 33.4 / 21.2 / 76.2 | 0.81 |
+| R3 BTH→MLE | 8.2 / 64 | 9.2 / 102 | 66.9 / 31.3 / 16.2 | 0.83 |
+| R5 BTH→MLE | 6.1 / 59 | 13.3 / 101 | 60.9 / 30.4 / 22.0 | 0.83 |
+| R2 BTH→LST | 2.1 / 6.4 | 14.5 / 17.4 | 9.8 / 2.0 / 15.9 | 0.99 |
+| R6 BTH→LST | 2.3 / 6.3 | 7.9 / 14.2 | 7.5 / 4.7 / 7.7 | 1.00 |
+| **median of runs** | **2.2** | 11.2 | 11.2 / 8.1 / 16.1 | mean 0.92 |
+
+\* The held-out ride's yaw is hidden within ±0.08 of the section around each curve edge, and the
+estimate is read at that edge. As in (e), this is positioning between curves.
+‡ The departure was missed online, because the recording starts as the train leaves. The offline
+departure was used, and the run is flagged in the JSON.
+
+**What the numbers say**
+
+- **It snaps to curves.** It beats the timetable wherever runs differ in timing: R3, R2, and every
+  p90.
+- **Between curves it is no better than the timetable** (median of runs 11 vs 16 m, mixed run by
+  run). This is the ablation's finding again. On a clean run with steady driving (R1, R5) the
+  timetable is already about 2–4 m, and nothing can beat that.
+- **Between curves the posterior mean is better than the MAP**; at curves the MAP is better.
+- **BTH→MLE is the weak section.** It is essentially one long curve, so the tracker locks late and
+  its bands are optimistic: 0.81–0.83 coverage against a nominal 0.90.
+- **The 90 % band is honest on LST↔BTH** (0.89–1.00) and slightly overconfident on BTH→MLE.
+  Against the DTW proxy, coverage is 0.94.
+
+**Clip mode** (the demo can start mid-section with no idea of position; uniform prior)
+
+- **Lock time on LST↔BTH:** 0–33 s, depending on where the next distinctive curve is.
+- **Lock time on BTH→MLE:** locks only about 25 s before arrival from any start up to 50 %. From
+  10 %, that is about 73 s.
+- **"Confident" display** = ≥ 50 % of the posterior within 50 m, a 90 % band under 200 m, held for 2 s.
+  - It is more than 50 m wrong on 0–0.6 % of confident steps on LST↔BTH, and 8–19 % on BTH→MLE.
+  - The cause is two similar curves on one section.
+  - The demo paints live noise only when confident.
+
+**Departure detection**
+
+- **The detector:** a jump in horizontal acceleration. That jump is a magnitude, so braking and
+  speed changes mid-section trigger it too.
+- **When it is armed:** only while the train is known to be at a platform, that is from the start of
+  a recording made on the platform, or after the tracker's own arrival.
+- **Armed this way,** it matches the offline departure on 9 of 12 sections, at 1.5–8 s earlier
+  (offline departures were partly timed from the barometer).
+- **The 3 misses** are recordings that start moving or being handled at departure (R3 LST, R2 MLE, R4 MLE).
+- **In this evaluation,** arming at the previous arrival uses the offline arrival as a stand-in for the
+  tracker's own.
+- **Confirmation delay:** about 1–4 s. The tracker then back-dates the start and catches up on the
+  buffered data.
+
+**Stress test (R4)**
+
+- **BTH→LST,** with the 23 s phyphox pause: median 2.2 m, p90 7.3 m. The pause is bridged by the speed model.
+- **MLE→BTH,** hand-held and moved: median 2.4 m, but p90 140 m and coverage 0.78.
+
+**Caveats**
+
+- **The metre axis** is dead reckoning, about ±100–200 m against the time axis, scaled to the chord
+  length (real track ~5–14 % longer).
+- **The noise overlay's sync** uses the whole recording.
+- **Small sample:** 2–3 runs per map, and WB MLE→BTH has a one-run map.
+- **The MAP was picked after seeing the data.** The truth DTW's step penalty came from the ablation on
+  these same runs.
+
+**For the demo:** use LST→BTH, starting on the platform. Say it in these terms: "locks onto the
+curves, a few metres while curves are in view, timetable-level in between, honest uncertainty
+band". Don't quote 2 m as "accuracy".
+
 ## Messy inputs, detected automatically (`qc.json`)
 
 - **R4 is floor-like.**
@@ -331,6 +430,8 @@ inside the window is 21 bins; without the noise channel it is 0.5 bins.
    LST→BTH runs to separate location from traction.
 4. Keep the phone's placement constant and note it in the filename. Record more LST→BTH runs and
    more WB runs.
-5. Transcribe the announcements. For positioning, build an online, open-end version of the yaw DTW
-   for the live demo, and record runs that cover long straights. Do both before claiming anything
-   between curves.
+5. Transcribe the announcements. Record runs that cover long straights before claiming anything
+   between curves. The online tracker is built: see (f).
+6. Start every recording on the platform, with the phone still for ≥ 20 s before departure. The
+   online departure detector is only armed at a platform, and it missed the 3 recordings that began
+   moving or being handled.

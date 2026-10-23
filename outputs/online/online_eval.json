@@ -1,0 +1,1590 @@
+{
+ "settings": {
+  "STEP": 0.25,
+  "TAU_ATT": 30.0,
+  "JUMP": 0.4,
+  "JUMP_MIN": 0.5,
+  "JUMP_WIN": 4.0,
+  "HANDLED": 0.5,
+  "P_SPEED": 0.03,
+  "GAMMA": 0.25,
+  "YAW_SD_FLOOR": 0.35,
+  "OUTLIER": 0.05,
+  "NOISE_BINS": 40,
+  "MATCH_S": 15.0,
+  "SPEEDS": [
+   0.6,
+   0.678,
+   0.767,
+   0.867,
+   0.98,
+   1.108,
+   1.252,
+   1.415,
+   1.6
+  ],
+  "MASK": 0.08,
+  "demo_confident_rule": [
+   0.5,
+   200.0,
+   8
+  ]
+ },
+ "lengths_m": {
+  "EB LST->BTH": 2205.9,
+  "EB BTH->MLE": 1530.6,
+  "WB BTH->LST": 2205.9,
+  "WB MLE->BTH": 1530.6
+ },
+ "overall": {
+  "n_runs": 8,
+  "n_departure_detected": 7,
+  "map_vs_independent_m_median_of_runs": 2.2,
+  "map_vs_proxy_m_median_of_runs": 2.8,
+  "mean_vs_independent_m_median_of_runs": 3.6,
+  "timetable_vs_independent_m_median_of_runs": 11.2,
+  "edges_masked_map_m_median_of_runs": 11.2,
+  "edges_masked_mean_m_median_of_runs": 8.1,
+  "edges_masked_timetable_m_median_of_runs": 16.1,
+  "edges_unmasked_map_m_median_of_runs": 1.9,
+  "map_vs_independent_m_detected_only_median_of_runs": 2.3,
+  "band90_coverage_independent_mean": 0.918,
+  "band90_coverage_proxy_mean": 0.939,
+  "clip_confident_steps": 13926,
+  "clip_confident_but_wrong_steps": 713,
+  "clip_lock_s_by_start": {
+   "0.1": [
+    14.1,
+    14.5,
+    15.1,
+    74.9,
+    72.7,
+    73.1,
+    23.1,
+    5.0
+   ],
+   "0.2": [
+    7.0,
+    7.1,
+    7.5,
+    63.2,
+    60.9,
+    61.0,
+    33.3,
+    28.0
+   ],
+   "0.3": [
+    32.2,
+    32.3,
+    32.5,
+    52.0,
+    48.9,
+    48.9,
+    32.1,
+    25.4
+   ],
+   "0.4": [
+    18.2,
+    18.4,
+    18.3,
+    41.1,
+    36.4,
+    36.4,
+    19.0,
+    18.0
+   ],
+   "0.5": [
+    14.3,
+    14.8,
+    14.8,
+    30.0,
+    24.9,
+    24.9,
+    24.3,
+    12.7
+   ],
+   "0.6": [
+    19.3,
+    18.7,
+    20.7,
+    16.9,
+    14.1,
+    14.2,
+    3.1,
+    2.7
+   ],
+   "0.7": [
+    7.3,
+    7.3,
+    7.1,
+    3.9,
+    2.4,
+    2.5,
+    0.2,
+    0.0
+   ]
+  }
+ },
+ "runs": [
+  {
+   "held_out": "R1:LST-BTH",
+   "track": "EB LST->BTH",
+   "map_runs": [
+    "R3:LST-BTH",
+    "R5:LST-BTH"
+   ],
+   "map_base": "R5:LST-BTH",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -1.5,
+    "armed_event_minus_offline_s": -1.5
+   },
+   "map_vs_proxy_m": {
+    "n": 565,
+    "median": 2.1,
+    "mean": 2.5,
+    "p90": 5.5,
+    "max": 16.6
+   },
+   "map_vs_independent_m": {
+    "n": 565,
+    "median": 1.9,
+    "mean": 2.3,
+    "p90": 4.6,
+    "max": 15.3
+   },
+   "mean_vs_proxy_m": {
+    "n": 565,
+    "median": 4.6,
+    "mean": 6.5,
+    "p90": 14.4,
+    "max": 39.1
+   },
+   "mean_vs_independent_m": {
+    "n": 565,
+    "median": 4.0,
+    "mean": 6.4,
+    "p90": 14.8,
+    "max": 38.0
+   },
+   "timetable_vs_independent_m": {
+    "n": 565,
+    "median": 1.5,
+    "mean": 2.0,
+    "p90": 4.1,
+    "max": 5.1
+   },
+   "timetable_vs_proxy_m": {
+    "n": 565,
+    "median": 1.7,
+    "mean": 2.0,
+    "p90": 4.5,
+    "max": 7.5
+   },
+   "edges_unmasked_map_m": {
+    "n": 10,
+    "median": 1.5,
+    "mean": 2.5,
+    "p90": 4.5,
+    "max": 10.0
+   },
+   "edges_unmasked_map_signed_median_m": 0.5,
+   "edges_unmasked_mean_signed_median_m": -13.8,
+   "edges_masked_map_m": {
+    "n": 10,
+    "median": 11.6,
+    "mean": 15.8,
+    "p90": 29.0,
+    "max": 53.8
+   },
+   "edges_masked_mean_m": {
+    "n": 10,
+    "median": 9.0,
+    "mean": 14.1,
+    "p90": 22.8,
+    "max": 56.9
+   },
+   "edges_masked_timetable_m": {
+    "n": 10,
+    "median": 2.2,
+    "mean": 2.0,
+    "p90": 3.2,
+    "max": 4.8
+   },
+   "band90_coverage_proxy": 0.996,
+   "band90_coverage_independent": 0.998,
+   "band90_width_m": {
+    "n": 565,
+    "median": 66.6,
+    "mean": 68.8,
+    "p90": 119.7,
+    "max": 164.9
+   },
+   "map_jump_m": {
+    "n": 564,
+    "median": 6.0,
+    "mean": 4.0,
+    "p90": 6.4,
+    "max": 19.0
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 14.1,
+     "left_s_at_lock": 112.3,
+     "confident_steps": 433,
+     "confident_but_wrong_steps": 0
+    },
+    "0.2": {
+     "lock_s": 7.0,
+     "left_s_at_lock": 105.5,
+     "confident_steps": 434,
+     "confident_but_wrong_steps": 11
+    },
+    "0.3": {
+     "lock_s": 32.2,
+     "left_s_at_lock": 66.3,
+     "confident_steps": 255,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 18.2,
+     "left_s_at_lock": 66.0,
+     "confident_steps": 254,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 14.3,
+     "left_s_at_lock": 55.5,
+     "confident_steps": 216,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 19.3,
+     "left_s_at_lock": 36.3,
+     "confident_steps": 117,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 7.3,
+     "left_s_at_lock": 34.0,
+     "confident_steps": 105,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R3:LST-BTH",
+   "track": "EB LST->BTH",
+   "map_runs": [
+    "R1:LST-BTH",
+    "R5:LST-BTH"
+   ],
+   "map_base": "R1:LST-BTH",
+   "departure_missed_online": true,
+   "departure": {
+    "onset_minus_offline_s": null,
+    "armed_event_minus_offline_s": 118.5
+   },
+   "map_vs_proxy_m": {
+    "n": 548,
+    "median": 2.7,
+    "mean": 7.7,
+    "p90": 23.7,
+    "max": 80.5
+   },
+   "map_vs_independent_m": {
+    "n": 548,
+    "median": 2.2,
+    "mean": 6.3,
+    "p90": 15.5,
+    "max": 77.2
+   },
+   "mean_vs_proxy_m": {
+    "n": 548,
+    "median": 4.6,
+    "mean": 10.1,
+    "p90": 30.5,
+    "max": 68.0
+   },
+   "mean_vs_independent_m": {
+    "n": 548,
+    "median": 3.2,
+    "mean": 8.6,
+    "p90": 26.4,
+    "max": 64.6
+   },
+   "timetable_vs_independent_m": {
+    "n": 548,
+    "median": 114.2,
+    "mean": 105.8,
+    "p90": 125.4,
+    "max": 127.0
+   },
+   "timetable_vs_proxy_m": {
+    "n": 548,
+    "median": 114.9,
+    "mean": 106.3,
+    "p90": 124.1,
+    "max": 128.4
+   },
+   "edges_unmasked_map_m": {
+    "n": 9,
+    "median": 2.0,
+    "mean": 4.4,
+    "p90": 8.1,
+    "max": 23.9
+   },
+   "edges_unmasked_map_signed_median_m": 0.5,
+   "edges_unmasked_mean_signed_median_m": -15.5,
+   "edges_masked_map_m": {
+    "n": 9,
+    "median": 7.5,
+    "mean": 27.7,
+    "p90": 79.1,
+    "max": 136.3
+   },
+   "edges_masked_mean_m": {
+    "n": 9,
+    "median": 7.2,
+    "mean": 24.6,
+    "p90": 66.8,
+    "max": 117.1
+   },
+   "edges_masked_timetable_m": {
+    "n": 9,
+    "median": 116.7,
+    "mean": 109.5,
+    "p90": 126.1,
+    "max": 126.5
+   },
+   "band90_coverage_proxy": 0.889,
+   "band90_coverage_independent": 0.891,
+   "band90_width_m": {
+    "n": 548,
+    "median": 63.3,
+    "mean": 65.1,
+    "p90": 116.8,
+    "max": 148.1
+   },
+   "map_jump_m": {
+    "n": 547,
+    "median": 5.6,
+    "mean": 4.1,
+    "p90": 6.8,
+    "max": 24.6
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 14.5,
+     "left_s_at_lock": 114.3,
+     "confident_steps": 442,
+     "confident_but_wrong_steps": 0
+    },
+    "0.2": {
+     "lock_s": 7.1,
+     "left_s_at_lock": 107.8,
+     "confident_steps": 443,
+     "confident_but_wrong_steps": 11
+    },
+    "0.3": {
+     "lock_s": 32.3,
+     "left_s_at_lock": 68.5,
+     "confident_steps": 264,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 18.4,
+     "left_s_at_lock": 68.3,
+     "confident_steps": 263,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 14.8,
+     "left_s_at_lock": 57.8,
+     "confident_steps": 225,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 18.7,
+     "left_s_at_lock": 39.8,
+     "confident_steps": 126,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 7.3,
+     "left_s_at_lock": 37.0,
+     "confident_steps": 113,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R5:LST-BTH",
+   "track": "EB LST->BTH",
+   "map_runs": [
+    "R1:LST-BTH",
+    "R3:LST-BTH"
+   ],
+   "map_base": "R1:LST-BTH",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -1.7,
+    "armed_event_minus_offline_s": -1.7
+   },
+   "map_vs_proxy_m": {
+    "n": 571,
+    "median": 1.8,
+    "mean": 2.2,
+    "p90": 4.7,
+    "max": 12.1
+   },
+   "map_vs_independent_m": {
+    "n": 571,
+    "median": 1.6,
+    "mean": 1.9,
+    "p90": 3.8,
+    "max": 9.7
+   },
+   "mean_vs_proxy_m": {
+    "n": 571,
+    "median": 3.1,
+    "mean": 5.7,
+    "p90": 15.8,
+    "max": 38.5
+   },
+   "mean_vs_independent_m": {
+    "n": 571,
+    "median": 2.7,
+    "mean": 5.5,
+    "p90": 14.9,
+    "max": 40.2
+   },
+   "timetable_vs_independent_m": {
+    "n": 571,
+    "median": 4.4,
+    "mean": 4.1,
+    "p90": 8.1,
+    "max": 11.8
+   },
+   "timetable_vs_proxy_m": {
+    "n": 571,
+    "median": 3.8,
+    "mean": 4.5,
+    "p90": 8.8,
+    "max": 14.1
+   },
+   "edges_unmasked_map_m": {
+    "n": 10,
+    "median": 0.9,
+    "mean": 1.2,
+    "p90": 2.7,
+    "max": 3.2
+   },
+   "edges_unmasked_map_signed_median_m": -0.3,
+   "edges_unmasked_mean_signed_median_m": -14.9,
+   "edges_masked_map_m": {
+    "n": 10,
+    "median": 10.8,
+    "mean": 13.8,
+    "p90": 25.9,
+    "max": 35.6
+   },
+   "edges_masked_mean_m": {
+    "n": 10,
+    "median": 4.0,
+    "mean": 10.0,
+    "p90": 25.8,
+    "max": 42.4
+   },
+   "edges_masked_timetable_m": {
+    "n": 10,
+    "median": 3.4,
+    "mean": 3.6,
+    "p90": 6.8,
+    "max": 8.7
+   },
+   "band90_coverage_proxy": 1.0,
+   "band90_coverage_independent": 1.0,
+   "band90_width_m": {
+    "n": 571,
+    "median": 67.7,
+    "mean": 68.5,
+    "p90": 119.3,
+    "max": 157.7
+   },
+   "map_jump_m": {
+    "n": 570,
+    "median": 6.0,
+    "mean": 3.9,
+    "p90": 6.5,
+    "max": 9.6
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 15.1,
+     "left_s_at_lock": 114.0,
+     "confident_steps": 435,
+     "confident_but_wrong_steps": 0
+    },
+    "0.2": {
+     "lock_s": 7.5,
+     "left_s_at_lock": 107.0,
+     "confident_steps": 439,
+     "confident_but_wrong_steps": 11
+    },
+    "0.3": {
+     "lock_s": 32.5,
+     "left_s_at_lock": 67.7,
+     "confident_steps": 260,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 18.3,
+     "left_s_at_lock": 67.7,
+     "confident_steps": 259,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 14.8,
+     "left_s_at_lock": 57.2,
+     "confident_steps": 222,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 20.7,
+     "left_s_at_lock": 37.2,
+     "confident_steps": 127,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 7.1,
+     "left_s_at_lock": 36.7,
+     "confident_steps": 110,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R1.5:BTH-MLE",
+   "track": "EB BTH->MLE",
+   "map_runs": [
+    "R3:BTH-MLE",
+    "R5:BTH-MLE"
+   ],
+   "map_base": "R3:BTH-MLE",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -8.2,
+    "armed_event_minus_offline_s": -8.2
+   },
+   "map_vs_proxy_m": {
+    "n": 499,
+    "median": 3.2,
+    "mean": 12.4,
+    "p90": 37.3,
+    "max": 114.1
+   },
+   "map_vs_independent_m": {
+    "n": 499,
+    "median": 9.6,
+    "mean": 20.1,
+    "p90": 47.3,
+    "max": 158.2
+   },
+   "mean_vs_proxy_m": {
+    "n": 499,
+    "median": 4.7,
+    "mean": 9.0,
+    "p90": 26.0,
+    "max": 47.3
+   },
+   "mean_vs_independent_m": {
+    "n": 499,
+    "median": 11.5,
+    "mean": 17.6,
+    "p90": 41.9,
+    "max": 92.0
+   },
+   "timetable_vs_independent_m": {
+    "n": 499,
+    "median": 31.5,
+    "mean": 58.6,
+    "p90": 159.0,
+    "max": 195.0
+   },
+   "timetable_vs_proxy_m": {
+    "n": 499,
+    "median": 29.7,
+    "mean": 51.7,
+    "p90": 164.1,
+    "max": 205.5
+   },
+   "edges_unmasked_map_m": {
+    "n": 6,
+    "median": 5.2,
+    "mean": 13.9,
+    "p90": 35.6,
+    "max": 54.4
+   },
+   "edges_unmasked_map_signed_median_m": 3.1,
+   "edges_unmasked_mean_signed_median_m": -3.9,
+   "edges_masked_map_m": {
+    "n": 6,
+    "median": 33.4,
+    "mean": 57.9,
+    "p90": 135.1,
+    "max": 194.3
+   },
+   "edges_masked_mean_m": {
+    "n": 6,
+    "median": 21.2,
+    "mean": 46.5,
+    "p90": 113.6,
+    "max": 141.1
+   },
+   "edges_masked_timetable_m": {
+    "n": 6,
+    "median": 76.2,
+    "mean": 93.4,
+    "p90": 177.1,
+    "max": 193.9
+   },
+   "band90_coverage_proxy": 0.868,
+   "band90_coverage_independent": 0.808,
+   "band90_width_m": {
+    "n": 499,
+    "median": 51.4,
+    "mean": 68.4,
+    "p90": 133.4,
+    "max": 210.2
+   },
+   "map_jump_m": {
+    "n": 498,
+    "median": 3.9,
+    "mean": 3.5,
+    "p90": 4.7,
+    "max": 193.3
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 74.9,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 396,
+     "confident_but_wrong_steps": 22
+    },
+    "0.2": {
+     "lock_s": 63.2,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 349,
+     "confident_but_wrong_steps": 22
+    },
+    "0.3": {
+     "lock_s": 52.0,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 233,
+     "confident_but_wrong_steps": 13
+    },
+    "0.4": {
+     "lock_s": 41.1,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 235,
+     "confident_but_wrong_steps": 29
+    },
+    "0.5": {
+     "lock_s": 30.0,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 181,
+     "confident_but_wrong_steps": 30
+    },
+    "0.6": {
+     "lock_s": 16.9,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 174,
+     "confident_but_wrong_steps": 23
+    },
+    "0.7": {
+     "lock_s": 3.9,
+     "left_s_at_lock": 37.7,
+     "confident_steps": 146,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R3:BTH-MLE",
+   "track": "EB BTH->MLE",
+   "map_runs": [
+    "R1.5:BTH-MLE",
+    "R5:BTH-MLE"
+   ],
+   "map_base": "R1.5:BTH-MLE",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -4.8,
+    "armed_event_minus_offline_s": -4.8
+   },
+   "map_vs_proxy_m": {
+    "n": 440,
+    "median": 3.4,
+    "mean": 14.1,
+    "p90": 51.9,
+    "max": 118.8
+   },
+   "map_vs_independent_m": {
+    "n": 440,
+    "median": 8.2,
+    "mean": 21.7,
+    "p90": 63.5,
+    "max": 127.7
+   },
+   "mean_vs_proxy_m": {
+    "n": 440,
+    "median": 4.7,
+    "mean": 13.9,
+    "p90": 42.5,
+    "max": 101.9
+   },
+   "mean_vs_independent_m": {
+    "n": 440,
+    "median": 9.8,
+    "mean": 21.3,
+    "p90": 60.0,
+    "max": 119.9
+   },
+   "timetable_vs_independent_m": {
+    "n": 440,
+    "median": 9.2,
+    "mean": 26.6,
+    "p90": 102.2,
+    "max": 120.7
+   },
+   "timetable_vs_proxy_m": {
+    "n": 440,
+    "median": 18.6,
+    "mean": 32.4,
+    "p90": 106.0,
+    "max": 129.9
+   },
+   "edges_unmasked_map_m": {
+    "n": 6,
+    "median": 14.4,
+    "mean": 37.4,
+    "p90": 97.3,
+    "max": 110.2
+   },
+   "edges_unmasked_map_signed_median_m": -13.0,
+   "edges_unmasked_mean_signed_median_m": -35.7,
+   "edges_masked_map_m": {
+    "n": 6,
+    "median": 66.9,
+    "mean": 74.7,
+    "p90": 150.0,
+    "max": 188.8
+   },
+   "edges_masked_mean_m": {
+    "n": 6,
+    "median": 31.3,
+    "mean": 54.9,
+    "p90": 128.1,
+    "max": 162.9
+   },
+   "edges_masked_timetable_m": {
+    "n": 6,
+    "median": 16.2,
+    "mean": 31.7,
+    "p90": 75.0,
+    "max": 104.7
+   },
+   "band90_coverage_proxy": 0.9,
+   "band90_coverage_independent": 0.83,
+   "band90_width_m": {
+    "n": 440,
+    "median": 65.5,
+    "mean": 68.9,
+    "p90": 120.9,
+    "max": 148.2
+   },
+   "map_jump_m": {
+    "n": 439,
+    "median": 4.2,
+    "mean": 4.1,
+    "p90": 6.4,
+    "max": 103.0
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 72.7,
+     "left_s_at_lock": 25.8,
+     "confident_steps": 344,
+     "confident_but_wrong_steps": 41
+    },
+    "0.2": {
+     "lock_s": 60.9,
+     "left_s_at_lock": 25.8,
+     "confident_steps": 290,
+     "confident_but_wrong_steps": 41
+    },
+    "0.3": {
+     "lock_s": 48.9,
+     "left_s_at_lock": 25.5,
+     "confident_steps": 210,
+     "confident_but_wrong_steps": 51
+    },
+    "0.4": {
+     "lock_s": 36.4,
+     "left_s_at_lock": 25.5,
+     "confident_steps": 210,
+     "confident_but_wrong_steps": 49
+    },
+    "0.5": {
+     "lock_s": 24.9,
+     "left_s_at_lock": 25.5,
+     "confident_steps": 183,
+     "confident_but_wrong_steps": 47
+    },
+    "0.6": {
+     "lock_s": 14.1,
+     "left_s_at_lock": 25.8,
+     "confident_steps": 138,
+     "confident_but_wrong_steps": 34
+    },
+    "0.7": {
+     "lock_s": 2.4,
+     "left_s_at_lock": 27.0,
+     "confident_steps": 101,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R5:BTH-MLE",
+   "track": "EB BTH->MLE",
+   "map_runs": [
+    "R1.5:BTH-MLE",
+    "R3:BTH-MLE"
+   ],
+   "map_base": "R1.5:BTH-MLE",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -4.2,
+    "armed_event_minus_offline_s": -4.2
+   },
+   "map_vs_proxy_m": {
+    "n": 437,
+    "median": 3.3,
+    "mean": 13.5,
+    "p90": 45.3,
+    "max": 117.9
+   },
+   "map_vs_independent_m": {
+    "n": 437,
+    "median": 6.1,
+    "mean": 20.3,
+    "p90": 58.6,
+    "max": 128.7
+   },
+   "mean_vs_proxy_m": {
+    "n": 437,
+    "median": 4.6,
+    "mean": 14.4,
+    "p90": 45.8,
+    "max": 105.0
+   },
+   "mean_vs_independent_m": {
+    "n": 437,
+    "median": 8.6,
+    "mean": 21.2,
+    "p90": 60.8,
+    "max": 122.6
+   },
+   "timetable_vs_independent_m": {
+    "n": 437,
+    "median": 13.3,
+    "mean": 28.1,
+    "p90": 100.7,
+    "max": 122.2
+   },
+   "timetable_vs_proxy_m": {
+    "n": 437,
+    "median": 27.3,
+    "mean": 34.5,
+    "p90": 101.3,
+    "max": 124.5
+   },
+   "edges_unmasked_map_m": {
+    "n": 6,
+    "median": 14.1,
+    "mean": 36.7,
+    "p90": 94.7,
+    "max": 111.9
+   },
+   "edges_unmasked_map_signed_median_m": -11.2,
+   "edges_unmasked_mean_signed_median_m": -35.8,
+   "edges_masked_map_m": {
+    "n": 6,
+    "median": 60.9,
+    "mean": 73.2,
+    "p90": 150.7,
+    "max": 188.5
+   },
+   "edges_masked_mean_m": {
+    "n": 6,
+    "median": 30.4,
+    "mean": 54.9,
+    "p90": 132.2,
+    "max": 163.7
+   },
+   "edges_masked_timetable_m": {
+    "n": 6,
+    "median": 22.0,
+    "mean": 32.3,
+    "p90": 72.0,
+    "max": 100.6
+   },
+   "band90_coverage_proxy": 0.89,
+   "band90_coverage_independent": 0.826,
+   "band90_width_m": {
+    "n": 437,
+    "median": 71.2,
+    "mean": 70.3,
+    "p90": 118.4,
+    "max": 150.0
+   },
+   "map_jump_m": {
+    "n": 436,
+    "median": 4.1,
+    "mean": 4.0,
+    "p90": 5.7,
+    "max": 104.5
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 73.1,
+     "left_s_at_lock": 24.5,
+     "confident_steps": 337,
+     "confident_but_wrong_steps": 43
+    },
+    "0.2": {
+     "lock_s": 61.0,
+     "left_s_at_lock": 24.5,
+     "confident_steps": 301,
+     "confident_but_wrong_steps": 43
+    },
+    "0.3": {
+     "lock_s": 48.9,
+     "left_s_at_lock": 24.2,
+     "confident_steps": 205,
+     "confident_but_wrong_steps": 53
+    },
+    "0.4": {
+     "lock_s": 36.4,
+     "left_s_at_lock": 24.2,
+     "confident_steps": 204,
+     "confident_but_wrong_steps": 52
+    },
+    "0.5": {
+     "lock_s": 24.9,
+     "left_s_at_lock": 24.2,
+     "confident_steps": 176,
+     "confident_but_wrong_steps": 53
+    },
+    "0.6": {
+     "lock_s": 14.2,
+     "left_s_at_lock": 24.5,
+     "confident_steps": 124,
+     "confident_but_wrong_steps": 34
+    },
+    "0.7": {
+     "lock_s": 2.5,
+     "left_s_at_lock": 25.7,
+     "confident_steps": 95,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R2:BTH-LST",
+   "track": "WB BTH->LST",
+   "map_runs": [
+    "R6:BTH-LST"
+   ],
+   "map_base": "R6:BTH-LST",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -4.0,
+    "armed_event_minus_offline_s": -4.0
+   },
+   "map_vs_proxy_m": {
+    "n": 630,
+    "median": 2.8,
+    "mean": 3.9,
+    "p90": 7.0,
+    "max": 50.4
+   },
+   "map_vs_independent_m": {
+    "n": 630,
+    "median": 2.1,
+    "mean": 3.5,
+    "p90": 6.4,
+    "max": 56.6
+   },
+   "mean_vs_proxy_m": {
+    "n": 630,
+    "median": 3.8,
+    "mean": 7.1,
+    "p90": 16.4,
+    "max": 61.8
+   },
+   "mean_vs_independent_m": {
+    "n": 630,
+    "median": 2.3,
+    "mean": 6.0,
+    "p90": 15.4,
+    "max": 64.3
+   },
+   "timetable_vs_independent_m": {
+    "n": 630,
+    "median": 14.5,
+    "mean": 14.0,
+    "p90": 17.4,
+    "max": 21.4
+   },
+   "timetable_vs_proxy_m": {
+    "n": 630,
+    "median": 15.2,
+    "mean": 13.9,
+    "p90": 19.0,
+    "max": 20.2
+   },
+   "edges_unmasked_map_m": {
+    "n": 12,
+    "median": 0.7,
+    "mean": 3.4,
+    "p90": 4.0,
+    "max": 30.0
+   },
+   "edges_unmasked_map_signed_median_m": 0.1,
+   "edges_unmasked_mean_signed_median_m": -11.9,
+   "edges_masked_map_m": {
+    "n": 12,
+    "median": 9.8,
+    "mean": 20.5,
+    "p90": 44.7,
+    "max": 80.1
+   },
+   "edges_masked_mean_m": {
+    "n": 12,
+    "median": 2.0,
+    "mean": 4.0,
+    "p90": 10.2,
+    "max": 21.2
+   },
+   "edges_masked_timetable_m": {
+    "n": 12,
+    "median": 15.9,
+    "mean": 15.2,
+    "p90": 21.2,
+    "max": 21.4
+   },
+   "band90_coverage_proxy": 0.979,
+   "band90_coverage_independent": 0.995,
+   "band90_width_m": {
+    "n": 630,
+    "median": 59.6,
+    "mean": 78.3,
+    "p90": 188.1,
+    "max": 262.9
+   },
+   "map_jump_m": {
+    "n": 629,
+    "median": 3.3,
+    "mean": 4.1,
+    "p90": 7.0,
+    "max": 56.0
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 23.1,
+     "left_s_at_lock": 119.7,
+     "confident_steps": 429,
+     "confident_but_wrong_steps": 0
+    },
+    "0.2": {
+     "lock_s": 33.3,
+     "left_s_at_lock": 93.5,
+     "confident_steps": 332,
+     "confident_but_wrong_steps": 0
+    },
+    "0.3": {
+     "lock_s": 32.1,
+     "left_s_at_lock": 78.7,
+     "confident_steps": 295,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 19.0,
+     "left_s_at_lock": 76.0,
+     "confident_steps": 289,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 24.3,
+     "left_s_at_lock": 55.0,
+     "confident_steps": 203,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 3.1,
+     "left_s_at_lock": 60.5,
+     "confident_steps": 192,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 0.2,
+     "left_s_at_lock": 47.7,
+     "confident_steps": 172,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R6:BTH-LST",
+   "track": "WB BTH->LST",
+   "map_runs": [
+    "R2:BTH-LST"
+   ],
+   "map_base": "R2:BTH-LST",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -7.0,
+    "armed_event_minus_offline_s": -7.0
+   },
+   "map_vs_proxy_m": {
+    "n": 630,
+    "median": 2.6,
+    "mean": 3.3,
+    "p90": 6.7,
+    "max": 26.7
+   },
+   "map_vs_independent_m": {
+    "n": 630,
+    "median": 2.3,
+    "mean": 3.0,
+    "p90": 6.3,
+    "max": 24.0
+   },
+   "mean_vs_proxy_m": {
+    "n": 630,
+    "median": 5.0,
+    "mean": 7.0,
+    "p90": 13.4,
+    "max": 66.6
+   },
+   "mean_vs_independent_m": {
+    "n": 630,
+    "median": 3.2,
+    "mean": 5.9,
+    "p90": 14.7,
+    "max": 64.2
+   },
+   "timetable_vs_independent_m": {
+    "n": 630,
+    "median": 7.9,
+    "mean": 8.9,
+    "p90": 14.2,
+    "max": 16.7
+   },
+   "timetable_vs_proxy_m": {
+    "n": 630,
+    "median": 9.7,
+    "mean": 8.7,
+    "p90": 14.4,
+    "max": 16.2
+   },
+   "edges_unmasked_map_m": {
+    "n": 12,
+    "median": 1.9,
+    "mean": 1.7,
+    "p90": 2.6,
+    "max": 5.5
+   },
+   "edges_unmasked_map_signed_median_m": -1.3,
+   "edges_unmasked_mean_signed_median_m": -9.2,
+   "edges_masked_map_m": {
+    "n": 12,
+    "median": 7.5,
+    "mean": 17.2,
+    "p90": 50.2,
+    "max": 87.9
+   },
+   "edges_masked_mean_m": {
+    "n": 12,
+    "median": 4.7,
+    "mean": 7.1,
+    "p90": 19.7,
+    "max": 22.5
+   },
+   "edges_masked_timetable_m": {
+    "n": 12,
+    "median": 7.7,
+    "mean": 9.8,
+    "p90": 16.4,
+    "max": 16.7
+   },
+   "band90_coverage_proxy": 0.989,
+   "band90_coverage_independent": 0.997,
+   "band90_width_m": {
+    "n": 630,
+    "median": 60.3,
+    "mean": 77.0,
+    "p90": 184.2,
+    "max": 246.8
+   },
+   "map_jump_m": {
+    "n": 629,
+    "median": 3.5,
+    "mean": 3.7,
+    "p90": 7.1,
+    "max": 27.7
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 5.0,
+     "left_s_at_lock": 135.7,
+     "confident_steps": 429,
+     "confident_but_wrong_steps": 0
+    },
+    "0.2": {
+     "lock_s": 28.0,
+     "left_s_at_lock": 97.2,
+     "confident_steps": 329,
+     "confident_but_wrong_steps": 0
+    },
+    "0.3": {
+     "lock_s": 25.4,
+     "left_s_at_lock": 84.2,
+     "confident_steps": 293,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 18.0,
+     "left_s_at_lock": 76.0,
+     "confident_steps": 263,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 12.7,
+     "left_s_at_lock": 65.5,
+     "confident_steps": 202,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 2.7,
+     "left_s_at_lock": 59.7,
+     "confident_steps": 189,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 0.0,
+     "left_s_at_lock": 46.5,
+     "confident_steps": 135,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  }
+ ],
+ "stress": [
+  {
+   "held_out": "R4:MLE-BTH",
+   "track": "WB MLE->BTH",
+   "map_runs": [
+    "R6:MLE-BTH"
+   ],
+   "map_base": "R6:MLE-BTH",
+   "departure_missed_online": true,
+   "departure": {
+    "onset_minus_offline_s": null,
+    "armed_event_minus_offline_s": 16.3
+   },
+   "map_vs_proxy_m": {
+    "n": 390,
+    "median": 32.8,
+    "mean": 44.9,
+    "p90": 110.2,
+    "max": 186.3
+   },
+   "map_vs_independent_m": {
+    "n": 390,
+    "median": 2.4,
+    "mean": 53.3,
+    "p90": 139.6,
+    "max": 232.1
+   },
+   "mean_vs_proxy_m": {
+    "n": 390,
+    "median": 38.3,
+    "mean": 48.6,
+    "p90": 102.6,
+    "max": 153.8
+   },
+   "mean_vs_independent_m": {
+    "n": 390,
+    "median": 4.5,
+    "mean": 46.2,
+    "p90": 136.4,
+    "max": 208.9
+   },
+   "timetable_vs_independent_m": {
+    "n": 390,
+    "median": 49.9,
+    "mean": 43.5,
+    "p90": 70.6,
+    "max": 78.0
+   },
+   "timetable_vs_proxy_m": {
+    "n": 390,
+    "median": 70.4,
+    "mean": 110.4,
+    "p90": 259.2,
+    "max": 265.8
+   },
+   "edges_unmasked_map_m": {
+    "n": 4,
+    "median": 1.1,
+    "mean": 27.9,
+    "p90": 76.8,
+    "max": 109.1
+   },
+   "edges_unmasked_map_signed_median_m": -0.4,
+   "edges_unmasked_mean_signed_median_m": -1.2,
+   "edges_masked_map_m": {
+    "n": 4,
+    "median": 29.7,
+    "mean": 76.3,
+    "p90": 188.9,
+    "max": 244.9
+   },
+   "edges_masked_mean_m": {
+    "n": 4,
+    "median": 15.7,
+    "mean": 58.9,
+    "p90": 151.4,
+    "max": 203.3
+   },
+   "edges_masked_timetable_m": {
+    "n": 4,
+    "median": 68.0,
+    "mean": 57.4,
+    "p90": 75.3,
+    "max": 77.7
+   },
+   "band90_coverage_proxy": 0.569,
+   "band90_coverage_independent": 0.777,
+   "band90_width_m": {
+    "n": 390,
+    "median": 51.3,
+    "mean": 105.8,
+    "p90": 221.1,
+    "max": 373.3
+   },
+   "map_jump_m": {
+    "n": 389,
+    "median": 4.0,
+    "mean": 7.3,
+    "p90": 9.5,
+    "max": 136.9
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 33.8,
+     "left_s_at_lock": 53.7,
+     "confident_steps": 204,
+     "confident_but_wrong_steps": 0
+    },
+    "0.2": {
+     "lock_s": 23.2,
+     "left_s_at_lock": 54.5,
+     "confident_steps": 178,
+     "confident_but_wrong_steps": 0
+    },
+    "0.3": {
+     "lock_s": 6.3,
+     "left_s_at_lock": 61.7,
+     "confident_steps": 172,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 9.3,
+     "left_s_at_lock": 49.7,
+     "confident_steps": 171,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 1.7,
+     "left_s_at_lock": 48.2,
+     "confident_steps": 170,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 5.6,
+     "left_s_at_lock": 35.0,
+     "confident_steps": 92,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 7.1,
+     "left_s_at_lock": 23.2,
+     "confident_steps": 77,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  },
+  {
+   "held_out": "R4:BTH-LST",
+   "track": "WB BTH->LST",
+   "map_runs": [
+    "R2:BTH-LST",
+    "R6:BTH-LST"
+   ],
+   "map_base": "R2:BTH-LST",
+   "departure_missed_online": false,
+   "departure": {
+    "onset_minus_offline_s": -8.0,
+    "armed_event_minus_offline_s": -8.0
+   },
+   "map_vs_proxy_m": {
+    "n": 624,
+    "median": 2.9,
+    "mean": 6.1,
+    "p90": 17.4,
+    "max": 71.7
+   },
+   "map_vs_independent_m": {
+    "n": 624,
+    "median": 2.2,
+    "mean": 4.2,
+    "p90": 7.3,
+    "max": 74.1
+   },
+   "mean_vs_proxy_m": {
+    "n": 624,
+    "median": 5.4,
+    "mean": 9.0,
+    "p90": 23.7,
+    "max": 77.1
+   },
+   "mean_vs_independent_m": {
+    "n": 624,
+    "median": 3.7,
+    "mean": 7.4,
+    "p90": 13.6,
+    "max": 74.3
+   },
+   "timetable_vs_independent_m": {
+    "n": 624,
+    "median": 7.0,
+    "mean": 8.1,
+    "p90": 15.2,
+    "max": 16.0
+   },
+   "timetable_vs_proxy_m": {
+    "n": 624,
+    "median": 7.6,
+    "mean": 9.6,
+    "p90": 13.9,
+    "max": 31.6
+   },
+   "edges_unmasked_map_m": {
+    "n": 11,
+    "median": 1.1,
+    "mean": 4.9,
+    "p90": 6.0,
+    "max": 38.8
+   },
+   "edges_unmasked_map_signed_median_m": -0.7,
+   "edges_unmasked_mean_signed_median_m": -11.1,
+   "edges_masked_map_m": {
+    "n": 11,
+    "median": 8.5,
+    "mean": 14.3,
+    "p90": 24.0,
+    "max": 60.0
+   },
+   "edges_masked_mean_m": {
+    "n": 11,
+    "median": 4.1,
+    "mean": 7.3,
+    "p90": 15.7,
+    "max": 16.7
+   },
+   "edges_masked_timetable_m": {
+    "n": 11,
+    "median": 5.3,
+    "mean": 7.1,
+    "p90": 14.3,
+    "max": 15.2
+   },
+   "band90_coverage_proxy": 0.986,
+   "band90_coverage_independent": 0.992,
+   "band90_width_m": {
+    "n": 624,
+    "median": 64.1,
+    "mean": 99.7,
+    "p90": 220.0,
+    "max": 384.3
+   },
+   "map_jump_m": {
+    "n": 623,
+    "median": 3.4,
+    "mean": 4.1,
+    "p90": 7.1,
+    "max": 119.6
+   },
+   "clip": {
+    "0.1": {
+     "lock_s": 72.1,
+     "left_s_at_lock": 66.8,
+     "confident_steps": 382,
+     "confident_but_wrong_steps": 1
+    },
+    "0.2": {
+     "lock_s": 56.5,
+     "left_s_at_lock": 66.8,
+     "confident_steps": 257,
+     "confident_but_wrong_steps": 0
+    },
+    "0.3": {
+     "lock_s": 40.8,
+     "left_s_at_lock": 66.8,
+     "confident_steps": 241,
+     "confident_but_wrong_steps": 0
+    },
+    "0.4": {
+     "lock_s": 35.4,
+     "left_s_at_lock": 56.6,
+     "confident_steps": 213,
+     "confident_but_wrong_steps": 0
+    },
+    "0.5": {
+     "lock_s": 19.4,
+     "left_s_at_lock": 56.8,
+     "confident_steps": 198,
+     "confident_but_wrong_steps": 0
+    },
+    "0.6": {
+     "lock_s": 1.2,
+     "left_s_at_lock": 59.3,
+     "confident_steps": 183,
+     "confident_but_wrong_steps": 0
+    },
+    "0.7": {
+     "lock_s": 0.2,
+     "left_s_at_lock": 44.6,
+     "confident_steps": 135,
+     "confident_but_wrong_steps": 0
+    }
+   }
+  }
+ ],
+ "doc": "Leave-one-run-out test of the online tracker, plus the maps for the live demo.\n\nFor each track with >= 2 clean runs and each held-out run A: build the map from the OTHER clean runs,\nreplay A's causal features step by step from its departure (online.track), and score the posterior\nMAP (headline; chosen after seeing that the posterior mean trails the train at curve edges, both are\nreported). Metres are the map's dead-reckoned distance (online.Template.metres), scaled to the\nstraight-line section length. Two truths:\n- proxy: A's offline alignment onto the map's base run (zero-phase yaw DTW, step penalty, open\n  ends). It shares the base run and the yaw signal with the tracker, so agreement with it is\n  optimistic;\n- independent: linear interpolation between A's curve edges matched to the base run's\n  (position.curve_landmarks, no DTW), anchored at departure and arrival.\nAlso: the timetable baseline (time since departure / the map's mean section time); a masked test\n(A's yaw hidden within +-MASK of the section around each curve edge, read at that edge: positioning\nbetween curves); 90 % band coverage against both truths; clip mode from several start positions with\na uniform prior (time to lock, and how often the demo's \"confident\" display is > 50 m wrong);\ndeparture detection armed at the previous arrival / recording start, unhinted; the R4 stress test.\nWrites outputs/online/{maps.json, online_eval.json, online_eval.png, clip_lock.png, track_<key>.png}.\nRun: .venv/Scripts/python scripts/online_eval.py\n"
+}

@@ -17,7 +17,7 @@ import time
 
 from tubesense.ingest import ROOT
 
-STEPS = ["inventory", "noise", "sync", "segment", "qc", "repeatability", "mag_anomaly", "ablation", "loudness"]
+STEPS = ["inventory", "noise", "sync", "segment", "qc", "repeatability", "mag_anomaly", "ablation", "online_eval", "loudness"]
 KEEP = {"FINDINGS.md"}
 
 
