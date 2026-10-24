@@ -1,0 +1,359 @@
+{
+ "taken": "2026-10-24T15:38:24+00:00",
+ "cluster": {
+  "version": "8.0.34",
+  "database": "tubesense",
+  "collections": [
+   {
+    "name": "approvals",
+    "count": 0,
+    "kind": ""
+   },
+   {
+    "name": "attempts",
+    "count": 8,
+    "kind": ""
+   },
+   {
+    "name": "claims",
+    "count": 0,
+    "kind": ""
+   },
+   {
+    "name": "documents",
+    "count": 44,
+    "kind": ""
+   },
+   {
+    "name": "ingest_live",
+    "count": 0,
+    "kind": ""
+   },
+   {
+    "name": "live_view",
+    "count": 0,
+    "kind": ""
+   },
+   {
+    "name": "noise_1s",
+    "count": 0,
+    "kind": "time series"
+   },
+   {
+    "name": "section_stats",
+    "count": 33,
+    "kind": ""
+   },
+   {
+    "name": "yaw_windows",
+    "count": 0,
+    "kind": ""
+   }
+  ],
+  "indexes": [
+   {
+    "collection": "documents",
+    "name": "docs_text",
+    "type": "search",
+    "status": "READY",
+    "queryable": true,
+    "what": "full text on text,title"
+   },
+   {
+    "collection": "documents",
+    "name": "docs_auto",
+    "type": "vectorSearch",
+    "status": "READY",
+    "queryable": true,
+    "what": "autoEmbed voyage-4 on 'text'; filters doc_type,sections"
+   },
+   {
+    "collection": "yaw_windows",
+    "name": "yaw_vec",
+    "type": "vectorSearch",
+    "status": "READY",
+    "queryable": true,
+    "what": "vector 64-d euclidean on 'v'; filters track,direction,run_id,W"
+   }
+  ]
+ },
+ "search": {
+  "question": "Was Bethnal Green to Liverpool Street ground for noise?",
+  "modes": {
+   "text": {
+    "label": "Atlas Search  (docs_text, BM25 full text)",
+    "ms": 78,
+    "hits": [
+     {
+      "_id": "MQ-2022-1791#001",
+      "doc_id": "MQ-2022-1791",
+      "page": 1,
+      "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+      "publisher": "GLA",
+      "doc_date": "2022-06-28",
+      "score": 6.1754045486450195,
+      "snippet": "...levels (December 2021-May 2022) Central Bethnal Green to Liverpool Street Holland Park to Shepherds Bush Marble Arch to Lancaster Gate Mile End to Bethnal Green..."
+     },
+     {
+      "_id": "FOI-1231-2425#000",
+      "doc_id": "FOI-1231-2425",
+      "page": null,
+      "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+      "publisher": "TfL",
+      "doc_date": "2024-08-08",
+      "score": 4.680792808532715,
+      "snippet": "...verpool Street | 81 Liverpool Street to Bethnal Green | 87 Bethnal Green to Mile End | 83 Mile End to Stratford | 87 Stratford to Leyton | 95 Leyton to Leytonst..."
+     },
+     {
+      "_id": "Weir-letter-2022-12#001",
+      "doc_id": "Weir-letter-2022-12",
+      "page": 2,
+      "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+      "publisher": "TfL",
+      "doc_date": "2022-12-09",
+      "score": 4.63674783706665,
+      "snippet": "...e Outer Road Central Liverpool Street - Bethnal Green Eastbound Central Leytonstone - Wanstead Inner Road Central St John's Wood - Baker Street Southbound Jubil..."
+     }
+    ]
+   },
+   "vector": {
+    "label": "Vector Search (docs_auto, autoEmbed voyage-4: Atlas embeds the query)",
+    "ms": 191,
+    "hits": [
+     {
+      "_id": "MQ-2022-1791#001",
+      "doc_id": "MQ-2022-1791",
+      "page": 1,
+      "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+      "publisher": "GLA",
+      "doc_date": "2022-06-28",
+      "score": 0.7892817258834839,
+      "snippet": "...levels (December 2021-May 2022) Central Bethnal Green to Liverpool Street Holland Park to Shepherds Bush Marble Arch to Lancaster Gate Mile End to Bethnal Green..."
+     },
+     {
+      "_id": "FOI-3780-2324#002",
+      "doc_id": "FOI-3780-2324",
+      "page": 3,
+      "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+      "publisher": "TfL",
+      "doc_date": "2020-10-02",
+      "score": 0.7848383188247681,
+      "snippet": "...103 52 58 60 62 61 57 50 39 Moorgate to Liverpool Street 68 102 49 56 57 66 61 54 47 36 Liverpool Street to Aldgate East 65 103 51 56 58 60 59 53 47 37 Aldgate ..."
+     },
+     {
+      "_id": "FOI-1730-1819#000",
+      "doc_id": "FOI-1730-1819",
+      "page": null,
+      "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+      "publisher": "TfL",
+      "doc_date": "2018-10-22",
+      "score": 0.7829782962799072,
+      "snippet": "...e work done on the Central Line between Bethnal Green and Mile End in the past year to prevent noise and vibration. If no work has been done to reduce vibration..."
+     }
+    ]
+   },
+   "hybrid": {
+    "label": "Hybrid Search ($rankFusion: reciprocal rank fusion of the two above)",
+    "ms": 212,
+    "hits": [
+     {
+      "_id": "MQ-2022-1791#001",
+      "doc_id": "MQ-2022-1791",
+      "page": 1,
+      "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+      "publisher": "GLA",
+      "doc_date": "2022-06-28",
+      "score": 0.03278688524590164,
+      "snippet": "...levels (December 2021-May 2022) Central Bethnal Green to Liverpool Street Holland Park to Shepherds Bush Marble Arch to Lancaster Gate Mile End to Bethnal Green...",
+      "ranks": {
+       "semantic": 1,
+       "text": 1
+      }
+     },
+     {
+      "_id": "FOI-1231-2425#000",
+      "doc_id": "FOI-1231-2425",
+      "page": null,
+      "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+      "publisher": "TfL",
+      "doc_date": "2024-08-08",
+      "score": 0.03128054740957967,
+      "snippet": "...verpool Street | 81 Liverpool Street to Bethnal Green | 87 Bethnal Green to Mile End | 83 Mile End to Stratford | 87 Stratford to Leyton | 95 Leyton to Leytonst...",
+      "ranks": {
+       "semantic": 6,
+       "text": 2
+      }
+     },
+     {
+      "_id": "FOI-1730-1819#000",
+      "doc_id": "FOI-1730-1819",
+      "page": null,
+      "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+      "publisher": "TfL",
+      "doc_date": "2018-10-22",
+      "score": 0.031024531024531024,
+      "snippet": "...e work done on the Central Line between Bethnal Green and Mile End in the past year to prevent noise and vibration. If no work has been done to reduce vibration...",
+      "ranks": {
+       "semantic": 3,
+       "text": 6
+      }
+     }
+    ]
+   }
+  },
+  "hybrid_pipeline": [
+   {
+    "$rankFusion": {
+     "input": {
+      "pipelines": {
+       "text": [
+        {
+         "$search": {
+          "index": "docs_text",
+          "compound": {
+           "must": [
+            {
+             "text": {
+              "query": "Was Bethnal Green to Liverpool Street ground for noise?",
+              "path": [
+               "text",
+               "title"
+              ]
+             }
+            }
+           ]
+          }
+         }
+        },
+        {
+         "$limit": 20
+        }
+       ],
+       "semantic": [
+        {
+         "$vectorSearch": {
+          "index": "docs_auto",
+          "path": "text",
+          "query": {
+           "text": "Was Bethnal Green to Liverpool Street ground for noise?"
+          },
+          "numCandidates": 400,
+          "limit": 20
+         }
+        }
+       ]
+      }
+     },
+     "combination": {
+      "weights": {
+       "text": 1.0,
+       "semantic": 1.0
+      }
+     },
+     "scoreDetails": true
+    }
+   },
+   {
+    "$limit": 3
+   },
+   {
+    "$project": {
+     "doc_id": 1,
+     "chunk_no": 1,
+     "title": 1,
+     "publisher": 1,
+     "doc_date": 1,
+     "doc_type": 1,
+     "reliability": 1,
+     "url": 1,
+     "page": 1,
+     "page_end": 1,
+     "sections": 1,
+     "note": 1,
+     "attribution": 1,
+     "score": {
+      "$meta": "score"
+     },
+     "scoreDetails": {
+      "$meta": "scoreDetails"
+     },
+     "text": 1
+    }
+   }
+  ]
+ },
+ "records": {
+  "attempts_count": 8,
+  "attempts_last": [
+   {
+    "attempt": 7,
+    "ts": "2026-10-24T08:04:05+00:00",
+    "kind": "submit",
+    "verdict": "submitted for the one sealed 24 Oct test",
+    "hash": "743eb930e5bb08903a08a1aeb56dc69994721273becfbd8c39ac1964aa0fdfd0",
+    "prev_hash": "4c2bea229b004ba5d556620867b5d2a63d21f424222a5883841e2fe4edac9f98",
+    "config": {
+     "GAMMA": 0.25,
+     "YAW_SD_FLOOR": 0.2,
+     "P_SPEED": 0.1,
+     "stop_gate": true
+    }
+   },
+   {
+    "attempt": 6,
+    "ts": "2026-10-24T08:03:54+00:00",
+    "kind": "dev",
+    "verdict": "rejected by harness rule",
+    "hash": "4c2bea229b004ba5d556620867b5d2a63d21f424222a5883841e2fe4edac9f98",
+    "prev_hash": "6f33bdddbc4f24f08d7b1b989922f86b455f8fc78b502c4f484dfa7667d33647",
+    "config": {
+     "GAMMA": 0.25,
+     "YAW_SD_FLOOR": 0.5,
+     "P_SPEED": 0.03,
+     "stop_gate": true
+    }
+   },
+   {
+    "attempt": 5,
+    "ts": "2026-10-24T08:02:52+00:00",
+    "kind": "dev",
+    "verdict": "rejected by harness rule",
+    "hash": "6f33bdddbc4f24f08d7b1b989922f86b455f8fc78b502c4f484dfa7667d33647",
+    "prev_hash": "d375ec77cda70d7cd71e5998671c16a80e7b35dcf426032ea35bd8de578c9cec",
+    "config": {
+     "GAMMA": 0.1,
+     "YAW_SD_FLOOR": 0.2,
+     "P_SPEED": 0.03,
+     "stop_gate": true
+    }
+   }
+  ],
+  "section_stats_count": 33,
+  "section_stats_examples": [
+   {
+    "key": "contrast.LST-BTH_minus_BTH-MLE",
+    "value": 0.6,
+    "unit": "dB (within trip)",
+    "n": 5
+   },
+   {
+    "key": "level.EB.BTH-MLE",
+    "value": -19.31,
+    "unit": "dBFS(A), uncalibrated",
+    "n": 3
+   },
+   {
+    "key": "level.EB.LST-BTH",
+    "value": -18.55,
+    "unit": "dBFS(A), uncalibrated",
+    "n": 3
+   },
+   {
+    "key": "v2.dev.median_error_m",
+    "value": 2.4,
+    "unit": "m (vs yaw curve-edge proxy, WTT metres)",
+    "n": 8
+   }
+  ]
+ }
+}
