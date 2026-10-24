@@ -1,0 +1,12 @@
+{
+ "config": {
+  "GAMMA": 0.25,
+  "YAW_SD_FLOOR": 0.2,
+  "P_SPEED": 0.1,
+  "stop_gate": true
+ },
+ "config_hash": "175b8d99d8c4",
+ "submitted": "2026-10-24T08:04:05+00:00",
+ "log_hash": "743eb930e5bb08903a08a1aeb56dc69994721273becfbd8c39ac1964aa0fdfd0",
+ "rationale": "On the 23 Oct dev split, (GAMMA=0.25, YAW_SD_FLOOR=0.2, P_SPEED=0.1, stop_gate=True) is accepted under the pre-declared rule: mean coverage is 0.920 (vs 0.918 baseline; EB BTH->MLE drop is only 0.012, 0.809 vs 0.821), the error delta CI is entirely below zero [-1.94, -0.81, -0.05] m (EB BTH->MLE median error drops from 8.8 m to 5.9 m), and mean 90% band width narrows by 15.9% (62.1 m vs 73.8 m). Lowering YAW_SD_FLOOR to 0.20 preserves low-amplitude yaw features on EB BTH->MLE, while increasing P_SPEED to 0.10 prevents speed-transition over-confidence between curves."
+}
