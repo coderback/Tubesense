@@ -110,8 +110,19 @@ None of these were hand-coded by run name; all are detected from the data and li
 - **TfL Unified API:** the public `Line/central/Route/Sequence`, fetched for track geometry. Its
   lineStrings join stations with straight segments, so straight-line lengths are used and flagged.
   Station coordinates are in `tubesense/stops.py`.
-- **TfL FOI noise figures** (reported March 2026), for context and ranking checks only. No TfL figure
-  is used in a calculation.
+- **TfL noise figures**, for context and ranking checks only. No TfL figure is used in a calculation.
+  The primary source is TfL's in-cab LAeq of 24 June 2024 (FOI-1231-2425: Liverpool Street→Bethnal
+  Green 87 dB, Bethnal Green→Mile End 83 dB). The 92.8 dB figure is a press report (27 Jan 2026).
+- **Investigator corpus** (`atlas/corpus.py`, 14 public TfL / London Assembly documents plus one news
+  report, 44 chunks in Atlas `documents`). What it does and does not cover:
+  - Grinding or reconditioning evidence for Liverpool Street–Bethnal Green comes only from Mayor's
+    Question 2022/1791 (ground Dec 2021–May 2022) and the Duncan Weir letter of 9 Dec 2022
+    (reconditioning planned for FY2023/24). Neither TfL noise-update letter (Aug 2024, Aug 2025)
+    mentions Liverpool Street, Bethnal Green, Mile End or Central line grinding.
+  - The 92.8 dB figure appears only in a secondary source (Brixton Buzz, 27 Jan 2026); the primary
+    FOI response is not in the corpus, so it is cited as "reported".
+  - Stored titles are our own descriptive titles, not the sources' titles. TfL and GLA re-use licences
+    were not verified, so everything is quoted for citation only.
 - **Prior work** we build on and cite:
   - Royal Holloway 2019 (Sensors 19(19):4184) and 2017 (arXiv 1704.00148)
   - MLoc (arXiv 2003.10531)

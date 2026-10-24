@@ -27,3 +27,6 @@ __pycache__/
 .pytest_cache/
 
 *.egg-info/
+
+# Downloaded public documents and derived chunks (rebuild: python -m atlas.corpus).
+data/corpus/

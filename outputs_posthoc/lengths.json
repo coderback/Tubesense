@@ -1,0 +1,33 @@
+{
+ "doc": "Section lengths from TfL Working Timetables (post-hoc v2), replacing v1's straight-line chords.\n\nv1 (tubesense.online.Template, scripts/online_eval.lengths) scales every map to the straight-line\ndistance between station coordinates, because TfL's Route/Sequence lineStrings join these\nstations with single straight segments. The Working Timetable (WTT) gives the along-track\nsection length the timetable is built on, which is the better metre axis.\n\nSources (TfL FOI releases, fetched 24 Oct 2026):\n- Central line Timetable Notice TTN 37/25, FOI-3481-2425:\n  https://foi.tfl.gov.uk/FOI-3481-2425/3481-2425-Working%20Timetable%20Notice%20Central%20Line%20TTN%2037-25.pdf\n  Liverpool Street - Bethnal Green 2,270 m; Bethnal Green - Mile End 1,640 m.\n- Circle and Hammersmith & City WTT 31 (18 May 2014), FOI-1642-2021:\n  https://foi.tfl.gov.uk/FOI-1642-2021/WTT%2031%20Circle%20and%20Hammersmith%20and%20City%2018%20May%202014.pdf\n  Liverpool Street - Aldgate East 920 m; Aldgate East - Whitechapel 820 m.\nOSM platform-centre lengths agree with these to a median 1.3 % (docs/ARCHITECTURE.md, decision 2).\nWTT lengths are given per section, not per direction; both directions use the same figure here.\nALE-WCL is SHORTER than its chord (820 vs 993 m): the TfL API station coordinates are not platform\ncentres there, so the chord is not a lower bound. Only the Central sections are used on 23 Oct data.\n\nBecause the v1 tracker works in map fractions and its map's metre axis is fraction-proportional\n(dead-reckoned profile x length_m), a v1 metre figure converts exactly to WTT metres by the factor\nWTT / chord (rescale_m).\n\nRun: .venv/Scripts/python -m posthoc.lengths   (prints the table and writes outputs_posthoc/lengths.json)\n",
+ "sections": {
+  "LST-BTH": {
+   "m": 2270.0,
+   "source": "TfL FOI-3481-2425, Central line Working Timetable Notice TTN 37/25",
+   "url": "https://foi.tfl.gov.uk/FOI-3481-2425/3481-2425-Working%20Timetable%20Notice%20Central%20Line%20TTN%2037-25.pdf",
+   "chord_m": 2205.9,
+   "factor": 1.02906
+  },
+  "BTH-MLE": {
+   "m": 1640.0,
+   "source": "TfL FOI-3481-2425, Central line Working Timetable Notice TTN 37/25",
+   "url": "https://foi.tfl.gov.uk/FOI-3481-2425/3481-2425-Working%20Timetable%20Notice%20Central%20Line%20TTN%2037-25.pdf",
+   "chord_m": 1530.6,
+   "factor": 1.07148
+  },
+  "LST-ALE": {
+   "m": 920.0,
+   "source": "TfL FOI-1642-2021, Circle and Hammersmith & City WTT 31 (18 May 2014)",
+   "url": "https://foi.tfl.gov.uk/FOI-1642-2021/WTT%2031%20Circle%20and%20Hammersmith%20and%20City%2018%20May%202014.pdf",
+   "chord_m": 791.0,
+   "factor": 1.16308
+  },
+  "ALE-WCL": {
+   "m": 820.0,
+   "source": "TfL FOI-1642-2021, Circle and Hammersmith & City WTT 31 (18 May 2014)",
+   "url": "https://foi.tfl.gov.uk/FOI-1642-2021/WTT%2031%20Circle%20and%20Hammersmith%20and%20City%2018%20May%202014.pdf",
+   "chord_m": 993.0,
+   "factor": 0.82578
+  }
+ }
+}
