@@ -9,3 +9,5 @@ soundfile>=0.12
 phonometry==3.3.0
 dtaidistance==2.5.1
 numba>=0.61         # JIT for the multivariate DTW in tubesense/position.py
+pymongo>=4.10       # MongoDB Atlas (atlas/)
+google-genai>=2.3.0 # Gemini (Argon investigator/analyst, transcription)
