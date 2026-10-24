@@ -1,5 +1,9 @@
 /CLAUDE.md
 
+# API keys and connection strings (Gemini, Atlas).
+.env
+.env.*
+
 # Raw recordings never leave this machine (privacy: see README).
 data/raw/
 data/interim/
