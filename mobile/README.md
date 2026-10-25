@@ -39,7 +39,11 @@ Up to 60 rows are buffered while the laptop is unreachable.
 - `src/metrics.ts`: pure maths (yaw about gravity, horizontal and vibration RMS, stop state machine,
   double-knock detector, pressure change, outbox), with thresholds cited to `tubesense/stops.py`,
   `tubesense/sync.py` and `live/detect.py`.
-- `App.tsx`: sensors, the per-second tick, sending, UI.
+- `App.tsx`: sensors, the per-second tick, sending, UI (design v2: a full-screen map of the section, a bottom sheet,
+  sensor values in a details sheet, day and tunnel looks).
+- `src/route.ts`: sections (TfL WTT lengths), the time-based position guess, the optional tracker position from the reply,
+  and the generated map drawing. `src/RideMap.tsx`: the map. The buildings are generated, not real; the line is schematic.
+- `test/route.test.mts`: the time guess, reply parsing and map drawing helpers.
 - `test/metrics.test.mts`: synthetic checks (rotation about gravity with the phone flat, tilted and face down;
   a double knock; a still period). Run `npm test`. Type check: `npx tsc --noEmit`.
 

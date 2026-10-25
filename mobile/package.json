@@ -21,7 +21,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/metrics.test.mts",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/metrics.test.mts && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/route.test.mts",
     "typecheck": "tsc --noEmit"
   },
   "private": true

@@ -1,6 +1,6 @@
 // Live tracking: a recorded ride replayed through the tracker (real compute, paced by the wall clock), drawn as a strip map,
 // a schematic geographic view, a readout, a yaw chart and the messy-input QC list.
-import { h, mount as mountEl, clear, fmtNum, fmtDur, fmtUTC, fixArrow, announce, rafThrottle, store, icon } from "../util.js";
+import { h, mount as mountEl, clear, fmtNum, fmtDur, fmtUTC, fixArrow, announce, rafThrottle, store, icon, ensureCss } from "../util.js";
 import { MOCK } from "../api.js";
 import { state, getRides, on } from "../state.js";
 import { card, chip, chipRow, screenHeader, whereFrom, segmented, errorCard, emptyState, skeleton, banner, startWithReplace, verdict, toast } from "../ui.js";
@@ -8,6 +8,7 @@ import { rideSession as session, listPrecomputed } from "../ridectl.js";
 import { StripMap, paintRuleText } from "../stripmap.js";
 import { GeoMap } from "../geomap.js";
 import { YawChart } from "../yawchart.js";
+import { createMap3D } from "../map3d.js";
 
 const VARIANT_HELP = {
   quiet: "quiet: constant at the run's median dwell level",
@@ -32,6 +33,7 @@ function severityFor(line, flags = []) {
 
 export async function mount(root, ctx) {
   const demo = ctx.demo;
+  ensureCss("css/ride.css");
   root.append(h("div", { class: "screen ride", id: "ride-screen" }));
   const screen = root.firstChild;
   if (demo) screen.classList.add("is-demo");
@@ -44,10 +46,11 @@ export async function mount(root, ctx) {
   const synthHost = h("div");
   const warnHost = h("div");
   const stripCard = h("div");
+  const map3dHost = h("section", { class: "ride-3d", "aria-label": "3D map of the section (schematic)" });
   const lower = h("div", { class: "ride-grid" });
   const yawHost = h("div");
   const qcHost = h("div");
-  screen.append(head, controlsHost, errHost, warnHost, synthHost, stripCard, lower, yawHost, qcHost,
+  screen.append(head, map3dHost, controlsHost, errHost, warnHost, synthHost, stripCard, lower, yawHost, qcHost,
     h("p", { class: "where ride__honesty" }, HONESTY),
     whereFrom("GET /api/rides", "POST /api/ride/start (job events over SSE)", "outputs/qc.json via the init event", "outputs_posthoc/final_config.json", "outputs/online/forward_test.json"));
   mountEl(controlsHost, card({ title: "Ride settings", body: skeleton(3) }));
@@ -93,6 +96,60 @@ export async function mount(root, ctx) {
   const geoCard = card({ title: "Geographic view (schematic)", cls: "ride-geo", actions: geo.toggle, body: geo.el });
   lower.append(geoCard, readoutCard);
   mountEl(yawHost, card({ title: "Yaw chart", chips: chip("neutral", "deg/s"), body: yaw.el, cls: "ride-yaw" }));
+
+  // ------------------------------------------------------------ 3D map (design v2): same ticks as the strip map, drawn over a generated city
+  const m3 = (() => {
+    const stage = h("div", { class: "ride-3d__stage" });
+    const next = h("div", { class: "ride-3d__next" }, h("b", null, "–"), h("span", null, "waiting for a ride"));
+    const noiseNow = h("b", null, "–"), noiseMap = h("b", null, "–");
+    const tiles = h("div", { class: "ride-3d__noise", role: "group", "aria-label": "Noise now and the map's usual level here" },
+      h("div", { class: "ride-3d__now" }, noiseNow, h("span", null, "noise now")), h("div", { class: "ride-3d__usual" }, noiseMap, h("span", null, "usual here")));
+    const status = h("span", { class: "ride-3d__status" }, "Idle");
+    const note = h("p", { class: "ride-3d__note" }, "Schematic: station positions are real, the line between them is smoothed and the buildings are generated. Position = distance along the section, not GPS. Levels: dBFS(A), relative, uncalibrated.");
+    const pref = store.get("ride3d", true);
+    const toggle = h("button", { type: "button", class: "ride-3d__toggle", "aria-pressed": String(pref), onclick: () => setOn(!on) }, pref ? "Hide 3D" : "Show 3D");
+    const box = h("div", { class: "ride-3d__box" }, stage, h("div", { class: "ride-3d__hud" }, next, status), tiles, toggle);
+    map3dHost.append(box, note);
+    let map = null, on = pref, cur = null, failed = false;
+    function setOn(v) {
+      on = v; store.set("ride3d", v); toggle.textContent = v ? "Hide 3D" : "Show 3D"; toggle.setAttribute("aria-pressed", String(v));
+      map3dHost.classList.toggle("is-off", !v);
+      if (v && !map && !failed) build();
+    }
+    async function build() {
+      try {
+        map = await createMap3D(stage, { theme: "dark", follow: false, zoom: 1.45, focus: "LST-BTH", stations: session.init?.stations });
+        disposers.push(() => map?.destroy());
+        if (session.init) api.init(session.init);
+        if (session.last) api.tick(session.last);
+      } catch (e) {
+        failed = true; map3dHost.classList.add("is-failed");
+        stage.append(h("p", { class: "ride-3d__fail" }, `3D map unavailable (${e.message || e}). The strip map and geographic view below show the same ride.`));
+      }
+    }
+    const api = {
+      init(init) {
+        cur = init;
+        map?.focus(init.from, init.to);
+        map?.setNoise({ from: init.from, to: init.to, edges: init.map?.bin_edges_m, db: init.map?.noise_db, vmin: init.map?.vmin, vmax: init.map?.vmax, length: init.length_m });
+      },
+      tick(t) {
+        const init = cur || session.init; if (!init) return;
+        map?.setTrain(t.s_m === null ? null : { from: init.from, to: init.to, s_m: t.s_m, lo: t.band_lo, hi: t.band_hi, length: init.length_m, label: `${fmtNum(t.s_m, 0)} m` });
+        if (t.s_m !== null && t.s_m !== undefined) {
+          next.firstChild.textContent = `${fmtNum(Math.max(0, init.length_m - t.s_m), 0)} m`;
+          next.lastChild.textContent = `to ${init.to_name || init.to}`;
+        }
+        noiseNow.textContent = t.level_rel === null || t.level_rel === undefined ? "n/a" : fmtNum(t.level_rel, 1);
+        noiseMap.textContent = t.level_map === null || t.level_map === undefined ? "n/a" : fmtNum(t.level_map, 1);
+        status.textContent = t.status ? t.status.charAt(0) + t.status.slice(1).toLowerCase() : "";
+        status.dataset.state = t.status === "TRACKING" ? "live" : String(t.status || "").startsWith("HOLDING") ? "hold" : "";
+      },
+      reset() { cur = null; map?.setTrain(null); next.firstChild.textContent = "–"; next.lastChild.textContent = "waiting for a ride"; noiseNow.textContent = noiseMap.textContent = "–"; status.textContent = "Idle"; delete status.dataset.state; },
+    };
+    setOn(pref);
+    return api;
+  })();
 
   // ------------------------------------------------------------ header
   function renderHead() {
@@ -224,12 +281,14 @@ export async function mount(root, ctx) {
 
   function onInit(init) {
     strip.setInit(init); geo.setInit(init); yaw.setInit(init);
+    m3.init(init);
     mountEl(caption, paintRuleText(init.paint_rule));
     if (init.live_only) caption.append(" (LIVE ONLY: ride excluded from noise averages)");
     renderHead(); renderQc(init);
     if (!init.truth_available) setWarn(`No reference for this ride: ${init.truth_label || "curve-edge reference unavailable"}.`);
   }
   function onTick(t) {
+    m3.tick(t);
     strip.setTarget({ s: t.s_m, lo: t.band_lo, hi: t.band_hi, ref: t.truth_s_m ?? null });
     geo.update({ s: t.s_m, lo: t.band_lo, hi: t.band_hi });
     strip.setSynthetic(t.in_synthetic_stop ? "SYNTHETIC 30 s STOP (inserted for the demo)" : null);
@@ -294,7 +353,7 @@ export async function mount(root, ctx) {
 
   const unsub = session.subscribe((kind, ev) => {
     switch (kind) {
-      case "reset": strip.reset(); geo.reset(); yaw.reset(); clear(endHost); clear(qcHost); lastStatus = ""; renderHead(); renderPhase(); break;
+      case "reset": strip.reset(); geo.reset(); yaw.reset(); m3.reset(); clear(endHost); clear(qcHost); lastStatus = ""; renderHead(); renderPhase(); break;
       case "init": onInit(ev); break;
       case "tick": onTick(ev); break;
       case "end": renderEnd(); renderPhase(); break;

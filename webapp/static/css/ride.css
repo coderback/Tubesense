@@ -1,0 +1,35 @@
+/* Ride screen additions (design v2): the 3D map panel with floating cards, above the controls. */
+.ride-3d { display: grid; gap: 8px; }
+.ride-3d__box { position: relative; height: clamp(360px, 52vw, 560px); border-radius: 26px; overflow: hidden; background: #010205; isolation: isolate; }
+.ride-3d.is-off .ride-3d__box { height: 76px; }
+.ride-3d.is-off .ride-3d__stage, .ride-3d.is-off .ride-3d__noise, .ride-3d.is-off .ride-3d__note { display: none; }
+.ride-3d__stage { position: absolute; inset: 0; }
+.ride-3d__hud { position: absolute; left: 16px; top: 16px; display: grid; gap: 8px; justify-items: start; z-index: 2; }
+.ride-3d__next { display: grid; gap: 2px; padding: 14px 18px; border-radius: 20px; background: rgba(9, 12, 28, .92); border: 1px solid #1E2649; color: #EEF1FB; }
+.ride-3d__next b { font: 800 28px/1 var(--font-body); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.ride-3d__next span { font-size: 13px; color: #A9B4DA; }
+.ride-3d__status { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-radius: 999px; background: rgba(9, 12, 28, .92); border: 1px solid #1E2649; color: #A9B4DA; font: 700 12px var(--font-body); }
+.ride-3d__status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #8A94BC; }
+.ride-3d__status[data-state="live"] { color: #34D399; } .ride-3d__status[data-state="live"]::before { background: #34D399; }
+.ride-3d__status[data-state="hold"] { color: #FFB020; } .ride-3d__status[data-state="hold"]::before { background: #FFB020; }
+.ride-3d__noise { position: absolute; right: 16px; top: 16px; z-index: 2; display: flex; border-radius: 18px; overflow: hidden; border: 1px solid #1E2649; }
+.ride-3d__noise > div { display: grid; justify-items: center; gap: 2px; padding: 10px 16px; min-width: 84px; }
+.ride-3d__noise b { font: 800 24px/1 var(--font-body); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.ride-3d__noise span { font: 700 11px var(--font-body); }
+.ride-3d__now { background: #F99A2E; color: #1F1203; }
+.ride-3d__usual { background: rgba(9, 12, 28, .95); color: #EEF1FB; }
+.ride-3d__usual span { color: #A9B4DA; }
+.ride-3d__toggle { position: absolute; right: 16px; bottom: 16px; z-index: 2; height: 40px; padding: 0 14px; border-radius: 12px; border: 1px solid #1E2649; background: rgba(9, 12, 28, .92); color: #EEF1FB; font: 700 13px var(--font-body); cursor: pointer; }
+.ride-3d.is-off .ride-3d__hud { top: 50%; transform: translateY(-50%); }
+.ride-3d.is-off .ride-3d__next { padding: 6px 14px; display: flex; gap: 10px; align-items: baseline; }
+.ride-3d.is-off .ride-3d__next b { font-size: 18px; }
+.ride-3d.is-off .ride-3d__toggle { top: 50%; transform: translateY(-50%); bottom: auto; }
+.ride-3d__note { margin: 0; font-size: var(--fs-cap); color: var(--ink-3); }
+.ride-3d__fail { position: absolute; inset: auto 16px 70px; margin: 0; color: #A9B4DA; font-size: 14px; }
+.ride-3d.is-failed .ride-3d__box { height: 200px; }
+@media (max-width: 639px) {
+  .ride-3d__box { height: 420px; border-radius: 20px; }
+  .ride-3d__noise { top: auto; bottom: 16px; right: auto; left: 16px; }
+  .ride-3d__noise > div { min-width: 72px; padding: 8px 12px; }
+  .ride-3d__next b { font-size: 22px; }
+}

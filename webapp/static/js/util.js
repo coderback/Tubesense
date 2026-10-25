@@ -126,6 +126,9 @@ export function announce(text) {
 // ---- icons (24x24 stroke paths drawn for this app)
 const ICONS = {
   story: "M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4zM8 8h7M8 12h7M8 16h4",
+  overview: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+  evidence: "M7 3h7l5 5v13H7zM14 3v5h5M10 14l2 2 4-4",
+  proof: "M3.5 12a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0M15.5 6a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0M15.5 18a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0M8.2 10.8l7.1-3.6M8.2 13.2l7.1 3.6",
   ride: "M4 18c4 0 4-12 8-12s4 12 8 12M4 18h0M20 18h0",
   agent: "M12 3v3M12 18v3M3 12h3M18 12h3M7 7l2 2M15 15l2 2M17 7l-2 2M9 15l-2 2M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0",
   ask: "M4 5h16v11H9l-5 4V5zM8 9h8M8 12h5",
@@ -157,6 +160,12 @@ export function icon(name, size = 18) {
   return s("svg", { viewBox: "0 0 24 24", width: size, height: size, fill: "none", stroke: "currentColor",
                     "stroke-width": 1.8, "stroke-linecap": "round", "stroke-linejoin": "round", "aria-hidden": "true",
                     class: "icon" }, s("path", { d: ICONS[name] || ICONS.dot }));
+}
+
+/** Adds a screen's own stylesheet once (design v2 keeps screen styles beside the screen instead of in app.css). */
+export function ensureCss(href) {
+  if (document.querySelector(`link[data-css="${href}"]`)) return;
+  document.head.append(h("link", { rel: "stylesheet", href, dataset: { css: href } }));
 }
 
 // ---- small helpers used by several views

@@ -45,6 +45,23 @@ Content-Type: application/json
 
 Numbers are rounded (yaw 3 dp, acc/vib 4 dp, \|B\| 2 dp, pressure 3 dp). There is no audio field: the app never uses the microphone.
 
+## Reply (optional position for the phone map)
+
+The phone shows a map of the current section. If the 2xx reply's JSON body has a `position` object, the map uses it as the
+tracker's estimate; otherwise it shows a rough time-based guess (seconds moving ÷ the section's usual run time) and says so.
+The server does not send `position` today: live rides are not positioned (positioning runs on recorded rides).
+
+```json
+{ "ok": true, "seq": 42, "position": { "section": "EB LST->BTH", "s_m": 881.0, "length_m": 2270.0, "band_lo": 849.0, "band_hi": 881.0 } }
+```
+
+| field | type | meaning |
+|---|---|---|
+| `position.s_m` | number | metres from the section's start station (required) |
+| `position.length_m` | number | section length, m (default: the app's TfL WTT length) |
+| `position.band_lo`, `band_hi` | number \| null | 90 % band, m |
+| `position.section` | string | `EB LST->BTH`, `EB BTH->MLE`, `WB MLE->BTH` or `WB BTH->LST`; ignored if it is not the section chosen on the phone |
+
 ## Server expectations
 
 - Reply 2xx for an accepted row. Any non-2xx or no reply within 2.5 s counts as failed; the row stays queued and is retried next second.

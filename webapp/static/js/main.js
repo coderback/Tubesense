@@ -10,6 +10,20 @@ const ROUTES = {
 };
 const NAV_ROUTE = { story: "story", ride: "ride", agent: "agent", ask: "ask", pack: "pack", atlas: "atlas", compare: "why-argon", method: "method", box: "box", verified: "ask", work: "work", live: "live" };
 
+// Four places replace the eleven-item nav. Every old route still works; it lives inside one place as a sub-tab.
+const PLACES = [
+  { id: "overview", label: "Overview", icon: "overview", href: "#/", sub: [] , routes: ["story"] },
+  { id: "ride", label: "Ride", icon: "ride", href: "#/ride", routes: ["ride", "live"],
+    sub: [["#/ride", "ride", "Recorded ride"], ["#/live", "live", "Live phone"]] },
+  { id: "evidence", label: "Evidence", icon: "evidence", href: "#/pack", routes: ["pack", "ask", "atlas"],
+    sub: [["#/pack", "pack", "Evidence pack"], ["#/ask", "ask", "Ask the record"], ["#/atlas", "atlas", "Sources in Atlas"]] },
+  { id: "proof", label: "Proof", icon: "proof", href: "#/agent", routes: ["agent", "work", "why-argon", "method", "box"],
+    sub: [["#/agent", "agent", "Agent loop"], ["#/work", "work", "Argon at work"], ["#/why-argon", "why-argon", "Why Argon"], ["#/method", "method", "Privacy & method"], ["#/box", "box", "Research Box"]] },
+];
+// Ride and Live sensors run in the dark "tunnel" look; everything else uses the light surface look.
+const TUNNEL = new Set(["ride", "live"]);
+const placeFor = (route) => PLACES.find((p) => p.routes.includes(route)) || PLACES[0];
+
 export function parseHash() {
   const raw = location.hash.replace(/^#\/?/, "");
   const [pathPart, queryPart = ""] = raw.split("?");
@@ -61,10 +75,19 @@ async function render() {
 }
 
 function setNav(view) {
-  const r = NAV_ROUTE[view];
-  $$("[data-route]").forEach((a) => { if (a.dataset.route === r) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
-  const more = $("#more-btn");
-  if (more) { if (["ask", "work", "live", "atlas", "why-argon", "method", "box"].includes(r)) more.setAttribute("aria-current", "page"); else more.removeAttribute("aria-current"); }
+  const r = NAV_ROUTE[view] || "story";
+  const place = placeFor(r);
+  document.documentElement.dataset.mode = TUNNEL.has(r) ? "tunnel" : "surface";
+  $$("[data-place]").forEach((a) => { if (a.dataset.place === place.id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  const sub = $("#subnav");
+  if (sub) {
+    clear(sub);
+    sub.hidden = place.sub.length === 0;
+    $("#topbar")?.toggleAttribute("hidden", place.sub.length === 0);
+    for (const [href, key, label] of place.sub) {
+      sub.append(h("a", { class: "subnav__link", href, "aria-current": key === r ? "page" : null }, label));
+    }
+  }
 }
 
 // ---------------------------------------------------------------- banners and status dots
@@ -99,19 +122,10 @@ async function poll() {
 }
 
 function buildPhoneNav() {
-  const tab = (href, name, label) => h("a", { href, "data-route": name, "aria-label": label }, icon(name === "story" ? "story" : name, 22), h("span", null, label));
   const bar = $("#tabbar");
-  bar.append(tab("#/", "story", "Story"), tab("#/ride", "ride", "Ride"), tab("#/agent", "agent", "Agent"), tab("#/pack", "pack", "Pack"),
-    h("button", { type: "button", "aria-haspopup": "dialog", id: "more-btn", onclick: () => toggleSheet(true) }, icon("more", 22), h("span", null, "More")));
-  const sheet = $("#sheet");
-  const item = (href, ic, label) => h("a", { href, onclick: () => toggleSheet(false) }, icon(ic, 20), label);
-  sheet.append(h("div", { class: "sheet__panel", role: "dialog", "aria-modal": "true", "aria-label": "More screens" },
-    item("#/ask", "ask", "Ask Argon"), item("#/work", "work", "Argon at work"), item("#/live", "live", "Live sensors"), item("#/atlas", "atlas", "Atlas"), item("#/why-argon", "why", "Why Argon"),
-    item("#/method", "method", "Privacy & method"), item("#/box", "box", "Research Box"), item("#/demo", "demo", "Start the demo"),
-    h("button", { class: "sheet__item", type: "button", onclick: () => toggleSheet(false) }, icon("close", 20), "Close")));
-  sheet.addEventListener("click", (e) => { if (e.target === sheet) toggleSheet(false); });
+  for (const p of PLACES) bar.append(h("a", { href: p.href, "data-place": p.id, "aria-label": p.label }, icon(p.icon, 22), h("span", null, p.label)));
 }
-function toggleSheet(open) { const s = $("#sheet"); s.hidden = !open; if (open) $("a, button", s)?.focus(); else $("#more-btn")?.focus(); }
+function toggleSheet(open) { const s = $("#sheet"); if (s) s.hidden = !open; }
 
 function registerSW() {
   if (MOCK || !("serviceWorker" in navigator) || !/^https?:$/.test(location.protocol)) return;
@@ -121,7 +135,7 @@ function registerSW() {
 function boot() {
   $$("[data-icon]").forEach((n) => n.append(icon(n.dataset.icon, 20)));
   buildPhoneNav();
-  addClientEgress("Google Fonts", "Font files for Oswald, IBM Plex Sans, JetBrains Mono (requested by your browser at page load; no ride data)", "fonts.googleapis.com");
+  addClientEgress("Google Fonts", "Font files for Plus Jakarta Sans and JetBrains Mono (requested by your browser at page load; no ride data)", "fonts.googleapis.com");
   window.addEventListener("hashchange", () => { toggleSheet(false); render(); });
   window.addEventListener("online", () => { state.online = true; renderBanners(); renderStatus(); emit("online", true); });
   window.addEventListener("offline", () => { state.online = false; renderBanners(); renderStatus(); emit("online", false); });

@@ -1,0 +1,12 @@
+/* 3D section map (js/map3d.js). The container sets the size; the canvas and the label layer fill it. */
+.map3d__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.map3d__labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.map3d__pill { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px 0 3px; border-radius: 999px;
+  background: #121735; color: #FFFFFF; font: 700 13px var(--font-body); white-space: nowrap; box-shadow: 0 10px 24px -12px rgba(18, 23, 53, .6); will-change: transform; }
+.map3d__pill i { width: 24px; height: 24px; border-radius: 50%; background: var(--central, #E1251B); display: inline-flex; align-items: center; justify-content: center; font: 800 11px var(--font-body); font-style: normal; }
+.map3d__pill--dim { background: #FFFFFF; color: #4B5275; }
+:root[data-mode="tunnel"] .map3d__pill { background: #EEF1FB; color: #070A16; }
+.map3d__tag { position: absolute; left: 0; top: 0; display: grid; justify-items: center; padding: 7px 12px; border-radius: 14px; background: #FFFFFF; color: #121735;
+  font: 800 15px var(--font-body); font-variant-numeric: tabular-nums; white-space: nowrap; box-shadow: 0 14px 30px -14px rgba(40, 50, 110, .55); will-change: transform; }
+.map3d__tag span { font: 600 11px var(--font-body); color: #4B5275; }
+:root[data-mode="tunnel"] .map3d__tag { background: #EEF1FB; color: #070A16; }
