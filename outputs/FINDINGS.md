@@ -22,7 +22,8 @@ All rides were in the 2nd car with the phone on a seat (`data/raw/notes.csv`, no
   `data/raw/niosh.csv`.
 - **Deviations from the collection protocol:**
   - fewer than 3 H&C runs each way;
-  - no `CAL_*` magnetometer recording;
+  - the `CAL_1` magnetometer calibration was recorded at street level at 01:36 UTC on 25 Oct, about
+    6 hours after the last ride, not before and after the rides;
   - NIOSH reports one reading per trip, not per section;
   - the NIOSH rides came before the Voice Memos rides, not after.
 
@@ -34,7 +35,7 @@ All rides were in the 2nd car with the phone on a seat (`data/raw/notes.csv`, no
 | H2a tracker generalises to the H&C | median-of-runs error below the timetable's **and** mean 90 % coverage ≥ 0.80 | EB LST→ALE, 2 held-out runs: 52.3 m vs timetable 46.6 m; coverage 0.35 | **NO-GO** |
 | H2b forward in time, Central | LST⇄BTH median-of-runs ≤ 5 m **and** coverage ≥ 0.80 | 1.95 m (timetable 8.2 m), coverage 0.96, 6 sections | **GO** |
 | H3 magnetism, deep tube vs sub-surface | Central − H&C excess r (`resid_mid`, raw–raw); a CI excluding 0 means "the lines differ" | +0.23 [0.10, 0.36]. Central 0.29 [0.18, 0.40] from 12 pairs; H&C 0.06 [−0.01, 0.13] from **1 pair** | **criterion met, not claimed** |
-| H4 platform signatures | only if a `CAL_*` recording passes validation | no `CAL_*` recording | **not run** |
+| H4 platform signatures | only if a `CAL_*` recording passes validation (field 35–65 µT, misfit < 10 %) | Validated: 45.6 µT, misfit 0.5 %. Field size at still platform dwells, inside the train: Central 43–131 µT over 20 dwells; the spread between visits to the same platform (sd 19.0 µT) is close to the spread between stations (22.0 µT) | **exploratory: no stable platform signature** |
 | H5 NIOSH absolute levels | descriptive | N1 EB 91.9 dB(A), N2 WB 87.3 dB(A), per trip | **indicative; deviations** |
 
 ### H1 and H2a: the method did not transfer to the H&C on this data
@@ -104,6 +105,36 @@ All rides were in the 2nd car with the phone on a seat (`data/raw/notes.csv`, no
   - R7 BTH→MLE: p90 54 m → 121 m.
 - `demo/replay_analyst.py --summary` prints the comparison.
 
+### H4: platform magnetic signatures (exploratory, no threshold)
+
+- **Calibration:** `CAL_1` passes the frozen validation in `scripts/mag_compare.py`:
+  - fitted field 45.6 µT (London is about 49 µT), misfit 0.5 %;
+  - 23 rotating windows, conditioning 0.52;
+  - hard-iron offset [−160.8, 28.6, −114.9] µT.
+- **Rerun:** only the magnetism step (`scripts/mag_compare.py`) was rerun; nothing else reads its output.
+  The H3 numbers are byte-identical to the run without the calibration.
+- **Result:** |B − hard iron| at still platform dwells, raw runs (`gonogo/mag_compare.json`,
+  `platform_signatures`):
+
+| | dwells (station-directions) | range | spread across visits (pooled sd) | spread across stations (sd of means) |
+|---|---|---|---|---|
+| Central | 20 (12) | 42.6–130.5 µT | 19.0 µT (3 station-directions with ≥ 2 visits) | 22.0 µT |
+| Hammersmith & City | 5 (4) | 86.6–137.7 µT | 2.5 µT (ALE EB only, 2 visits) | 26.5 µT |
+
+- **Repeat visits:**
+  - Bethnal Green EB: 120.8 ± 8.7 µT (4 visits);
+  - Bethnal Green WB: 97.7 ± 18.7 µT (3);
+  - Liverpool Street EB: 94.5 ± 25.5 µT (4). On 24 Oct only it is 106.1 ± 12.8 µT; the 23 Oct visit reads 59.7.
+- **Reading:**
+  - Inside a stopped train the field is 2–3 times Earth's.
+  - On the Central line, visits to the same platform vary nearly as much as different stations do.
+  - Every visit was a different train (`data/raw/notes.csv`), and the design cannot separate train from
+    platform.
+  - So a dwell's |B| is not a usable platform fingerprint on this data.
+- **Caveats:**
+  - The offset was measured after the rides. A drift in the phone's offset between 23 Oct, 24 Oct and the
+    calibration would add spread, especially to the 23 Oct visits.
+
 ### H5: NIOSH Sound Level Meter levels (`outputs_posthoc/h5_niosh.md`)
 
 - **Levels:**
@@ -126,10 +157,19 @@ All rides were in the 2nd car with the phone on a seat (`data/raw/notes.csv`, no
 
 ### Loudness check (c), rerun on both days
 
-The frozen rule now says **NO-GO**; on 23 Oct alone it said WEAK. Liverpool Street–Bethnal Green is
-louder than Bethnal Green–Mile End on 10 of 11 trips, by a mean +0.54 dB (range −0.13 to +1.21;
-one-sided sign test p = 0.006). That is under 1 dB and is not consistent across the level variants
-(`gonogo/loudness.json`).
+The frozen rule now says **NO-GO**; on 23 Oct alone it said WEAK.
+
+- **The rule** (`scripts/loudness.py`):
+  - GO needs Liverpool Street–Bethnal Green louder on every trip, a mean of at least 1 dB, and every
+    level variant agreeing.
+  - WEAK means every trip is positive but the rest fails.
+  - NO-GO means at least one trip goes the other way.
+- **What happened:** Liverpool Street–Bethnal Green is louder than Bethnal Green–Mile End on 10 of 11
+  trips. One trip went the other way, R10 westbound at −0.13 dB, and that one trip is why the verdict
+  is NO-GO.
+- **The size of the difference:** the mean is +0.54 dB (range −0.13 to +1.21; one-sided sign test
+  p = 0.006). That is also under 1 dB, inside the Voice Memos limiter compression, and the level
+  variants do not all agree (`gonogo/loudness.json`).
 
 ## Post-hoc observations (not in the plan)
 

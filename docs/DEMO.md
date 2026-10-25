@@ -3,8 +3,9 @@
 This sheet is built from `docs/ARCHITECTURE.md` §7 ("Demo") and from what exists in the repo on 24 Oct.
 **Every beat is labelled LIVE, REPLAY or PRECOMPUTED, and that label is said or shown on screen.**
 
-The Gemini API key is over its spending cap, so **no Gemini call happens during the demo**. Everything
-from Argon is a replay of a recorded log, and the screen says so.
+**No Gemini call happens during the demo.** Everything from Argon is either a replay of a recorded log
+(the analyst) or a precomputed output (the investigator, run on 25 Oct with a new key), and the
+screen says so.
 
 Commands are PowerShell, run from the repo root. Set this once in each terminal:
 
@@ -28,8 +29,8 @@ In Git Bash, use `PYTHONPATH=. .venv/Scripts/python ...` instead.
 | Atlas cluster, indexes, corpus | MongoDB 8.0.34. `docs_text`, `docs_auto` (autoEmbed voyage-4) and `yaw_vec` are all READY. 44 chunks. | 1:50 beat runs live (`demo/atlas_show.py`, tested) |
 | Analyst session (Argon) | Recorded on 24 Oct 07:58–08:05 UTC (07:53 was the baseline plus a failed first session): 6 experiments, 1 accepted, 1 submitted. Hash chain intact. The Atlas `attempts` head matches the local head. | 1:15 beat is a REPLAY |
 | Sealed 24 Oct test score | **Scored once** (attempt 8, 25 Oct 00:52 UTC): v2 median 1.8 m, coverage 0.936, n = 10. v1 pre-registered forward test: 1.8 m, 0.951. `replay_analyst.py` prints both. | Say it plainly: v2 matched v1 and did not beat it; the stop gate never engaged. |
-| Investigator output (`outputs_posthoc/investigation.json`) | **Missing.** The investigator is built but needs Gemini, and the key is capped. | Say "pending the API cap" at 1:50 |
-| Approval page `agent/approve.py` | `/canary` works. **`GET /` drops the connection while `investigation.json` is missing** (FileNotFoundError; tested on a spare port). | The 2:30 beat needs the investigator run first. Fallback below. |
+| Investigator output (`outputs_posthoc/investigation.json`) | **Present** (run 25 Oct, 02:08–03:20 UTC). Draft 1: 15 claims, the verifier rejected 5 and Argon fixed them. An independent review against the full sources found 21 problems, 4 of them major (e.g. a commitment the Mayor did not make). Argon revised the draft; a recheck found 3 minor issues, fixed in a targeted revision. Final: 16 claims, all verified, 0 dropped. Pack `outputs_posthoc/drafts/evidence_pack_8d251cb4c2ebfb3c.md` | Say it at 1:50 (PRECOMPUTED) |
+| Approval page `agent/approve.py` | Works. `GET /` shows pack `8d251cb4c2ebfb3c` with 16 verified claims. The approve action was tested end to end in a scratch folder (`TUBESENSE_POSTHOC_OUT`); no real approval exists yet. | The 2:30 beat is LIVE. |
 | Raw audio | Never played, never written to disk (privacy rule) | **No roar clip at 0:00.** Open on the number instead. |
 
 ---
@@ -111,9 +112,9 @@ In Git Bash, use `PYTHONPATH=. .venv/Scripts/python ...` instead.
 |---|---|
 | **Say** | "The investigator's evidence lives in MongoDB Atlas: 14 public sources, TfL and Assembly records plus the press report behind the 92.8 figure. One question, three ways: full-text Atlas Search, Vector Search where Atlas embeds the query itself with Voyage, and Hybrid, a `$rankFusion` that fuses both. All three put Mayor's Question 2022/1791 first: Bethnal Green to Liverpool Street is on the December 2021 to May 2022 grinding list, with no direction stated. The analyst's hash-chained log is mirrored here too, and its head matches the local chain." Then the canary: "Every claim goes through a deterministic verifier. This one is **seeded**, deliberately false: '92.8 dB is TfL's own data'. Rejected." |
 | **Run** | 1. `.venv\Scripts\python demo\atlas_show.py` (about 6 s live, under 1 s with `--offline`; add `--pause 2` for the video).<br>2. Browser tab `http://127.0.0.1:8765/canary`, or in a terminal: `.venv\Scripts\python -m agent.verify --canary` |
-| **Label** | Atlas queries **LIVE** (read-only). Canary verifier **LIVE**, claim **SEEDED** (labelled on the page). Investigator claims: **pending the API cap**. Say so. |
+| **Label** | Atlas queries **LIVE** (read-only). Canary verifier **LIVE**, claim **SEEDED** (labelled on the page). Investigator claims **PRECOMPUTED** (25 Oct). Say so. |
 | **Fallback** | `.venv\Scripts\python demo\atlas_show.py --offline`, which prints the `CACHED FALLBACK` banner (say "cached from the live cluster this morning"). A live run that can't reach Atlas falls back to the cache by itself, with the same banner. For the canary, use the terminal `agent.verify --canary` (no network needed). |
-| **If `investigation.json` exists** | Add: "Argon read the whole corpus and returned typed claims. N passed the verifier and M were dropped, listed with reasons." Take N and M from the approval page header. |
+| **Investigator (precomputed)** | Add: "Argon read the whole corpus and returned typed claims. The verifier rejected five, a misquote and untraceable numbers, and Argon fixed them. Then a review against the full sources caught what code can't, like a commitment the Mayor never made, and Argon revised again. All 16 claims re-verified." Show the approval page's claim table. |
 | **Optional extra query** | `.venv\Scripts\python demo\atlas_show.py "did TfL refuse to share noise data with Assembly Members"` |
 
 ### 2:30–3:00 Human approval
@@ -123,7 +124,7 @@ In Git Bash, use `PYTHONPATH=. .venv/Scripts/python ...` instead.
 | **Say** | "Nothing goes out without a human. Every box, a name, and the verifier re-runs on approval. That creates a signed **draft** and an approvals record in Atlas. Nothing is sent automatically." |
 | **Run** | Browser `http://127.0.0.1:8765/`: tick the 5 boxes, type the approver name, click **Approve as draft**. |
 | **Label** | LIVE, local server plus one Atlas write (`approvals`) |
-| **Precondition** | `outputs_posthoc\investigation.json` exists. Without it, `GET /` fails. |
+| **Precondition** | Met: `outputs_posthoc\investigation.json` exists (pack `8d251cb4c2ebfb3c`). |
 | **Fallback (no investigation yet)** | Stay on `/canary` and say: "The approval gate is built: the checklist, the verifier re-run and a SHA-256 signature over pack, approver, time and verifier version. It renders the pack once the investigator run completes, which is pending the API cap." **Don't fake an approval.** |
 | **Fallback (server down)** | Restart `.venv\Scripts\python -m agent.approve`. If the port is taken: `--port 8766`. |
 
@@ -145,8 +146,8 @@ audio never leaves the laptop."
 | 1:15 | Sealed 24 Oct score | **REAL, scored once** (v2 1.8 m = v1 1.8 m) | `outputs_posthoc/attempts.jsonl` (attempt 8) |
 | 1:50 | Cluster, indexes, three searches, `$rankFusion` JSON, attempts mirror | LIVE Atlas (read-only); CACHED FALLBACK if offline | `demo/atlas_show.py` |
 | 1:50 | Verifier rejecting the canary | LIVE verifier, **SEEDED** claim | `agent/verify.py`, `/canary` |
-| 1:50 | Investigator claims | **PENDING the API cap** (or PRECOMPUTED once run) | `outputs_posthoc/investigation.json` |
-| 2:30 | Approval, signature, Atlas `approvals` record | LIVE (only if the investigation exists) | `agent/approve.py` |
+| 1:50 | Investigator claims | **PRECOMPUTED** (25 Oct) | `outputs_posthoc/investigation.json`, `pack_review*.json` |
+| 2:30 | Approval, signature, Atlas `approvals` record | LIVE | `agent/approve.py` |
 
 ---
 

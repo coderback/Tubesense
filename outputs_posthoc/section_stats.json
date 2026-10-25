@@ -97,49 +97,97 @@
  },
  "level.EB.LST-BTH": {
   "key": "level.EB.LST-BTH",
-  "value": -18.55,
+  "value": -18.66,
   "unit": "dBFS(A), uncalibrated",
-  "n": 3,
+  "n": 6,
   "detail": {
-   "sd": 0.49,
-   "runs": "R1,R3,R5",
+   "sd": 0.35,
+   "runs": "R1,R3,R5,R7,R9,R11",
    "excluded": ""
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "level.EB.BTH-MLE": {
   "key": "level.EB.BTH-MLE",
-  "value": -19.31,
+  "value": -19.42,
   "unit": "dBFS(A), uncalibrated",
-  "n": 3,
+  "n": 6,
   "detail": {
-   "sd": 0.38,
-   "runs": "R1.5,R3,R5",
+   "sd": 0.35,
+   "runs": "R1.5,R3,R5,R7,R9,R11",
    "excluded": ""
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "level.WB.MLE-BTH": {
   "key": "level.WB.MLE-BTH",
-  "value": -19.43,
+  "value": -19.07,
   "unit": "dBFS(A), uncalibrated",
-  "n": 2,
+  "n": 5,
   "detail": {
-   "sd": 0.81,
-   "runs": "R2,R6",
+   "sd": 0.65,
+   "runs": "R2,R6,R8,R10,R12",
    "excluded": "R4:-19.87"
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "level.WB.BTH-LST": {
   "key": "level.WB.BTH-LST",
-  "value": -19.07,
+  "value": -18.8,
+  "unit": "dBFS(A), uncalibrated",
+  "n": 5,
+  "detail": {
+   "sd": 0.48,
+   "runs": "R2,R6,R8,R10,R12",
+   "excluded": "R4:-19.35"
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "level.EB.LST-ALE": {
+  "key": "level.EB.LST-ALE",
+  "value": -22.67,
   "unit": "dBFS(A), uncalibrated",
   "n": 2,
   "detail": {
-   "sd": 0.65,
-   "runs": "R2,R6",
-   "excluded": "R4:-19.35"
+   "sd": 2.42,
+   "runs": "R13,R15",
+   "excluded": ""
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "level.EB.ALE-WCL": {
+  "key": "level.EB.ALE-WCL",
+  "value": -25.52,
+  "unit": "dBFS(A), uncalibrated",
+  "n": 2,
+  "detail": {
+   "sd": 1.89,
+   "runs": "R13,R15",
+   "excluded": ""
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "level.WB.WCL-ALE": {
+  "key": "level.WB.WCL-ALE",
+  "value": -24.54,
+  "unit": "dBFS(A), uncalibrated",
+  "n": 1,
+  "detail": {
+   "sd": null,
+   "runs": "R14",
+   "excluded": ""
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "level.WB.ALE-LST": {
+  "key": "level.WB.ALE-LST",
+  "value": -24.65,
+  "unit": "dBFS(A), uncalibrated",
+  "n": 1,
+  "detail": {
+   "sd": null,
+   "runs": "R14",
+   "excluded": ""
   },
   "source": "outputs/gonogo/loudness.json"
  },
@@ -233,114 +281,218 @@
  },
  "duration.EB.LST-BTH": {
   "key": "duration.EB.LST-BTH",
-  "value": 139.2,
+  "value": 140.8,
   "unit": "s, departure to arrival (mean)",
-  "n": 3,
+  "n": 6,
   "detail": {
    "min": 137.0,
-   "max": 141.0
+   "max": 143.0
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "duration.EB.BTH-MLE": {
   "key": "duration.EB.BTH-MLE",
-  "value": 108.8,
+  "value": 106.6,
   "unit": "s, departure to arrival (mean)",
-  "n": 3,
+  "n": 4,
   "detail": {
-   "min": 105.0,
+   "min": 100.0,
    "max": 116.5
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "duration.WB.BTH-LST": {
   "key": "duration.WB.BTH-LST",
-  "value": 152.0,
+  "value": 150.7,
   "unit": "s, departure to arrival (mean)",
-  "n": 2,
+  "n": 5,
   "detail": {
-   "min": 150.5,
-   "max": 153.5
+   "min": 141.5,
+   "max": 154.5
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "duration.WB.MLE-BTH": {
   "key": "duration.WB.MLE-BTH",
-  "value": 96.5,
+  "value": 98.9,
+  "unit": "s, departure to arrival (mean)",
+  "n": 4,
+  "detail": {
+   "min": 95.0,
+   "max": 106.5
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "duration.EB.LST-ALE": {
+  "key": "duration.EB.LST-ALE",
+  "value": 133.0,
+  "unit": "s, departure to arrival (mean)",
+  "n": 2,
+  "detail": {
+   "min": 120.0,
+   "max": 146.0
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "duration.EB.ALE-WCL": {
+  "key": "duration.EB.ALE-WCL",
+  "value": 129.0,
   "unit": "s, departure to arrival (mean)",
   "n": 1,
   "detail": {
-   "min": 96.5,
-   "max": 96.5
+   "min": 129.0,
+   "max": 129.0
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "duration.WB.WCL-ALE": {
+  "key": "duration.WB.WCL-ALE",
+  "value": 118.7,
+  "unit": "s, departure to arrival (mean)",
+  "n": 1,
+  "detail": {
+   "min": 118.7,
+   "max": 118.7
+  },
+  "source": "outputs/gonogo/loudness.json"
+ },
+ "duration.WB.ALE-LST": {
+  "key": "duration.WB.ALE-LST",
+  "value": 71.0,
+  "unit": "s, departure to arrival (mean)",
+  "n": 1,
+  "detail": {
+   "min": 71.0,
+   "max": 71.0
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "contrast.LST-BTH_minus_BTH-MLE": {
   "key": "contrast.LST-BTH_minus_BTH-MLE",
-  "value": 0.6,
+  "value": 0.54,
   "unit": "dB (within trip)",
-  "n": 5,
+  "n": 11,
   "detail": {
    "sd": 0.36,
-   "min": 0.25,
+   "min": -0.13,
    "max": 1.21,
-   "n_positive": 5,
-   "sign_test_p_one_sided": 0.0312,
+   "n_positive": 10,
+   "sign_test_p_one_sided": 0.0059,
    "trips": [
     "R1+R1.5_EB_LST-MLE",
+    "R10_WB_MLE-LST",
+    "R11_EB_LST-MLE",
+    "R12_WB_MLE-LST",
     "R2_WB_MLE-LST",
     "R3_EB_LST-MLE",
     "R5_EB_LST-MLE",
-    "R6_WB_MLE-LST"
+    "R6_WB_MLE-LST",
+    "R7_EB_LST-MLE",
+    "R8_WB_MLE-LST",
+    "R9_EB_LST-MLE"
    ]
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "loudness.verdict": {
   "key": "loudness.verdict",
-  "value": "WEAK",
-  "unit": "pre-registered verdict",
+  "value": "NO-GO",
+  "unit": "verdict of the check frozen before the 24 Oct rides",
   "n": null,
   "detail": {
-   "justification": "LST-BTH is louder than BTH-MLE in 5/5 placement-ok trips (mean within-trip difference +0.60 dB, range +0.25 to +1.21; one-sided sign test p=0.031). The difference is below 1 dB, i.e. inside the Voice Memos limiter compression (~1-3 dB) and the run-to-run sd of a section (0.4-0.8 dB). Not robust across variants: LAeq_1s_mean, LAeq_limiter_ub do not agree in every trip. Absolute levels are uncalibrated dBFS(A), so nothing here can be compared with TfL's 92.8 dB."
+   "justification": "LST-BTH is louder than BTH-MLE in 10/11 placement-ok trips (mean within-trip difference +0.54 dB, range -0.13 to +1.21; one-sided sign test p=0.006). The difference is below 1 dB, i.e. inside the Voice Memos limiter compression (~1-3 dB) and the run-to-run sd of a section (0.4-0.8 dB). Not robust across variants: LAeq, nospeech_LAeq, core_LAeq, LAeq_1s_mean, LAeq_limiter_ub do not agree in every trip. Absolute levels are uncalibrated dBFS(A), so nothing here can be compared with TfL's dB figures or with the 92.8 dB figure reported by Brixton Buzz.",
+   "rule": "GO needs LST-BTH louder on every trip, a mean of at least 1 dB and every level variant agreeing; WEAK if every trip is positive but the rest fails; NO-GO if any trip goes the other way",
+   "reversed_trips": "R10_WB_MLE-LST (-0.13 dB)"
   },
   "source": "outputs/gonogo/loudness.json"
  },
  "positioning.median_error_m": {
   "key": "positioning.median_error_m",
-  "value": 2.2,
-  "unit": "m (vs yaw curve-edge proxy)",
-  "n": 8,
+  "value": 1.8,
+  "unit": "m (vs yaw curve-edge truth)",
+  "n": 10,
   "detail": {
-   "metres": "straight-line chord scaled (v1)"
+   "meaning": "frozen 23 Oct maps on the 24 Oct Central rides (pre-registered H2b); metres chord-scaled (v1)"
   },
-  "source": "outputs/online/online_eval.json"
+  "source": "outputs/online/forward_test.json"
  },
  "positioning.timetable_median_m": {
   "key": "positioning.timetable_median_m",
   "value": 11.2,
   "unit": "m",
-  "n": 8,
+  "n": 10,
   "detail": {},
-  "source": "outputs/online/online_eval.json"
- },
- "positioning.between_curves_median_m": {
-  "key": "positioning.between_curves_median_m",
-  "value": 11.2,
-  "unit": "m",
-  "n": 8,
-  "detail": {
-   "meaning": "yaw hidden around each curve edge"
-  },
-  "source": "outputs/online/online_eval.json"
+  "source": "outputs/online/forward_test.json"
  },
  "positioning.band90_coverage_mean": {
   "key": "positioning.band90_coverage_mean",
-  "value": 0.918,
+  "value": 0.951,
   "unit": "fraction",
-  "n": 8,
+  "n": 10,
   "detail": {},
+  "source": "outputs/online/forward_test.json"
+ },
+ "positioning.h2b_verdict": {
+  "key": "positioning.h2b_verdict",
+  "value": "GO",
+  "unit": "pre-registered verdict",
+  "n": 6,
+  "detail": {
+   "median_error_m": 1.95,
+   "band90_coverage_mean": 0.963,
+   "criterion": "LST<->BTH median-of-runs <= 5 m and mean 90 % coverage >= 0.80"
+  },
+  "source": "outputs/online/forward_test.json"
+ },
+ "positioning.between_curves_median_m": {
+  "key": "positioning.between_curves_median_m",
+  "value": 13.5,
+  "unit": "m",
+  "n": 19,
+  "detail": {
+   "meaning": "yaw hidden around each curve edge; Central rows, leave-one-run-out, both days"
+  },
   "source": "outputs/online/online_eval.json"
+ },
+ "positioning.between_curves_timetable_m": {
+  "key": "positioning.between_curves_timetable_m",
+  "value": 22.8,
+  "unit": "m",
+  "n": 19,
+  "detail": {
+   "meaning": "timetable baseline at the same hidden curve edges"
+  },
+  "source": "outputs/online/online_eval.json"
+ },
+ "niosh.EB.LST-MLE": {
+  "key": "niosh.EB.LST-MLE",
+  "value": 91.9,
+  "unit": "dB(A) LAeq over one whole trip incl. platform and dwell time; indicative (NIOSH SLM app, iPhone built-in microphone, validated only up to ~85 dB(A))",
+  "n": 1,
+  "detail": {
+   "max_level_dB": 109.7,
+   "LCpeak_dB": 124.4,
+   "above_hse_upper_action_db": 6.9,
+   "app_validated_up_to_dBA": 85,
+   "trips": "one trip per direction, each on a different train, so an eastbound-westbound difference may reflect the train rather than the direction or track",
+   "limits": "iPhone built-in mic validated to ~0.5 dB(A) only up to ~85 dB (Huyan et al. 2023); these trips are above that, so readings may be low; not a certified meter: indicative; n = 1 trip per direction; different trains; NIOSH trip span includes platform waits and the Bethnal Green dwell; our phone was on a seat in the 2nd car (passenger saloon); TfL's figures are in-cab"
+  },
+  "source": "outputs_posthoc/h5_niosh.json"
+ },
+ "niosh.WB.MLE-LST": {
+  "key": "niosh.WB.MLE-LST",
+  "value": 87.3,
+  "unit": "dB(A) LAeq over one whole trip incl. platform and dwell time; indicative (NIOSH SLM app, iPhone built-in microphone, validated only up to ~85 dB(A))",
+  "n": 1,
+  "detail": {
+   "max_level_dB": 105.3,
+   "LCpeak_dB": 120.2,
+   "above_hse_upper_action_db": 2.3,
+   "app_validated_up_to_dBA": 85,
+   "trips": "one trip per direction, each on a different train, so an eastbound-westbound difference may reflect the train rather than the direction or track",
+   "limits": "iPhone built-in mic validated to ~0.5 dB(A) only up to ~85 dB (Huyan et al. 2023); these trips are above that, so readings may be low; not a certified meter: indicative; n = 1 trip per direction; different trains; NIOSH trip span includes platform waits and the Bethnal Green dwell; our phone was on a seat in the 2nd car (passenger saloon); TfL's figures are in-cab"
+  },
+  "source": "outputs_posthoc/h5_niosh.json"
  },
  "v2.dev.median_error_m": {
   "key": "v2.dev.median_error_m",
@@ -385,6 +537,30 @@
   "value": 7,
   "unit": "configurations",
   "n": null,
+  "detail": {},
+  "source": "outputs_posthoc/attempts.jsonl"
+ },
+ "v2.test.median_error_m": {
+  "key": "v2.test.median_error_m",
+  "value": 1.8,
+  "unit": "m (24 Oct, forward test)",
+  "n": 10,
+  "detail": {},
+  "source": "outputs_posthoc/attempts.jsonl"
+ },
+ "v2.test.timetable_median_m": {
+  "key": "v2.test.timetable_median_m",
+  "value": 11.85,
+  "unit": "m",
+  "n": 10,
+  "detail": {},
+  "source": "outputs_posthoc/attempts.jsonl"
+ },
+ "v2.test.band90_coverage_mean": {
+  "key": "v2.test.band90_coverage_mean",
+  "value": 0.936,
+  "unit": "fraction",
+  "n": 10,
   "detail": {},
   "source": "outputs_posthoc/attempts.jsonl"
  }

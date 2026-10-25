@@ -5,8 +5,11 @@ post-hoc outputs), so re-running after the 24 Oct rides picks the new runs up au
   level.<DIR>.<FROM>-<TO>          section mean level, dBFS(A) (uncalibrated, relative only), n runs, sd
   contrast.LST-BTH_minus_BTH-MLE   within-trip difference, dB: mean, range, n trips, sign test
   loudness.verdict                 the pre-registered loudness verdict (GO / WEAK / NO-GO)
-  positioning.*                    online tracker vs the independent curve-edge truth (v1, 23 Oct)
-  v2.*                             the Argon-submitted post-hoc config on the dev split (if present)
+  positioning.*                    online tracker vs the independent curve-edge truth (v1): the pre-registered
+                                   forward test (frozen 23 Oct maps, 24 Oct Central rides) and its H2b verdict;
+                                   between curves from the Central rows of the leave-one-run-out evaluation
+  niosh.<DIR>.<FROM>-<TO>          NIOSH SLM app LAeq per whole trip, dB(A), indicative (H5, if present)
+  v2.*                             the Argon-submitted post-hoc config: dev split and the sealed test (if present)
 Each stat: {key, value, unit, n, detail, source}. Writes outputs_posthoc/section_stats.json and
 upserts Atlas `section_stats` (when reachable).
 Run: PYTHONPATH=. .venv/Scripts/python -m agent.section_stats
@@ -17,8 +20,11 @@ import json
 import sys
 from pathlib import Path
 
+import numpy as np
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs_posthoc" / "section_stats.json"
+CENTRAL_TRACKS = ("EB LST->BTH", "EB BTH->MLE", "WB MLE->BTH", "WB BTH->LST")
 
 
 def _r(x, nd=2):
@@ -50,17 +56,57 @@ def build() -> dict[str, dict]:
     put("contrast.LST-BTH_minus_BTH-MLE", _r(la["mean_db"]), "dB (within trip)", c["n"],
         {"sd": _r(la["sd_db"]), "min": _r(la["min_db"]), "max": _r(la["max_db"]), "n_positive": la["n_positive"],
          "sign_test_p_one_sided": _r(la["sign_test_p_one_sided"], 4), "trips": c["trips"]}, src)
-    put("loudness.verdict", L["verdict"]["verdict"], "pre-registered verdict", None,
-        {"justification": L["verdict"]["justification"]}, src)
+    # The frozen justification ends by calling 92.8 dB "TfL's"; it is a secondary press figure (verify.BANNED).
+    why = L["verdict"]["justification"].replace(
+        "nothing here can be compared with TfL's 92.8 dB.",
+        "nothing here can be compared with TfL's dB figures or with the 92.8 dB figure reported by Brixton Buzz.")
+    rev = [f"{t['trip']} ({t['diff_LAeq']:+.2f} dB)" for t in L["paired_differences"]["per_trip"]
+           if not t.get("placement_excluded") and t["diff_LAeq"] < 0]
+    put("loudness.verdict", L["verdict"]["verdict"], "verdict of the check frozen before the 24 Oct rides", None,
+        {"justification": why,
+         "rule": "GO needs LST-BTH louder on every trip, a mean of at least 1 dB and every level variant agreeing; "
+                 "WEAK if every trip is positive but the rest fails; NO-GO if any trip goes the other way",
+         "reversed_trips": ", ".join(rev) or "none"}, src)
 
-    O = json.load(open(ROOT / "outputs" / "online" / "online_eval.json"))["overall"]
-    src = "outputs/online/online_eval.json"
-    put("positioning.median_error_m", O["map_vs_independent_m_median_of_runs"], "m (vs yaw curve-edge proxy)",
-        O["n_runs"], {"metres": "straight-line chord scaled (v1)"}, src)
-    put("positioning.timetable_median_m", O["timetable_vs_independent_m_median_of_runs"], "m", O["n_runs"], {}, src)
-    put("positioning.between_curves_median_m", O["edges_masked_map_m_median_of_runs"], "m", O["n_runs"],
-        {"meaning": "yaw hidden around each curve edge"}, src)
-    put("positioning.band90_coverage_mean", O["band90_coverage_independent_mean"], "fraction", O["n_runs"], {}, src)
+    # online_eval.json pools both days and both lines since the 24 Oct rides, so the headline comes from the
+    # pre-registered forward test: maps frozen from 23 Oct, every clean 24 Oct Central section.
+    F = json.load(open(ROOT / "outputs" / "online" / "forward_test.json"))
+    src = "outputs/online/forward_test.json"
+    fo, fr = F["overall"], F["runs"]
+    meaning = "frozen 23 Oct maps on the 24 Oct Central rides (pre-registered H2b); metres chord-scaled (v1)"
+    put("positioning.median_error_m", fo["tracker_median_of_runs_m"], "m (vs yaw curve-edge truth)",
+        fo["n_sections"], {"meaning": meaning}, src)
+    put("positioning.timetable_median_m", fo["timetable_median_of_runs_m"], "m", fo["n_sections"], {}, src)
+    put("positioning.band90_coverage_mean", fo["band90_coverage_mean"], "fraction", fo["n_sections"], {}, src)
+    lb = [r for r in fr if r["track"] in ("EB LST->BTH", "WB BTH->LST")]
+    if lb:
+        med = float(np.median([r["map_vs_independent_m"]["median"] for r in lb]))
+        cov = float(np.mean([r["band90_coverage_independent"] for r in lb]))
+        put("positioning.h2b_verdict", "GO" if med <= 5 and cov >= 0.80 else "NO-GO", "pre-registered verdict", len(lb),
+            {"median_error_m": _r(med), "band90_coverage_mean": _r(cov, 3),
+             "criterion": "LST<->BTH median-of-runs <= 5 m and mean 90 % coverage >= 0.80"}, src)
+    O = json.load(open(ROOT / "outputs" / "online" / "online_eval.json"))["runs"]
+    cen = [r for r in O if r["track"] in CENTRAL_TRACKS]
+    if cen:
+        src = "outputs/online/online_eval.json"
+        put("positioning.between_curves_median_m", _r(np.median([r["edges_masked_map_m"]["median"] for r in cen]), 1),
+            "m", len(cen), {"meaning": "yaw hidden around each curve edge; Central rows, leave-one-run-out, both days"}, src)
+        put("positioning.between_curves_timetable_m", _r(np.median([r["edges_masked_timetable_m"]["median"] for r in cen]), 1),
+            "m", len(cen), {"meaning": "timetable baseline at the same hidden curve edges"}, src)
+
+    hf = ROOT / "outputs_posthoc" / "h5_niosh.json"
+    if hf.exists():
+        H = json.load(open(hf))
+        src = "outputs_posthoc/h5_niosh.json"
+        for t in H["trips"]:
+            put(f"niosh.{t['direction']}.{t['from']}-{t['to']}", t["LAeq_dBA"],
+                "dB(A) LAeq over one whole trip incl. platform and dwell time; indicative (NIOSH SLM app, "
+                "iPhone built-in microphone, validated only up to ~85 dB(A))", 1,
+                {"max_level_dB": t["max_level_dBA"], "LCpeak_dB": t["LCpeak_dB"],
+                 "above_hse_upper_action_db": t["above_hse_upper_db"], "app_validated_up_to_dBA": 85,
+                 "trips": "one trip per direction, each on a different train, so an eastbound-westbound "
+                          "difference may reflect the train rather than the direction or track",
+                 "limits": "; ".join(H["limits"])}, src)
 
     fc = ROOT / "outputs_posthoc" / "final_config.json"
     lg = ROOT / "outputs_posthoc" / "attempts.jsonl"

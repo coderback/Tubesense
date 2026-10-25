@@ -1,0 +1,29 @@
+[
+ {
+  "id": "R22",
+  "claim_id": "C16",
+  "severity": "minor",
+  "phrase": "with nine sites in process, without naming the sites",
+  "problem": "Over-broad negative. The 9 August 2024 update does name sites in this programme: Pimlico ('Delkor installation continues ... as part of ongoing Deep Tube Reconditioning') and St Johns Wood - Baker Street (PV replaced with Delkor northbound in 2021, southbound begun spring 2024). What it does not do is list all seven completed and nine in-process sites, or mention Liverpool Street - Bethnal Green or any Central line site. Also, the nine sites are 'in the process of Deep Tube Reconditioning'; the source does not call them PV conversions, but the sentence ties them to 'PV conversion to Delkor'. TfL could fairly reply that its letter did name sites.",
+  "source_evidence": "TfL-noise-update-2024-08#000: 'Nine sites are in the process of Deep Tube Reconditioning, with a further three planned to begin this financial year'. TfL-noise-update-2024-08#002 (Victoria line): 'Pimlico Delkor installation continues and is expected to be completed this year, as part of ongoing Deep Tube Reconditioning.' TfL-noise-update-2024-08#001 (St Johns Wood - Baker Street): 'We previously replaced PV with Delkor on the northbound track in 2021. We began the same process on the southbound track in spring 2024'.",
+  "suggested_wording": "...its 9 August 2024 update reported completing PV conversion to Delkor 'as part of Deep Tube Reconditioning at seven locations' and said 'Nine sites are in the process of Deep Tube Reconditioning'; it does not list all of these sites, and the sites it does name for Delkor or reconditioning work (Pimlico; St Johns Wood - Baker Street) do not include Liverpool Street - Bethnal Green or any Central line site."
+ },
+ {
+  "id": "R23",
+  "claim_id": "ASK-2",
+  "severity": "minor",
+  "phrase": "nine sites in process without naming them",
+  "problem": "The same over-broad negative as R22, in ASK-2's 'why'. The August 2024 update names Pimlico and St Johns Wood - Baker Street; the accurate point is that it does not list all the sites and does not mention Liverpool Street - Bethnal Green.",
+  "source_evidence": "As R22.",
+  "suggested_wording": "TfL's August 2024 update reports conversions completed at seven locations and nine sites in process without listing them all; the sites it names (Pimlico; St Johns Wood - Baker Street) do not include Liverpool Street - Bethnal Green."
+ },
+ {
+  "id": "R24",
+  "claim_id": "C02",
+  "severity": "minor",
+  "phrase": "that rail grinding is not deemed an engineering method to reduce noise",
+  "problem": "Quoted out of context and more negative than TfL's answer. TfL's sentence continues 'some residents have experienced a reduction in noise levels following grinding'. 'Not technically practicable to reduce noise and vibration any further there' drops TfL's stated reason (current technology and the age of the track) and its next sentence, that it is continuing to investigate and monitor the noise on this stretch.",
+  "source_evidence": "FOI-1730-1819#000: 'Whilst rail grinding is not deemed as an engineering method to reduce noise, some residents have experienced a reduction in noise levels following grinding.' and 'This is one of the locations where current technology and the age of the track mean that it is not technically practicable to reduce the noise and vibration any further. However we are continuing to investigate and monitor the noise on this stretch of the line'",
+  "suggested_wording": "...TfL stated that current technology and the age of the track meant it was not technically practicable to reduce the noise and vibration there any further, but that it was continuing to investigate and monitor the noise; that although rail grinding is not deemed an engineering method to reduce noise, some residents had experienced a reduction in noise levels following grinding; ..."
+ }
+]

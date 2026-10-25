@@ -2666,9 +2666,228 @@
   }
  },
  "hard_iron": {
-  "c": null,
-  "reason": "no CAL_*.xlsx figure-of-eight recording"
+  "c": [
+   -160.75,
+   28.64,
+   -114.89
+  ],
+  "n_windows": 23,
+  "conditioning": 0.517,
+  "files": [
+   "CAL_1.xlsx"
+  ],
+  "field_uT": 45.6,
+  "misfit": 0.005,
+  "valid": true,
+  "reason": null
  },
- "platform_signatures": {},
- "platform_signatures_note": "not computed: no CAL_*.xlsx figure-of-eight recording"
+ "platform_signatures": {
+  "central OXC EB": [
+   {
+    "run": "R0.5",
+    "station": "OXC",
+    "B_uT": 104.1,
+    "iqr_uT": 107.2,
+    "n_s": 6.5
+   }
+  ],
+  "central TCR EB": [
+   {
+    "run": "R0.5",
+    "station": "TCR",
+    "B_uT": 54.7,
+    "iqr_uT": 10.7,
+    "n_s": 13.0
+   }
+  ],
+  "central HOL EB": [
+   {
+    "run": "R0.5",
+    "station": "HOL",
+    "B_uT": 64.2,
+    "iqr_uT": 5.2,
+    "n_s": 18.5
+   }
+  ],
+  "central CYL EB": [
+   {
+    "run": "R0.5",
+    "station": "CYL",
+    "B_uT": 42.6,
+    "iqr_uT": 9.6,
+    "n_s": 17.5
+   }
+  ],
+  "central STP EB": [
+   {
+    "run": "R0.5",
+    "station": "STP",
+    "B_uT": 75.6,
+    "iqr_uT": 12.7,
+    "n_s": 17.9
+   }
+  ],
+  "central BNK EB": [
+   {
+    "run": "R0.5",
+    "station": "BNK",
+    "B_uT": 80.9,
+    "iqr_uT": 20.8,
+    "n_s": 14.5
+   }
+  ],
+  "central LST EB": [
+   {
+    "run": "R1",
+    "station": "LST",
+    "B_uT": 59.7,
+    "iqr_uT": 0.5,
+    "n_s": 10.1
+   },
+   {
+    "run": "R7",
+    "station": "LST",
+    "B_uT": 102.5,
+    "iqr_uT": 31.5,
+    "n_s": 34.1
+   },
+   {
+    "run": "R9",
+    "station": "LST",
+    "B_uT": 95.5,
+    "iqr_uT": 1.5,
+    "n_s": 20.2
+   },
+   {
+    "run": "R11",
+    "station": "LST",
+    "B_uT": 120.4,
+    "iqr_uT": 0.6,
+    "n_s": 26.9
+   }
+  ],
+  "central BTH EB": [
+   {
+    "run": "R1",
+    "station": "BTH",
+    "B_uT": 119.2,
+    "iqr_uT": 24.7,
+    "n_s": 9.0
+   },
+   {
+    "run": "R7",
+    "station": "BTH",
+    "B_uT": 130.5,
+    "iqr_uT": 57.8,
+    "n_s": 27.5
+   },
+   {
+    "run": "R9",
+    "station": "BTH",
+    "B_uT": 109.7,
+    "iqr_uT": 2.3,
+    "n_s": 41.0
+   },
+   {
+    "run": "R11",
+    "station": "BTH",
+    "B_uT": 123.7,
+    "iqr_uT": 1.2,
+    "n_s": 33.5
+   }
+  ],
+  "central MLE EB": [
+   {
+    "run": "R7",
+    "station": "MLE",
+    "B_uT": 81.5,
+    "iqr_uT": 4.5,
+    "n_s": 7.5
+   }
+  ],
+  "central BTH WB": [
+   {
+    "run": "R8",
+    "station": "BTH",
+    "B_uT": 118.1,
+    "iqr_uT": 3.4,
+    "n_s": 33.5
+   },
+   {
+    "run": "R10",
+    "station": "BTH",
+    "B_uT": 81.4,
+    "iqr_uT": 27.0,
+    "n_s": 32.0
+   },
+   {
+    "run": "R12",
+    "station": "BTH",
+    "B_uT": 93.6,
+    "iqr_uT": 7.6,
+    "n_s": 31.0
+   }
+  ],
+  "central MLE WB": [
+   {
+    "run": "R10",
+    "station": "MLE",
+    "B_uT": 83.6,
+    "iqr_uT": 6.1,
+    "n_s": 13.7
+   }
+  ],
+  "central LST WB": [
+   {
+    "run": "R12",
+    "station": "LST",
+    "B_uT": 98.6,
+    "iqr_uT": 2.4,
+    "n_s": 5.6
+   }
+  ],
+  "hammersmith-city LST EB": [
+   {
+    "run": "R13",
+    "station": "LST",
+    "B_uT": 90.8,
+    "iqr_uT": 4.9,
+    "n_s": 11.6
+   }
+  ],
+  "hammersmith-city ALE EB": [
+   {
+    "run": "R13",
+    "station": "ALE",
+    "B_uT": 86.6,
+    "iqr_uT": 1.9,
+    "n_s": 31.5
+   },
+   {
+    "run": "R15",
+    "station": "ALE",
+    "B_uT": 90.1,
+    "iqr_uT": 2.0,
+    "n_s": 31.5
+   }
+  ],
+  "hammersmith-city WCL WB": [
+   {
+    "run": "R14",
+    "station": "WCL",
+    "B_uT": 133.1,
+    "iqr_uT": 12.7,
+    "n_s": 20.1
+   }
+  ],
+  "hammersmith-city ALE WB": [
+   {
+    "run": "R14",
+    "station": "ALE",
+    "B_uT": 137.7,
+    "iqr_uT": 8.3,
+    "n_s": 24.0
+   }
+  ]
+ }
 }

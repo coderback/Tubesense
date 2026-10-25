@@ -25,9 +25,14 @@ LABEL = {"sourced": "source", "measured": "our measurement", "derived": "calcula
 
 FIXED_METHOD = """## Method, uncertainty and privacy
 - **Measurements:** ordinary rides recorded on one phone (phyphox motion sensors, Voice Memos audio).
-  Levels are A-weighted but **uncalibrated** (dB relative to the phone's full scale), so they rank
-  sections; they are not comparable with TfL's dB figures. Position between stations comes from
-  the gyroscope matched against maps built from our own rides (no GPS), with a 90 % uncertainty band.
+  Phone-audio levels are A-weighted but **uncalibrated** (dB relative to the phone's full scale) and
+  are not comparable with TfL's dB figures. They did not reliably rank Liverpool Street–Bethnal Green
+  against Bethnal Green–Mile End. It read higher on 10 of 11 trips, but the check fixed before the
+  rides needs every trip, so it returned NO-GO. The mean difference, under 1 dB, is also inside the
+  phone's limiter compression. Two **indicative** dB(A) readings come from the NIOSH Sound
+  Level Meter app on the same phone, one whole trip per direction; the app is validated only up to
+  about 85 dB(A), so they may read low. Position between stations comes from the gyroscope matched
+  against maps built from our own rides (no GPS), with a 90 % uncertainty band.
 - **Pre-registration:** the analysis was frozen (git tag `prereg-24oct`) before the 24 Oct rides;
   later changes are labelled post-hoc.
 - **Checking:** every claim above was checked by a deterministic verifier (quotes verbatim against the
@@ -36,6 +41,19 @@ FIXED_METHOD = """## Method, uncertainty and privacy
 - **Privacy:** raw audio never leaves the laptop; only 1-second levels and bands are kept. No speech
   is stored. Only public documents and summary statistics were sent to the AI model.
 - **Not:** a certified sound level meter, a safety system, or a measurement of rail corrugation."""
+
+
+def for_verifier(claims: list[dict]) -> list[dict]:
+    """The investigator stores formula inputs as a list; the verifier takes them keyed by name
+    (as investigator.as_verifier does before every verification round)."""
+    out = []
+    for c in claims:
+        f = c.get("formula")
+        if f and isinstance(f.get("inputs"), list):
+            f = {**f, "inputs": {i["name"]: ({"stat": i["stat"]} if i.get("stat") else
+                                             {k: i.get(k) for k in ("value", "chunk_id", "quote")}) for i in f["inputs"]}}
+        out.append({**c, "formula": f})
+    return out
 
 
 def _src(cid: str, chunks: dict) -> str:
@@ -56,13 +74,14 @@ def render(inv: dict) -> tuple[str, str]:
         return f"[^{order[cid]}]"
 
     def line(c):
-        refs = "".join(ref(x["chunk_id"]) for x in c.get("citations") or [])
+        refs = "".join(dict.fromkeys(ref(x["chunk_id"]) for x in c.get("citations") or []))
         if c["type"] == "derived" and c.get("formula"):
             for i in c["formula"]["inputs"]:
                 if i.get("chunk_id"):
-                    refs += ref(i["chunk_id"])
+                    r = ref(i["chunk_id"])
+                    refs += "" if r in refs else r
         stats = f" _(stats: {', '.join(c['stat_keys'])})_" if c.get("stat_keys") else ""
-        return f"- {c['text']} **[{LABEL[c['type']]}]**{refs}{stats}"
+        return f"- {c['text']} **[{LABEL[c['type']]}, {c['id']}]**{refs}{stats}"
 
     body = ["# Evidence pack: Central line noise, Liverpool Street – Bethnal Green – Mile End",
             "_Draft for Elly Baker AM's office. Prepared by Tubesense; requires human approval before any use._", ""]
@@ -76,7 +95,13 @@ def render(inv: dict) -> tuple[str, str]:
     if inv.get("asks"):
         body += ["## 6. Suggested information requests to TfL"]
         body += [f"{n}. {a['request']} _Why: {a['why']}_" for n, a in enumerate(inv["asks"], 1)] + [""]
-    body += [FIXED_METHOD, "", "## Sources"] + notes + [""]
+    method = FIXED_METHOD
+    if inv.get("revision"):
+        method += ("\n- **Independent review:** before approval, the verified draft was also checked against the full "
+                   "source texts for framing the verifier cannot catch (a quote out of context, an overstated "
+                   "commitment, a too-broad negative). The agent revised the draft to resolve each finding and the "
+                   "verifier re-checked every claim (`outputs_posthoc/pack_review*.json`).")
+    body += [method, "", "## Sources"] + notes + [""]
     if inv.get("dropped_claims"):
         body += ["## Appendix: claims the verifier rejected (not used above)"]
         body += [f"- ~~{d['claim']['text']}~~ (reason: {'; '.join(d['reasons'])})" for d in inv["dropped_claims"]]

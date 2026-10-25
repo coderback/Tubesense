@@ -77,7 +77,7 @@ class Handler(BaseHTTPRequestHandler):
                              "".join(f"<li>{html.escape(x)}</li>" for x in r["reasons"]) + "</ul><a href=/>back</a>"))
             return
         inv, md, pid = _load()
-        checks = {c["id"]: c for c in V.verify_all(inv["verified_claims"])}
+        checks = {c["id"]: c for c in V.verify_all(P.for_verifier(inv["verified_claims"]))}
         rows = "".join(
             f"<tr><td>{html.escape(c['id'])}</td><td>{c['type']}</td><td class={'ok' if checks[c['id']]['ok'] else 'bad'}>"
             f"{'verified' if checks[c['id']]['ok'] else 'FAILS: ' + html.escape('; '.join(checks[c['id']]['reasons']))}</td>"
@@ -111,7 +111,7 @@ class Handler(BaseHTTPRequestHandler):
                              ("<li>approver name missing</li>" if not who else "") +
                              "".join(f"<li>{w}</li>" for w in why) + "</ul><a href=/>back</a>"), 400)
             return
-        fails = [c for c in V.verify_all(inv["verified_claims"]) if not c["ok"]]
+        fails = [c for c in V.verify_all(P.for_verifier(inv["verified_claims"])) if not c["ok"]]
         if fails:
             self._send(_page(f"<h2>Not approved</h2><p>{len(fails)} claims no longer verify.</p><a href=/>back</a>"), 409)
             return

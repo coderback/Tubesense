@@ -6,8 +6,12 @@ section statistics, and returns structured claims (sourced / measured / derived 
 with verbatim quotes, stat keys or a formula. agent.verify checks every claim; rejected claims go
 back to Argon with the reasons (up to MAX_ROUNDS), and anything still failing is dropped and listed.
 Only public document text and derived statistics are sent to Gemini (no audio, no raw sensor data).
+With --review FILE, Argon instead revises its previous verified draft (outputs_posthoc/investigation.json)
+to resolve the findings of an independent review against the full sources (framing the verifier cannot
+check: a quote out of context, a commitment overstated, a scope overgeneralised); the revision goes
+through the same verifier loop, and the record keeps the review file and the draft it revised.
 Writes outputs_posthoc/investigation.json and upserts the claims into Atlas `claims`.
-Run: PYTHONPATH=. .venv/Scripts/python -m agent.investigator [--thinking medium]
+Run: PYTHONPATH=. .venv/Scripts/python -m agent.investigator [--thinking medium] [--review FILE]
 """
 import argparse
 import hashlib
@@ -89,8 +93,12 @@ and Bethnal Green-Mile End (BTH-MLE) ground for noise, and are they still loud?
 Write claims a deterministic verifier will check. Rules:
 - type "sourced": cite >= 1 chunk with a VERBATIM quote (copy exact characters; >= 4 words). Page markers
   like [p.5] are not part of quotes.
-- type "measured": cite stat_keys from SECTION STATS. Our levels are uncalibrated relative dBFS(A):
-  never compare them with TfL's dB values or call them absolute.
+- type "measured": cite stat_keys from SECTION STATS. Our phone-audio levels (level.*, contrast.*) are
+  uncalibrated relative dBFS(A): never compare them with TfL's dB values or call them absolute. The
+  niosh.* stats are indicative dB(A) from a phone sound level meter app, one whole trip per direction
+  including platform and dwell time; the app is validated only up to about 85 dB(A), so they may read
+  low. Always call them indicative, and never present them as like-for-like with TfL's per-section
+  in-cab figures.
 - type "derived": give a formula whose inputs are stat keys or literal numbers each quoted verbatim.
 - type "inference": your reasoning, clearly hedged, with no new numbers.
 - Every number in a claim's text must appear in its cited quotes, its stats, or its formula. Document
@@ -133,13 +141,28 @@ def as_verifier(cl: dict) -> dict:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--thinking", default="medium", choices=("low", "medium", "high"))
+    ap.add_argument("--review", default=None, help="JSON list of review findings: revise the previous draft")
     a = ap.parse_args()
     load_env()
     chunks, stats = V.load_chunks(), V.load_stats()
     hits = retrieval()
     prompt = (f"HYBRID SEARCH TOP HITS (Atlas $rankFusion, start here):\n{json.dumps(hits, indent=1)}\n\n"
               f"SECTION STATS (our measurements; cite by key):\n{json.dumps(stats, indent=1, default=float)}\n\n"
-              f"CORPUS ({len(chunks)} chunks):\n{corpus_block(chunks)}\n\nReturn the Investigation JSON.")
+              f"CORPUS ({len(chunks)} chunks):\n{corpus_block(chunks)}\n\n")
+    revision = None
+    if a.review:
+        prev = json.loads(OUT.read_text(encoding="utf-8"))
+        findings = json.loads(Path(a.review).read_text(encoding="utf-8"))
+        revision = {"of": prev["ts"], "review_file": Path(a.review).name, "n_findings": len(findings)}
+        prompt += ("PREVIOUS DRAFT (it passed the verifier):\n" + json.dumps(prev["rounds"][-1]["investigation"], indent=1) +
+                   "\n\nINDEPENDENT REVIEW FINDINGS (each checked against the full source text; resolve every one):\n" +
+                   json.dumps(findings, indent=1) +
+                   "\n\nRevise the draft so that every finding is resolved: rewrite, split, merge or drop claims and "
+                   "asks as needed, and keep what was already right. Change only the claims and asks the findings "
+                   "name (ASK-n is the n-th ask); copy every other claim and ask exactly as it is, with its id. "
+                   "Quotes stay verbatim and every number stays supported. Return the FULL revised Investigation JSON.")
+    else:
+        prompt += "Return the Investigation JSON."
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     cfg = types.GenerateContentConfig(system_instruction=SYSTEM, response_mime_type="application/json",
                                       response_schema=Investigation,
@@ -175,7 +198,7 @@ def main():
            "stats_keys": len(stats), "retrieval": hits, "rounds": rounds, "verified_claims": verified,
            "dropped_claims": dropped, "asks": final["investigation"]["asks"],
            "headline_claim_ids": [i for i in final["investigation"]["headline_claim_ids"] if i in ok_ids],
-           "seconds_total": round(time.time() - t0, 1)}
+           "seconds_total": round(time.time() - t0, 1), "revision": revision}
     OUT.write_text(json.dumps(res, indent=1, default=float), encoding="utf-8")
     try:
         from atlas.db import db
