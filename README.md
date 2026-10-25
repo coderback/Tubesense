@@ -1,13 +1,26 @@
 # Tubesense
 
-Tubesense turns ordinary London Underground rides, recorded on a phone, into a privacy-safe,
-section-by-section noise map. It needs no GPS: phone sensors find the station stops and the curves,
-which places the train between stations. A Gemini 4 Argon agent then checks TfL's own noise and
-grinding records and drafts a cited evidence pack for a London Assembly member. A deterministic
-verifier checks every quote and number, and a human approves the pack as a draft; nothing is sent
-automatically.
+Tubesense turns ordinary London Underground rides, recorded on a phone, into privacy-safe
+measurements placed between stations without GPS: phone sensors find the station stops and the
+curves, which places the train to a median of about 2 m on new rides. A Gemini 4 Argon agent then
+checks TfL's own noise and grinding records and drafts a cited evidence pack for a London Assembly
+member. A deterministic verifier checks every quote and number, and a human approves the pack as a
+draft; nothing is sent automatically.
 
-The repository has three layers:
+### For judges: start here
+
+| | |
+|---|---|
+| **Live demo** | https://tubesense-production.up.railway.app (hosted copy; human approval and live phone sensors are switched off there and run on the presenter's laptop) |
+| **Demo video** | see *Submission* below |
+| **Run it locally** | `pip install -e .` then `PYTHONPATH=. python -m webapp.server` and open http://127.0.0.1:8770/#/demo (needs `.env` with `GEMINI_API_KEY`, `MONGODB_URI` for the live agent and Atlas parts) |
+| **Results, GO and NO-GO** | [What works today](#what-works-today-and-the-evidence) · [`outputs/FINDINGS.md`](outputs/FINDINGS.md) |
+| **Gemini 4 Argon** | [Gemini models and agents used](#gemini-models-and-agents-used) · [Verification loop](#verification-loop) |
+| **MongoDB Atlas** (all six scored features) | [MongoDB Atlas](#mongodb-atlas) |
+| **The Real World** | [Messy inputs](#messy-inputs-handled-automatically-the-real-world) · [Responsibility](#responsibility) · [Privacy](#privacy) |
+| **Agents That Ship** | [Where the human approves](#where-the-human-approves) · [Web app](#web-app-what-the-demo-runs) |
+
+The repository has four layers:
 - **Sensing** (`tubesense/`, `scripts/`, frozen at git tag `prereg-24oct`): which phone signals
   repeat between rides, section loudness from phone audio, GPS-free positioning, a live tracker.
 - **Post-hoc improvements** (`posthoc/`): official section lengths and a stop gate for the tracker,
@@ -30,8 +43,8 @@ Tubesense is not a sound level meter, a safety system or a hearing-loss claim.
 **Problem.** Parts of the Tube are loud enough to be a workplace health concern. TfL's own in-cab
 measurements put Liverpool Street→Bethnal Green at 87 dB LAeq and Bethnal Green→Mile End at 83 dB
 on 24 June 2024 (FOI-1231-2425); a January 2026 press report puts Liverpool Street–Bethnal Green at
-92.8 dB, second loudest on the network (secondary source, primary not located). The main cause is
-rail corrugation, ripples worn into the rail that return after grinding: TfL says grinding must be
+92.8 dB, second loudest on the network (secondary source, primary not located). TfL attributes the
+noise mainly to rail corrugation, ripples worn into the rail that return after grinding; it says grinding must be
 repeated "usually 6 months – a year" (TfL Tube Noise presentation, 6 Dec 2022). Both sections were
 ground for noise in Dec 2021–May 2022 (Mayor's Question 2022/1791), but TfL does not publish
 section-level noise or grinding data.
