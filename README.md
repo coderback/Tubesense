@@ -34,11 +34,16 @@ ground for noise in Dec 2021–May 2022 (Mayor's Question 2022/1791), but TfL do
 section-level noise or grinding data.
 
 **Named user.** Elly Baker AM, Labour transport spokesperson on the London Assembly. At Mayor's
-Question Time on 16 July 2026 (question 2026/2156) she said TfL had turned down most of her requests
-for noise data and plans grinding only eight weeks ahead. Tubesense gives her an independent,
-checkable ranking of sections from ordinary rides, a cited evidence pack that says plainly what the
-public record does and does not show, and the specific information requests to make next. The
-people it ultimately protects are those exposed longest: train drivers, whose cab noise TfL itself
+Question Time on 16 July 2026 (question 2026/2156) she said TfL had turned down most of her data
+requests on residents' noise complaints and the measures taken, including a six-month grinding plan,
+because grinding is planned only eight weeks ahead. Tubesense gives her two things:
+- **A way to place ordinary phone measurements between stations without GPS.** The median error is
+  about 2 m, measured against curve landmarks on Central line rides recorded after the maps were frozen.
+- **A cited evidence pack** that says plainly what the public record does and does not show. Every
+  quote and number is checked by code, the framing is reviewed against the full sources, and a human
+  approves the pack before use. It also drafts the specific information requests to make next.
+
+The people it ultimately protects are those exposed longest: train drivers, whose cab noise TfL itself
 measures, and their unions (RMT, ASLEF).
 
 **Tracks entered:** Google DeepMind (Build with Gemini 4 Argon), MongoDB Atlas, The Real World, and
