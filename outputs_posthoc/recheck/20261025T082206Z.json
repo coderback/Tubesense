@@ -1,0 +1,1336 @@
+{
+ "ts": "20261025T082206Z",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "label": "post-hoc re-derivation of precomputed outputs",
+ "tolerances": {
+  "db": 0.002,
+  "m": 0.01,
+  "fraction": 0.0005,
+  "p": 1e-06,
+  "count": 0.0,
+  "label": null
+ },
+ "inputs": {
+  "levels": "outputs/gonogo/loudness_sections.csv columns ['trip', 'run_id', 'direction', 'from', 'to', 'placement_excluded', 'LAeq', 'nospeech_LAeq', 'core_LAeq', 'top25_LAeq', 'L10', 'LAeq_1s_mean', 'LAeq_limiter_ub']",
+  "forward_test": "outputs/online/forward_test.json runs (per-section medians)",
+  "niosh": "outputs_posthoc/h5_niosh.json trip levels only"
+ },
+ "summary": {
+  "n_compared": 65,
+  "n_match": 65,
+  "n_mismatch": 0,
+  "mismatches": [],
+  "numbers_traced_to_sandbox": "55/55",
+  "checks_without_executed_code": [],
+  "errors": [],
+  "seconds_total": 29.5
+ },
+ "checks": {
+  "niosh": {
+   "title": "H5 NIOSH arithmetic: above HSE 85 dB(A), offsets, EB-WB gap",
+   "seconds": 15.2,
+   "attempts": 1,
+   "usage": {
+    "prompt": 1221,
+    "output": 1227,
+    "thoughts": null,
+    "tool_use_prompt": 2045
+   },
+   "code_executed_ok": true,
+   "argon_code": [
+    "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('input_file_0.csv')\nprint(df)\n\nhse_upper = 85.0\ndf['offset'] = df['niosh_LAeq_dBA'] - df['voice_memos_trip_LAeq_dBFS']\n\nresults = []\n\nfor trip, group in df.groupby('niosh_trip', sort=False):\n    niosh_laeq = group['niosh_LAeq_dBA'].iloc[0]\n    above_hse = niosh_laeq - hse_upper\n    offset_med = group['offset'].median()\n    offset_min = group['offset'].min()\n    offset_max = group['offset'].max()\n    \n    results.append((f\"above_hse_upper_db:{trip}\", above_hse))\n    results.append((f\"offset_median_db:{trip}\", offset_med))\n    results.append((f\"offset_min_db:{trip}\", offset_min))\n    results.append((f\"offset_max_db:{trip}\", offset_max))\n\neb_laeq = df[df['direction'] == 'EB']['niosh_LAeq_dBA'].iloc[0]\nwb_laeq = df[df['direction'] == 'WB']['niosh_LAeq_dBA'].iloc[0]\nniosh_eb_minus_wb_db = eb_laeq - wb_laeq\nresults.append((\"niosh_eb_minus_wb_db\", niosh_eb_minus_wb_db))\n\nfor k, v in results:\n    print(f\"{k}: {repr(float(v))}\")\n"
+   ],
+   "sandbox_outputs": [
+    {
+     "outcome": "OUTCOME_OK",
+     "output": "  niosh_trip direction  ...  voice_memos_trip voice_memos_trip_LAeq_dBFS\n0         N1        EB  ...     R7_EB_LST-MLE                     -19.61\n1         N1        EB  ...     R9_EB_LST-MLE                     -20.38\n2         N1        EB  ...    R11_EB_LST-MLE                     -19.99\n3         N2        WB  ...     R8_WB_MLE-LST                     -20.21\n4         N2        WB  ...    R10_WB_MLE-LST                     -19.11\n5         N2        WB  ...    R12_WB_MLE-LST                     -19.35\n\n[6 rows x 5 columns]\nabove_hse_upper_db:N1: 6.900000000000006\noffset_median_db:N1: 111.89\noffset_min_db:N1: 111.51\noffset_max_db:N1: 112.28\nabove_hse_upper_db:N2: 2.299999999999997\noffset_median_db:N2: 106.65\noffset_min_db:N2: 106.41\noffset_max_db:N2: 107.50999999999999\nniosh_eb_minus_wb_db: 4.6000000000000085\n"
+    }
+   ],
+   "argon_answer": {
+    "results": [
+     {
+      "quantity": "above_hse_upper_db:N1",
+      "value_number": 6.900000000000006,
+      "value_text": null
+     },
+     {
+      "quantity": "offset_median_db:N1",
+      "value_number": 111.89,
+      "value_text": null
+     },
+     {
+      "quantity": "offset_min_db:N1",
+      "value_number": 111.51,
+      "value_text": null
+     },
+     {
+      "quantity": "offset_max_db:N1",
+      "value_number": 112.28,
+      "value_text": null
+     },
+     {
+      "quantity": "above_hse_upper_db:N2",
+      "value_number": 2.299999999999997,
+      "value_text": null
+     },
+     {
+      "quantity": "offset_median_db:N2",
+      "value_number": 106.65,
+      "value_text": null
+     },
+     {
+      "quantity": "offset_min_db:N2",
+      "value_number": 106.41,
+      "value_text": null
+     },
+     {
+      "quantity": "offset_max_db:N2",
+      "value_number": 107.50999999999999,
+      "value_text": null
+     },
+     {
+      "quantity": "niosh_eb_minus_wb_db",
+      "value_number": 4.6000000000000085,
+      "value_text": null
+     }
+    ],
+    "code_used": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('input_file_0.csv')\nprint(df)\n\nhse_upper = 85.0\ndf['offset'] = df['niosh_LAeq_dBA'] - df['voice_memos_trip_LAeq_dBFS']\n\nresults = []\n\nfor trip, group in df.groupby('niosh_trip', sort=False):\n    niosh_laeq = group['niosh_LAeq_dBA'].iloc[0]\n    above_hse = niosh_laeq - hse_upper\n    offset_med = group['offset'].median()\n    offset_min = group['offset'].min()\n    offset_max = group['offset'].max()\n    \n    results.append((f\"above_hse_upper_db:{trip}\", above_hse))\n    results.append((f\"offset_median_db:{trip}\", offset_med))\n    results.append((f\"offset_min_db:{trip}\", offset_min))\n    results.append((f\"offset_max_db:{trip}\", offset_max))\n\neb_laeq = df[df['direction'] == 'EB']['niosh_LAeq_dBA'].iloc[0]\nwb_laeq = df[df['direction'] == 'WB']['niosh_LAeq_dBA'].iloc[0]\nniosh_eb_minus_wb_db = eb_laeq - wb_laeq\nresults.append((\"niosh_eb_minus_wb_db\", niosh_eb_minus_wb_db))\n\nfor k, v in results:\n    print(f\"{k}: {repr(float(v))}\")",
+    "definition_notes": "All definitions were unambiguous and followed literally using standard IEEE 754 floating-point arithmetic in pandas/numpy without rounding."
+   },
+   "comparisons": [
+    {
+     "quantity": "above_hse_upper_db:N1",
+     "ours": 6.9,
+     "argon": 6.900000000000006,
+     "kind": "db",
+     "published_dp": 1,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 5.329070518200751e-15,
+     "tol": 0.052000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 5.33e-15 vs tol 0.052"
+    },
+    {
+     "quantity": "offset_median_db:N1",
+     "ours": 111.89,
+     "argon": 111.89,
+     "kind": "db",
+     "published_dp": 2,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.007000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.007"
+    },
+    {
+     "quantity": "offset_min_db:N1",
+     "ours": 111.51,
+     "argon": 111.51,
+     "kind": "db",
+     "published_dp": 2,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.007000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.007"
+    },
+    {
+     "quantity": "offset_max_db:N1",
+     "ours": 112.28,
+     "argon": 112.28,
+     "kind": "db",
+     "published_dp": 2,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.007000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.007"
+    },
+    {
+     "quantity": "above_hse_upper_db:N2",
+     "ours": 2.3,
+     "argon": 2.299999999999997,
+     "kind": "db",
+     "published_dp": 1,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": -2.6645352591003757e-15,
+     "tol": 0.052000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 2.66e-15 vs tol 0.052"
+    },
+    {
+     "quantity": "offset_median_db:N2",
+     "ours": 106.65,
+     "argon": 106.65,
+     "kind": "db",
+     "published_dp": 2,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.007000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.007"
+    },
+    {
+     "quantity": "offset_min_db:N2",
+     "ours": 106.41,
+     "argon": 106.41,
+     "kind": "db",
+     "published_dp": 2,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.007000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.007"
+    },
+    {
+     "quantity": "offset_max_db:N2",
+     "ours": 107.51,
+     "argon": 107.50999999999999,
+     "kind": "db",
+     "published_dp": 2,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": -1.4210854715202004e-14,
+     "tol": 0.007000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 1.42e-14 vs tol 0.007"
+    },
+    {
+     "quantity": "niosh_eb_minus_wb_db",
+     "ours": 4.6,
+     "argon": 4.6000000000000085,
+     "kind": "db",
+     "published_dp": 1,
+     "source": "outputs_posthoc/h5_niosh.json",
+     "match": true,
+     "diff": 8.881784197001252e-15,
+     "tol": 0.052000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 8.88e-15 vs tol 0.052"
+    }
+   ],
+   "prompt": "Context: two whole-trip readings from the NIOSH Sound Level Meter phone app (indicative, not a\ncertified meter) on the Central line, one eastbound (EB) and one westbound (WB), each on a different train,\nand the whole-trip levels of Voice Memos recordings (dB relative to digital full scale, uncalibrated) of\nrides in the same direction the same evening. The HSE upper exposure action value is 85.0 dB(A).\n\nDefinitions: above_hse_upper_db = NIOSH LAeq minus the HSE upper action value; offset = NIOSH LAeq minus\na Voice Memos trip level (one offset per Voice Memos trip), summarised per NIOSH trip as median, min, max;\nniosh_eb_minus_wb_db = EB NIOSH LAeq minus WB NIOSH LAeq.\n\nTask: report \"above_hse_upper_db:<niosh_trip>\", \"offset_median_db:<niosh_trip>\", \"offset_min_db:<niosh_trip>\",\n\"offset_max_db:<niosh_trip>\" for each NIOSH trip, and \"niosh_eb_minus_wb_db\".",
+   "table_sha256": "bd910d738fb8ac19c1a44378d7229240f7563c6c1d868efcc6dc4851b449c682",
+   "table": "niosh_trip,direction,niosh_LAeq_dBA,voice_memos_trip,voice_memos_trip_LAeq_dBFS\r\nN1,EB,91.9,R7_EB_LST-MLE,-19.61\r\nN1,EB,91.9,R9_EB_LST-MLE,-20.38\r\nN1,EB,91.9,R11_EB_LST-MLE,-19.99\r\nN2,WB,87.3,R8_WB_MLE-LST,-20.21\r\nN2,WB,87.3,R10_WB_MLE-LST,-19.11\r\nN2,WB,87.3,R12_WB_MLE-LST,-19.35\r\n"
+  },
+  "means": {
+   "title": "Central section mean levels (LAeq, placement-included runs)",
+   "seconds": 16.1,
+   "attempts": 1,
+   "usage": {
+    "prompt": 3722,
+    "output": 1218,
+    "thoughts": null,
+    "tool_use_prompt": 4280
+   },
+   "code_executed_ok": true,
+   "argon_code": [
+    "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('input_file_0.csv')\ndf['section'] = df['from'] + '->' + df['to']\n\ntargets = [\n    ('EB', 'LST->BTH'),\n    ('EB', 'BTH->MLE'),\n    ('WB', 'MLE->BTH'),\n    ('WB', 'BTH->LST')\n]\n\nresults = []\nfor direction, section in targets:\n    sub = df[(df['direction'] == direction) & (df['section'] == section) & (df['placement_excluded'] == False)]\n    n = int(len(sub))\n    mean_db = float(sub['LAeq'].mean())\n    sd_db = float(sub['LAeq'].std(ddof=1))\n    print(f\"n:{direction} {section} = {n}\")\n    print(f\"mean_db:{direction} {section} = {mean_db!r}\")\n    print(f\"sd_db:{direction} {section} = {sd_db!r}\")\n"
+   ],
+   "sandbox_outputs": [
+    {
+     "outcome": "OUTCOME_OK",
+     "output": "n:EB LST->BTH = 6\nmean_db:EB LST->BTH = -18.657666666666664\nsd_db:EB LST->BTH = 0.34921206546547984\nn:EB BTH->MLE = 6\nmean_db:EB BTH->MLE = -19.419166666666666\nsd_db:EB BTH->MLE = 0.35124089549291765\nn:WB MLE->BTH = 5\nmean_db:WB MLE->BTH = -19.075400000000002\nsd_db:WB MLE->BTH = 0.6464385508306256\nn:WB BTH->LST = 5\nmean_db:WB BTH->LST = -18.7992\nsd_db:WB BTH->LST = 0.4767899957004135\n"
+    }
+   ],
+   "argon_answer": {
+    "results": [
+     {
+      "quantity": "n:EB LST->BTH",
+      "value_number": 6,
+      "value_text": null
+     },
+     {
+      "quantity": "mean_db:EB LST->BTH",
+      "value_number": -18.657666666666664,
+      "value_text": null
+     },
+     {
+      "quantity": "sd_db:EB LST->BTH",
+      "value_number": 0.34921206546547984,
+      "value_text": null
+     },
+     {
+      "quantity": "n:EB BTH->MLE",
+      "value_number": 6,
+      "value_text": null
+     },
+     {
+      "quantity": "mean_db:EB BTH->MLE",
+      "value_number": -19.419166666666666,
+      "value_text": null
+     },
+     {
+      "quantity": "sd_db:EB BTH->MLE",
+      "value_number": 0.35124089549291765,
+      "value_text": null
+     },
+     {
+      "quantity": "n:WB MLE->BTH",
+      "value_number": 5,
+      "value_text": null
+     },
+     {
+      "quantity": "mean_db:WB MLE->BTH",
+      "value_number": -19.075400000000002,
+      "value_text": null
+     },
+     {
+      "quantity": "sd_db:WB MLE->BTH",
+      "value_number": 0.6464385508306256,
+      "value_text": null
+     },
+     {
+      "quantity": "n:WB BTH->LST",
+      "value_number": 5,
+      "value_text": null
+     },
+     {
+      "quantity": "mean_db:WB BTH->LST",
+      "value_number": -18.7992,
+      "value_text": null
+     },
+     {
+      "quantity": "sd_db:WB BTH->LST",
+      "value_number": 0.4767899957004135,
+      "value_text": null
+     }
+    ],
+    "code_used": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('input_file_0.csv')\ndf['section'] = df['from'] + '->' + df['to']\n\ntargets = [\n    ('EB', 'LST->BTH'),\n    ('EB', 'BTH->MLE'),\n    ('WB', 'MLE->BTH'),\n    ('WB', 'BTH->LST')\n]\n\nresults = []\nfor direction, section in targets:\n    sub = df[(df['direction'] == direction) & (df['section'] == section) & (df['placement_excluded'] == False)]\n    n = int(len(sub))\n    mean_db = float(sub['LAeq'].mean())\n    sd_db = float(sub['LAeq'].std(ddof=1))\n    print(f\"n:{direction} {section} = {n}\")\n    print(f\"mean_db:{direction} {section} = {mean_db!r}\")\n    print(f\"sd_db:{direction} {section} = {sd_db!r}\")",
+    "definition_notes": "Filtered rows by exact match on direction, section ('<from>-><to>'), and placement_excluded == False. Computed count (n), arithmetic mean, and sample standard deviation (ddof=1) on the LAeq column."
+   },
+   "comparisons": [
+    {
+     "quantity": "n:EB LST->BTH",
+     "ours": 6,
+     "argon": 6,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "mean_db:EB LST->BTH",
+     "ours": -18.658,
+     "argon": -18.657666666666664,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.0003333333333372934,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000333 vs tol 0.0025"
+    },
+    {
+     "quantity": "sd_db:EB LST->BTH",
+     "ours": 0.349,
+     "argon": 0.34921206546547984,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.00021206546547986038,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000212 vs tol 0.0025"
+    },
+    {
+     "quantity": "n:EB BTH->MLE",
+     "ours": 6,
+     "argon": 6,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "mean_db:EB BTH->MLE",
+     "ours": -19.419,
+     "argon": -19.419166666666666,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": -0.000166666666665094,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000167 vs tol 0.0025"
+    },
+    {
+     "quantity": "sd_db:EB BTH->MLE",
+     "ours": 0.351,
+     "argon": 0.35124089549291765,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.00024089549291766987,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000241 vs tol 0.0025"
+    },
+    {
+     "quantity": "n:WB MLE->BTH",
+     "ours": 5,
+     "argon": 5,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "mean_db:WB MLE->BTH",
+     "ours": -19.075,
+     "argon": -19.075400000000002,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": -0.0004000000000026205,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.0004 vs tol 0.0025"
+    },
+    {
+     "quantity": "sd_db:WB MLE->BTH",
+     "ours": 0.646,
+     "argon": 0.6464385508306256,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.00043855083062560585,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000439 vs tol 0.0025"
+    },
+    {
+     "quantity": "n:WB BTH->LST",
+     "ours": 5,
+     "argon": 5,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "mean_db:WB BTH->LST",
+     "ours": -18.799,
+     "argon": -18.7992,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": -0.00019999999999953388,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.0002 vs tol 0.0025"
+    },
+    {
+     "quantity": "sd_db:WB BTH->LST",
+     "ours": 0.477,
+     "argon": 0.4767899957004135,
+     "kind": "db",
+     "published_dp": 3,
+     "source": "outputs/gonogo/loudness.json aggregate_by_section_direction.LAeq (3 dp)",
+     "match": true,
+     "diff": -0.00021000429958645261,
+     "tol": 0.002500001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.00021 vs tol 0.0025"
+    }
+   ],
+   "prompt": "Each row of the table is one section-run (a train run between two adjacent stations). Levels are\ndB(A) relative to digital full scale, uncalibrated (relative only). The `section` of a row is \"<from>-><to>\".\n\nTask: for each (direction, section) in [EB LST->BTH, EB BTH->MLE, WB MLE->BTH, WB BTH->LST], take the rows with that direction and section whose\nplacement_excluded is false, and compute from the LAeq column: n (row count), mean (arithmetic mean of the\nrow values, not an energy mean) and sample sd (ddof=1). Report quantities \"n:<direction> <section>\",\n\"mean_db:<direction> <section>\", \"sd_db:<direction> <section>\", e.g. \"mean_db:EB LST->BTH\".",
+   "table_sha256": "2910f38ee889b211576b73d891198014ace8ebe57a8b5e697cbd7f1da5b06e21",
+   "table": "trip,run_id,direction,from,to,placement_excluded,LAeq,nospeech_LAeq,core_LAeq,top25_LAeq,L10,LAeq_1s_mean,LAeq_limiter_ub\r\nR0_NB_VIC_OXC,R0,NB,VIC,GPK,False,-19.434,-19.371,-18.38,-16.623,-16.661,-21.019,-17.656\r\nR0_NB_VIC_OXC,R0,NB,GPK,OXC,False,-20.392,-20.819,-19.297,-17.331,-17.328,-21.802,-18.973\r\nR0.5_EB_OXC-LST,R0.5,EB,OXC,TCR,False,-20.749,-21.134,-19.882,-17.408,-17.565,-22.761,-18.758\r\nR0.5_EB_OXC-LST,R0.5,EB,TCR,HOL,False,-23.336,-23.447,-22.521,-19.275,-19.773,-25.407,-21.679\r\nR0.5_EB_OXC-LST,R0.5,EB,HOL,CYL,False,-23.512,-24.183,-21.486,-19.759,-19.809,-25.641,-22.96\r\nR0.5_EB_OXC-LST,R0.5,EB,CYL,STP,False,-19.942,-19.948,-18.961,-16.829,-16.857,-21.362,-17.667\r\nR0.5_EB_OXC-LST,R0.5,EB,STP,BNK,False,-20.277,-20.392,-19.651,-16.565,-16.418,-22.605,-18.642\r\nR0.5_EB_OXC-LST,R0.5,EB,BNK,LST,False,-19.734,-20.008,-19.159,-16.712,-16.835,-21.56,-17.376\r\nR1+R1.5_EB_LST-MLE,R1,EB,LST,BTH,False,-18.215,-18.224,-17.966,-15.357,-15.548,-19.559,-17.451\r\nR1+R1.5_EB_LST-MLE,R1.5,EB,BTH,MLE,False,-19.425,-19.387,-18.836,-16.354,-16.42,-20.73,-17.119\r\nR2_WB_MLE-LST,R2,WB,MLE,BTH,False,-20.008,-19.982,-19.221,-16.875,-16.89,-21.731,-19.451\r\nR2_WB_MLE-LST,R2,WB,BTH,LST,False,-19.532,-19.606,-19.048,-16.639,-16.624,-20.954,-18.114\r\nR3_EB_LST-MLE,R3,EB,LST,BTH,False,-18.326,-18.363,-17.873,-15.453,-15.48,-19.794,-17.468\r\nR3_EB_LST-MLE,R3,EB,BTH,MLE,False,-18.886,-18.908,-18.063,-15.918,-15.898,-20.715,-16.969\r\nR4_WB_MLE-LST,R4,WB,MLE,BTH,True,-19.865,-19.85,-19.202,-16.956,-17.007,-21.119,-19.553\r\nR4_WB_MLE-LST,R4,WB,BTH,LST,True,-19.35,-19.311,-18.906,-16.442,-16.652,-20.685,-17.906\r\nR5_EB_LST-MLE,R5,EB,LST,BTH,False,-19.11,-19.012,-18.498,-15.977,-16.003,-21.153,-18.01\r\nR5_EB_LST-MLE,R5,EB,BTH,MLE,False,-19.622,-19.51,-18.798,-16.424,-16.286,-21.661,-17.434\r\nR6_WB_MLE-LST,R6,WB,MLE,BTH,False,-18.859,-18.917,-18.318,-16.428,-16.526,-19.708,-18.443\r\nR6_WB_MLE-LST,R6,WB,BTH,LST,False,-18.607,-18.6,-18.28,-15.69,-15.714,-19.734,-17.504\r\nR7_EB_LST-MLE,R7,EB,LST,BTH,False,-18.58,-18.364,-18.549,-15.586,-15.722,-19.965,-17.246\r\nR7_EB_LST-MLE,R7,EB,BTH,MLE,False,-19.215,-19.179,-18.75,-16.126,-16.179,-20.956,-17.245\r\nR8_WB_MLE-LST,R8,WB,MLE,BTH,False,-19.314,-19.324,-18.822,-16.646,-16.562,-20.06,-18.395\r\nR8_WB_MLE-LST,R8,WB,BTH,LST,False,-19.015,-19.006,-18.56,-16.238,-16.028,-19.97,-17.609\r\nR9_EB_LST-MLE,R9,EB,LST,BTH,False,-18.939,-18.893,-18.306,-15.734,-15.839,-21.282,-17.478\r\nR9_EB_LST-MLE,R9,EB,BTH,MLE,False,-19.918,-19.759,-19.197,-16.504,-16.415,-22.192,-17.514\r\nR10_WB_MLE-LST,R10,WB,MLE,BTH,False,-18.25,-18.246,-17.96,-16.166,-16.05,-18.71,-18.001\r\nR10_WB_MLE-LST,R10,WB,BTH,LST,False,-18.384,-18.362,-18.038,-15.88,-15.811,-19.168,-17.431\r\nR11_EB_LST-MLE,R11,EB,LST,BTH,False,-18.776,-18.823,-18.162,-15.574,-15.469,-21.16,-17.519\r\nR11_EB_LST-MLE,R11,EB,BTH,MLE,False,-19.449,-19.474,-18.814,-16.135,-16.078,-21.517,-17.686\r\nR12_WB_MLE-LST,R12,WB,MLE,BTH,False,-18.946,-18.977,-18.41,-16.3,-16.191,-19.969,-18.7\r\nR12_WB_MLE-LST,R12,WB,BTH,LST,False,-18.458,-18.531,-18.059,-15.645,-15.657,-19.503,-17.426\r\nR13_EB_LST-WCL,R13,EB,LST,ALE,False,-24.379,-24.215,-24.018,-21.351,-21.553,-25.471,-22.197\r\nR13_EB_LST-WCL,R13,EB,ALE,WCL,False,-26.849,-26.908,-27.008,-23.643,-24.299,-27.86,-25.842\r\nR14_WB_WCL-LST,R14,WB,WCL,ALE,False,-24.537,-24.836,-25.206,-21.058,-21.373,-25.68,-23.497\r\nR14_WB_WCL-LST,R14,WB,ALE,LST,False,-24.653,-24.708,-24.204,-21.961,-22.321,-25.382,-22.307\r\nR15_EB_LST-WCL,R15,EB,LST,ALE,False,-20.956,-20.973,-20.586,-18.449,-18.384,-21.628,-18.915\r\nR15_EB_LST-WCL,R15,EB,ALE,WCL,False,-24.181,-24.569,-23.94,-21.13,-20.967,-25.092,-23.273\r\n"
+  },
+  "contrast": {
+   "title": "Within-trip contrast LST-BTH minus BTH-MLE (LAeq, placement-ok trips)",
+   "seconds": 24.3,
+   "attempts": 1,
+   "usage": {
+    "prompt": 3997,
+    "output": 2310,
+    "thoughts": null,
+    "tool_use_prompt": 5260
+   },
+   "code_executed_ok": true,
+   "argon_code": [
+    "import pandas as pd\nimport numpy as np\nfrom scipy.stats import binomtest\n\ndf = pd.read_csv('input_file_0.csv')\n\npaired_trips = []\nfor trip, group in df.groupby('trip', sort=False):\n    dirs = group['direction'].unique()\n    if len(dirs) != 1:\n        continue\n    d = dirs[0]\n    if d == 'EB':\n        r1 = group[(group['from'] == 'LST') & (group['to'] == 'BTH')]\n        r2 = group[(group['from'] == 'BTH') & (group['to'] == 'MLE')]\n    elif d == 'WB':\n        r1 = group[(group['from'] == 'BTH') & (group['to'] == 'LST')]\n        r2 = group[(group['from'] == 'MLE') & (group['to'] == 'BTH')]\n    else:\n        continue\n    \n    if len(r1) == 1 and len(r2) == 1:\n        diff = float(r1['LAeq'].iloc[0] - r2['LAeq'].iloc[0])\n        excl = bool(r1['placement_excluded'].iloc[0] or r2['placement_excluded'].iloc[0])\n        paired_trips.append({'trip': trip, 'diff': diff, 'excluded': excl})\n\npaired_df = pd.DataFrame(paired_trips)\nok_df = paired_df[~paired_df['excluded']]\n\nn_trips = int(len(ok_df))\nn_positive = int((ok_df['diff'] > 0).sum())\nmean_db = float(ok_df['diff'].mean())\nsd_db = float(ok_df['diff'].std(ddof=1))\nmin_db = float(ok_df['diff'].min())\nmax_db = float(ok_df['diff'].max())\np_val = float(binomtest(n_positive, n_trips, 0.5, alternative=\"greater\").pvalue)\n\nexcl_trips = sorted(paired_df[paired_df['excluded']]['trip'].tolist())\nexcl_str = \",\".join(excl_trips)\n\nprint(f\"n_trips: {n_trips}\")\nprint(f\"n_positive: {n_positive}\")\nprint(f\"mean_db: {mean_db!r}\")\nprint(f\"sd_db: {sd_db!r}\")\nprint(f\"min_db: {min_db!r}\")\nprint(f\"max_db: {max_db!r}\")\nprint(f\"sign_test_p_one_sided: {p_val!r}\")\nprint(f\"placement_excluded_trips: {excl_str}\")\nfor _, row in paired_df.iterrows():\n    print(f\"diff_db:{row['trip']}: {row['diff']!r}\")\n"
+   ],
+   "sandbox_outputs": [
+    {
+     "outcome": "OUTCOME_OK",
+     "output": "n_trips: 11\nn_positive: 10\nmean_db: 0.5409090909090915\nsd_db: 0.35659653799369806\nmin_db: -0.13400000000000034\nmax_db: 1.2100000000000009\nsign_test_p_one_sided: 0.005859375\nplacement_excluded_trips: R4_WB_MLE-LST\ndiff_db:R1+R1.5_EB_LST-MLE: 1.2100000000000009\ndiff_db:R2_WB_MLE-LST: 0.4759999999999991\ndiff_db:R3_EB_LST-MLE: 0.5599999999999987\ndiff_db:R4_WB_MLE-LST: 0.514999999999997\ndiff_db:R5_EB_LST-MLE: 0.5120000000000005\ndiff_db:R6_WB_MLE-LST: 0.25200000000000244\ndiff_db:R7_EB_LST-MLE: 0.6350000000000016\ndiff_db:R8_WB_MLE-LST: 0.2989999999999995\ndiff_db:R9_EB_LST-MLE: 0.9789999999999992\ndiff_db:R10_WB_MLE-LST: -0.13400000000000034\ndiff_db:R11_EB_LST-MLE: 0.6730000000000018\ndiff_db:R12_WB_MLE-LST: 0.4880000000000031\n"
+    }
+   ],
+   "argon_answer": {
+    "results": [
+     {
+      "quantity": "n_trips",
+      "value_number": 11,
+      "value_text": null
+     },
+     {
+      "quantity": "n_positive",
+      "value_number": 10,
+      "value_text": null
+     },
+     {
+      "quantity": "mean_db",
+      "value_number": 0.5409090909090915,
+      "value_text": null
+     },
+     {
+      "quantity": "sd_db",
+      "value_number": 0.35659653799369806,
+      "value_text": null
+     },
+     {
+      "quantity": "min_db",
+      "value_number": -0.13400000000000034,
+      "value_text": null
+     },
+     {
+      "quantity": "max_db",
+      "value_number": 1.2100000000000009,
+      "value_text": null
+     },
+     {
+      "quantity": "sign_test_p_one_sided",
+      "value_number": 0.005859375,
+      "value_text": null
+     },
+     {
+      "quantity": "placement_excluded_trips",
+      "value_number": null,
+      "value_text": "R4_WB_MLE-LST"
+     },
+     {
+      "quantity": "diff_db:R1+R1.5_EB_LST-MLE",
+      "value_number": 1.2100000000000009,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R2_WB_MLE-LST",
+      "value_number": 0.4759999999999991,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R3_EB_LST-MLE",
+      "value_number": 0.5599999999999987,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R4_WB_MLE-LST",
+      "value_number": 0.514999999999997,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R5_EB_LST-MLE",
+      "value_number": 0.5120000000000005,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R6_WB_MLE-LST",
+      "value_number": 0.25200000000000244,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R7_EB_LST-MLE",
+      "value_number": 0.6350000000000016,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R8_WB_MLE-LST",
+      "value_number": 0.2989999999999995,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R9_EB_LST-MLE",
+      "value_number": 0.9789999999999992,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R10_WB_MLE-LST",
+      "value_number": -0.13400000000000034,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R11_EB_LST-MLE",
+      "value_number": 0.6730000000000018,
+      "value_text": null
+     },
+     {
+      "quantity": "diff_db:R12_WB_MLE-LST",
+      "value_number": 0.4880000000000031,
+      "value_text": null
+     }
+    ],
+    "code_used": "import pandas as pd\nimport numpy as np\nfrom scipy.stats import binomtest\n\ndf = pd.read_csv('input_file_0.csv')\n\npaired_trips = []\nfor trip, group in df.groupby('trip', sort=False):\n    dirs = group['direction'].unique()\n    if len(dirs) != 1:\n        continue\n    d = dirs[0]\n    if d == 'EB':\n        r1 = group[(group['from'] == 'LST') & (group['to'] == 'BTH')]\n        r2 = group[(group['from'] == 'BTH') & (group['to'] == 'MLE')]\n    elif d == 'WB':\n        r1 = group[(group['from'] == 'BTH') & (group['to'] == 'LST')]\n        r2 = group[(group['from'] == 'MLE') & (group['to'] == 'BTH')]\n    else:\n        continue\n    \n    if len(r1) == 1 and len(r2) == 1:\n        diff = float(r1['LAeq'].iloc[0] - r2['LAeq'].iloc[0])\n        excl = bool(r1['placement_excluded'].iloc[0] or r2['placement_excluded'].iloc[0])\n        paired_trips.append({'trip': trip, 'diff': diff, 'excluded': excl})\n\npaired_df = pd.DataFrame(paired_trips)\nok_df = paired_df[~paired_df['excluded']]\n\nn_trips = int(len(ok_df))\nn_positive = int((ok_df['diff'] > 0).sum())\nmean_db = float(ok_df['diff'].mean())\nsd_db = float(ok_df['diff'].std(ddof=1))\nmin_db = float(ok_df['diff'].min())\nmax_db = float(ok_df['diff'].max())\np_val = float(binomtest(n_positive, n_trips, 0.5, alternative=\"greater\").pvalue)\n\nexcl_trips = sorted(paired_df[paired_df['excluded']]['trip'].tolist())\nexcl_str = \",\".join(excl_trips)\n\nprint(f\"n_trips: {n_trips}\")\nprint(f\"n_positive: {n_positive}\")\nprint(f\"mean_db: {mean_db!r}\")\nprint(f\"sd_db: {sd_db!r}\")\nprint(f\"min_db: {min_db!r}\")\nprint(f\"max_db: {max_db!r}\")\nprint(f\"sign_test_p_one_sided: {p_val!r}\")\nprint(f\"placement_excluded_trips: {excl_str}\")\nfor _, row in paired_df.iterrows():\n    print(f\"diff_db:{row['trip']}: {row['diff']!r}\")",
+    "definition_notes": "All definitions were applied literally without ambiguity."
+   },
+   "comparisons": [
+    {
+     "quantity": "n_trips",
+     "ours": 11,
+     "argon": 11,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "n_positive",
+     "ours": 10,
+     "argon": 10,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "mean_db",
+     "ours": 0.540985662714369,
+     "argon": 0.5409090909090915,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": -7.65718052775366e-05,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 7.66e-05 vs tol 0.002"
+    },
+    {
+     "quantity": "sd_db",
+     "ours": 0.35651664654634035,
+     "argon": 0.35659653799369806,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": 7.989144735770504e-05,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 7.99e-05 vs tol 0.002"
+    },
+    {
+     "quantity": "min_db",
+     "ours": -0.13342377823150997,
+     "argon": -0.13400000000000034,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": -0.0005762217684903703,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000576 vs tol 0.002"
+    },
+    {
+     "quantity": "max_db",
+     "ours": 1.2103383112000365,
+     "argon": 1.2100000000000009,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": -0.00033831120003569026,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000338 vs tol 0.002"
+    },
+    {
+     "quantity": "sign_test_p_one_sided",
+     "ours": 0.005859375,
+     "argon": 0.005859375,
+     "kind": "p",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json paired_differences.summary.placement_ok.LAeq",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1.001e-06,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-06"
+    },
+    {
+     "quantity": "diff_db:R1+R1.5_EB_LST-MLE",
+     "ours": 1.2103383112000365,
+     "argon": 1.2100000000000009,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": -0.00033831120003569026,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000338 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R10_WB_MLE-LST",
+     "ours": -0.13342377823150997,
+     "argon": -0.13400000000000034,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": -0.0005762217684903703,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000576 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R11_EB_LST-MLE",
+     "ours": 0.6728521580652611,
+     "argon": 0.6730000000000018,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": 0.00014784193474071117,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000148 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R12_WB_MLE-LST",
+     "ours": 0.48831232102222444,
+     "argon": 0.4880000000000031,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": -0.00031232102222134017,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000312 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R2_WB_MLE-LST",
+     "ours": 0.47632346845359663,
+     "argon": 0.4759999999999991,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": -0.00032346845359754184,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000323 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R3_EB_LST-MLE",
+     "ours": 0.5598719763260824,
+     "argon": 0.5599999999999987,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": 0.00012802367391628877,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000128 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R4_WB_MLE-LST",
+     "ours": 0.5146181633050695,
+     "argon": 0.514999999999997,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": 0.0003818366949275287,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000382 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R5_EB_LST-MLE",
+     "ours": 0.5118413940879094,
+     "argon": 0.5120000000000005,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": 0.00015860591209104768,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000159 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R6_WB_MLE-LST",
+     "ours": 0.25197101613668593,
+     "argon": 0.25200000000000244,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": 2.8983863316511815e-05,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 2.9e-05 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R7_EB_LST-MLE",
+     "ours": 0.6342846955198418,
+     "argon": 0.6350000000000016,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": 0.000715304480159773,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000715 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R8_WB_MLE-LST",
+     "ours": 0.29931668694629465,
+     "argon": 0.2989999999999995,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": -0.0003166869462951638,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000317 vs tol 0.002"
+    },
+    {
+     "quantity": "diff_db:R9_EB_LST-MLE",
+     "ours": 0.9791540403316361,
+     "argon": 0.9789999999999992,
+     "kind": "db",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "diff": -0.00015404033163690656,
+     "tol": 0.002000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.000154 vs tol 0.002"
+    },
+    {
+     "quantity": "placement_excluded_trips",
+     "ours": "R4_WB_MLE-LST",
+     "argon": "R4_WB_MLE-LST",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json per_trip",
+     "match": true,
+     "reason": "exact label"
+    }
+   ],
+   "prompt": "Definitions (from the frozen pipeline, restated in words):\n- Each row is one section-run: a train run between two adjacent stations; `trip` groups the sections of one\n  continuous journey (R1 and R1.5 are one trip recorded in two files). Levels are dB(A) relative to digital\n  full scale, uncalibrated: only differences are meaningful.\n- Within-trip contrast: for each trip with direction EB, diff = (row with from=LST, to=BTH) minus (row with\n  from=BTH, to=MLE); for direction WB, diff = (row from=BTH, to=LST) minus (row from=MLE, to=BTH). Trips of\n  any other direction, or missing either row, are not paired. Compute diff separately for each level column.\n- A paired trip is placement-excluded if EITHER of its two rows has placement_excluded true. The\n  \"placement_ok\" set = paired trips that are not placement-excluded.\n- Over the placement_ok trips, per level column: n = number of trips, n_positive = count of diff > 0\n  (strictly), mean, sample sd (ddof=1), min, max, and the one-sided sign test p = P(X >= n_positive) for\n  X ~ Binomial(n, 0.5) (scipy.stats.binomtest(n_positive, n, 0.5, alternative=\"greater\").pvalue).\n\nTask: using the LAeq column only, compute for the placement_ok trips: n_trips, n_positive, mean_db, sd_db,\nmin_db, max_db, sign_test_p_one_sided. Also report the diff for EVERY paired trip (including excluded ones)\nas quantity \"diff_db:<trip>\" (e.g. \"diff_db:R3_EB_LST-MLE\"), and the placement-excluded paired trips as\nquantity \"placement_excluded_trips\" (value_text: trip ids sorted alphabetically, comma-separated, no spaces).\n\nThe attached table has one row per section-run.",
+   "table_sha256": "2910f38ee889b211576b73d891198014ace8ebe57a8b5e697cbd7f1da5b06e21",
+   "table": "trip,run_id,direction,from,to,placement_excluded,LAeq,nospeech_LAeq,core_LAeq,top25_LAeq,L10,LAeq_1s_mean,LAeq_limiter_ub\r\nR0_NB_VIC_OXC,R0,NB,VIC,GPK,False,-19.434,-19.371,-18.38,-16.623,-16.661,-21.019,-17.656\r\nR0_NB_VIC_OXC,R0,NB,GPK,OXC,False,-20.392,-20.819,-19.297,-17.331,-17.328,-21.802,-18.973\r\nR0.5_EB_OXC-LST,R0.5,EB,OXC,TCR,False,-20.749,-21.134,-19.882,-17.408,-17.565,-22.761,-18.758\r\nR0.5_EB_OXC-LST,R0.5,EB,TCR,HOL,False,-23.336,-23.447,-22.521,-19.275,-19.773,-25.407,-21.679\r\nR0.5_EB_OXC-LST,R0.5,EB,HOL,CYL,False,-23.512,-24.183,-21.486,-19.759,-19.809,-25.641,-22.96\r\nR0.5_EB_OXC-LST,R0.5,EB,CYL,STP,False,-19.942,-19.948,-18.961,-16.829,-16.857,-21.362,-17.667\r\nR0.5_EB_OXC-LST,R0.5,EB,STP,BNK,False,-20.277,-20.392,-19.651,-16.565,-16.418,-22.605,-18.642\r\nR0.5_EB_OXC-LST,R0.5,EB,BNK,LST,False,-19.734,-20.008,-19.159,-16.712,-16.835,-21.56,-17.376\r\nR1+R1.5_EB_LST-MLE,R1,EB,LST,BTH,False,-18.215,-18.224,-17.966,-15.357,-15.548,-19.559,-17.451\r\nR1+R1.5_EB_LST-MLE,R1.5,EB,BTH,MLE,False,-19.425,-19.387,-18.836,-16.354,-16.42,-20.73,-17.119\r\nR2_WB_MLE-LST,R2,WB,MLE,BTH,False,-20.008,-19.982,-19.221,-16.875,-16.89,-21.731,-19.451\r\nR2_WB_MLE-LST,R2,WB,BTH,LST,False,-19.532,-19.606,-19.048,-16.639,-16.624,-20.954,-18.114\r\nR3_EB_LST-MLE,R3,EB,LST,BTH,False,-18.326,-18.363,-17.873,-15.453,-15.48,-19.794,-17.468\r\nR3_EB_LST-MLE,R3,EB,BTH,MLE,False,-18.886,-18.908,-18.063,-15.918,-15.898,-20.715,-16.969\r\nR4_WB_MLE-LST,R4,WB,MLE,BTH,True,-19.865,-19.85,-19.202,-16.956,-17.007,-21.119,-19.553\r\nR4_WB_MLE-LST,R4,WB,BTH,LST,True,-19.35,-19.311,-18.906,-16.442,-16.652,-20.685,-17.906\r\nR5_EB_LST-MLE,R5,EB,LST,BTH,False,-19.11,-19.012,-18.498,-15.977,-16.003,-21.153,-18.01\r\nR5_EB_LST-MLE,R5,EB,BTH,MLE,False,-19.622,-19.51,-18.798,-16.424,-16.286,-21.661,-17.434\r\nR6_WB_MLE-LST,R6,WB,MLE,BTH,False,-18.859,-18.917,-18.318,-16.428,-16.526,-19.708,-18.443\r\nR6_WB_MLE-LST,R6,WB,BTH,LST,False,-18.607,-18.6,-18.28,-15.69,-15.714,-19.734,-17.504\r\nR7_EB_LST-MLE,R7,EB,LST,BTH,False,-18.58,-18.364,-18.549,-15.586,-15.722,-19.965,-17.246\r\nR7_EB_LST-MLE,R7,EB,BTH,MLE,False,-19.215,-19.179,-18.75,-16.126,-16.179,-20.956,-17.245\r\nR8_WB_MLE-LST,R8,WB,MLE,BTH,False,-19.314,-19.324,-18.822,-16.646,-16.562,-20.06,-18.395\r\nR8_WB_MLE-LST,R8,WB,BTH,LST,False,-19.015,-19.006,-18.56,-16.238,-16.028,-19.97,-17.609\r\nR9_EB_LST-MLE,R9,EB,LST,BTH,False,-18.939,-18.893,-18.306,-15.734,-15.839,-21.282,-17.478\r\nR9_EB_LST-MLE,R9,EB,BTH,MLE,False,-19.918,-19.759,-19.197,-16.504,-16.415,-22.192,-17.514\r\nR10_WB_MLE-LST,R10,WB,MLE,BTH,False,-18.25,-18.246,-17.96,-16.166,-16.05,-18.71,-18.001\r\nR10_WB_MLE-LST,R10,WB,BTH,LST,False,-18.384,-18.362,-18.038,-15.88,-15.811,-19.168,-17.431\r\nR11_EB_LST-MLE,R11,EB,LST,BTH,False,-18.776,-18.823,-18.162,-15.574,-15.469,-21.16,-17.519\r\nR11_EB_LST-MLE,R11,EB,BTH,MLE,False,-19.449,-19.474,-18.814,-16.135,-16.078,-21.517,-17.686\r\nR12_WB_MLE-LST,R12,WB,MLE,BTH,False,-18.946,-18.977,-18.41,-16.3,-16.191,-19.969,-18.7\r\nR12_WB_MLE-LST,R12,WB,BTH,LST,False,-18.458,-18.531,-18.059,-15.645,-15.657,-19.503,-17.426\r\nR13_EB_LST-WCL,R13,EB,LST,ALE,False,-24.379,-24.215,-24.018,-21.351,-21.553,-25.471,-22.197\r\nR13_EB_LST-WCL,R13,EB,ALE,WCL,False,-26.849,-26.908,-27.008,-23.643,-24.299,-27.86,-25.842\r\nR14_WB_WCL-LST,R14,WB,WCL,ALE,False,-24.537,-24.836,-25.206,-21.058,-21.373,-25.68,-23.497\r\nR14_WB_WCL-LST,R14,WB,ALE,LST,False,-24.653,-24.708,-24.204,-21.961,-22.321,-25.382,-22.307\r\nR15_EB_LST-WCL,R15,EB,LST,ALE,False,-20.956,-20.973,-20.586,-18.449,-18.384,-21.628,-18.915\r\nR15_EB_LST-WCL,R15,EB,ALE,WCL,False,-24.181,-24.569,-23.94,-21.13,-20.967,-25.092,-23.273\r\n"
+  },
+  "h2b": {
+   "title": "H2b forward test: median-of-runs error, coverage, verdict",
+   "seconds": 27.8,
+   "attempts": 1,
+   "usage": {
+    "prompt": 1597,
+    "output": 1492,
+    "thoughts": null,
+    "tool_use_prompt": 2268
+   },
+   "code_executed_ok": true,
+   "argon_code": [
+    "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('input_file_0.csv')\n\nn_sections = len(df)\noverall_tracker_median_m = float(df['tracker_median_error_m'].median())\noverall_timetable_median_m = float(df['timetable_median_error_m'].median())\noverall_band90_coverage_mean = float(df['band90_coverage'].mean())\n\nlstbth = df[df['track'].isin(['EB LST->BTH', 'WB BTH->LST'])]\nlstbth_n_sections = len(lstbth)\nlstbth_tracker_median_m = float(lstbth['tracker_median_error_m'].median())\nlstbth_timetable_median_m = float(lstbth['timetable_median_error_m'].median())\nlstbth_band90_coverage_mean = float(lstbth['band90_coverage'].mean())\n\nh2b_verdict = \"GO\" if (lstbth_tracker_median_m <= 5.0 and lstbth_band90_coverage_mean >= 0.80) else \"NO-GO\"\n\nprint(f\"n_sections: {n_sections}\")\nprint(f\"overall_tracker_median_m: {overall_tracker_median_m!r}\")\nprint(f\"overall_timetable_median_m: {overall_timetable_median_m!r}\")\nprint(f\"overall_band90_coverage_mean: {overall_band90_coverage_mean!r}\")\nprint(f\"lstbth_n_sections: {lstbth_n_sections}\")\nprint(f\"lstbth_tracker_median_m: {lstbth_tracker_median_m!r}\")\nprint(f\"lstbth_timetable_median_m: {lstbth_timetable_median_m!r}\")\nprint(f\"lstbth_band90_coverage_mean: {lstbth_band90_coverage_mean!r}\")\nprint(f\"h2b_verdict: {h2b_verdict}\")\n"
+   ],
+   "sandbox_outputs": [
+    {
+     "outcome": "OUTCOME_OK",
+     "output": "n_sections: 10\noverall_tracker_median_m: 1.75\noverall_timetable_median_m: 11.2\noverall_band90_coverage_mean: 0.9507\nlstbth_n_sections: 6\nlstbth_tracker_median_m: 1.9500000000000002\nlstbth_timetable_median_m: 8.2\nlstbth_band90_coverage_mean: 0.963\nh2b_verdict: GO\n"
+    }
+   ],
+   "argon_answer": {
+    "results": [
+     {
+      "quantity": "n_sections",
+      "value_number": 10,
+      "value_text": null
+     },
+     {
+      "quantity": "overall_tracker_median_m",
+      "value_number": 1.75,
+      "value_text": null
+     },
+     {
+      "quantity": "overall_timetable_median_m",
+      "value_number": 11.2,
+      "value_text": null
+     },
+     {
+      "quantity": "overall_band90_coverage_mean",
+      "value_number": 0.9507,
+      "value_text": null
+     },
+     {
+      "quantity": "lstbth_n_sections",
+      "value_number": 6,
+      "value_text": null
+     },
+     {
+      "quantity": "lstbth_tracker_median_m",
+      "value_number": 1.9500000000000002,
+      "value_text": null
+     },
+     {
+      "quantity": "lstbth_timetable_median_m",
+      "value_number": 8.2,
+      "value_text": null
+     },
+     {
+      "quantity": "lstbth_band90_coverage_mean",
+      "value_number": 0.963,
+      "value_text": null
+     },
+     {
+      "quantity": "h2b_verdict",
+      "value_number": null,
+      "value_text": "GO"
+     }
+    ],
+    "code_used": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('input_file_0.csv')\n\nn_sections = len(df)\noverall_tracker_median_m = float(df['tracker_median_error_m'].median())\noverall_timetable_median_m = float(df['timetable_median_error_m'].median())\noverall_band90_coverage_mean = float(df['band90_coverage'].mean())\n\nlstbth = df[df['track'].isin(['EB LST->BTH', 'WB BTH->LST'])]\nlstbth_n_sections = len(lstbth)\nlstbth_tracker_median_m = float(lstbth['tracker_median_error_m'].median())\nlstbth_timetable_median_m = float(lstbth['timetable_median_error_m'].median())\nlstbth_band90_coverage_mean = float(lstbth['band90_coverage'].mean())\n\nh2b_verdict = \"GO\" if (lstbth_tracker_median_m <= 5.0 and lstbth_band90_coverage_mean >= 0.80) else \"NO-GO\"\n\nprint(f\"n_sections: {n_sections}\")\nprint(f\"overall_tracker_median_m: {overall_tracker_median_m!r}\")\nprint(f\"overall_timetable_median_m: {overall_timetable_median_m!r}\")\nprint(f\"overall_band90_coverage_mean: {overall_band90_coverage_mean!r}\")\nprint(f\"lstbth_n_sections: {lstbth_n_sections}\")\nprint(f\"lstbth_tracker_median_m: {lstbth_tracker_median_m!r}\")\nprint(f\"lstbth_timetable_median_m: {lstbth_timetable_median_m!r}\")\nprint(f\"lstbth_band90_coverage_mean: {lstbth_band90_coverage_mean!r}\")\nprint(f\"h2b_verdict: {h2b_verdict}\")",
+    "definition_notes": "All definitions were applied literally: medians over rows use standard pandas/numpy median (arithmetic mean of the two middle values for even counts), and means over rows use arithmetic mean."
+   },
+   "comparisons": [
+    {
+     "quantity": "n_sections",
+     "ours": 10,
+     "argon": 10,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/online/forward_test.json overall",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "overall_tracker_median_m",
+     "ours": 1.8,
+     "argon": 1.75,
+     "kind": "m",
+     "published_dp": 1,
+     "source": "outputs/online/forward_test.json overall",
+     "match": true,
+     "diff": -0.050000000000000044,
+     "tol": 0.060000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.05 vs tol 0.06"
+    },
+    {
+     "quantity": "overall_timetable_median_m",
+     "ours": 11.2,
+     "argon": 11.2,
+     "kind": "m",
+     "published_dp": 1,
+     "source": "outputs/online/forward_test.json overall",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.060000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.06"
+    },
+    {
+     "quantity": "overall_band90_coverage_mean",
+     "ours": 0.951,
+     "argon": 0.9507,
+     "kind": "fraction",
+     "published_dp": 3,
+     "source": "outputs/online/forward_test.json overall",
+     "match": true,
+     "diff": -0.00029999999999996696,
+     "tol": 0.001000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0.0003 vs tol 0.001"
+    },
+    {
+     "quantity": "lstbth_n_sections",
+     "ours": 6,
+     "argon": 6,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs_posthoc/section_stats.json positioning.h2b_verdict",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "lstbth_tracker_median_m",
+     "ours": 1.95,
+     "argon": 1.9500000000000002,
+     "kind": "m",
+     "published_dp": 2,
+     "source": "outputs_posthoc/section_stats.json positioning.h2b_verdict",
+     "match": true,
+     "diff": 2.220446049250313e-16,
+     "tol": 0.015000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 2.22e-16 vs tol 0.015"
+    },
+    {
+     "quantity": "lstbth_band90_coverage_mean",
+     "ours": 0.963,
+     "argon": 0.963,
+     "kind": "fraction",
+     "published_dp": 3,
+     "source": "outputs_posthoc/section_stats.json positioning.h2b_verdict",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.001000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.001"
+    },
+    {
+     "quantity": "lstbth_timetable_median_m",
+     "ours": 8.2,
+     "argon": 8.2,
+     "kind": "m",
+     "published_dp": 1,
+     "source": "FINDINGS.md H2b row (recomputed locally with numpy.median)",
+     "match": true,
+     "diff": 0.0,
+     "tol": 0.060000001,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 0.06"
+    },
+    {
+     "quantity": "h2b_verdict",
+     "ours": "GO",
+     "argon": "GO",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs_posthoc/section_stats.json positioning.h2b_verdict",
+     "match": true,
+     "reason": "exact label"
+    }
+   ],
+   "prompt": "Context: an online tracker locates a Tube train between stations from a phone gyroscope, using maps\nfrozen from earlier rides. Each row is one held-out section of a later ride: the median absolute error (m)\nof the tracker and of a timetable baseline against an independent curve-edge truth, and the share of\nsamples where the truth lay inside the tracker's 90 % band (band90_coverage).\n\nDefinitions: \"median-of-runs\" = the median over rows of each row's median error; \"mean 90 % band\ncoverage\" = the arithmetic mean of band90_coverage over rows. \"Liverpool Street <-> Bethnal Green\" = the\nrows with track \"EB LST->BTH\" or \"WB BTH->LST\".\n\nThe pre-registered criterion, verbatim from the frozen plan (outputs/PLAN_24Oct.md):\n---\n### H2b. Forward-in-time test on the Central line\n\n`scripts/forward_test.py` tracks each clean 24 Oct Central section with the frozen 23 Oct maps.\n\n- **GO:** median-of-runs error against the independent truth is 5 m or less on Liverpool Street \u21c4\n  Bethnal Green, **and** the mean 90 % band coverage there is at least 0.80.\n- Bethnal Green \u2192 Mile End and Mile End \u2192 Bethnal Green (the second has a one-run map) are reported\n  without a threshold.\n---\nIf the GO condition does not hold, the verdict is NO-GO.\n\nTask: report n_sections (all rows), overall_tracker_median_m, overall_timetable_median_m,\noverall_band90_coverage_mean (all rows); lstbth_n_sections, lstbth_tracker_median_m,\nlstbth_timetable_median_m, lstbth_band90_coverage_mean (LST<->BTH rows); and h2b_verdict (value_text GO or\nNO-GO).",
+   "table_sha256": "809bedcd62cc1afea6494751454105afa7489fb6aee52fcacd9a4fc4be2da55a",
+   "table": "held_out,track,n_curve_edges,departure_missed_online,tracker_median_error_m,timetable_median_error_m,band90_coverage\r\nR7:LST-BTH,EB LST->BTH,10,True,1.7,23.3,0.988\r\nR9:LST-BTH,EB LST->BTH,10,False,1.8,9.6,1.0\r\nR11:LST-BTH,EB LST->BTH,10,False,1.6,6.8,0.998\r\nR7:BTH-MLE,EB BTH->MLE,6,False,7.9,22.2,0.765\r\nR8:BTH-LST,WB BTH->LST,10,False,2.1,6.3,0.972\r\nR10:BTH-LST,WB BTH->LST,12,True,4.8,111.9,0.865\r\nR12:BTH-LST,WB BTH->LST,12,False,3.0,5.0,0.955\r\nR8:MLE-BTH,WB MLE->BTH,6,False,1.3,34.4,0.998\r\nR10:MLE-BTH,WB MLE->BTH,6,False,1.7,12.8,0.966\r\nR12:MLE-BTH,WB MLE->BTH,6,False,1.3,3.6,1.0\r\n"
+  },
+  "verdict": {
+   "title": "Loudness verdict under the frozen rule (GO / WEAK / NO-GO)",
+   "seconds": 29.4,
+   "attempts": 1,
+   "usage": {
+    "prompt": 4640,
+    "output": 1989,
+    "thoughts": null,
+    "tool_use_prompt": 11644
+   },
+   "code_executed_ok": true,
+   "argon_code": [
+    "import pandas as pd\nimport numpy as np\nfrom scipy.stats import binomtest\n\ndf = pd.read_csv('input_file_0.csv')\n\nVARIANTS = [\"LAeq\", \"nospeech_LAeq\", \"core_LAeq\", \"top25_LAeq\", \"L10\", \"LAeq_1s_mean\", \"LAeq_limiter_ub\"]\nMIN_DB = 1.0\n\npaired_trips = []\nfor trip, g in df.groupby('trip', sort=False):\n    dirs = g['direction'].unique()\n    if len(dirs) != 1:\n        continue\n    d = dirs[0]\n    if d == 'EB':\n        r1 = g[(g['from'] == 'LST') & (g['to'] == 'BTH')]\n        r2 = g[(g['from'] == 'BTH') & (g['to'] == 'MLE')]\n    elif d == 'WB':\n        r1 = g[(g['from'] == 'BTH') & (g['to'] == 'LST')]\n        r2 = g[(g['from'] == 'MLE') & (g['to'] == 'BTH')]\n    else:\n        continue\n    if len(r1) == 1 and len(r2) == 1:\n        excl = bool(r1['placement_excluded'].iloc[0]) or bool(r2['placement_excluded'].iloc[0])\n        row = {'trip': trip, 'placement_excluded': excl}\n        for v in VARIANTS:\n            row[v] = r1[v].iloc[0] - r2[v].iloc[0]\n        paired_trips.append(row)\n\npdf = pd.DataFrame(paired_trips)\npok = pdf[~pdf['placement_excluded']]\n\nn = len(pok)\ns = {\"n\": n}\nfor v in VARIANTS:\n    diffs = pok[v]\n    n_pos = int((diffs > 0).sum())\n    s[v] = {\n        \"n_positive\": n_pos,\n        \"mean_db\": float(diffs.mean()),\n        \"min_db\": float(diffs.min()),\n        \"max_db\": float(diffs.max()),\n        \"sign_test_p_one_sided\": float(binomtest(n_pos, n, 0.5, alternative=\"greater\").pvalue)\n    }\n\nla = s[\"LAeq\"]\nconsistent = la[\"n_positive\"] == n\nrobust = {k: s[k][\"n_positive\"] == n for k in VARIANTS}\nif consistent and la[\"mean_db\"] >= MIN_DB and all(robust.values()):\n    v_res = \"GO\"\nelif consistent:\n    v_res = \"WEAK\"\nelse:\n    v_res = \"NO-GO\"\n\nprint(\"n =\", n)\nprint(\"verdict =\", v_res)\nfor k in VARIANTS:\n    print(f\"n_positive:{k} = {s[k]['n_positive']}\")\n    print(f\"all_trips_positive:{k} = {str(robust[k]).lower()}\")\n",
+    "print(pok[['trip'] + VARIANTS])\n"
+   ],
+   "sandbox_outputs": [
+    {
+     "outcome": "OUTCOME_OK",
+     "output": "n = 11\nverdict = NO-GO\nn_positive:LAeq = 10\nall_trips_positive:LAeq = false\nn_positive:nospeech_LAeq = 10\nall_trips_positive:nospeech_LAeq = false\nn_positive:core_LAeq = 10\nall_trips_positive:core_LAeq = false\nn_positive:top25_LAeq = 11\nall_trips_positive:top25_LAeq = true\nn_positive:L10 = 11\nall_trips_positive:L10 = true\nn_positive:LAeq_1s_mean = 9\nall_trips_positive:LAeq_1s_mean = false\nn_positive:LAeq_limiter_ub = 7\nall_trips_positive:LAeq_limiter_ub = false\n"
+    },
+    {
+     "outcome": "OUTCOME_OK",
+     "output": "                  trip   LAeq  ...  LAeq_1s_mean  LAeq_limiter_ub\n0   R1+R1.5_EB_LST-MLE  1.210  ...         1.171           -0.332\n1        R2_WB_MLE-LST  0.476  ...         0.777            1.337\n2        R3_EB_LST-MLE  0.560  ...         0.921           -0.499\n4        R5_EB_LST-MLE  0.512  ...         0.508           -0.576\n5        R6_WB_MLE-LST  0.252  ...        -0.026            0.939\n6        R7_EB_LST-MLE  0.635  ...         0.991           -0.001\n7        R8_WB_MLE-LST  0.299  ...         0.090            0.786\n8        R9_EB_LST-MLE  0.979  ...         0.910            0.036\n9       R10_WB_MLE-LST -0.134  ...        -0.458            0.570\n10      R11_EB_LST-MLE  0.673  ...         0.357            0.167\n11      R12_WB_MLE-LST  0.488  ...         0.466            1.274\n\n[11 rows x 8 columns]\n"
+    }
+   ],
+   "argon_answer": {
+    "results": [
+     {
+      "quantity": "verdict",
+      "value_number": null,
+      "value_text": "NO-GO"
+     },
+     {
+      "quantity": "n_positive:LAeq",
+      "value_number": 10,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:LAeq",
+      "value_number": null,
+      "value_text": "false"
+     },
+     {
+      "quantity": "n_positive:nospeech_LAeq",
+      "value_number": 10,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:nospeech_LAeq",
+      "value_number": null,
+      "value_text": "false"
+     },
+     {
+      "quantity": "n_positive:core_LAeq",
+      "value_number": 10,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:core_LAeq",
+      "value_number": null,
+      "value_text": "false"
+     },
+     {
+      "quantity": "n_positive:top25_LAeq",
+      "value_number": 11,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:top25_LAeq",
+      "value_number": null,
+      "value_text": "true"
+     },
+     {
+      "quantity": "n_positive:L10",
+      "value_number": 11,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:L10",
+      "value_number": null,
+      "value_text": "true"
+     },
+     {
+      "quantity": "n_positive:LAeq_1s_mean",
+      "value_number": 9,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:LAeq_1s_mean",
+      "value_number": null,
+      "value_text": "false"
+     },
+     {
+      "quantity": "n_positive:LAeq_limiter_ub",
+      "value_number": 7,
+      "value_text": null
+     },
+     {
+      "quantity": "all_trips_positive:LAeq_limiter_ub",
+      "value_number": null,
+      "value_text": "false"
+     }
+    ],
+    "code_used": "import pandas as pd\nimport numpy as np\nfrom scipy.stats import binomtest\n\ndf = pd.read_csv('input_file_0.csv')\n\nVARIANTS = [\"LAeq\", \"nospeech_LAeq\", \"core_LAeq\", \"top25_LAeq\", \"L10\", \"LAeq_1s_mean\", \"LAeq_limiter_ub\"]\nMIN_DB = 1.0\n\npaired_trips = []\nfor trip, g in df.groupby('trip', sort=False):\n    dirs = g['direction'].unique()\n    if len(dirs) != 1:\n        continue\n    d = dirs[0]\n    if d == 'EB':\n        r1 = g[(g['from'] == 'LST') & (g['to'] == 'BTH')]\n        r2 = g[(g['from'] == 'BTH') & (g['to'] == 'MLE')]\n    elif d == 'WB':\n        r1 = g[(g['from'] == 'BTH') & (g['to'] == 'LST')]\n        r2 = g[(g['from'] == 'MLE') & (g['to'] == 'BTH')]\n    else:\n        continue\n    if len(r1) == 1 and len(r2) == 1:\n        excl = bool(r1['placement_excluded'].iloc[0]) or bool(r2['placement_excluded'].iloc[0])\n        row = {'trip': trip, 'placement_excluded': excl}\n        for v in VARIANTS:\n            row[v] = r1[v].iloc[0] - r2[v].iloc[0]\n        paired_trips.append(row)\n\npdf = pd.DataFrame(paired_trips)\npok = pdf[~pdf['placement_excluded']]\n\nn = len(pok)\ns = {\"n\": n}\nfor v in VARIANTS:\n    diffs = pok[v]\n    n_pos = int((diffs > 0).sum())\n    s[v] = {\n        \"n_positive\": n_pos,\n        \"mean_db\": float(diffs.mean()),\n        \"min_db\": float(diffs.min()),\n        \"max_db\": float(diffs.max()),\n        \"sign_test_p_one_sided\": float(binomtest(n_pos, n, 0.5, alternative=\"greater\").pvalue)\n    }\n\nla = s[\"LAeq\"]\nconsistent = la[\"n_positive\"] == n\nrobust = {k: s[k][\"n_positive\"] == n for k in VARIANTS}\nif consistent and la[\"mean_db\"] >= MIN_DB and all(robust.values()):\n    v_res = \"GO\"\nelif consistent:\n    v_res = \"WEAK\"\nelse:\n    v_res = \"NO-GO\"\n\nprint(\"n =\", n)\nprint(\"verdict =\", v_res)\nfor k in VARIANTS:\n    print(f\"n_positive:{k} = {s[k]['n_positive']}\")\n    print(f\"all_trips_positive:{k} = {str(robust[k]).lower()}\")",
+    "definition_notes": "All definitions were followed literally without ambiguity. There are 12 paired LST-BTH / BTH-MLE trips in total, of which 1 (R4_WB_MLE-LST) is placement-excluded, leaving n = 11 placement_ok trips."
+   },
+   "comparisons": [
+    {
+     "quantity": "verdict",
+     "ours": "NO-GO",
+     "argon": "NO-GO",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:LAeq",
+     "ours": 10,
+     "argon": 10,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:LAeq",
+     "ours": "false",
+     "argon": "false",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:nospeech_LAeq",
+     "ours": 10,
+     "argon": 10,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:nospeech_LAeq",
+     "ours": "false",
+     "argon": "false",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:core_LAeq",
+     "ours": 10,
+     "argon": 10,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:core_LAeq",
+     "ours": "false",
+     "argon": "false",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:top25_LAeq",
+     "ours": 11,
+     "argon": 11,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:top25_LAeq",
+     "ours": "true",
+     "argon": "true",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:L10",
+     "ours": 11,
+     "argon": 11,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:L10",
+     "ours": "true",
+     "argon": "true",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:LAeq_1s_mean",
+     "ours": 9,
+     "argon": 9,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:LAeq_1s_mean",
+     "ours": "false",
+     "argon": "false",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    },
+    {
+     "quantity": "n_positive:LAeq_limiter_ub",
+     "ours": 7,
+     "argon": 7,
+     "kind": "count",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json summary.placement_ok",
+     "match": true,
+     "diff": 0.0,
+     "tol": 1e-09,
+     "traced_to_sandbox": true,
+     "reason": "|diff| 0 vs tol 1e-09"
+    },
+    {
+     "quantity": "all_trips_positive:LAeq_limiter_ub",
+     "ours": "false",
+     "argon": "false",
+     "kind": "label",
+     "published_dp": null,
+     "source": "outputs/gonogo/loudness.json verdict",
+     "match": true,
+     "reason": "exact label"
+    }
+   ],
+   "prompt": "Definitions (from the frozen pipeline, restated in words):\n- Each row is one section-run: a train run between two adjacent stations; `trip` groups the sections of one\n  continuous journey (R1 and R1.5 are one trip recorded in two files). Levels are dB(A) relative to digital\n  full scale, uncalibrated: only differences are meaningful.\n- Within-trip contrast: for each trip with direction EB, diff = (row with from=LST, to=BTH) minus (row with\n  from=BTH, to=MLE); for direction WB, diff = (row from=BTH, to=LST) minus (row from=MLE, to=BTH). Trips of\n  any other direction, or missing either row, are not paired. Compute diff separately for each level column.\n- A paired trip is placement-excluded if EITHER of its two rows has placement_excluded true. The\n  \"placement_ok\" set = paired trips that are not placement-excluded.\n- Over the placement_ok trips, per level column: n = number of trips, n_positive = count of diff > 0\n  (strictly), mean, sample sd (ddof=1), min, max, and the one-sided sign test p = P(X >= n_positive) for\n  X ~ Binomial(n, 0.5) (scipy.stats.binomtest(n_positive, n, 0.5, alternative=\"greater\").pvalue).\n\nThe pre-registered decision rule, verbatim from the frozen script (Python; P is the paired-difference\nresult, P[\"summary\"][\"placement_ok\"] holds the placement_ok statistics described above, keyed by level\ncolumn, each with n_positive and mean_db; `tab` is unused; the VARIANTS values are plot labels and only\nits keys matter, so TRIM_S and TOP_FRAC, defined elsewhere, are irrelevant here):\n```python\nMIN_DB = 1.0   # a difference below this is inside the limiter compression (~1-3 dB) and run-to-run sd\n\nVARIANTS = {\"LAeq\": \"LAeq\\n(energy)\", \"nospeech_LAeq\": \"LAeq,\\nno speech s\",\n            \"core_LAeq\": f\"core LAeq\\n(-{TRIM_S:.0f} s/end)\", \"top25_LAeq\": f\"loudest\\n{TOP_FRAC:.0%} of s\",\n            \"L10\": \"L10\", \"LAeq_1s_mean\": \"mean of\\n1-s LAeq\", \"LAeq_limiter_ub\": \"limiter\\nupper bound\"}\n\ndef verdict(P: dict, tab: pd.DataFrame) -> dict:\n    s = P[\"summary\"][\"placement_ok\"]\n    n, la = s[\"n\"], s[\"LAeq\"]\n    consistent = la[\"n_positive\"] == n\n    robust = {k: s[k][\"n_positive\"] == n for k in VARIANTS}\n    if consistent and la[\"mean_db\"] >= MIN_DB and all(robust.values()):\n        v = \"GO\"\n    elif consistent:\n        v = \"WEAK\"\n    else:\n        v = \"NO-GO\"\n    disagree = [k for k, ok in robust.items() if not ok]\n    why = (f\"LST-BTH is louder than BTH-MLE in {la['n_positive']}/{n} placement-ok trips \"\n           f\"(mean within-trip difference {la['mean_db']:+.2f} dB, range {la['min_db']:+.2f} to {la['max_db']:+.2f}; \"\n           f\"one-sided sign test p={la['sign_test_p_one_sided']:.3f}). \"\n           f\"The difference is below {MIN_DB:.0f} dB, i.e. inside the Voice Memos limiter compression (~1-3 dB) \"\n           f\"and the run-to-run sd of a section (0.4-0.8 dB).\"\n           + (f\" Not robust across variants: {', '.join(disagree)} do not agree in every trip.\" if disagree else \"\")\n           + \" Absolute levels are uncalibrated dBFS(A), so nothing here can be compared with TfL's 92.8 dB.\")\n    return {\"verdict\": v, \"justification\": why, \"variant_sign_consistent\": robust}\n```\n\nTask: apply this rule to the table. Report quantity \"verdict\" (value_text: GO, WEAK or NO-GO), and for each\nlevel column v in VARIANTS: \"n_positive:<v>\" (value_number) and \"all_trips_positive:<v>\" (value_text \"true\"\nor \"false\", i.e. whether n_positive equals n for that column).\n\nThe attached table has one row per section-run.",
+   "table_sha256": "2910f38ee889b211576b73d891198014ace8ebe57a8b5e697cbd7f1da5b06e21",
+   "table": "trip,run_id,direction,from,to,placement_excluded,LAeq,nospeech_LAeq,core_LAeq,top25_LAeq,L10,LAeq_1s_mean,LAeq_limiter_ub\r\nR0_NB_VIC_OXC,R0,NB,VIC,GPK,False,-19.434,-19.371,-18.38,-16.623,-16.661,-21.019,-17.656\r\nR0_NB_VIC_OXC,R0,NB,GPK,OXC,False,-20.392,-20.819,-19.297,-17.331,-17.328,-21.802,-18.973\r\nR0.5_EB_OXC-LST,R0.5,EB,OXC,TCR,False,-20.749,-21.134,-19.882,-17.408,-17.565,-22.761,-18.758\r\nR0.5_EB_OXC-LST,R0.5,EB,TCR,HOL,False,-23.336,-23.447,-22.521,-19.275,-19.773,-25.407,-21.679\r\nR0.5_EB_OXC-LST,R0.5,EB,HOL,CYL,False,-23.512,-24.183,-21.486,-19.759,-19.809,-25.641,-22.96\r\nR0.5_EB_OXC-LST,R0.5,EB,CYL,STP,False,-19.942,-19.948,-18.961,-16.829,-16.857,-21.362,-17.667\r\nR0.5_EB_OXC-LST,R0.5,EB,STP,BNK,False,-20.277,-20.392,-19.651,-16.565,-16.418,-22.605,-18.642\r\nR0.5_EB_OXC-LST,R0.5,EB,BNK,LST,False,-19.734,-20.008,-19.159,-16.712,-16.835,-21.56,-17.376\r\nR1+R1.5_EB_LST-MLE,R1,EB,LST,BTH,False,-18.215,-18.224,-17.966,-15.357,-15.548,-19.559,-17.451\r\nR1+R1.5_EB_LST-MLE,R1.5,EB,BTH,MLE,False,-19.425,-19.387,-18.836,-16.354,-16.42,-20.73,-17.119\r\nR2_WB_MLE-LST,R2,WB,MLE,BTH,False,-20.008,-19.982,-19.221,-16.875,-16.89,-21.731,-19.451\r\nR2_WB_MLE-LST,R2,WB,BTH,LST,False,-19.532,-19.606,-19.048,-16.639,-16.624,-20.954,-18.114\r\nR3_EB_LST-MLE,R3,EB,LST,BTH,False,-18.326,-18.363,-17.873,-15.453,-15.48,-19.794,-17.468\r\nR3_EB_LST-MLE,R3,EB,BTH,MLE,False,-18.886,-18.908,-18.063,-15.918,-15.898,-20.715,-16.969\r\nR4_WB_MLE-LST,R4,WB,MLE,BTH,True,-19.865,-19.85,-19.202,-16.956,-17.007,-21.119,-19.553\r\nR4_WB_MLE-LST,R4,WB,BTH,LST,True,-19.35,-19.311,-18.906,-16.442,-16.652,-20.685,-17.906\r\nR5_EB_LST-MLE,R5,EB,LST,BTH,False,-19.11,-19.012,-18.498,-15.977,-16.003,-21.153,-18.01\r\nR5_EB_LST-MLE,R5,EB,BTH,MLE,False,-19.622,-19.51,-18.798,-16.424,-16.286,-21.661,-17.434\r\nR6_WB_MLE-LST,R6,WB,MLE,BTH,False,-18.859,-18.917,-18.318,-16.428,-16.526,-19.708,-18.443\r\nR6_WB_MLE-LST,R6,WB,BTH,LST,False,-18.607,-18.6,-18.28,-15.69,-15.714,-19.734,-17.504\r\nR7_EB_LST-MLE,R7,EB,LST,BTH,False,-18.58,-18.364,-18.549,-15.586,-15.722,-19.965,-17.246\r\nR7_EB_LST-MLE,R7,EB,BTH,MLE,False,-19.215,-19.179,-18.75,-16.126,-16.179,-20.956,-17.245\r\nR8_WB_MLE-LST,R8,WB,MLE,BTH,False,-19.314,-19.324,-18.822,-16.646,-16.562,-20.06,-18.395\r\nR8_WB_MLE-LST,R8,WB,BTH,LST,False,-19.015,-19.006,-18.56,-16.238,-16.028,-19.97,-17.609\r\nR9_EB_LST-MLE,R9,EB,LST,BTH,False,-18.939,-18.893,-18.306,-15.734,-15.839,-21.282,-17.478\r\nR9_EB_LST-MLE,R9,EB,BTH,MLE,False,-19.918,-19.759,-19.197,-16.504,-16.415,-22.192,-17.514\r\nR10_WB_MLE-LST,R10,WB,MLE,BTH,False,-18.25,-18.246,-17.96,-16.166,-16.05,-18.71,-18.001\r\nR10_WB_MLE-LST,R10,WB,BTH,LST,False,-18.384,-18.362,-18.038,-15.88,-15.811,-19.168,-17.431\r\nR11_EB_LST-MLE,R11,EB,LST,BTH,False,-18.776,-18.823,-18.162,-15.574,-15.469,-21.16,-17.519\r\nR11_EB_LST-MLE,R11,EB,BTH,MLE,False,-19.449,-19.474,-18.814,-16.135,-16.078,-21.517,-17.686\r\nR12_WB_MLE-LST,R12,WB,MLE,BTH,False,-18.946,-18.977,-18.41,-16.3,-16.191,-19.969,-18.7\r\nR12_WB_MLE-LST,R12,WB,BTH,LST,False,-18.458,-18.531,-18.059,-15.645,-15.657,-19.503,-17.426\r\nR13_EB_LST-WCL,R13,EB,LST,ALE,False,-24.379,-24.215,-24.018,-21.351,-21.553,-25.471,-22.197\r\nR13_EB_LST-WCL,R13,EB,ALE,WCL,False,-26.849,-26.908,-27.008,-23.643,-24.299,-27.86,-25.842\r\nR14_WB_WCL-LST,R14,WB,WCL,ALE,False,-24.537,-24.836,-25.206,-21.058,-21.373,-25.68,-23.497\r\nR14_WB_WCL-LST,R14,WB,ALE,LST,False,-24.653,-24.708,-24.204,-21.961,-22.321,-25.382,-22.307\r\nR15_EB_LST-WCL,R15,EB,LST,ALE,False,-20.956,-20.973,-20.586,-18.449,-18.384,-21.628,-18.915\r\nR15_EB_LST-WCL,R15,EB,ALE,WCL,False,-24.181,-24.569,-23.94,-21.13,-20.967,-25.092,-23.273\r\n"
+  }
+ }
+}

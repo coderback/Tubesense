@@ -1,0 +1,976 @@
+{
+ "judge": "Claude (the comparison agent), single judge",
+ "written": "2026-10-25T04:38:12+00:00",
+ "method": "labels P1-P12 (blinding failed, see blinding_assessment); every verified claim and ask read against the full cited chunks and the section stats; a fixed checklist derived from the 24 findings in pack_review.json / pack_review2.json applied to every run; one issue per distinct problem per item; an error carried into an ask is counted again. Not ground truth.",
+ "rules": {
+  "A": "FOI-1730-1819 Feb 2019 grinding tied to the 720-880 m roughness or to noise without TfL's purpose/caveats (pack_review R02/R24)",
+  "B": "720-880 m roughness stated without eastbound / Jan 2018 scope (R03)",
+  "C": "TfL's 'bi-monthly' readings stated as in-cab readings (R06)",
+  "D": "loudness check: NO-GO given any reason other than the reversed trip (e.g. size < 1 dB, limiter compression) = major (R07); contrast reported with no verdict anywhere in the run = minor",
+  "E": "phone-level comparison against a cross-line or single-run comparator without line/n caveats (R08/R21)",
+  "F": "NIOSH readings without the ~85 dB(A) validation limit, or EB vs WB set side by side without 'different trains' (R12)",
+  "G": "Baker's refused requests (residents' casework data) generalised to noise data / section data, or refusal asserted beyond the source (R11)",
+  "H": "Mayor's 'cannot see a reason why' on the eight-week programme presented as a commitment (R09/R15) = major",
+  "I": "92.8 dB: a TfL dataset presumed in the pack's voice or in an ask (R13/R20)",
+  "J": "absence in a 14-document corpus stated as absence from the public record / TfL's publications (R10/R19/R22)",
+  "K": "'usually 6 months - a year' hardened into a required/recommended cycle, or lapse/decay presupposed (R18/R16)",
+  "L": "ask cites a claim id that does not support the statement (R17)",
+  "M": "Pandrol Vanguard / Delkor attached to the LST-BTH reconditioning entry (R01) = major, also when carried into an ask. After review (2026-10-25): an ask counts if it states or presupposes PV conversion/replacement as (one of) the content of that entry, hedged alternatives included; a neutral question about which fastenings are installed does not.",
+  "N": "Mayor's written answer (MQ 2022/2799) presented as a TfL statement and cut before 'noise grinding is planned once defects are scheduled' (R04)",
+  "O": "source mischaracterised or factual slip the verifier cannot see (e.g. press report said to attribute 92.8 to JRPass 'rather than TfL' when it says 'According to the TfL data'; Circle line at Aldgate East)",
+  "X": "other out-of-context quote",
+  "Y": "other overstated commitment"
+ },
+ "runs": {
+  "P1": {
+   "claims_reviewed": 14,
+   "asks_reviewed": 4,
+   "issues": [
+    {
+     "item": "C02",
+     "rule": "A",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "grinding 'at that location' after the 720-880 m finding; caveats dropped"
+    },
+    {
+     "item": "C02",
+     "rule": "B",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "no eastbound/2018 scope"
+    },
+    {
+     "item": "C09",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because the difference is below 1 dB'"
+    },
+    {
+     "item": "C10",
+     "rule": "E",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "H&C comparator, n=2"
+    },
+    {
+     "item": "C10",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'Hammersmith & City and Circle' at Aldgate East-Whitechapel; the Circle does not serve it"
+    },
+    {
+     "item": "C11",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "EB 91.9 vs WB 87.3 without 'different trains'"
+    },
+    {
+     "item": "C12",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'her requests for Tube noise data'"
+    },
+    {
+     "item": "C13",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'the underlying TfL dataset'"
+    },
+    {
+     "item": "C14",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'the public record cannot establish'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'TfL confirmed ... in-cab readings are carried out bi-monthly'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'only the single snapshot ... is available in the public record'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'despite TfL noting grinding usually needs repeating'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "asks TfL to identify 'the specific TfL disclosure or dataset'"
+    },
+    {
+     "item": "ASK-4",
+     "rule": "L",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "C12 cited for the data-led approach"
+    }
+   ]
+  },
+  "P2": {
+   "claims_reviewed": 13,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "claim-08",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'0.54 dB higher' with no verdict in the run"
+    },
+    {
+     "item": "claim-09",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no ~85 dB(A) limit here or in claim-10"
+    },
+    {
+     "item": "claim-13",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'requests for specific noise data'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'the public record lacks verification'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'recommended 6 to 12 month interval'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "L",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "claim-13 cited for 'current official levels remain undisclosed to Assembly Members'"
+    }
+   ]
+  },
+  "P3": {
+   "claims_reviewed": 14,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "c11",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no validation limit, no like-for-like caveat, EB vs WB"
+    },
+    {
+     "item": "c12",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "says the report attributed 92.8 to JRPass 'rather than primary TfL documentation'"
+    },
+    {
+     "item": "c13",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'Publicly disclosed records do not establish'"
+    },
+    {
+     "item": "c14",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because ... smaller than one decibel and failed across all evaluation variants'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'TfL has not published whether works were completed'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'required 6-12 month intervals'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'the primary dataset ... behind the 92.8 dB figure'"
+    }
+   ]
+  },
+  "P4": {
+   "claims_reviewed": 13,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "C2",
+     "rule": "A",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "grinding 'there' after the 720-880 m finding"
+    },
+    {
+     "item": "C2",
+     "rule": "B",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "no eastbound/2018 scope"
+    },
+    {
+     "item": "C3",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'a programme that converts Pandrol Vanguard ... to Delkor'"
+    },
+    {
+     "item": "C4",
+     "rule": "N",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "MQ 2022/2799 as 'TfL states', priority caveat cut"
+    },
+    {
+     "item": "C8",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because the difference is within limiter compression'"
+    },
+    {
+     "item": "C9",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "EB vs WB without 'different trains'"
+    },
+    {
+     "item": "C11",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'her requests for noise data'"
+    },
+    {
+     "item": "C12",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'cannot be verified from the public record'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'in-cab readings are carried out on a bi-monthly period'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "time series said to identify the source of 92.8"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'must be repeated every 6 to 12 months ... kept pace'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'(to replace Pandrol Vanguard with Delkor)'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'subsequent Assembly updates did not state'"
+    }
+   ]
+  },
+  "P5": {
+   "claims_reviewed": 14,
+   "asks_reviewed": 4,
+   "issues": [
+    {
+     "item": "C1",
+     "rule": "A",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "Feb 2019 grinding folded into the noise-grinding narrative without caveats"
+    },
+    {
+     "item": "C3",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'a programme that includes Pandrol Vanguard conversion to Delkor'"
+    },
+    {
+     "item": "C9",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because the difference is below 1 dB'"
+    },
+    {
+     "item": "C10",
+     "rule": "E",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "quietest single-run section (n=1) as comparator"
+    },
+    {
+     "item": "C11",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "EB vs WB without 'different trains'"
+    },
+    {
+     "item": "C12",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'underlying TfL source dataset'"
+    },
+    {
+     "item": "C13",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'the public record does not show'"
+    },
+    {
+     "item": "C14",
+     "rule": "H",
+     "category": "overstated commitment",
+     "severity": "major",
+     "note": "'committed to ... the eight-week forward programme'"
+    },
+    {
+     "item": "C14",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'requests for Tube noise data'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'despite TfL stating that grinding usually needs repeating'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'no post-May 2022 grinding records ... have been published'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'only a single snapshot ... is public'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "X",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "FOI-2986 'no study' sentence (answer to a research-opportunity question) used as 'no study on in-carriage saloon noise' (R05)"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'(replacing Pandrol Vanguard with Delkor fastenings)'"
+    }
+   ]
+  },
+  "P6": {
+   "claims_reviewed": 15,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "C2",
+     "rule": "A",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "grinding 'after measurements confirmed' 720-880 m"
+    },
+    {
+     "item": "C2",
+     "rule": "B",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "no eastbound/2018 scope"
+    },
+    {
+     "item": "C4",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'a programme that involves Pandrol Vanguard conversion to Delkor'"
+    },
+    {
+     "item": "C7",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'in-cab noise readings ... bi-monthly'"
+    },
+    {
+     "item": "C10",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because the contrast is under 1 dB'"
+    },
+    {
+     "item": "C11",
+     "rule": "E",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "H&C comparator n=2 and single-run HOL-CYL"
+    },
+    {
+     "item": "C11",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'Hammersmith & City and Circle' for Liverpool Street-Aldgate East"
+    },
+    {
+     "item": "C12",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "EB vs WB without 'different trains'"
+    },
+    {
+     "item": "C13",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'its underlying TfL source'"
+    },
+    {
+     "item": "C15",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'requests for Tube noise data'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'the 6-12 month interval TfL says is needed'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'(Pandrol Vanguard conversion to Delkor)'"
+    }
+   ]
+  },
+  "P7": {
+   "claims_reviewed": 15,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "claim_4",
+     "rule": "N",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "MQ 2022/2799 as 'TfL states', caveat cut"
+    },
+    {
+     "item": "claim_9",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'louder ... by 0.54 dB' with no verdict in the run"
+    },
+    {
+     "item": "claim_10/11",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no ~85 dB(A) limit (claim_14 only says 'limitations'); EB/WB without 'different trains'"
+    },
+    {
+     "item": "claim_12",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "report said to attribute 92.8 to JRPass 'rather than TfL directly'"
+    },
+    {
+     "item": "claim_13",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'Public records do not show'"
+    },
+    {
+     "item": "claim_15",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'requests for specific Tube noise data'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'stems from a third-party product head rather than TfL's official disclosures'; 'widely reported'"
+    }
+   ]
+  },
+  "P8": {
+   "claims_reviewed": 13,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "C2",
+     "rule": "A",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "grinding 'after identifying' 720-880 m; purpose dropped"
+    },
+    {
+     "item": "C2",
+     "rule": "B",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "no eastbound/2018 scope"
+    },
+    {
+     "item": "C4",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'where deep Tube reconditioning replaces Pandrol Vanguard with Delkor'"
+    },
+    {
+     "item": "C5",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'TfL disclosed bi-monthly noise levels recorded on 24 June 2024 from within the cab'"
+    },
+    {
+     "item": "C9",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because the difference was below 1 dB'"
+    },
+    {
+     "item": "C10",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "EB vs WB without 'different trains'"
+    },
+    {
+     "item": "C13",
+     "rule": "H",
+     "category": "overstated commitment",
+     "severity": "major",
+     "note": "'committed to ensuring TfL provides ... the eight weeks grinding programme'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'TfL's stated 6-to-12-month repeat cycle'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'confirms TfL takes bi-monthly Central line cab readings'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "time series said to resolve the 92.8 provenance"
+    }
+   ]
+  },
+  "P9": {
+   "claims_reviewed": 15,
+   "asks_reviewed": 4,
+   "issues": [
+    {
+     "item": "C2",
+     "rule": "A",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "grinding 'at this location' after the 720-880 m finding"
+    },
+    {
+     "item": "C2",
+     "rule": "B",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "no eastbound/Jan 2018 scope"
+    },
+    {
+     "item": "C3",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'where PV conversion to Delkor is carried out as part of Deep Tube Reconditioning'"
+    },
+    {
+     "item": "C5",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'disclosed bi-monthly noise levels recorded on 24 June 2024'"
+    },
+    {
+     "item": "C7",
+     "rule": "E",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "H&C 2020 S7-stock cab levels set 'by comparison' against Central 2024"
+    },
+    {
+     "item": "C9",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "major",
+     "note": "NO-GO 'because the contrast is below 1 dB'"
+    },
+    {
+     "item": "C10",
+     "rule": "E",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'substantially higher than' H&C sections n=1-2 and single-run HOL-CYL"
+    },
+    {
+     "item": "C11",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "EB vs WB without 'different trains'"
+    },
+    {
+     "item": "C13",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'her requests for noise data'"
+    },
+    {
+     "item": "C13",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'despite TfL holding bi-monthly cab measurements'"
+    },
+    {
+     "item": "C14",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'appears only in a secondary press article'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'TfL states grinding must be repeated every 6 to 12 months'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'the public record does not state'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'(converting Pandrol Vanguard to Delkor fastenings)'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'the specific dataset or FOI response underlying the 92.8 dB figure'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'decay rate of grinding'"
+    },
+    {
+     "item": "ASK-4",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'yet refuses to share section-level data with Assembly Members'"
+    }
+   ]
+  },
+  "P10": {
+   "claims_reviewed": 15,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "grind-interval-leadtime",
+     "rule": "N",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "MQ 2022/2799 as 'TfL confirmed'"
+    },
+    {
+     "item": "tfl-monitoring-frequency",
+     "rule": "C",
+     "category": "out-of-context quote",
+     "severity": "minor",
+     "note": "'in-cab noise readings ... bi-monthly'"
+    },
+    {
+     "item": "our-relative-contrast",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no verdict in the run"
+    },
+    {
+     "item": "our-indicative-niosh-saloon",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no ~85 dB(A) limit anywhere; EB vs WB"
+    },
+    {
+     "item": "limits-brixton-buzz-origin",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'originates from ... JRPass rather than TfL primary data'; 'widely reported'"
+    },
+    {
+     "item": "limits-grinding-direction-gaps",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'Public TfL disclosures do not establish'"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "Y",
+     "category": "overstated commitment",
+     "severity": "minor",
+     "note": "'the engineering intervention committed to' for a planned item"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "M",
+     "category": "out-of-context quote",
+     "severity": "major",
+     "note": "'confirming whether track replacement or Pandrol Vanguard conversion was executed' (hedged alternative attached to the LST-BTH reconditioning entry); added after review",
+     "added_after_review": true
+    }
+   ]
+  },
+  "P11": {
+   "claims_reviewed": 14,
+   "asks_reviewed": 3,
+   "issues": [
+    {
+     "item": "claim_measured_within_trip_contrast",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no verdict in the run"
+    },
+    {
+     "item": "claim_measured_indicative_niosh",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no ~85 dB(A) limit anywhere; EB vs WB"
+    },
+    {
+     "item": "claim_press_secondary_source_92db",
+     "rule": "O",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'citing analysis by JRPass rather than TfL primary data'"
+    },
+    {
+     "item": "claim_limits_grinding_gaps",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'TfL's published records do not clarify'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "K",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'TfL's recommended regular cycle'"
+    },
+    {
+     "item": "ASK-1",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'subsequent updates do not record'"
+    },
+    {
+     "item": "ASK-2",
+     "rule": "G",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'more recent official data has been withheld from Assembly inquiries' (no claim supports it)"
+    },
+    {
+     "item": "ASK-3",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'TfL's official disclosures only report in-cab measurements'"
+    }
+   ]
+  },
+  "P12": {
+   "claims_reviewed": 14,
+   "asks_reviewed": 4,
+   "issues": [
+    {
+     "item": "claim_our_contrast",
+     "rule": "D",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no verdict in the run"
+    },
+    {
+     "item": "claim_our_niosh",
+     "rule": "F",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "no ~85 dB(A) limit anywhere; EB vs WB"
+    },
+    {
+     "item": "claim_limits_history",
+     "rule": "J",
+     "category": "overgeneralised scope",
+     "severity": "minor",
+     "note": "'Public records do not confirm'"
+    },
+    {
+     "item": "ASK-4",
+     "rule": "I",
+     "category": "other misleading framing",
+     "severity": "minor",
+     "note": "'the primary dataset ... underpinning the 92.8 dB figure'"
+    }
+   ]
+  }
+ },
+ "blinding_assessment": "Blinding failed. The export kept the models' claim ids: all six Argon runs use the uppercase C1/C01 style of the production Argon pack that the judge had read, and the judge built the checklist from pack_review.json (which cites claim ids such as C03); the Flash runs use slugs (claim_1, c1, grind-records-2022). Rule M is also a known Argon signature. The key was written to the same folder as the export, so 'key unopened' rests on trust only. Treat all framing judgements as an unblinded single judge. Later runs of `compare_models.py blind` renumber claim ids and accept --key to write the key elsewhere.",
+ "rescored_after_review": {
+  "when": "2026-10-25",
+  "by": "the fixing agent after a review finding; unblinded (the key was known)",
+  "finding": "rule M was scored inconsistently on asks",
+  "original_rule_M": "Pandrol Vanguard / Delkor attached to the LST-BTH reconditioning entry (R01) = major, also when carried into an ask",
+  "changed": [
+   {
+    "label": "P10",
+    "slot": "02_flash",
+    "item": "ASK-3",
+    "was": "Y minor only (committed to)",
+    "now": "Y minor kept, plus M major added"
+   }
+  ],
+  "examined_not_counted": [
+   {
+    "label": "P8",
+    "slot": "12_argon",
+    "item": "ASK-2",
+    "why": "asks which fastenings (e.g. Pandrol Vanguard, Delkor, resilient baseplates) are installed on both directions; it does not state or presuppose that the LST-BTH reconditioning was PV conversion"
+   }
+  ],
+  "asks_scored_under_M_before": [
+   "01_argon ASK-2",
+   "05_argon ASK-3",
+   "08_argon ASK-2",
+   "09_argon ASK-3"
+  ]
+ },
+ "rules_clarified_after_review": {
+  "when": "2026-10-25",
+  "by": "the fixing agent after a review finding; unblinded (the key was known)",
+  "finding": "rule D named the '< 1 dB' reason only, but 05_argon C8 (scored major) gave 'within limiter compression'",
+  "changed": "rule D text widened from 'the wrong reason (size < 1 dB instead of a reversed trip)' to 'any reason other than the reversed trip'",
+  "scores_changed": "none: 05_argon C8 stays major, which the widened text now covers; no other item is affected"
+ }
+}

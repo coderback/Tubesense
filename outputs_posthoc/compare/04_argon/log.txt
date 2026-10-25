@@ -1,0 +1,10 @@
+=== attempt 0 2026-10-25T04:16:56+00:00 exit 0 118 s
+round 0: 14 claims, 3 rejected (69.0 s)
+  x C03: numbers not supported by the cited quotes/stats/formula: ['2022']
+  x C04: quote not found verbatim in CSOPP-2022-12-tube-noise#001: 'It must be repeated at regular intervals (usually 6 months � a year), to maintai'; numbers not supported by the cited quotes/stats/formula: [
+  x C14: numbers not supported by the cited quotes/stats/formula: ['2021', '2022', '2022', '2024']
+round 1: 14 claims, 0 rejected (45.2 s)
+verified 14, dropped 0, asks 4, 114.3 s -> C:\Users\tobio\PycharmProjects\Tubesense\outputs_posthoc\compare\04_argon\investigation.json (atlas: no-atlas, nothing written)
+
+--- stderr ---
+

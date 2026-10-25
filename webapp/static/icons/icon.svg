@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Tubesense">
+  <rect width="512" height="512" rx="104" fill="#070B14"/>
+  <rect x="24" y="24" width="464" height="464" rx="84" fill="#0E2E68"/>
+  <path d="M84 340 C150 340 170 208 256 208 S362 340 428 340" fill="none" stroke="#4FC3F7" stroke-opacity=".35" stroke-width="44" stroke-linecap="round"/>
+  <path d="M84 340 C150 340 170 208 256 208 S362 340 428 340" fill="none" stroke="#E9F1FF" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="256" cy="208" r="34" fill="#F2B33D" stroke="#E9F1FF" stroke-width="10"/>
+</svg>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" style="background:#070B14">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tubesense</title>
+  <meta name="description" content="GPS-free positioning and a checked evidence pack from ordinary Tube rides. Encode London 2026.">
+  <meta name="theme-color" content="#070B14">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tubesense">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="app">
+    <nav class="rail" aria-label="Main">
+      <a class="brand" href="#/" aria-label="Tubesense, home"><img src="icons/icon-192.png" alt="" width="32" height="32"><span>Tubesense</span></a>
+      <div class="nav" id="nav">
+        <a class="nav__link" href="#/" data-route="story" title="Story"><span class="nav__icon" data-icon="story"></span><span class="nav__label">Story</span></a>
+        <a class="nav__link" href="#/ride" data-route="ride" title="Ride"><span class="nav__icon" data-icon="ride"></span><span class="nav__label">Ride</span></a>
+        <a class="nav__link" href="#/agent" data-route="agent" title="Agent"><span class="nav__icon" data-icon="agent"></span><span class="nav__label">Agent</span></a>
+        <a class="nav__link" href="#/ask" data-route="ask" title="Ask Argon"><span class="nav__icon" data-icon="ask"></span><span class="nav__label">Ask Argon</span></a>
+        <a class="nav__link" href="#/work" data-route="work" title="Argon at work"><span class="nav__icon" data-icon="work"></span><span class="nav__label">Argon at work</span></a>
+        <a class="nav__link" href="#/live" data-route="live" title="Live sensors"><span class="nav__icon" data-icon="live"></span><span class="nav__label">Live sensors</span></a>
+        <a class="nav__link" href="#/pack" data-route="pack" title="Evidence pack"><span class="nav__icon" data-icon="pack"></span><span class="nav__label">Evidence pack</span></a>
+        <a class="nav__link" href="#/atlas" data-route="atlas" title="Atlas"><span class="nav__icon" data-icon="atlas"></span><span class="nav__label">Atlas</span></a>
+        <a class="nav__link" href="#/why-argon" data-route="why-argon" title="Why Argon"><span class="nav__icon" data-icon="why"></span><span class="nav__label">Why Argon</span></a>
+        <a class="nav__link" href="#/method" data-route="method" title="Privacy &amp; method"><span class="nav__icon" data-icon="method"></span><span class="nav__label">Privacy &amp; method</span></a>
+        <a class="nav__link" href="#/box" data-route="box" title="Research Box"><span class="nav__icon" data-icon="box"></span><span class="nav__label">Research Box</span></a>
+      </div>
+      <div class="rail__foot">
+        <ul class="status-list" id="status-list" aria-label="Connection status"></ul>
+        <a class="btn" href="#/demo" id="demo-btn" title="Start the 3-minute demo"><span class="nav__icon" data-icon="demo"></span><span>Demo</span></a>
+      </div>
+    </nav>
+    <main class="main" id="main" tabindex="-1">
+      <div id="banners"></div>
+      <div id="view"></div>
+    </main>
+  </div>
+  <nav class="tabbar" aria-label="Main (phone)" id="tabbar"></nav>
+  <div class="sheet" id="sheet" hidden></div>
+  <div id="demo-root"></div>
+  <div id="overlay-root"></div>
+  <div id="toast-root" aria-hidden="true"></div>
+  <div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <noscript><p style="padding:24px;color:#E9F1FF">Tubesense needs JavaScript. It has no tracking and no build step.</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

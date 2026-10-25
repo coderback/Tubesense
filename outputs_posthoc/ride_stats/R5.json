@@ -1,0 +1,1847 @@
+{
+ "ride.id": {
+  "key": "ride.id",
+  "value": "R5",
+  "unit": "this recording's id (a ride report may name no other R id, except a split-run partner)",
+  "n": null,
+  "detail": {},
+  "source": "outputs/qc.json",
+  "fields": {}
+ },
+ "ride.route": {
+  "key": "ride.route",
+  "value": "LST-MLE",
+  "unit": "route",
+  "n": null,
+  "detail": {
+   "line": "central",
+   "direction": "EB",
+   "stations": "LST BTH MLE",
+   "n_sections": 2
+  },
+  "source": "outputs/sections.json",
+  "fields": {
+   "n_sections": {
+    "unit": "count",
+    "label": "sections in the ride",
+    "words": [
+     "section"
+    ],
+    "requires": [],
+    "family": "count"
+   }
+  }
+ },
+ "ride.sensor_duration_s": {
+  "key": "ride.sensor_duration_s",
+  "value": 298.6,
+  "unit": "s of phyphox sensor data (experiment time)",
+  "n": null,
+  "detail": {
+   "sensor_rate_hz": 99.2
+  },
+  "source": "outputs/inventory.csv",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "seconds of phyphox sensor data",
+    "words": [
+     "sensor",
+     "phyphox",
+     "motion",
+     "data",
+     "recorded",
+     "recording"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "sensor_rate_hz": {
+    "unit": "Hz",
+    "label": "sensor sampling rate",
+    "words": [
+     "rate",
+     "sampl"
+    ],
+    "requires": [],
+    "family": "Hz"
+   }
+  }
+ },
+ "ride.wall_span_s": {
+  "key": "ride.wall_span_s",
+  "value": 298.6,
+  "unit": "s wall-clock from phyphox START to final stop (includes pauses)",
+  "n": null,
+  "detail": {},
+  "source": "outputs/inventory.csv",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "wall-clock span of the recording",
+    "words": [
+     "wall",
+     "clock",
+     "span",
+     "elapsed",
+     "total"
+    ],
+    "requires": [],
+    "family": "s"
+   }
+  }
+ },
+ "ride.audio_duration_s": {
+  "key": "ride.audio_duration_s",
+  "value": 350.8,
+  "unit": "s of audio (Voice Memos; levels derived, audio not kept)",
+  "n": null,
+  "detail": {},
+  "source": "outputs/inventory.csv",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "seconds of audio",
+    "words": [
+     "audio",
+     "sound",
+     "voice"
+    ],
+    "requires": [],
+    "family": "s"
+   }
+  }
+ },
+ "ride.phyphox_pauses": {
+  "key": "ride.phyphox_pauses",
+  "value": 0,
+  "unit": "pauses in the phyphox event log",
+  "n": null,
+  "detail": {
+   "pause_total_s": 0.0
+  },
+  "source": "outputs/inventory.csv",
+  "fields": {
+   "value": {
+    "unit": "count",
+    "label": "phyphox pauses",
+    "words": [
+     "pause"
+    ],
+    "requires": [],
+    "family": "count"
+   },
+   "pause_total_s": {
+    "unit": "s",
+    "label": "total pause time",
+    "words": [
+     "pause",
+     "paused",
+     "total"
+    ],
+    "requires": [],
+    "family": "s"
+   }
+  }
+ },
+ "qc.handled_mid_ride.1": {
+  "key": "qc.handled_mid_ride.1",
+  "value": 2.5,
+  "unit": "s flagged interval (experiment time)",
+  "n": null,
+  "detail": {
+   "severity": "low",
+   "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+   "recommendation": "drop +-2 s around it from vibration features; new placement epoch",
+   "t0_s": 9.01,
+   "t1_s": 11.51
+  },
+  "source": "outputs/qc.json",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "length of the handled mid ride interval",
+    "words": [
+     "handl",
+     "touch",
+     "moved",
+     "interval",
+     "period",
+     "lasted",
+     "lasting",
+     "for",
+     "duration",
+     "long",
+     "flagged"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "t0_s": {
+    "unit": "s",
+    "label": "start time (s of experiment time)",
+    "words": [
+     "at",
+     "from",
+     "start",
+     "starting",
+     "started",
+     "began",
+     "beginning",
+     "between",
+     "after",
+     "handl",
+     "touch",
+     "moved"
+    ],
+    "requires": [],
+    "family": "s",
+    "instant": true
+   },
+   "t1_s": {
+    "unit": "s",
+    "label": "end time (s of experiment time)",
+    "words": [
+     "to",
+     "until",
+     "end",
+     "ending",
+     "ended",
+     "through",
+     "and",
+     "handl",
+     "touch",
+     "moved"
+    ],
+    "requires": [],
+    "family": "s",
+    "instant": true
+   }
+  }
+ },
+ "qc.flag_counts": {
+  "key": "qc.flag_counts",
+  "value": 1,
+  "unit": "QC flags on this recording (magnetometer mode not counted)",
+  "n": null,
+  "detail": {
+   "handled_mid_ride": 1
+  },
+  "source": "outputs/qc.json",
+  "fields": {
+   "value": {
+    "unit": "count",
+    "label": "QC flags on the recording",
+    "words": [
+     "flag",
+     "qc"
+    ],
+    "requires": [],
+    "family": "count"
+   },
+   "handled_mid_ride": {
+    "unit": "count",
+    "label": "handled mid ride flags",
+    "words": [
+     "handled",
+     "mid",
+     "ride",
+     "flag"
+    ],
+    "requires": [],
+    "family": "count"
+   }
+  }
+ },
+ "qc.placement_epoch.1": {
+  "key": "qc.placement_epoch.1",
+  "value": 276.0,
+  "unit": "s, one resting placement of the phone",
+  "n": null,
+  "detail": {
+   "t0_s": 15.01,
+   "t1_s": 290.5,
+   "tilt_deg": 10.7,
+   "screen": "up",
+   "riding_s": 221.0,
+   "label": "resting, typical",
+   "coupling": "typical",
+   "hf_power_vs_peers": 1.163,
+   "rattle_vs_median": 0.49,
+   "floor_like": false,
+   "placed_mid_ride": false
+  },
+  "source": "outputs/qc.json",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "length of one resting placement",
+    "words": [
+     "placement",
+     "rest",
+     "resting",
+     "lay",
+     "sat",
+     "position",
+     "placed"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "t0_s": {
+    "unit": "s",
+    "label": "start time (s of experiment time)",
+    "words": [
+     "at",
+     "from",
+     "start",
+     "starting",
+     "started",
+     "began",
+     "beginning",
+     "between",
+     "after",
+     "placement",
+     "rest",
+     "resting",
+     "placed"
+    ],
+    "requires": [],
+    "family": "s",
+    "instant": true
+   },
+   "t1_s": {
+    "unit": "s",
+    "label": "end time (s of experiment time)",
+    "words": [
+     "to",
+     "until",
+     "end",
+     "ending",
+     "ended",
+     "through",
+     "and",
+     "placement",
+     "rest",
+     "resting",
+     "placed"
+    ],
+    "requires": [],
+    "family": "s",
+    "instant": true
+   },
+   "tilt_deg": {
+    "unit": "deg",
+    "label": "phone tilt",
+    "words": [
+     "tilt",
+     "angle",
+     "inclin"
+    ],
+    "requires": [],
+    "family": "deg"
+   },
+   "riding_s": {
+    "unit": "s",
+    "label": "seconds of riding in this placement",
+    "words": [
+     "riding",
+     "moving",
+     "ride"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "hf_power_vs_peers": {
+    "unit": "ratio",
+    "label": "20-50 Hz vertical vibration power vs same-section peers",
+    "words": [
+     "power",
+     "vibration",
+     "peers",
+     "vertical"
+    ],
+    "requires": [],
+    "family": "ratio"
+   },
+   "rattle_vs_median": {
+    "unit": "ratio",
+    "label": "rattle ratio vs the median",
+    "words": [
+     "rattle"
+    ],
+    "requires": [],
+    "family": "ratio"
+   }
+  }
+ },
+ "qc.placement_epochs": {
+  "key": "qc.placement_epochs",
+  "value": 1,
+  "unit": "resting placements of the phone found in this recording",
+  "n": null,
+  "detail": {
+   "floor_like_n": 0,
+   "placed_mid_ride_n": 0
+  },
+  "source": "outputs/qc.json",
+  "fields": {
+   "value": {
+    "unit": "count",
+    "label": "resting placements of the phone",
+    "words": [
+     "placement",
+     "position",
+     "rest",
+     "resting"
+    ],
+    "requires": [],
+    "family": "count"
+   },
+   "floor_like_n": {
+    "unit": "count",
+    "label": "floor-like placements",
+    "words": [
+     "floor"
+    ],
+    "requires": [],
+    "family": "count"
+   },
+   "placed_mid_ride_n": {
+    "unit": "count",
+    "label": "placements made mid-ride",
+    "words": [
+     "mid",
+     "placed",
+     "moved"
+    ],
+    "requires": [],
+    "family": "count"
+   }
+  }
+ },
+ "qc.magnetometer": {
+  "key": "qc.magnetometer",
+  "value": "calibrated",
+  "unit": "magnetometer stream (raw = hard-iron bias included; calibrated = iOS)",
+  "n": null,
+  "detail": {
+   "median_B_uT": 83.6,
+   "mode_confidence": 0.8,
+   "calibration_resets": 0,
+   "note": "underground fields are dominated by train and traction current; not an Earth-field reference"
+  },
+  "source": "outputs/qc.json",
+  "fields": {
+   "median_B_uT": {
+    "unit": "uT",
+    "label": "median magnetic field magnitude",
+    "words": [
+     "field",
+     "median",
+     "magnet",
+     "b"
+    ],
+    "requires": [],
+    "family": "uT"
+   },
+   "mode_confidence": {
+    "unit": "confidence",
+    "label": "confidence of the raw/calibrated call (0-1)",
+    "words": [
+     "confidence"
+    ],
+    "requires": [],
+    "family": "confidence"
+   },
+   "calibration_resets": {
+    "unit": "count",
+    "label": "iOS calibration resets",
+    "words": [
+     "reset",
+     "calibration"
+    ],
+    "requires": [],
+    "family": "count"
+   }
+  }
+ },
+ "sync.offset_s": {
+  "key": "sync.offset_s",
+  "value": 1.6,
+  "unit": "s, audio time minus sensor wall time at the recording start",
+  "n": null,
+  "detail": {
+   "method": "xcorr_coarse",
+   "confidence": "low",
+   "uncertainty_s": 5.0,
+   "xcorr_z": 3.6,
+   "first_third_lag_s": 1.18,
+   "last_third_lag_s": 2.72,
+   "band_combos_agreeing": 4,
+   "band_combos_total": 9,
+   "tap_markers_matched": false,
+   "notes": "no tap triple matched at either end; b fixed at 1 (same-device clocks); correlation peak not unique (median margin 0.001 over the best lag >5 s away); offset only constrained to ~+-5 s (station-dip alignment); 10 ms xcorr inconclusive (z=3.6); coarse band combos disagree (4/9 within 1 s); offset may be wrong by seconds"
+  },
+  "source": "outputs/sync.json",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "audio-sensor offset",
+    "words": [
+     "offset",
+     "shift",
+     "align",
+     "lag"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "uncertainty_s": {
+    "unit": "s",
+    "label": "sync uncertainty",
+    "words": [
+     "uncertain",
+     "error",
+     "within",
+     "plus"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "xcorr_z": {
+    "unit": "z",
+    "label": "cross-correlation peak strength (z-score)",
+    "words": [
+     "z",
+     "score",
+     "peak",
+     "correlation",
+     "strength"
+    ],
+    "requires": [],
+    "family": "z"
+   },
+   "first_third_lag_s": {
+    "unit": "s",
+    "label": "audio-sensor lag in the first third",
+    "words": [
+     "first",
+     "lag",
+     "offset"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "last_third_lag_s": {
+    "unit": "s",
+    "label": "audio-sensor lag in the last third",
+    "words": [
+     "last",
+     "final",
+     "lag",
+     "offset"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "band_combos_agreeing": {
+    "unit": "count",
+    "label": "band combinations agreeing",
+    "words": [
+     "agree",
+     "agreeing"
+    ],
+    "requires": [],
+    "family": "count"
+   },
+   "band_combos_total": {
+    "unit": "count",
+    "label": "band combinations tried",
+    "words": [
+     "total",
+     "combination",
+     "tried",
+     "of"
+    ],
+    "requires": [],
+    "family": "count"
+   }
+  }
+ },
+ "section.LST-BTH.duration_s": {
+  "key": "section.LST-BTH.duration_s",
+  "value": 141.0,
+  "unit": "s wall-clock, departure to arrival",
+  "n": null,
+  "detail": {
+   "timetable_expected_s": 159.8,
+   "depart_t_s": 13.76,
+   "arrive_t_s": 154.76,
+   "departure_observed": true,
+   "arrival_observed": true,
+   "tunnel_stops": 0,
+   "stops_near_platform": 0,
+   "overlaps_pause": false,
+   "segmentation_confidence": 0.9,
+   "evidence": "duration 141 s vs expected ~160 s",
+   "duration_status": "complete",
+   "segmentation": "ok"
+  },
+  "source": "outputs/sections.json",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "LST-BTH section time, departure to arrival",
+    "words": [
+     "took",
+     "duration",
+     "lasted",
+     "ran",
+     "run",
+     "travel",
+     "time",
+     "journey"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "LST-BTH"
+   },
+   "timetable_expected_s": {
+    "unit": "s",
+    "label": "timetable section time",
+    "words": [
+     "timetable",
+     "expect",
+     "schedul"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "LST-BTH"
+   },
+   "depart_t_s": {
+    "unit": "s",
+    "label": "departure time (s of experiment time)",
+    "words": [
+     "depart",
+     "left",
+     "leaving",
+     "from"
+    ],
+    "requires": [],
+    "family": "s",
+    "instant": true,
+    "section": "LST-BTH"
+   },
+   "arrive_t_s": {
+    "unit": "s",
+    "label": "arrival time (s of experiment time)",
+    "words": [
+     "arriv",
+     "to",
+     "until",
+     "reached"
+    ],
+    "requires": [],
+    "family": "s",
+    "instant": true,
+    "section": "LST-BTH"
+   },
+   "tunnel_stops": {
+    "unit": "count",
+    "label": "stops in the tunnel",
+    "words": [
+     "tunnel"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "LST-BTH"
+   },
+   "stops_near_platform": {
+    "unit": "count",
+    "label": "stops near a platform",
+    "words": [
+     "platform",
+     "near"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "LST-BTH"
+   },
+   "segmentation_confidence": {
+    "unit": "confidence",
+    "label": "section boundary confidence (0-1)",
+    "words": [
+     "confidence",
+     "segmentation"
+    ],
+    "requires": [],
+    "family": "confidence",
+    "section": "LST-BTH"
+   }
+  }
+ },
+ "section.LST-BTH.level": {
+  "key": "section.LST-BTH.level",
+  "value": -19.11,
+  "unit": "dBFS(A), uncalibrated phone level: relative comparisons only",
+  "n": null,
+  "detail": {
+   "seconds": 141,
+   "L10": -16.0,
+   "L90": -29.0,
+   "level_minus_trip_mean_db": 0.21,
+   "excluded_from_averages": false,
+   "floor_like_pct": 0.0,
+   "handled_pct": 0.0,
+   "speech_pct": 5.7,
+   "limiter_pct": 39.7,
+   "pause_s_dropped": 0,
+   "section_mean_all_runs": -18.66,
+   "section_sd_all_runs": 0.35,
+   "section_runs_n": 6,
+   "this_run_in_mean": true,
+   "minus_section_mean_db": -0.45
+  },
+  "source": "outputs/gonogo/loudness.json",
+  "fields": {
+   "value": {
+    "unit": "dBFS",
+    "label": "LST-BTH section level (relative)",
+    "words": [
+     "level",
+     "laeq",
+     "measured"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "LST-BTH"
+   },
+   "seconds": {
+    "unit": "s",
+    "label": "seconds of audio behind the section level",
+    "words": [
+     "second",
+     "covering",
+     "over"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "LST-BTH"
+   },
+   "L10": {
+    "unit": "dBFS",
+    "label": "L10 of the section (level exceeded 10 % of the time)",
+    "words": [
+     "l10",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "LST-BTH"
+   },
+   "L90": {
+    "unit": "dBFS",
+    "label": "L90 of the section (background level)",
+    "words": [
+     "l90",
+     "background",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "LST-BTH"
+   },
+   "level_minus_trip_mean_db": {
+    "unit": "dB",
+    "label": "section level minus the trip mean",
+    "words": [
+     "trip"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB",
+    "section": "LST-BTH"
+   },
+   "floor_like_pct": {
+    "unit": "pct",
+    "label": "share of section seconds floor-like",
+    "words": [
+     "floor"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "handled_pct": {
+    "unit": "pct",
+    "label": "share of section seconds handled",
+    "words": [
+     "handl"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "speech_pct": {
+    "unit": "pct",
+    "label": "share of seconds speech-like",
+    "words": [
+     "speech"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "limiter_pct": {
+    "unit": "pct",
+    "label": "share of seconds at the limiter ceiling",
+    "words": [
+     "limiter",
+     "ceiling",
+     "overall",
+     "all"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "pause_s_dropped": {
+    "unit": "s",
+    "label": "audio seconds dropped for a pause",
+    "words": [
+     "dropped",
+     "pause"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "LST-BTH"
+   },
+   "section_mean_all_runs": {
+    "unit": "dBFS",
+    "label": "mean level of this section and direction over all runs",
+    "words": [
+     "mean",
+     "average",
+     "runs",
+     "other",
+     "across",
+     "all",
+     "pooled",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "LST-BTH"
+   },
+   "section_sd_all_runs": {
+    "unit": "dB",
+    "label": "spread (sd) of this section's level over runs",
+    "words": [
+     "sd",
+     "standard",
+     "spread",
+     "varia",
+     "runs",
+     "all",
+     "across"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB",
+    "section": "LST-BTH"
+   },
+   "section_runs_n": {
+    "unit": "count",
+    "label": "runs in the section mean",
+    "words": [
+     "runs"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "LST-BTH"
+   },
+   "minus_section_mean_db": {
+    "unit": "dB",
+    "label": "this level minus the all-runs section mean",
+    "words": [
+     "mean",
+     "average",
+     "runs",
+     "other",
+     "across",
+     "all"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB",
+    "section": "LST-BTH"
+   }
+  }
+ },
+ "section.BTH-MLE.duration_s": {
+  "key": "section.BTH-MLE.duration_s",
+  "value": 105.0,
+  "unit": "s wall-clock, departure to arrival",
+  "n": null,
+  "detail": {
+   "timetable_expected_s": 118.5,
+   "depart_t_s": 186.76,
+   "arrive_t_s": 291.76,
+   "departure_observed": true,
+   "arrival_observed": true,
+   "tunnel_stops": 0,
+   "stops_near_platform": 0,
+   "overlaps_pause": false,
+   "segmentation_confidence": 0.8,
+   "evidence": "duration 105 s vs expected ~119 s; boundary falls in a handled period (taps/phone in hand); timing from barometer only",
+   "duration_status": "complete",
+   "segmentation": "low_confidence"
+  },
+  "source": "outputs/sections.json",
+  "fields": {
+   "value": {
+    "unit": "s",
+    "label": "BTH-MLE section time, departure to arrival",
+    "words": [
+     "took",
+     "duration",
+     "lasted",
+     "ran",
+     "run",
+     "travel",
+     "time",
+     "journey"
+    ],
+    "requires": [
+     "approximate"
+    ],
+    "family": "s",
+    "section": "BTH-MLE"
+   },
+   "timetable_expected_s": {
+    "unit": "s",
+    "label": "timetable section time",
+    "words": [
+     "timetable",
+     "expect",
+     "schedul"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "BTH-MLE"
+   },
+   "depart_t_s": {
+    "unit": "s",
+    "label": "departure time (s of experiment time)",
+    "words": [
+     "depart",
+     "left",
+     "leaving",
+     "from"
+    ],
+    "requires": [
+     "approximate"
+    ],
+    "family": "s",
+    "instant": true,
+    "section": "BTH-MLE"
+   },
+   "arrive_t_s": {
+    "unit": "s",
+    "label": "arrival time (s of experiment time)",
+    "words": [
+     "arriv",
+     "to",
+     "until",
+     "reached"
+    ],
+    "requires": [
+     "approximate"
+    ],
+    "family": "s",
+    "instant": true,
+    "section": "BTH-MLE"
+   },
+   "tunnel_stops": {
+    "unit": "count",
+    "label": "stops in the tunnel",
+    "words": [
+     "tunnel"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "BTH-MLE"
+   },
+   "stops_near_platform": {
+    "unit": "count",
+    "label": "stops near a platform",
+    "words": [
+     "platform",
+     "near"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "BTH-MLE"
+   },
+   "segmentation_confidence": {
+    "unit": "confidence",
+    "label": "section boundary confidence (0-1)",
+    "words": [
+     "confidence",
+     "segmentation"
+    ],
+    "requires": [],
+    "family": "confidence",
+    "section": "BTH-MLE"
+   }
+  }
+ },
+ "section.BTH-MLE.level": {
+  "key": "section.BTH-MLE.level",
+  "value": -19.62,
+  "unit": "dBFS(A), uncalibrated phone level: relative comparisons only",
+  "n": null,
+  "detail": {
+   "seconds": 105,
+   "L10": -16.3,
+   "L90": -29.4,
+   "level_minus_trip_mean_db": -0.3,
+   "excluded_from_averages": false,
+   "floor_like_pct": 0.0,
+   "handled_pct": 0.0,
+   "speech_pct": 2.9,
+   "limiter_pct": 45.7,
+   "pause_s_dropped": 0,
+   "section_mean_all_runs": -19.42,
+   "section_sd_all_runs": 0.35,
+   "section_runs_n": 6,
+   "this_run_in_mean": true,
+   "minus_section_mean_db": -0.2
+  },
+  "source": "outputs/gonogo/loudness.json",
+  "fields": {
+   "value": {
+    "unit": "dBFS",
+    "label": "BTH-MLE section level (relative)",
+    "words": [
+     "level",
+     "laeq",
+     "measured"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "BTH-MLE"
+   },
+   "seconds": {
+    "unit": "s",
+    "label": "seconds of audio behind the section level",
+    "words": [
+     "second",
+     "covering",
+     "over"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "BTH-MLE"
+   },
+   "L10": {
+    "unit": "dBFS",
+    "label": "L10 of the section (level exceeded 10 % of the time)",
+    "words": [
+     "l10",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "BTH-MLE"
+   },
+   "L90": {
+    "unit": "dBFS",
+    "label": "L90 of the section (background level)",
+    "words": [
+     "l90",
+     "background",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "BTH-MLE"
+   },
+   "level_minus_trip_mean_db": {
+    "unit": "dB",
+    "label": "section level minus the trip mean",
+    "words": [
+     "trip"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB",
+    "section": "BTH-MLE"
+   },
+   "floor_like_pct": {
+    "unit": "pct",
+    "label": "share of section seconds floor-like",
+    "words": [
+     "floor"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "handled_pct": {
+    "unit": "pct",
+    "label": "share of section seconds handled",
+    "words": [
+     "handl"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "speech_pct": {
+    "unit": "pct",
+    "label": "share of seconds speech-like",
+    "words": [
+     "speech"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "limiter_pct": {
+    "unit": "pct",
+    "label": "share of seconds at the limiter ceiling",
+    "words": [
+     "limiter",
+     "ceiling",
+     "overall",
+     "all"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "pause_s_dropped": {
+    "unit": "s",
+    "label": "audio seconds dropped for a pause",
+    "words": [
+     "dropped",
+     "pause"
+    ],
+    "requires": [],
+    "family": "s",
+    "section": "BTH-MLE"
+   },
+   "section_mean_all_runs": {
+    "unit": "dBFS",
+    "label": "mean level of this section and direction over all runs",
+    "words": [
+     "mean",
+     "average",
+     "runs",
+     "other",
+     "across",
+     "all",
+     "pooled",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS",
+    "section": "BTH-MLE"
+   },
+   "section_sd_all_runs": {
+    "unit": "dB",
+    "label": "spread (sd) of this section's level over runs",
+    "words": [
+     "sd",
+     "standard",
+     "spread",
+     "varia",
+     "runs",
+     "all",
+     "across"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB",
+    "section": "BTH-MLE"
+   },
+   "section_runs_n": {
+    "unit": "count",
+    "label": "runs in the section mean",
+    "words": [
+     "runs"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "BTH-MLE"
+   },
+   "minus_section_mean_db": {
+    "unit": "dB",
+    "label": "this level minus the all-runs section mean",
+    "words": [
+     "mean",
+     "average",
+     "runs",
+     "other",
+     "across",
+     "all"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB",
+    "section": "BTH-MLE"
+   }
+  }
+ },
+ "trip.contrast_db": {
+  "key": "trip.contrast_db",
+  "value": 0.51,
+  "unit": "dB, LST-BTH level minus BTH-MLE level within this trip (relative)",
+  "n": null,
+  "detail": {
+   "trip": "R5_EB_LST-MLE",
+   "minuend_section": "LST-BTH",
+   "subtrahend_section": "BTH-MLE",
+   "excluded_from_averages": false,
+   "pooled_mean_db": 0.54,
+   "pooled_trips_n": 11
+  },
+  "source": "outputs/gonogo/loudness.json",
+  "fields": {
+   "value": {
+    "unit": "dB",
+    "label": "LST-BTH level minus BTH-MLE level (same trip)",
+    "words": [
+     "contrast",
+     "difference",
+     "minus",
+     "gap",
+     "between"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB"
+   },
+   "pooled_mean_db": {
+    "unit": "dB",
+    "label": "mean contrast over all clean trips",
+    "words": [
+     "pooled",
+     "mean",
+     "average",
+     "trips"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB"
+   },
+   "pooled_trips_n": {
+    "unit": "count",
+    "label": "trips in the pooled mean",
+    "words": [
+     "trips"
+    ],
+    "requires": [],
+    "family": "count"
+   }
+  }
+ },
+ "noise.level_overall": {
+  "key": "noise.level_overall",
+  "value": -20.6,
+  "unit": "dBFS(A), uncalibrated phone level: relative comparisons only (whole recording)",
+  "n": 350,
+  "detail": {
+   "p5_1s": -34.7,
+   "p50_1s": -22.8,
+   "p95_1s": -15.9,
+   "p95_minus_p5_db": 18.8
+  },
+  "source": "outputs/noise/summary.csv",
+  "fields": {
+   "value": {
+    "unit": "dBFS",
+    "label": "whole-recording level (relative)",
+    "words": [
+     "overall",
+     "whole",
+     "recording",
+     "level",
+     "average"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   },
+   "n": {
+    "unit": "s",
+    "label": "seconds of audio",
+    "words": [
+     "second",
+     "seconds"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "p5_1s": {
+    "unit": "dBFS",
+    "label": "5th percentile of the 1 s levels",
+    "words": [
+     "quietest",
+     "p5",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   },
+   "p50_1s": {
+    "unit": "dBFS",
+    "label": "median of the 1 s levels",
+    "words": [
+     "median",
+     "p50",
+     "typical",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   },
+   "p95_1s": {
+    "unit": "dBFS",
+    "label": "95th percentile of the 1 s levels",
+    "words": [
+     "loudest",
+     "p95",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   },
+   "p95_minus_p5_db": {
+    "unit": "dB",
+    "label": "spread of 1 s levels (p95 minus p5)",
+    "words": [
+     "range",
+     "spread"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB"
+   }
+  }
+ },
+ "noise.limiter_fraction": {
+  "key": "noise.limiter_fraction",
+  "value": 0.326,
+  "unit": "fraction of seconds whose peak sits at the Voice Memos limiter ceiling (levels there read low)",
+  "n": 350,
+  "detail": {
+   "limiter_pct": 32.6,
+   "limiter_pct_loudest_10pct": 100.0,
+   "loudest_subset_pct": 10,
+   "clipped_pct": 0.0,
+   "ceiling_dbfs": -0.6
+  },
+  "source": "outputs/noise/summary.csv",
+  "fields": {
+   "value": {
+    "unit": "fraction",
+    "label": "share of seconds at the limiter ceiling",
+    "words": [
+     "limiter",
+     "ceiling",
+     "overall",
+     "all"
+    ],
+    "requires": [],
+    "family": "share"
+   },
+   "n": {
+    "unit": "s",
+    "label": "seconds of audio",
+    "words": [
+     "second",
+     "seconds"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "limiter_pct": {
+    "unit": "pct",
+    "label": "share of seconds at the limiter ceiling",
+    "words": [
+     "limiter",
+     "ceiling",
+     "overall",
+     "all"
+    ],
+    "requires": [],
+    "family": "share"
+   },
+   "limiter_pct_loudest_10pct": {
+    "unit": "pct",
+    "label": "share at the limiter among the loudest 10 % of seconds",
+    "words": [
+     "loudest",
+     "top"
+    ],
+    "requires": [],
+    "family": "share"
+   },
+   "loudest_subset_pct": {
+    "unit": "pct",
+    "label": "size of the loudest subset (share of seconds)",
+    "words": [
+     "loudest",
+     "top"
+    ],
+    "requires": [],
+    "family": "share"
+   },
+   "clipped_pct": {
+    "unit": "pct",
+    "label": "share of seconds clipped at full scale",
+    "words": [
+     "clip"
+    ],
+    "requires": [],
+    "family": "share"
+   },
+   "ceiling_dbfs": {
+    "unit": "dBFS",
+    "label": "Voice Memos limiter ceiling",
+    "words": [
+     "ceiling",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   }
+  }
+ },
+ "noise.speech_fraction": {
+  "key": "noise.speech_fraction",
+  "value": 0.091,
+  "unit": "fraction of seconds flagged speech-like (crude modulation flag; such seconds can be dropped)",
+  "n": 350,
+  "detail": {
+   "speech_pct": 9.1
+  },
+  "source": "outputs/noise/summary.csv",
+  "fields": {
+   "value": {
+    "unit": "fraction",
+    "label": "share of seconds speech-like",
+    "words": [
+     "speech"
+    ],
+    "requires": [],
+    "family": "share"
+   },
+   "n": {
+    "unit": "s",
+    "label": "seconds of audio",
+    "words": [
+     "second",
+     "seconds"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "speech_pct": {
+    "unit": "pct",
+    "label": "share of seconds speech-like",
+    "words": [
+     "speech"
+    ],
+    "requires": [],
+    "family": "share"
+   }
+  }
+ },
+ "noise.moving_minus_dwell_db": {
+  "key": "noise.moving_minus_dwell_db",
+  "value": 9.8,
+  "unit": "dB, level while moving minus level at platform dwells (relative; a coarse check that sync puts quiet dwells where the sensors see stops)",
+  "n": null,
+  "detail": {
+   "dwell_seconds": 32,
+   "moving_level": -19.3,
+   "dwell_level": -29.1,
+   "dwell_not_quieter": false,
+   "edge_offset_suspect": false
+  },
+  "source": "outputs/gonogo/loudness.json",
+  "fields": {
+   "value": {
+    "unit": "dB",
+    "label": "level while moving minus level at platform dwells",
+    "words": [
+     "step",
+     "difference",
+     "minus",
+     "contrast",
+     "between"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dB"
+   },
+   "dwell_seconds": {
+    "unit": "s",
+    "label": "seconds of platform dwell",
+    "words": [
+     "dwell",
+     "platform",
+     "stationary"
+    ],
+    "requires": [],
+    "family": "s"
+   },
+   "moving_level": {
+    "unit": "dBFS",
+    "label": "level while moving",
+    "words": [
+     "moving",
+     "motion",
+     "running",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   },
+   "dwell_level": {
+    "unit": "dBFS",
+    "label": "level at platform dwells",
+    "words": [
+     "dwell",
+     "platform",
+     "stationary",
+     "standing",
+     "level"
+    ],
+    "requires": [
+     "relative_level"
+    ],
+    "family": "dBFS"
+   }
+  }
+ },
+ "positioning.LST-BTH.loo_median_m": {
+  "key": "positioning.LST-BTH.loo_median_m",
+  "value": 1.8,
+  "unit": "m, tracker vs the independent curve-edge reference from the gyro (median over the section)",
+  "n": 571,
+  "detail": {
+   "test": "leave-one-run-out, clean section, v1 tracker (chord metres)",
+   "timetable_baseline_median_m": 5.7,
+   "p90_m": 4.2,
+   "max_m": 9.2,
+   "band90_coverage": 1.0,
+   "band90_coverage_pct": 100.0,
+   "band_level_pct": 90,
+   "map_runs_n": 5,
+   "departure_missed_online": false
+  },
+  "source": "outputs/online/online_eval.json",
+  "fields": {
+   "value": {
+    "unit": "m",
+    "label": "tracker median error on LST-BTH (loo test)",
+    "words": [
+     "tracker",
+     "median",
+     "error",
+     "leave",
+     "loo",
+     "held"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "LST-BTH"
+   },
+   "n": {
+    "unit": "count",
+    "label": "samples scored",
+    "words": [
+     "sample",
+     "point",
+     "epoch",
+     "scored"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "LST-BTH"
+   },
+   "timetable_baseline_median_m": {
+    "unit": "m",
+    "label": "timetable baseline median error",
+    "words": [
+     "timetable",
+     "baseline",
+     "median",
+     "error"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "LST-BTH"
+   },
+   "p90_m": {
+    "unit": "m",
+    "label": "tracker p90 error",
+    "words": [
+     "p90",
+     "percentile",
+     "90th",
+     "tracker",
+     "error"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "LST-BTH"
+   },
+   "max_m": {
+    "unit": "m",
+    "label": "tracker maximum error",
+    "words": [
+     "max",
+     "maximum",
+     "worst",
+     "largest",
+     "peak",
+     "tracker",
+     "error"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "LST-BTH"
+   },
+   "band90_coverage": {
+    "unit": "fraction",
+    "label": "share of the reference inside the tracker's 90 % band",
+    "words": [
+     "coverage",
+     "band",
+     "inside",
+     "within"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "band90_coverage_pct": {
+    "unit": "pct",
+    "label": "share of the reference inside the tracker's 90 % band",
+    "words": [
+     "coverage",
+     "band",
+     "inside",
+     "within"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "band_level_pct": {
+    "unit": "pct",
+    "label": "nominal level of the tracker's band",
+    "words": [
+     "band",
+     "nominal"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "LST-BTH"
+   },
+   "map_runs_n": {
+    "unit": "count",
+    "label": "runs in the tracker map",
+    "words": [
+     "map",
+     "runs"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "LST-BTH"
+   }
+  }
+ },
+ "positioning.BTH-MLE.loo_median_m": {
+  "key": "positioning.BTH-MLE.loo_median_m",
+  "value": 2.4,
+  "unit": "m, tracker vs the independent curve-edge reference from the gyro (median over the section)",
+  "n": 437,
+  "detail": {
+   "test": "leave-one-run-out, clean section, v1 tracker (chord metres)",
+   "timetable_baseline_median_m": 49.7,
+   "p90_m": 49.9,
+   "max_m": 111.1,
+   "band90_coverage": 0.808,
+   "band90_coverage_pct": 80.8,
+   "band_level_pct": 90,
+   "map_runs_n": 3,
+   "departure_missed_online": false
+  },
+  "source": "outputs/online/online_eval.json",
+  "fields": {
+   "value": {
+    "unit": "m",
+    "label": "tracker median error on BTH-MLE (loo test)",
+    "words": [
+     "tracker",
+     "median",
+     "error",
+     "leave",
+     "loo",
+     "held"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "BTH-MLE"
+   },
+   "n": {
+    "unit": "count",
+    "label": "samples scored",
+    "words": [
+     "sample",
+     "point",
+     "epoch",
+     "scored"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "BTH-MLE"
+   },
+   "timetable_baseline_median_m": {
+    "unit": "m",
+    "label": "timetable baseline median error",
+    "words": [
+     "timetable",
+     "baseline",
+     "median",
+     "error"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "BTH-MLE"
+   },
+   "p90_m": {
+    "unit": "m",
+    "label": "tracker p90 error",
+    "words": [
+     "p90",
+     "percentile",
+     "90th",
+     "tracker",
+     "error"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "BTH-MLE"
+   },
+   "max_m": {
+    "unit": "m",
+    "label": "tracker maximum error",
+    "words": [
+     "max",
+     "maximum",
+     "worst",
+     "largest",
+     "peak",
+     "tracker",
+     "error"
+    ],
+    "requires": [],
+    "family": "m",
+    "section": "BTH-MLE"
+   },
+   "band90_coverage": {
+    "unit": "fraction",
+    "label": "share of the reference inside the tracker's 90 % band",
+    "words": [
+     "coverage",
+     "band",
+     "inside",
+     "within"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "band90_coverage_pct": {
+    "unit": "pct",
+    "label": "share of the reference inside the tracker's 90 % band",
+    "words": [
+     "coverage",
+     "band",
+     "inside",
+     "within"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "band_level_pct": {
+    "unit": "pct",
+    "label": "nominal level of the tracker's band",
+    "words": [
+     "band",
+     "nominal"
+    ],
+    "requires": [],
+    "family": "share",
+    "section": "BTH-MLE"
+   },
+   "map_runs_n": {
+    "unit": "count",
+    "label": "runs in the tracker map",
+    "words": [
+     "map",
+     "runs"
+    ],
+    "requires": [],
+    "family": "count",
+    "section": "BTH-MLE"
+   }
+  }
+ }
+}

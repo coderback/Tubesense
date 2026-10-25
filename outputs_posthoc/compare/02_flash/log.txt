@@ -1,0 +1,11 @@
+=== attempt 0 2026-10-25T04:13:10+00:00 exit 0 128 s
+round 0: 15 claims, 4 rejected (84.4 s)
+  x reconditioning-planned-lst-bth: numbers not supported by the cited quotes/stats/formula: ['2022']
+  x tfl-cab-difference-eb: numbers not supported by the cited quotes/stats/formula: ['2024']
+  x limits-grinding-direction-gaps: numbers not supported by the cited quotes/stats/formula: ['2022']
+  x transparency-refusal-context: numbers not supported by the cited quotes/stats/formula: ['2026']
+round 1: 15 claims, 0 rejected (40.8 s)
+verified 15, dropped 0, asks 3, 125.3 s -> C:\Users\tobio\PycharmProjects\Tubesense\outputs_posthoc\compare\02_flash\investigation.json (atlas: no-atlas, nothing written)
+
+--- stderr ---
+

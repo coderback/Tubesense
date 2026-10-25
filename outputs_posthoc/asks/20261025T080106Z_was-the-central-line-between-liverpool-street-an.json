@@ -1,0 +1,302 @@
+{
+ "question": "Was the Central line between Liverpool Street and Bethnal Green ground to reduce noise, and when?",
+ "norm_question": "was the central line between liverpool street and bethnal green ground to reduce noise and when",
+ "ts": "2026-10-25T08:01:06+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 27.8,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "According to the Mayor's answer to Question 2022/1791 (28 June 2022), the Central line entry 'Bethnal Green to Liverpool Street'\u2014listed without a direction\u2014benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+  "claim_ids": [
+   "A1"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "grinding",
+   "type": "sourced",
+   "text": "According to the Mayor's written answer to Question 2022/1791 on 28 June 2022, the attached list of London Underground sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022 includes the Central line entry 'Bethnal Green to Liverpool Street', and the list does not state a direction.",
+   "citations": [
+    {
+     "chunk_id": "MQ-2022-1791#000",
+     "quote": "While the primary purpose of rail grinding on the Tube network is safety and operational reliability by managing rail defects, and maximising asset life, it is also used for the purpose of noise reduction."
+    },
+    {
+     "chunk_id": "MQ-2022-1791#001",
+     "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)\nCentral\nBethnal Green to Liverpool Street"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "grinding",
+   "type": "sourced",
+   "text": "In the same attachment to Question 2022/1791, the provisional list of London Underground sections that would benefit from rail grinding to help reduce noise levels between June 2022 and November 2022 lists only 'Queensway to Lancaster Gate' on the Central line.",
+   "citations": [
+    {
+     "chunk_id": "MQ-2022-1791#001",
+     "quote": "Sections of the London Underground that will benefit from rail grinding to help reduce noise levels between June 2022-\nNovember 2022 (N.B. This list is provisional and subject to change).\nCentral\nQueensway to Lancaster Gate"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "context",
+   "type": "sourced",
+   "text": "Separately from rail grinding, TfL Head of Track Duncan Weir's letter of 9 December 2022 listed 'Liverpool Street - Bethnal Green Eastbound Central' among the deep Tube reconditioning works planned for financial year 2023/24.",
+   "citations": [
+    {
+     "chunk_id": "Weir-letter-2022-12#001",
+     "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+    },
+    {
+     "chunk_id": "Weir-letter-2022-12#001",
+     "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "grinding",
+     "type": "sourced",
+     "text": "According to the Mayor's written answer to Question 2022/1791 on 28 June 2022, the attached list of London Underground sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022 includes the Central line entry 'Bethnal Green to Liverpool Street', and the list does not state a direction.",
+     "citations": [
+      {
+       "chunk_id": "MQ-2022-1791#000",
+       "quote": "While the primary purpose of rail grinding on the Tube network is safety and operational reliability by managing rail defects, and maximising asset life, it is also used for the purpose of noise reduction."
+      },
+      {
+       "chunk_id": "MQ-2022-1791#001",
+       "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)\nCentral\nBethnal Green to Liverpool Street"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "grinding",
+     "type": "sourced",
+     "text": "In the same attachment to Question 2022/1791, the provisional list of London Underground sections that would benefit from rail grinding to help reduce noise levels between June 2022 and November 2022 lists only 'Queensway to Lancaster Gate' on the Central line.",
+     "citations": [
+      {
+       "chunk_id": "MQ-2022-1791#001",
+       "quote": "Sections of the London Underground that will benefit from rail grinding to help reduce noise levels between June 2022-\nNovember 2022 (N.B. This list is provisional and subject to change).\nCentral\nQueensway to Lancaster Gate"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "context",
+     "type": "sourced",
+     "text": "Separately from rail grinding, TfL Head of Track Duncan Weir's letter of 9 December 2022 listed 'Liverpool Street - Bethnal Green Eastbound Central' among the deep Tube reconditioning works planned for financial year 2023/24.",
+     "citations": [
+      {
+       "chunk_id": "Weir-letter-2022-12#001",
+       "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#001",
+       "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 21.0,
+   "usage": {
+    "prompt": 11459,
+    "output": 855,
+    "retries": 0
+   },
+   "answer": "According to the Mayor's answer to Question 2022/1791 (28 June 2022), the Central line entry 'Bethnal Green to Liverpool Street'\u2014listed without a direction\u2014benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+   "answer_claim_ids": [
+    "A1"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   },
+   "parse_error": null
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 4.4,
+  "usage": {
+   "prompt": 3566,
+   "output": 22,
+   "retries": 0
+  },
+  "reviewed_round": 0
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.03252,
+    "ranks": {
+     "semantic": 2,
+     "text": 1
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.03227,
+    "ranks": {
+     "semantic": 1,
+     "text": 3
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.032,
+    "ranks": {
+     "semantic": 3,
+     "text": 2
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.03125,
+    "ranks": {
+     "semantic": 4,
+     "text": 4
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-2986-2324#000",
+    "score": 0.02862,
+    "ranks": {
+     "semantic": 7,
+     "text": 13
+    },
+    "title": "Central line noise: Central line cab recordings (September 2023)",
+    "publisher": "TfL",
+    "doc_date": "2023-12-12",
+    "page": null
+   },
+   {
+    "chunk_id": "TfL-noise-update-2025-08#001",
+    "score": 0.02854,
+    "ranks": {
+     "semantic": 5,
+     "text": 16
+    },
+    "title": "TfL Tube Noise Update: January to July 2025 to London Assembly Members (Claire Mann, 20 Aug 2025)",
+    "publisher": "TfL",
+    "doc_date": "2025-08-20",
+    "page": 2
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#001",
+    "score": 0.02831,
+    "ranks": {
+     "semantic": 16,
+     "text": 6
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 2
+   },
+   {
+    "chunk_id": "MQ-2022-1791#000",
+    "score": 0.02817,
+    "ranks": {
+     "semantic": 10,
+     "text": 12
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": null
+   }
+  ],
+  "stats": [
+   "level.EB.LST-BTH",
+   "level.WB.BTH-LST",
+   "duration.EB.LST-BTH",
+   "duration.WB.BTH-LST",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 0.89
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T080106Z_was-the-central-line-between-liverpool-street-an.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T080106Z_was-the-central-line-between-liverpool-street-an"
+ }
+}

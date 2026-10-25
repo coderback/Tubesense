@@ -1,0 +1,494 @@
+{
+ "question": "What has TfL said about publishing section-level noise data?",
+ "norm_question": "what has tfl said about publishing section level noise data",
+ "ts": "2026-10-25T04:46:41+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 29.1,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "The retrieved documents contain no TfL policy statement on proactively publishing section-level noise data, though TfL published section-level cab noise data in FOI-2986-2324 and FOI-1231-2425 while turning down the majority of Elly Baker AM's data requests, citing constrained resources.",
+  "claim_ids": [
+   "A1",
+   "A2",
+   "A3"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "limits",
+   "type": "inference",
+   "text": "The retrieved documents do not contain a policy statement from TfL on proactively publishing section-level noise data, though they show what section-level data TfL has released under Freedom of Information requests and what Assembly Members and the Mayor have said about data sharing.",
+   "citations": [],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In FOI-2986-2324 (published 12 December 2023) a TfL case officer published a table of cab noise levels and 1/3rd octaves recorded on 4 September 2023 for the tunnel sections between White City and Newbury Park, and in FOI-1231-2425 (published 08 August 2024) a TfL case officer published section-by-section Central line cab dB LAeq readings recorded on 24 June 2024 and stated that readings are carried out on a bi-monthly period.",
+   "citations": [
+    {
+     "chunk_id": "FOI-2986-2324#000",
+     "quote": "Request ID: FOI-2986-2324\nDate published: 12 December 2023"
+    },
+    {
+     "chunk_id": "FOI-2986-2324#000",
+     "quote": "The attached table, which contains data taken on 4 September 2023, provides the levels and 1/3rd octaves in a Central line train cab recorded for the entire tunnel sections between White City and Newbury Park."
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Request ID: FOI-1231-2425\nDate published: 08 August 2024"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Readings are carried out on a bi-monthly period."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "According to Elly Baker AM's account at Mayor's Question Time on 16 July 2026 (Question 2026/2156), after she wrote to the TfL Commissioner asking for specific data based on residents' casework, she received an email from TfL's Government Relations turning down the majority of the requests for data and stating that while TfL is fully committed to tackling Tube noise, resources remain constrained.",
+   "citations": [
+    {
+     "chunk_id": "MQT-2026-2156#001",
+     "quote": "I asked for specific data based on the residents' casework that we dealt with."
+    },
+    {
+     "chunk_id": "MQT-2026-2156#001",
+     "quote": "just an email from TfL's\nGovernment Relations turning down the majority of the requests for data. It contained the reassuring phrase,\n\"We are fully committed to tackling Tube noise, but \u2013 as you have said \u2013 resources remain constrained\"."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A4",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "At Mayor's Question Time on 16 July 2026 (Question 2026/2156), the Mayor of London stated that he would ensure TfL provides Assembly Members with far more detailed information, including real-time rail grinding activity over the next six months, track renewal programmes, alternative noise reduction measures, and a constituency-level breakdown of noise level complaints and action being taken.",
+   "citations": [
+    {
+     "chunk_id": "MQT-2026-2156#002",
+     "quote": "I will make sure it provides, in addition, information on what in real-time rail\ngrinding activity is taking place over the next six months, the track renewal programmes, alternative noise\nreduction measures that are being considered or in delivery."
+    },
+    {
+     "chunk_id": "MQT-2026-2156#002",
+     "quote": "a constituency-level breakdown,\nwhich is really important, of the noise level complaints and what action is being taken."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed",
+  "A4": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "limits",
+     "type": "inference",
+     "text": "The retrieved documents do not contain a policy statement from TfL on proactively publishing section-level noise data, though they show what section-level data TfL has released under Freedom of Information requests and what Assembly Members and the Mayor have said about data sharing.",
+     "citations": [],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In FOI-2986-2324 (published 12 December 2023) a TfL case officer published a table of cab noise levels and 1/3rd octaves recorded on 4 September 2023 for the tunnel sections between White City and Newbury Park, and in FOI-1231-2425 (published 08 August 2024) a TfL case officer published section-by-section Central line cab dB LAeq readings recorded on 24 June 2024 and stated that readings are carried out on a bi-monthly period.",
+     "citations": [
+      {
+       "chunk_id": "FOI-2986-2324#000",
+       "quote": "Request ID: FOI-2986-2324\nDate published: 12 December 2023"
+      },
+      {
+       "chunk_id": "FOI-2986-2324#000",
+       "quote": "The attached table, which contains data taken on 4 September 2023, provides the levels and 1/3rd octaves in a Central line train cab recorded for the entire tunnel sections between White City and Newbury Park."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Request ID: FOI-1231-2425\nDate published: 08 August 2024"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Readings are carried out on a bi-monthly period."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "According to Elly Baker AM's account at Mayor's Question Time on 16 July 2026 (Question 2026/2156), after she wrote to the TfL Commissioner asking for specific data based on residents' casework, she received an email from TfL's Government Relations turning down the majority of the requests for data and stating that while TfL is fully committed to tackling Tube noise, resources remain constrained.",
+     "citations": [
+      {
+       "chunk_id": "MQT-2026-2156#001",
+       "quote": "I asked for specific data based on the residents' casework that we dealt with."
+      },
+      {
+       "chunk_id": "MQT-2026-2156#001",
+       "quote": "just an email from TfL's\nGovernment Relations turning down the majority of the requests for data. It contained the reassuring phrase,\n\"We are fully committed to tackling Tube noise, but \u2013 as you have said \u2013 resources remain constrained\"."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "At Mayor's Question Time on 16 July 2026 (Question 2026/2156), the Mayor of London stated that he would ensure TfL provides Assembly Members with far more detailed information, including real-time rail grinding activity over the next six months, track renewal programmes, alternative noise reduction measures, and a constituency-level breakdown of noise level complaints and action being taken.",
+     "citations": [
+      {
+       "chunk_id": "MQT-2026-2156#002",
+       "quote": "I will make sure it provides, in addition, information on what in real-time rail\ngrinding activity is taking place over the next six months, the track renewal programmes, alternative noise\nreduction measures that are being considered or in delivery."
+      },
+      {
+       "chunk_id": "MQT-2026-2156#002",
+       "quote": "a constituency-level breakdown,\nwhich is really important, of the noise level complaints and what action is being taken."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 14.9,
+   "usage": {
+    "prompt": 12821,
+    "output": 1403,
+    "retries": 0
+   },
+   "answer": "Although TfL case officers have published Central line section-by-section cab noise tables under FOI-2986-2324 and FOI-1231-2425, the retrieved documents contain no statement from TfL on a policy for proactively publishing section-level noise data, while Elly Baker AM reported at Mayor's Question Time (Question 2026/2156) that TfL's Government Relations turned down the majority of her requests for data, citing constrained resources.",
+   "answer_claim_ids": [
+    "A1",
+    "A2",
+    "A3"
+   ],
+   "answer_check": {
+    "ok": false,
+    "reasons": [
+     "answer must be one line of at most 400 characters"
+    ]
+   }
+  },
+  {
+   "round": 1,
+   "trigger": "answer-fix",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "limits",
+     "type": "inference",
+     "text": "The retrieved documents do not contain a policy statement from TfL on proactively publishing section-level noise data, though they show what section-level data TfL has released under Freedom of Information requests and what Assembly Members and the Mayor have said about data sharing.",
+     "citations": [],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In FOI-2986-2324 (published 12 December 2023) a TfL case officer published a table of cab noise levels and 1/3rd octaves recorded on 4 September 2023 for the tunnel sections between White City and Newbury Park, and in FOI-1231-2425 (published 08 August 2024) a TfL case officer published section-by-section Central line cab dB LAeq readings recorded on 24 June 2024 and stated that readings are carried out on a bi-monthly period.",
+     "citations": [
+      {
+       "chunk_id": "FOI-2986-2324#000",
+       "quote": "Request ID: FOI-2986-2324\nDate published: 12 December 2023"
+      },
+      {
+       "chunk_id": "FOI-2986-2324#000",
+       "quote": "The attached table, which contains data taken on 4 September 2023, provides the levels and 1/3rd octaves in a Central line train cab recorded for the entire tunnel sections between White City and Newbury Park."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Request ID: FOI-1231-2425\nDate published: 08 August 2024"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Readings are carried out on a bi-monthly period."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "According to Elly Baker AM's account at Mayor's Question Time on 16 July 2026 (Question 2026/2156), after she wrote to the TfL Commissioner asking for specific data based on residents' casework, she received an email from TfL's Government Relations turning down the majority of the requests for data and stating that while TfL is fully committed to tackling Tube noise, resources remain constrained.",
+     "citations": [
+      {
+       "chunk_id": "MQT-2026-2156#001",
+       "quote": "I asked for specific data based on the residents' casework that we dealt with."
+      },
+      {
+       "chunk_id": "MQT-2026-2156#001",
+       "quote": "just an email from TfL's\nGovernment Relations turning down the majority of the requests for data. It contained the reassuring phrase,\n\"We are fully committed to tackling Tube noise, but \u2013 as you have said \u2013 resources remain constrained\"."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "At Mayor's Question Time on 16 July 2026 (Question 2026/2156), the Mayor of London stated that he would ensure TfL provides Assembly Members with far more detailed information, including real-time rail grinding activity over the next six months, track renewal programmes, alternative noise reduction measures, and a constituency-level breakdown of noise level complaints and action being taken.",
+     "citations": [
+      {
+       "chunk_id": "MQT-2026-2156#002",
+       "quote": "I will make sure it provides, in addition, information on what in real-time rail\ngrinding activity is taking place over the next six months, the track renewal programmes, alternative noise\nreduction measures that are being considered or in delivery."
+      },
+      {
+       "chunk_id": "MQT-2026-2156#002",
+       "quote": "a constituency-level breakdown,\nwhich is really important, of the noise level complaints and what action is being taken."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 8.0,
+   "usage": {
+    "prompt": 1118,
+    "output": 127,
+    "retries": 0
+   },
+   "answer": "The retrieved documents contain no TfL policy statement on proactively publishing section-level noise data, though TfL published section-level cab noise data in FOI-2986-2324 and FOI-1231-2425 while turning down the majority of Elly Baker AM's data requests, citing constrained resources.",
+   "answer_claim_ids": [
+    "A1",
+    "A2",
+    "A3"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 3.4,
+  "usage": {
+   "prompt": 5290,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 1
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "MQT-2026-2156#002",
+    "score": 0.03227,
+    "ranks": {
+     "semantic": 3,
+     "text": 1
+    },
+    "title": "Mayor's Question Time 16 July 2026, Question 2026/2156 Tube Noise (Elly Baker AM), transcript",
+    "publisher": "GLA",
+    "doc_date": "2026-07-16",
+    "page": 2
+   },
+   {
+    "chunk_id": "MQT-2026-2156#001",
+    "score": 0.03178,
+    "ranks": {
+     "semantic": 1,
+     "text": 5
+    },
+    "title": "Mayor's Question Time 16 July 2026, Question 2026/2156 Tube Noise (Elly Baker AM), transcript",
+    "publisher": "GLA",
+    "doc_date": "2026-07-16",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-3780-2324#000",
+    "score": 0.03128,
+    "ranks": {
+     "semantic": 2,
+     "text": 6
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": null
+   },
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.03101,
+    "ranks": {
+     "semantic": 5,
+     "text": 4
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-2986-2324#000",
+    "score": 0.03083,
+    "ranks": {
+     "semantic": 8,
+     "text": 2
+    },
+    "title": "Central line noise: Central line cab recordings (September 2023)",
+    "publisher": "TfL",
+    "doc_date": "2023-12-12",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.02985,
+    "ranks": {
+     "semantic": 7,
+     "text": 7
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#003",
+    "score": 0.02896,
+    "ranks": {
+     "semantic": 4,
+     "text": 15
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 7
+   },
+   {
+    "chunk_id": "TfL-noise-update-2024-08#003",
+    "score": 0.02801,
+    "ranks": {
+     "semantic": 9,
+     "text": 14
+    },
+    "title": "TfL Tube Noise: January to June 2024 update to London Assembly Members (Claire Mann, 9 Aug 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-09",
+    "page": 4
+   }
+  ],
+  "stats": [
+   "level.NB.VIC-GPK",
+   "level.NB.GPK-OXC",
+   "level.EB.OXC-TCR",
+   "level.EB.TCR-HOL",
+   "level.EB.HOL-CYL",
+   "level.EB.CYL-STP",
+   "level.EB.STP-BNK",
+   "level.EB.BNK-LST",
+   "level.EB.LST-BTH",
+   "level.EB.BTH-MLE",
+   "level.WB.MLE-BTH",
+   "level.WB.BTH-LST",
+   "level.EB.LST-ALE",
+   "level.EB.ALE-WCL",
+   "level.WB.WCL-ALE",
+   "level.WB.ALE-LST",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 1.25
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T044641Z_what-has-tfl-said-about-publishing-section-level.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T044641Z_what-has-tfl-said-about-publishing-section-level"
+ }
+}

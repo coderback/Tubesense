@@ -1,0 +1,16 @@
+01_argon: already on record (ok), skipped
+02_flash: already on record (ok), skipped
+03_flash: already on record (ok), skipped
+04_argon: already on record (ok), skipped
+05_argon: already on record (ok), skipped
+06_flash: already on record (ok), skipped
+07_flash: already on record (ok), skipped
+08_argon: already on record (ok), skipped
+09_argon: gemini-4-argon ...
+09_argon: ok (180 s)
+10_flash: gemini-3.8-flash ...
+10_flash: ok (98 s)
+11_flash: gemini-3.8-flash ...
+11_flash: ok (134 s)
+12_argon: gemini-4-argon ...
+12_argon: ok (103 s)

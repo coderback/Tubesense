@@ -1,0 +1,8 @@
+=== attempt 0 2026-10-25T04:29:07+00:00 exit 0 98 s
+round 0: 14 claims, 1 rejected (68.3 s)
+  x claim_limits_history: numbers not supported by the cited quotes/stats/formula: ['2022', '2023', '24']
+round 1: 14 claims, 0 rejected (26.6 s)
+verified 14, dropped 0, asks 4, 95.0 s -> C:\Users\tobio\PycharmProjects\Tubesense\outputs_posthoc\compare\10_flash\investigation.json (atlas: no-atlas, nothing written)
+
+--- stderr ---
+

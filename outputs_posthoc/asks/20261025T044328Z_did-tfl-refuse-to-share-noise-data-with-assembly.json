@@ -1,0 +1,339 @@
+{
+ "question": "Did TfL refuse to share noise data with Assembly Members?",
+ "norm_question": "did tfl refuse to share noise data with assembly members",
+ "ts": "2026-10-25T04:43:28+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 22.0,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "At Mayor's Question Time on 16 July 2026, Elly Baker AM recounted that TfL's Government Relations turned down the majority of her requests for noise data, though TfL's Head of Track had earlier shared complaints data and South Wimbledon decibel readings with the Environment Committee on 9 December 2022.",
+  "claim_ids": [
+   "A1",
+   "A3"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "According to Elly Baker AM's account at Mayor's Question Time on 16 July 2026 (Question 2026/2156), after she wrote to the TfL Commissioner asking for specific data based on residents' casework and improved data sharing with Assembly Members, she received an email from TfL's Government Relations turning down the majority of the requests for data and stating that resources remain constrained.",
+   "citations": [
+    {
+     "chunk_id": "MQT-2026-2156#001",
+     "quote": "I asked for specific data based on the residents' casework that we dealt with. An improvement in the quality and quantity of data shared with Assembly Members"
+    },
+    {
+     "chunk_id": "MQT-2026-2156#001",
+     "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data. It contained the reassuring phrase, \"We are fully committed to tackling Tube noise, but \u2013 as you have said \u2013 resources remain constrained\"."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "At the same 16 July 2026 Mayor's Question Time (Question 2026/2156), Elly Baker AM reported that TfL refused her request for a forward plan of rail grinding for six months because it is only planned eight weeks in advance, and Mayor Sir Sadiq Khan promised to speak to the Commissioner's team to ensure TfL provides far more detailed information to Assembly Members, including a constituency-level breakdown of noise complaints.",
+   "citations": [
+    {
+     "chunk_id": "MQT-2026-2156#003",
+     "quote": "a forward plan of rail grinding for six months that I asked, the response I have says, \"We cannot do that because it is only planned eight weeks in advance\"."
+    },
+    {
+     "chunk_id": "MQT-2026-2156#002",
+     "quote": "What I will do is ensure that the information it provides is far, far, far more detailed than is currently received."
+    },
+    {
+     "chunk_id": "MQT-2026-2156#002",
+     "quote": "As she said, a constituency-level breakdown, which is really important, of the noise level complaints and what action is being taken."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In an earlier letter on 9 December 2022 to the Chair of the London Assembly Environment Committee, TfL's Head of Track, Duncan Weir, shared an attached spreadsheet on the number and nature of Tube noise complaints and a table of decibel readings near South Wimbledon Tube station with residential addresses redacted for confidentiality.",
+   "citations": [
+    {
+     "chunk_id": "Weir-letter-2022-12#000",
+     "quote": "Please see the attached spreadsheet for information on the number and nature of complaints submitted on Tube noise."
+    },
+    {
+     "chunk_id": "Weir-letter-2022-12#000",
+     "quote": "Please see the table below outlining noise reading in decibels along the north and southbound roads from South Wimbledon Tube station."
+    },
+    {
+     "chunk_id": "Weir-letter-2022-12#000",
+     "quote": "Note that for purposes of confidentiality, the residential addresses have been redacted."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "According to Elly Baker AM's account at Mayor's Question Time on 16 July 2026 (Question 2026/2156), after she wrote to the TfL Commissioner asking for specific data based on residents' casework and improved data sharing with Assembly Members, she received an email from TfL's Government Relations turning down the majority of the requests for data and stating that resources remain constrained.",
+     "citations": [
+      {
+       "chunk_id": "MQT-2026-2156#001",
+       "quote": "I asked for specific data based on the residents' casework that we dealt with. An improvement in the quality and quantity of data shared with Assembly Members"
+      },
+      {
+       "chunk_id": "MQT-2026-2156#001",
+       "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data. It contained the reassuring phrase, \"We are fully committed to tackling Tube noise, but \u2013 as you have said \u2013 resources remain constrained\"."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "At the same 16 July 2026 Mayor's Question Time (Question 2026/2156), Elly Baker AM reported that TfL refused her request for a forward plan of rail grinding for six months because it is only planned eight weeks in advance, and Mayor Sir Sadiq Khan promised to speak to the Commissioner's team to ensure TfL provides far more detailed information to Assembly Members, including a constituency-level breakdown of noise complaints.",
+     "citations": [
+      {
+       "chunk_id": "MQT-2026-2156#003",
+       "quote": "a forward plan of rail grinding for six months that I asked, the response I have says, \"We cannot do that because it is only planned eight weeks in advance\"."
+      },
+      {
+       "chunk_id": "MQT-2026-2156#002",
+       "quote": "What I will do is ensure that the information it provides is far, far, far more detailed than is currently received."
+      },
+      {
+       "chunk_id": "MQT-2026-2156#002",
+       "quote": "As she said, a constituency-level breakdown, which is really important, of the noise level complaints and what action is being taken."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In an earlier letter on 9 December 2022 to the Chair of the London Assembly Environment Committee, TfL's Head of Track, Duncan Weir, shared an attached spreadsheet on the number and nature of Tube noise complaints and a table of decibel readings near South Wimbledon Tube station with residential addresses redacted for confidentiality.",
+     "citations": [
+      {
+       "chunk_id": "Weir-letter-2022-12#000",
+       "quote": "Please see the attached spreadsheet for information on the number and nature of complaints submitted on Tube noise."
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#000",
+       "quote": "Please see the table below outlining noise reading in decibels along the north and southbound roads from South Wimbledon Tube station."
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#000",
+       "quote": "Note that for purposes of confidentiality, the residential addresses have been redacted."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 16.1,
+   "usage": {
+    "prompt": 12744,
+    "output": 1094,
+    "retries": 0
+   },
+   "answer": "At Mayor's Question Time on 16 July 2026, Elly Baker AM recounted that TfL's Government Relations turned down the majority of her requests for noise data, though TfL's Head of Track had earlier shared complaints data and South Wimbledon decibel readings with the Environment Committee on 9 December 2022.",
+   "answer_claim_ids": [
+    "A1",
+    "A3"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 3.9,
+  "usage": {
+   "prompt": 5042,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 0
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "MQT-2026-2156#001",
+    "score": 0.03227,
+    "ranks": {
+     "semantic": 1,
+     "text": 3
+    },
+    "title": "Mayor's Question Time 16 July 2026, Question 2026/2156 Tube Noise (Elly Baker AM), transcript",
+    "publisher": "GLA",
+    "doc_date": "2026-07-16",
+    "page": 1
+   },
+   {
+    "chunk_id": "TfL-noise-update-2025-08#001",
+    "score": 0.03033,
+    "ranks": {
+     "semantic": 8,
+     "text": 4
+    },
+    "title": "TfL Tube Noise Update: January to July 2025 to London Assembly Members (Claire Mann, 20 Aug 2025)",
+    "publisher": "TfL",
+    "doc_date": "2025-08-20",
+    "page": 2
+   },
+   {
+    "chunk_id": "MQT-2026-2156#003",
+    "score": 0.03031,
+    "ranks": {
+     "semantic": 5,
+     "text": 7
+    },
+    "title": "Mayor's Question Time 16 July 2026, Question 2026/2156 Tube Noise (Elly Baker AM), transcript",
+    "publisher": "GLA",
+    "doc_date": "2026-07-16",
+    "page": 3
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#000",
+    "score": 0.03012,
+    "ranks": {
+     "semantic": 4,
+     "text": 9
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 1
+   },
+   {
+    "chunk_id": "TfL-noise-update-2025-08#000",
+    "score": 0.03009,
+    "ranks": {
+     "semantic": 13,
+     "text": 1
+    },
+    "title": "TfL Tube Noise Update: January to July 2025 to London Assembly Members (Claire Mann, 20 Aug 2025)",
+    "publisher": "TfL",
+    "doc_date": "2025-08-20",
+    "page": 1
+   },
+   {
+    "chunk_id": "MQT-2026-2156#002",
+    "score": 0.02983,
+    "ranks": {
+     "semantic": 2,
+     "text": 13
+    },
+    "title": "Mayor's Question Time 16 July 2026, Question 2026/2156 Tube Noise (Elly Baker AM), transcript",
+    "publisher": "GLA",
+    "doc_date": "2026-07-16",
+    "page": 2
+   },
+   {
+    "chunk_id": "TfL-noise-update-2024-08#000",
+    "score": 0.02946,
+    "ranks": {
+     "semantic": 15,
+     "text": 2
+    },
+    "title": "TfL Tube Noise: January to June 2024 update to London Assembly Members (Claire Mann, 9 Aug 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-09",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-3780-2324#000",
+    "score": 0.02886,
+    "ranks": {
+     "semantic": 3,
+     "text": 17
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": null
+   }
+  ],
+  "stats": [
+   "level.NB.VIC-GPK",
+   "level.NB.GPK-OXC",
+   "level.EB.OXC-TCR",
+   "level.EB.TCR-HOL",
+   "level.EB.HOL-CYL",
+   "level.EB.CYL-STP",
+   "level.EB.STP-BNK",
+   "level.EB.BNK-LST",
+   "level.EB.LST-BTH",
+   "level.EB.BTH-MLE",
+   "level.WB.MLE-BTH",
+   "level.WB.BTH-LST",
+   "level.EB.LST-ALE",
+   "level.EB.ALE-WCL",
+   "level.WB.WCL-ALE",
+   "level.WB.ALE-LST",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 0.81
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T044328Z_did-tfl-refuse-to-share-noise-data-with-assembly.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T044328Z_did-tfl-refuse-to-share-noise-data-with-assembly"
+ }
+}

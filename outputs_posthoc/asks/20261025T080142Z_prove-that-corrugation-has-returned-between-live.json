@@ -1,0 +1,479 @@
+{
+ "question": "Prove that corrugation has returned between Liverpool Street and Bethnal Green.",
+ "norm_question": "prove that corrugation has returned between liverpool street and bethnal green",
+ "ts": "2026-10-25T08:01:42+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 31.6,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "Our evidence cannot show whether corrugation has re-formed between Liverpool Street and Bethnal Green because we hold no rail roughness data for that section and our phone loudness check was NO-GO (triggered by a -0.13 dB trip reversal).",
+  "claim_ids": [
+   "A1",
+   "A2"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "limits",
+   "type": "sourced",
+   "text": "The evidence we hold cannot show whether corrugation has re-formed between Liverpool Street and Bethnal Green because no rail roughness data is held for that section; the rail roughness plots in FOI-1730-1819 (published 22 October 2018) cover only 'Eastbound Bethnal Green to Mile End'.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1730-1819#001",
+     "quote": "Eastbound Bethnal Green to Mile End"
+    },
+    {
+     "chunk_id": "FOI-1730-1819#000",
+     "quote": "Date published: 22 October 2018"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "limits",
+   "type": "measured",
+   "text": "Our phone recordings only measure uncalibrated relative acoustic levels and yielded a NO-GO verdict on the pre-registered loudness check between Liverpool Street to Bethnal Green and Bethnal Green to Mile End because one westbound trip went the other way (-0.13 dB), with the +0.54 dB mean difference over 11 trips also below the 1 dB threshold and level variants not agreeing.",
+   "citations": [],
+   "stat_keys": [
+    "loudness.verdict",
+    "contrast.LST-BTH_minus_BTH-MLE"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "grinding",
+   "type": "sourced",
+   "text": "The Mayor's written answer to Question 2022/1791 lists 'Bethnal Green to Liverpool Street' (without stating a direction) among sections that benefited from noise-related rail grinding between December 2021 and May 2022, and TfL Head of Track Duncan Weir's letter of 9 December 2022 lists 'Liverpool Street - Bethnal Green Eastbound Central' for deep Tube reconditioning planned for financial year 2023/24.",
+   "citations": [
+    {
+     "chunk_id": "MQ-2022-1791#001",
+     "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+    },
+    {
+     "chunk_id": "MQ-2022-1791#001",
+     "quote": "Bethnal Green to Liverpool Street"
+    },
+    {
+     "chunk_id": "Weir-letter-2022-12#001",
+     "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+    },
+    {
+     "chunk_id": "Weir-letter-2022-12#001",
+     "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A4",
+   "section": "context",
+   "type": "sourced",
+   "text": "According to TfL's 6 December 2022 presentation to the Customer Service and Operational Performance Panel, rail grinding is its most effective tool to remove corrugation and must be repeated at regular intervals (usually 6 months to a year) to maintain effectiveness.",
+   "citations": [
+    {
+     "chunk_id": "CSOPP-2022-12-tube-noise#001",
+     "quote": "Rail grinding is the most effective tool we"
+    },
+    {
+     "chunk_id": "CSOPP-2022-12-tube-noise#001",
+     "quote": "(usually 6 months \u2013 a year), to maintain"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed",
+  "A4": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "limits",
+     "type": "sourced",
+     "text": "The evidence we hold cannot show whether corrugation has re-formed between Liverpool Street and Bethnal Green because no rail roughness data is held for that section; the rail roughness plots in FOI-1730-1819 (published 22 October 2018) cover only 'Eastbound Bethnal Green to Mile End'.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1730-1819#001",
+       "quote": "Eastbound Bethnal Green to Mile End"
+      },
+      {
+       "chunk_id": "FOI-1730-1819#000",
+       "quote": "Date published: 22 October 2018"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "limits",
+     "type": "measured",
+     "text": "Our phone recordings only measure uncalibrated relative acoustic levels and yielded a NO-GO verdict on the pre-registered loudness check between Liverpool Street to Bethnal Green and Bethnal Green to Mile End because one westbound trip went the other way (-0.13 dB), with the +0.54 dB mean difference over 11 trips also below the 1 dB threshold and level variants not agreeing.",
+     "citations": [],
+     "stat_keys": [
+      "loudness.verdict",
+      "contrast.LST-BTH_minus_BTH-MLE"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "grinding",
+     "type": "sourced",
+     "text": "The Mayor's written answer to Question 2022/1791 lists 'Bethnal Green to Liverpool Street' (without stating a direction) among sections that benefited from noise-related rail grinding between December 2021 and May 2022, and TfL Head of Track Duncan Weir's letter of 9 December 2022 lists 'Liverpool Street - Bethnal Green Eastbound Central' for deep Tube reconditioning planned for financial year 2023/24.",
+     "citations": [
+      {
+       "chunk_id": "MQ-2022-1791#001",
+       "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+      },
+      {
+       "chunk_id": "MQ-2022-1791#001",
+       "quote": "Bethnal Green to Liverpool Street"
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#001",
+       "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#001",
+       "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "context",
+     "type": "sourced",
+     "text": "According to TfL's 6 December 2022 presentation to the Customer Service and Operational Performance Panel, rail grinding is its most effective tool to remove corrugation and must be repeated at regular intervals, usually 6 months to a year, to maintain effectiveness.",
+     "citations": [
+      {
+       "chunk_id": "CSOPP-2022-12-tube-noise#001",
+       "quote": "Rail grinding is the most effective tool we"
+      },
+      {
+       "chunk_id": "CSOPP-2022-12-tube-noise#001",
+       "quote": "It must be repeated at regular intervals (usually 6 months \u2013 a year), to maintain effectiveness"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": false,
+     "reasons": [
+      "quote not found verbatim in CSOPP-2022-12-tube-noise#001: 'It must be repeated at regular intervals (usually 6 months \u2013 a year), to maintai'",
+      "numbers not supported by the cited quotes/stats/formula: ['6']"
+     ]
+    }
+   ],
+   "seconds": 14.8,
+   "usage": {
+    "prompt": 11330,
+    "output": 1111,
+    "retries": 0
+   },
+   "answer": "Our evidence cannot show whether corrugation has re-formed between Liverpool Street and Bethnal Green because we hold no rail roughness data for that section and our phone loudness check was NO-GO (triggered by a -0.13 dB trip reversal).",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   },
+   "parse_error": null
+  },
+  {
+   "round": 1,
+   "trigger": "verifier",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "limits",
+     "type": "sourced",
+     "text": "The evidence we hold cannot show whether corrugation has re-formed between Liverpool Street and Bethnal Green because no rail roughness data is held for that section; the rail roughness plots in FOI-1730-1819 (published 22 October 2018) cover only 'Eastbound Bethnal Green to Mile End'.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1730-1819#001",
+       "quote": "Eastbound Bethnal Green to Mile End"
+      },
+      {
+       "chunk_id": "FOI-1730-1819#000",
+       "quote": "Date published: 22 October 2018"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "limits",
+     "type": "measured",
+     "text": "Our phone recordings only measure uncalibrated relative acoustic levels and yielded a NO-GO verdict on the pre-registered loudness check between Liverpool Street to Bethnal Green and Bethnal Green to Mile End because one westbound trip went the other way (-0.13 dB), with the +0.54 dB mean difference over 11 trips also below the 1 dB threshold and level variants not agreeing.",
+     "citations": [],
+     "stat_keys": [
+      "loudness.verdict",
+      "contrast.LST-BTH_minus_BTH-MLE"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "grinding",
+     "type": "sourced",
+     "text": "The Mayor's written answer to Question 2022/1791 lists 'Bethnal Green to Liverpool Street' (without stating a direction) among sections that benefited from noise-related rail grinding between December 2021 and May 2022, and TfL Head of Track Duncan Weir's letter of 9 December 2022 lists 'Liverpool Street - Bethnal Green Eastbound Central' for deep Tube reconditioning planned for financial year 2023/24.",
+     "citations": [
+      {
+       "chunk_id": "MQ-2022-1791#001",
+       "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+      },
+      {
+       "chunk_id": "MQ-2022-1791#001",
+       "quote": "Bethnal Green to Liverpool Street"
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#001",
+       "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+      },
+      {
+       "chunk_id": "Weir-letter-2022-12#001",
+       "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "context",
+     "type": "sourced",
+     "text": "According to TfL's 6 December 2022 presentation to the Customer Service and Operational Performance Panel, rail grinding is its most effective tool to remove corrugation and must be repeated at regular intervals (usually 6 months to a year) to maintain effectiveness.",
+     "citations": [
+      {
+       "chunk_id": "CSOPP-2022-12-tube-noise#001",
+       "quote": "Rail grinding is the most effective tool we"
+      },
+      {
+       "chunk_id": "CSOPP-2022-12-tube-noise#001",
+       "quote": "(usually 6 months \u2013 a year), to maintain"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 10.9,
+   "usage": {
+    "prompt": 12708,
+    "output": 1102,
+    "retries": 0
+   },
+   "answer": "Our evidence cannot show whether corrugation has re-formed between Liverpool Street and Bethnal Green because we hold no rail roughness data for that section and our phone loudness check was NO-GO (triggered by a -0.13 dB trip reversal).",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   },
+   "parse_error": null
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 3.3,
+  "usage": {
+   "prompt": 6101,
+   "output": 22,
+   "retries": 0
+  },
+  "reviewed_round": 1
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.03154,
+    "ranks": {
+     "semantic": 6,
+     "text": 1
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.03016,
+    "ranks": {
+     "semantic": 3,
+     "text": 10
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "TfL-noise-update-2024-08#002",
+    "score": 0.02955,
+    "ranks": {
+     "semantic": 1,
+     "text": 16
+    },
+    "title": "TfL Tube Noise: January to June 2024 update to London Assembly Members (Claire Mann, 9 Aug 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-09",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-1730-1819#001",
+    "score": 0.02914,
+    "ranks": {
+     "semantic": 4,
+     "text": 14
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": 1
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#001",
+    "score": 0.02878,
+    "ranks": {
+     "semantic": 10,
+     "text": 9
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 2
+   },
+   {
+    "chunk_id": "CSOPP-2022-12-tube-noise#001",
+    "score": 0.02797,
+    "ranks": {
+     "semantic": 11,
+     "text": 12
+    },
+    "title": "TfL Customer Service and Operational Performance Panel, Tube Noise presentation, 6 Dec 2022 (item 9b)",
+    "publisher": "TfL",
+    "doc_date": "2022-12-06",
+    "page": 8
+   },
+   {
+    "chunk_id": "TfL-noise-update-2025-08#001",
+    "score": 0.02788,
+    "ranks": {
+     "semantic": 5,
+     "text": 20
+    },
+    "title": "TfL Tube Noise Update: January to July 2025 to London Assembly Members (Claire Mann, 20 Aug 2025)",
+    "publisher": "TfL",
+    "doc_date": "2025-08-20",
+    "page": 2
+   },
+   {
+    "chunk_id": "CSOPP-2022-12-tube-noise#000",
+    "score": 0.02759,
+    "ranks": {
+     "semantic": 12,
+     "text": 13
+    },
+    "title": "TfL Customer Service and Operational Performance Panel, Tube Noise presentation, 6 Dec 2022 (item 9b)",
+    "publisher": "TfL",
+    "doc_date": "2022-12-06",
+    "page": 1
+   }
+  ],
+  "stats": [
+   "level.EB.LST-BTH",
+   "level.WB.BTH-LST",
+   "duration.EB.LST-BTH",
+   "duration.WB.BTH-LST",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 1.28
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T080142Z_prove-that-corrugation-has-returned-between-live.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T080142Z_prove-that-corrugation-has-returned-between-live"
+ }
+}

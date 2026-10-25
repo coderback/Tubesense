@@ -1,0 +1,1153 @@
+{
+ "run": "R14",
+ "ts": "2026-10-25T08:31:09+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "post_hoc": "added 25 Oct 2026 after prereg-24oct; inputs are precomputed outputs",
+ "schema": "claims with facts/comparisons/qualifiers, bound by code (ride_report v2)",
+ "stats_file": "outputs_posthoc/ride_stats/R14.json",
+ "stats_sha": "292bbdc0273795f0",
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "ride_checks_sha": "339f3f0c5dc0f10f3eb7a753fe4b676282b846a4dc48ed6dc17503af1588d958",
+ "rounds": [
+  {
+   "round": 0,
+   "seconds": 43.1,
+   "claims": [
+    {
+     "id": "C1",
+     "text": "Ride R14 on WCL-LST covers 2 sections with 290.3 s of sensor data, 305.5 s of wall-clock span, and 319.3 s of audio.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "ride.route",
+       "field": "n_sections",
+       "value_as_written": "2",
+       "role": "sections"
+      },
+      {
+       "stat_key": "ride.sensor_duration_s",
+       "field": "value",
+       "value_as_written": "290.3",
+       "role": "of sensor data"
+      },
+      {
+       "stat_key": "ride.wall_span_s",
+       "field": "value",
+       "value_as_written": "305.5",
+       "role": "of wall-clock span"
+      },
+      {
+       "stat_key": "ride.audio_duration_s",
+       "field": "value",
+       "value_as_written": "319.3",
+       "role": "of audio"
+      }
+     ],
+     "comparisons": [],
+     "cites": [
+      "ride.id",
+      "ride.route"
+     ]
+    },
+    {
+     "id": "C2",
+     "text": "Quality control logged 5 flags, consisting of 3 handled mid-ride flags (at 9.0 s, for 1.0 s from 10.51 s, and for 1.0 s from 12.51 s), 1 pause lasting 15.2 s at 47.15 s, and 1 section overlaps pause flag lasting 103.5 s in WCL-ALE before 1 resting placement lasted 266.0 s from 16.01 s.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "qc.flag_counts",
+       "field": "value",
+       "value_as_written": "5",
+       "role": "flags"
+      },
+      {
+       "stat_key": "qc.flag_counts",
+       "field": "handled_mid_ride",
+       "value_as_written": "3",
+       "role": "handled mid-ride flags"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "value",
+       "value_as_written": "9.0",
+       "role": "at"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.2",
+       "field": "value",
+       "value_as_written": "1.0",
+       "role": "for"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.2",
+       "field": "t0_s",
+       "value_as_written": "10.51",
+       "role": "from"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.3",
+       "field": "value",
+       "value_as_written": "1.0",
+       "role": "for"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.3",
+       "field": "t0_s",
+       "value_as_written": "12.51",
+       "role": "from"
+      },
+      {
+       "stat_key": "ride.phyphox_pauses",
+       "field": "value",
+       "value_as_written": "1",
+       "role": "pause"
+      },
+      {
+       "stat_key": "qc.pause.1",
+       "field": "value",
+       "value_as_written": "15.2",
+       "role": "lasting"
+      },
+      {
+       "stat_key": "qc.pause.1",
+       "field": "t0_s",
+       "value_as_written": "47.15",
+       "role": "at"
+      },
+      {
+       "stat_key": "qc.flag_counts",
+       "field": "section_overlaps_pause",
+       "value_as_written": "1",
+       "role": "section overlaps pause flag"
+      },
+      {
+       "stat_key": "qc.section_overlaps_pause.1",
+       "field": "value",
+       "value_as_written": "103.5",
+       "role": "lasting"
+      },
+      {
+       "stat_key": "qc.placement_epochs",
+       "field": "value",
+       "value_as_written": "1",
+       "role": "resting placement"
+      },
+      {
+       "stat_key": "qc.placement_epoch.1",
+       "field": "value",
+       "value_as_written": "266.0",
+       "role": "resting placement lasted"
+      },
+      {
+       "stat_key": "qc.placement_epoch.1",
+       "field": "t0_s",
+       "value_as_written": "16.01",
+       "role": "from"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    },
+    {
+     "id": "C3",
+     "text": "Audio and sensor streams were aligned without tap markers at an offset of 10.54 s with 0.1 s uncertainty, supported by 7 agreeing of 9 total band combinations.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "value",
+       "value_as_written": "10.54",
+       "role": "offset of"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "0.1",
+       "role": "uncertainty"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "band_combos_agreeing",
+       "value_as_written": "7",
+       "role": "agreeing"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "band_combos_total",
+       "value_as_written": "9",
+       "role": "of"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    },
+    {
+     "id": "C4",
+     "text": "The WCL-ALE journey (118.7 s) was longer than its timetable expectation (85.7 s) with 1 stop near a platform, whereas the ALE-LST journey (71.0 s) was shorter than its timetable expectation (73.3 s).",
+     "type": "measured",
+     "qualifiers": [
+      "approximate"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.WCL-ALE.duration_s",
+       "field": "value",
+       "value_as_written": "118.7",
+       "role": "WCL-ALE journey"
+      },
+      {
+       "stat_key": "section.WCL-ALE.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "85.7",
+       "role": "timetable expectation"
+      },
+      {
+       "stat_key": "section.WCL-ALE.duration_s",
+       "field": "stops_near_platform",
+       "value_as_written": "1",
+       "role": "stop near a platform"
+      },
+      {
+       "stat_key": "section.ALE-LST.duration_s",
+       "field": "value",
+       "value_as_written": "71.0",
+       "role": "ALE-LST journey"
+      },
+      {
+       "stat_key": "section.ALE-LST.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "73.3",
+       "role": "timetable expectation"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.WCL-ALE.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.WCL-ALE.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "greater",
+       "relation_word": "longer",
+       "a_text": "WCL-ALE journey",
+       "b_text": "its timetable expectation",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "section.ALE-LST.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.ALE-LST.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "less",
+       "relation_word": "shorter",
+       "a_text": "ALE-LST journey",
+       "b_text": "its timetable expectation",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C5",
+     "text": "Train positioning on both WCL-ALE and ALE-LST was not evaluated as there is no tracker map for this track.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [],
+     "comparisons": [],
+     "cites": [
+      "positioning.WCL-ALE.status",
+      "positioning.ALE-LST.status"
+     ]
+    },
+    {
+     "id": "C6",
+     "text": "The relative level on WCL-ALE (-24.54 dBFS) was similar to the relative level on ALE-LST (-24.65 dBFS), while the moving level (-24.3 dBFS) was louder than the dwell level (-24.8 dBFS) by a 0.5 dB difference and the whole recording level was -24.7 dBFS.",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.WCL-ALE.level",
+       "field": "value",
+       "value_as_written": "-24.54",
+       "role": "level on WCL-ALE"
+      },
+      {
+       "stat_key": "section.ALE-LST.level",
+       "field": "value",
+       "value_as_written": "-24.65",
+       "role": "level on ALE-LST"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "moving_level",
+       "value_as_written": "-24.3",
+       "role": "moving level"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "dwell_level",
+       "value_as_written": "-24.8",
+       "role": "dwell level"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "value",
+       "value_as_written": "0.5",
+       "role": "difference"
+      },
+      {
+       "stat_key": "noise.level_overall",
+       "field": "value",
+       "value_as_written": "-24.7",
+       "role": "whole recording level was"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.WCL-ALE.level",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.ALE-LST.level",
+        "field": "value"
+       },
+       "relation": "about_equal",
+       "relation_word": "similar",
+       "a_text": "relative level on WCL-ALE",
+       "b_text": "relative level on ALE-LST",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "moving_level"
+       },
+       "b": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "dwell_level"
+       },
+       "relation": "greater",
+       "relation_word": "louder",
+       "a_text": "moving level",
+       "b_text": "dwell level",
+       "difference_as_written": "0.5"
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C7",
+     "text": "In the audio recording, 27.6 % of overall seconds (23.1 % of WCL-ALE seconds and 52.1 % of ALE-LST seconds) sat at the limiter ceiling of -0.7 dBFS, 18.2 % of seconds were speech-like, and 15 s of pause audio were dropped from WCL-ALE.",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level",
+      "single_ride"
+     ],
+     "facts": [
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "limiter_pct",
+       "value_as_written": "27.6",
+       "role": "of overall"
+      },
+      {
+       "stat_key": "section.WCL-ALE.level",
+       "field": "limiter_pct",
+       "value_as_written": "23.1",
+       "role": "of WCL-ALE"
+      },
+      {
+       "stat_key": "section.ALE-LST.level",
+       "field": "limiter_pct",
+       "value_as_written": "52.1",
+       "role": "of ALE-LST"
+      },
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "ceiling_dbfs",
+       "value_as_written": "-0.7",
+       "role": "ceiling of"
+      },
+      {
+       "stat_key": "noise.speech_fraction",
+       "field": "speech_pct",
+       "value_as_written": "18.2",
+       "role": "of seconds were speech-like"
+      },
+      {
+       "stat_key": "section.WCL-ALE.level",
+       "field": "pause_s_dropped",
+       "value_as_written": "15",
+       "role": "of pause"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "C1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C3",
+     "ok": false,
+     "reasons": [
+      "role 'of' does not name sync.offset_s.band_combos_total (band combinations tried); use one of: total, combination, tried, of",
+      "role 'of' must say which quantity 9 is (band combinations tried): use one of combination, of, total, tried"
+     ]
+    },
+    {
+     "id": "C4",
+     "ok": false,
+     "reasons": [
+      "85.7 is section.WCL-ALE.duration_s.timetable_expected_s of WCL-ALE, but the section named nearest to it is ALE-LST",
+      "1 is section.WCL-ALE.duration_s.stops_near_platform of WCL-ALE, but the section named nearest to it is ALE-LST"
+     ]
+    },
+    {
+     "id": "C5",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C6",
+     "ok": false,
+     "reasons": [
+      "'0.5' is declared 2x but appears 1x in the text (copy value_as_written exactly as written, with its sign)"
+     ]
+    },
+    {
+     "id": "C7",
+     "ok": false,
+     "reasons": [
+      "role 'of WCL-ALE' does not name section.WCL-ALE.level.limiter_pct (share of seconds at the limiter ceiling); use one of: limiter, ceiling, overall, all",
+      "role 'of WCL-ALE' must say which quantity 23.1 is (share of seconds at the limiter ceiling): use one of all, ceiling, limiter, overall",
+      "role 'of ALE-LST' does not name section.ALE-LST.level.limiter_pct (share of seconds at the limiter ceiling); use one of: limiter, ceiling, overall, all",
+      "role 'of ALE-LST' must say which quantity 52.1 is (share of seconds at the limiter ceiling): use one of all, ceiling, limiter, overall",
+      "52.1 is section.ALE-LST.level.limiter_pct of ALE-LST, but the section named nearest to it is ALE-WCL",
+      "'dropped' states a direction of change; write it as a declared comparison (A was higher than B)"
+     ]
+    }
+   ],
+   "usage": {
+    "prompt": 18633,
+    "output": 3736,
+    "thoughts": null
+   },
+   "usage_raw": {
+    "candidates_token_count": 3736,
+    "candidates_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 3736
+     }
+    ],
+    "prompt_token_count": 18633,
+    "prompt_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 18633
+     }
+    ],
+    "total_token_count": 22369
+   },
+   "thinking_note": "thoughts_token_count not returned in this chat usage record (thinking_level=medium was sent in the request config)"
+  },
+  {
+   "round": 1,
+   "seconds": 19.4,
+   "claims": [
+    {
+     "id": "C3",
+     "text": "Audio and sensor streams were aligned without tap markers at an offset of 10.54 s with 0.1 s uncertainty, supported by 7 agreeing of 9 total band combinations.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "value",
+       "value_as_written": "10.54",
+       "role": "offset of"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "0.1",
+       "role": "uncertainty"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "band_combos_agreeing",
+       "value_as_written": "7",
+       "role": "agreeing"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "band_combos_total",
+       "value_as_written": "9",
+       "role": "total band combinations"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    },
+    {
+     "id": "C4",
+     "text": "With 1 stop near a platform on WCL-ALE, the WCL-ALE journey (118.7 s) was longer than the WCL-ALE timetable expectation (85.7 s), whereas the ALE-LST journey (71.0 s) was shorter than the ALE-LST timetable expectation (73.3 s).",
+     "type": "measured",
+     "qualifiers": [
+      "approximate"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.WCL-ALE.duration_s",
+       "field": "stops_near_platform",
+       "value_as_written": "1",
+       "role": "stop near a platform"
+      },
+      {
+       "stat_key": "section.WCL-ALE.duration_s",
+       "field": "value",
+       "value_as_written": "118.7",
+       "role": "WCL-ALE journey"
+      },
+      {
+       "stat_key": "section.WCL-ALE.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "85.7",
+       "role": "WCL-ALE timetable expectation"
+      },
+      {
+       "stat_key": "section.ALE-LST.duration_s",
+       "field": "value",
+       "value_as_written": "71.0",
+       "role": "ALE-LST journey"
+      },
+      {
+       "stat_key": "section.ALE-LST.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "73.3",
+       "role": "ALE-LST timetable expectation"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.WCL-ALE.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.WCL-ALE.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "greater",
+       "relation_word": "longer",
+       "a_text": "WCL-ALE journey",
+       "b_text": "the WCL-ALE timetable expectation",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "section.ALE-LST.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.ALE-LST.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "less",
+       "relation_word": "shorter",
+       "a_text": "ALE-LST journey",
+       "b_text": "the ALE-LST timetable expectation",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C6",
+     "text": "The relative level on WCL-ALE (-24.54 dBFS) was similar to the relative level on ALE-LST (-24.65 dBFS), while the moving level (-24.3 dBFS) was louder than the dwell level (-24.8 dBFS) by a 0.5 dB difference and the whole recording level was -24.7 dBFS.",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.WCL-ALE.level",
+       "field": "value",
+       "value_as_written": "-24.54",
+       "role": "level on WCL-ALE"
+      },
+      {
+       "stat_key": "section.ALE-LST.level",
+       "field": "value",
+       "value_as_written": "-24.65",
+       "role": "level on ALE-LST"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "moving_level",
+       "value_as_written": "-24.3",
+       "role": "moving level"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "dwell_level",
+       "value_as_written": "-24.8",
+       "role": "dwell level"
+      },
+      {
+       "stat_key": "noise.level_overall",
+       "field": "value",
+       "value_as_written": "-24.7",
+       "role": "whole recording level was"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.WCL-ALE.level",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.ALE-LST.level",
+        "field": "value"
+       },
+       "relation": "about_equal",
+       "relation_word": "similar",
+       "a_text": "relative level on WCL-ALE",
+       "b_text": "the relative level on ALE-LST",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "moving_level"
+       },
+       "b": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "dwell_level"
+       },
+       "relation": "greater",
+       "relation_word": "louder",
+       "a_text": "moving level",
+       "b_text": "the dwell level",
+       "difference_as_written": "0.5"
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C7",
+     "text": "Across the audio recording, 27.6 % of overall seconds sat at the limiter ceiling of -0.7 dBFS (including 23.1 % at the WCL-ALE limiter ceiling and 52.1 % at the ALE-LST limiter ceiling), and 18.2 % of seconds were speech-like.",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level",
+      "single_ride"
+     ],
+     "facts": [
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "limiter_pct",
+       "value_as_written": "27.6",
+       "role": "of overall seconds"
+      },
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "ceiling_dbfs",
+       "value_as_written": "-0.7",
+       "role": "ceiling of"
+      },
+      {
+       "stat_key": "section.WCL-ALE.level",
+       "field": "limiter_pct",
+       "value_as_written": "23.1",
+       "role": "at the WCL-ALE limiter"
+      },
+      {
+       "stat_key": "section.ALE-LST.level",
+       "field": "limiter_pct",
+       "value_as_written": "52.1",
+       "role": "at the ALE-LST limiter"
+      },
+      {
+       "stat_key": "noise.speech_fraction",
+       "field": "speech_pct",
+       "value_as_written": "18.2",
+       "role": "of seconds were speech-like"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "C3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C4",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C6",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C7",
+     "ok": false,
+     "reasons": [
+      "52.1 is section.ALE-LST.level.limiter_pct of ALE-LST, but the section named nearest to it is ALE-WCL"
+     ]
+    }
+   ],
+   "usage": {
+    "prompt": 25182,
+    "output": 2213,
+    "thoughts": null
+   },
+   "usage_raw": {
+    "cache_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 3555
+     }
+    ],
+    "cached_content_token_count": 3555,
+    "candidates_token_count": 2213,
+    "candidates_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 2213
+     }
+    ],
+    "prompt_token_count": 25182,
+    "prompt_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 25182
+     }
+    ],
+    "total_token_count": 27395
+   },
+   "thinking_note": "thoughts_token_count not returned in this chat usage record (thinking_level=medium was sent in the request config)"
+  }
+ ],
+ "verified_claims": [
+  {
+   "id": "C1",
+   "text": "Ride R14 on WCL-LST covers 2 sections with 290.3 s of sensor data, 305.5 s of wall-clock span, and 319.3 s of audio.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "ride.route",
+     "field": "n_sections",
+     "value_as_written": "2",
+     "role": "sections"
+    },
+    {
+     "stat_key": "ride.sensor_duration_s",
+     "field": "value",
+     "value_as_written": "290.3",
+     "role": "of sensor data"
+    },
+    {
+     "stat_key": "ride.wall_span_s",
+     "field": "value",
+     "value_as_written": "305.5",
+     "role": "of wall-clock span"
+    },
+    {
+     "stat_key": "ride.audio_duration_s",
+     "field": "value",
+     "value_as_written": "319.3",
+     "role": "of audio"
+    }
+   ],
+   "comparisons": [],
+   "cites": [
+    "ride.id",
+    "ride.route"
+   ]
+  },
+  {
+   "id": "C2",
+   "text": "Quality control logged 5 flags, consisting of 3 handled mid-ride flags (at 9.0 s, for 1.0 s from 10.51 s, and for 1.0 s from 12.51 s), 1 pause lasting 15.2 s at 47.15 s, and 1 section overlaps pause flag lasting 103.5 s in WCL-ALE before 1 resting placement lasted 266.0 s from 16.01 s.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "qc.flag_counts",
+     "field": "value",
+     "value_as_written": "5",
+     "role": "flags"
+    },
+    {
+     "stat_key": "qc.flag_counts",
+     "field": "handled_mid_ride",
+     "value_as_written": "3",
+     "role": "handled mid-ride flags"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "value",
+     "value_as_written": "9.0",
+     "role": "at"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.2",
+     "field": "value",
+     "value_as_written": "1.0",
+     "role": "for"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.2",
+     "field": "t0_s",
+     "value_as_written": "10.51",
+     "role": "from"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.3",
+     "field": "value",
+     "value_as_written": "1.0",
+     "role": "for"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.3",
+     "field": "t0_s",
+     "value_as_written": "12.51",
+     "role": "from"
+    },
+    {
+     "stat_key": "ride.phyphox_pauses",
+     "field": "value",
+     "value_as_written": "1",
+     "role": "pause"
+    },
+    {
+     "stat_key": "qc.pause.1",
+     "field": "value",
+     "value_as_written": "15.2",
+     "role": "lasting"
+    },
+    {
+     "stat_key": "qc.pause.1",
+     "field": "t0_s",
+     "value_as_written": "47.15",
+     "role": "at"
+    },
+    {
+     "stat_key": "qc.flag_counts",
+     "field": "section_overlaps_pause",
+     "value_as_written": "1",
+     "role": "section overlaps pause flag"
+    },
+    {
+     "stat_key": "qc.section_overlaps_pause.1",
+     "field": "value",
+     "value_as_written": "103.5",
+     "role": "lasting"
+    },
+    {
+     "stat_key": "qc.placement_epochs",
+     "field": "value",
+     "value_as_written": "1",
+     "role": "resting placement"
+    },
+    {
+     "stat_key": "qc.placement_epoch.1",
+     "field": "value",
+     "value_as_written": "266.0",
+     "role": "resting placement lasted"
+    },
+    {
+     "stat_key": "qc.placement_epoch.1",
+     "field": "t0_s",
+     "value_as_written": "16.01",
+     "role": "from"
+    }
+   ],
+   "comparisons": [],
+   "cites": []
+  },
+  {
+   "id": "C3",
+   "text": "Audio and sensor streams were aligned without tap markers at an offset of 10.54 s with 0.1 s uncertainty, supported by 7 agreeing of 9 total band combinations.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "sync.offset_s",
+     "field": "value",
+     "value_as_written": "10.54",
+     "role": "offset of"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "uncertainty_s",
+     "value_as_written": "0.1",
+     "role": "uncertainty"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "band_combos_agreeing",
+     "value_as_written": "7",
+     "role": "agreeing"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "band_combos_total",
+     "value_as_written": "9",
+     "role": "total band combinations"
+    }
+   ],
+   "comparisons": [],
+   "cites": []
+  },
+  {
+   "id": "C4",
+   "text": "With 1 stop near a platform on WCL-ALE, the WCL-ALE journey (118.7 s) was longer than the WCL-ALE timetable expectation (85.7 s), whereas the ALE-LST journey (71.0 s) was shorter than the ALE-LST timetable expectation (73.3 s).",
+   "type": "measured",
+   "qualifiers": [
+    "approximate"
+   ],
+   "facts": [
+    {
+     "stat_key": "section.WCL-ALE.duration_s",
+     "field": "stops_near_platform",
+     "value_as_written": "1",
+     "role": "stop near a platform"
+    },
+    {
+     "stat_key": "section.WCL-ALE.duration_s",
+     "field": "value",
+     "value_as_written": "118.7",
+     "role": "WCL-ALE journey"
+    },
+    {
+     "stat_key": "section.WCL-ALE.duration_s",
+     "field": "timetable_expected_s",
+     "value_as_written": "85.7",
+     "role": "WCL-ALE timetable expectation"
+    },
+    {
+     "stat_key": "section.ALE-LST.duration_s",
+     "field": "value",
+     "value_as_written": "71.0",
+     "role": "ALE-LST journey"
+    },
+    {
+     "stat_key": "section.ALE-LST.duration_s",
+     "field": "timetable_expected_s",
+     "value_as_written": "73.3",
+     "role": "ALE-LST timetable expectation"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "section.WCL-ALE.duration_s",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.WCL-ALE.duration_s",
+      "field": "timetable_expected_s"
+     },
+     "relation": "greater",
+     "relation_word": "longer",
+     "a_text": "WCL-ALE journey",
+     "b_text": "the WCL-ALE timetable expectation",
+     "difference_as_written": ""
+    },
+    {
+     "a": {
+      "stat_key": "section.ALE-LST.duration_s",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.ALE-LST.duration_s",
+      "field": "timetable_expected_s"
+     },
+     "relation": "less",
+     "relation_word": "shorter",
+     "a_text": "ALE-LST journey",
+     "b_text": "the ALE-LST timetable expectation",
+     "difference_as_written": ""
+    }
+   ],
+   "cites": []
+  },
+  {
+   "id": "C5",
+   "text": "Train positioning on both WCL-ALE and ALE-LST was not evaluated as there is no tracker map for this track.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [],
+   "comparisons": [],
+   "cites": [
+    "positioning.WCL-ALE.status",
+    "positioning.ALE-LST.status"
+   ]
+  },
+  {
+   "id": "C6",
+   "text": "The relative level on WCL-ALE (-24.54 dBFS) was similar to the relative level on ALE-LST (-24.65 dBFS), while the moving level (-24.3 dBFS) was louder than the dwell level (-24.8 dBFS) by a 0.5 dB difference and the whole recording level was -24.7 dBFS.",
+   "type": "measured",
+   "qualifiers": [
+    "relative_level"
+   ],
+   "facts": [
+    {
+     "stat_key": "section.WCL-ALE.level",
+     "field": "value",
+     "value_as_written": "-24.54",
+     "role": "level on WCL-ALE"
+    },
+    {
+     "stat_key": "section.ALE-LST.level",
+     "field": "value",
+     "value_as_written": "-24.65",
+     "role": "level on ALE-LST"
+    },
+    {
+     "stat_key": "noise.moving_minus_dwell_db",
+     "field": "moving_level",
+     "value_as_written": "-24.3",
+     "role": "moving level"
+    },
+    {
+     "stat_key": "noise.moving_minus_dwell_db",
+     "field": "dwell_level",
+     "value_as_written": "-24.8",
+     "role": "dwell level"
+    },
+    {
+     "stat_key": "noise.level_overall",
+     "field": "value",
+     "value_as_written": "-24.7",
+     "role": "whole recording level was"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "section.WCL-ALE.level",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.ALE-LST.level",
+      "field": "value"
+     },
+     "relation": "about_equal",
+     "relation_word": "similar",
+     "a_text": "relative level on WCL-ALE",
+     "b_text": "the relative level on ALE-LST",
+     "difference_as_written": ""
+    },
+    {
+     "a": {
+      "stat_key": "noise.moving_minus_dwell_db",
+      "field": "moving_level"
+     },
+     "b": {
+      "stat_key": "noise.moving_minus_dwell_db",
+      "field": "dwell_level"
+     },
+     "relation": "greater",
+     "relation_word": "louder",
+     "a_text": "moving level",
+     "b_text": "the dwell level",
+     "difference_as_written": "0.5"
+    }
+   ],
+   "cites": []
+  }
+ ],
+ "claims_sha": "4ea25ff4f0034454",
+ "dropped_claims": [
+  {
+   "claim": {
+    "id": "C7",
+    "text": "Across the audio recording, 27.6 % of overall seconds sat at the limiter ceiling of -0.7 dBFS (including 23.1 % at the WCL-ALE limiter ceiling and 52.1 % at the ALE-LST limiter ceiling), and 18.2 % of seconds were speech-like.",
+    "type": "measured",
+    "qualifiers": [
+     "relative_level",
+     "single_ride"
+    ],
+    "facts": [
+     {
+      "stat_key": "noise.limiter_fraction",
+      "field": "limiter_pct",
+      "value_as_written": "27.6",
+      "role": "of overall seconds"
+     },
+     {
+      "stat_key": "noise.limiter_fraction",
+      "field": "ceiling_dbfs",
+      "value_as_written": "-0.7",
+      "role": "ceiling of"
+     },
+     {
+      "stat_key": "section.WCL-ALE.level",
+      "field": "limiter_pct",
+      "value_as_written": "23.1",
+      "role": "at the WCL-ALE limiter"
+     },
+     {
+      "stat_key": "section.ALE-LST.level",
+      "field": "limiter_pct",
+      "value_as_written": "52.1",
+      "role": "at the ALE-LST limiter"
+     },
+     {
+      "stat_key": "noise.speech_fraction",
+      "field": "speech_pct",
+      "value_as_written": "18.2",
+      "role": "of seconds were speech-like"
+     }
+    ],
+    "comparisons": [],
+    "cites": []
+   },
+   "reasons": [
+    "52.1 is section.ALE-LST.level.limiter_pct of ALE-LST, but the section named nearest to it is ALE-WCL"
+   ]
+  }
+ ],
+ "n_claims_ok_range": true,
+ "claims_total": 7,
+ "seeded_canary": false,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "ts": null
+ },
+ "seconds_total": 64.8
+}

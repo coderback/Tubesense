@@ -1,0 +1,14 @@
+{
+ "P6": "01_argon",
+ "P10": "02_flash",
+ "P3": "03_flash",
+ "P1": "04_argon",
+ "P4": "05_argon",
+ "P7": "06_flash",
+ "P2": "07_flash",
+ "P9": "08_argon",
+ "P5": "09_argon",
+ "P12": "10_flash",
+ "P11": "11_flash",
+ "P8": "12_argon"
+}

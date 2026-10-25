@@ -1,0 +1,11 @@
+=== attempt 0 2026-10-25T04:27:29+00:00 exit 0 180 s
+round 0: 14 claims, 4 rejected (47.6 s)
+  x C2: numbers not supported by the cited quotes/stats/formula: ['2022']
+  x C3: quote not found verbatim in CSOPP-2022-12-tube-noise#001: 'Deep Tube reconditioning to replace\nPandrol Vanguard with Delkor'; numbers not supported by the cited quotes/stats/formula: ['2022']
+  x C10: numbers not supported by the cited quotes/stats/formula: ['6.86']
+  x C13: numbers not supported by the cited quotes/stats/formula: ['2021', '2022', '2022']
+round 1: 14 claims, 0 rejected (128.5 s)
+verified 14, dropped 0, asks 4, 176.1 s -> C:\Users\tobio\PycharmProjects\Tubesense\outputs_posthoc\compare\09_argon\investigation.json (atlas: no-atlas, nothing written)
+
+--- stderr ---
+

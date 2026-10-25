@@ -1,0 +1,11 @@
+=== attempt 0 2026-10-25T04:21:47+00:00 exit 0 85 s
+round 0: 13 claims, 4 rejected (23.2 s)
+  x claim-02: numbers not supported by the cited quotes/stats/formula: ['2022']
+  x claim-05: numbers not supported by the cited quotes/stats/formula: ['2024']
+  x claim-11: numbers not supported by the cited quotes/stats/formula: ['2022']
+  x claim-13: numbers not supported by the cited quotes/stats/formula: ['2026']
+round 1: 13 claims, 0 rejected (57.4 s)
+verified 13, dropped 0, asks 3, 80.6 s -> C:\Users\tobio\PycharmProjects\Tubesense\outputs_posthoc\compare\07_flash\investigation.json (atlas: no-atlas, nothing written)
+
+--- stderr ---
+

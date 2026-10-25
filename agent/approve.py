@@ -10,6 +10,8 @@ POST /approve  requires every checklist box and a name; re-runs the verifier on 
 POST /reject   records a rejection with the reason (no draft)
 GET  /canary   the seeded false claim and the verifier's rejection (labelled as seeded, for the demo)
 Run: PYTHONPATH=. .venv/Scripts/python -m agent.approve [--port 8765]
+The approval logic lives in load / checks / canary / records / approve / reject, so this page and the web app
+(webapp/api/pack_api.py) share one implementation; the page's HTML and the files written are unchanged.
 """
 from __future__ import annotations
 
@@ -39,10 +41,32 @@ td,th{border-bottom:1px solid #ddd;padding:6px;text-align:left;vertical-align:to
 .ok{color:#17663a}.bad{color:#a11}button{font-size:15px;padding:8px 18px;margin-right:8px}"""
 
 
-def _load():
+def load() -> tuple[dict, str, str]:
+    """(investigation, rendered pack markdown, pack_id) from the current investigation.json."""
     inv = json.loads(P.INV.read_text(encoding="utf-8"))
     md, pid = P.render(inv)
     return inv, md, pid
+
+
+_load = load
+
+
+def checks(inv: dict) -> dict[str, dict]:
+    """{claim_id: {"id", "ok", "reasons"}}: the verifier run now on the pack's verified claims."""
+    return {c["id"]: c for c in V.verify_all(P.for_verifier(inv["verified_claims"]))}
+
+
+def canary() -> dict:
+    """The seeded false claim and the verifier's verdict on it, run now."""
+    return {**V.verify_all([V.CANARY])[0], "claim": V.CANARY}
+
+
+def records(pack_id: str | None = None) -> list[dict]:
+    """Lines of approvals.jsonl (all, or those for one pack); [] when the file does not exist."""
+    if not RECORDS.exists():
+        return []
+    rows = [json.loads(x) for x in RECORDS.read_text(encoding="utf-8").splitlines() if x.strip()]
+    return [r for r in rows if pack_id is None or r.get("pack_id") == pack_id]
 
 
 def _page(body: str) -> bytes:
@@ -62,6 +86,34 @@ def _record(rec: dict) -> dict:
     return rec
 
 
+def approve(pid: str | None, who: str, checked: list[int] | set[int]) -> tuple[int, dict]:
+    """The approval step. 400 {"missing", "approver_missing", "pack_changed"}, 409 {"fails"} or 200
+    {"record", "signature", "draft", "md"} (after writing the draft and the record)."""
+    inv, md, cur = load()
+    ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    missing = [t for i, t in enumerate(CHECKLIST) if i not in set(checked)]
+    who = (who or "").strip()
+    if missing or not who or pid != cur:
+        return 400, {"missing": missing, "approver_missing": not who, "pack_changed": pid != cur}
+    fails = [c for c in checks(inv).values() if not c["ok"]]
+    if fails:
+        return 409, {"fails": [{"id": c["id"], "reasons": c["reasons"]} for c in fails]}
+    sig = hashlib.sha256((md + who + ts + V.VERIFIER_SHA).encode()).hexdigest()
+    out = P.DRAFTS / f"APPROVED_{cur}.md"
+    P.DRAFTS.mkdir(parents=True, exist_ok=True)
+    out.write_text(md + f"\n_Approved as a DRAFT by {who} at {ts}. Signature {sig}. Not sent._\n", encoding="utf-8")
+    rec = _record({"ts": ts, "decision": "approved", "pack_id": cur, "approver": who, "signature": sig,
+                   "verifier_sha": V.VERIFIER_SHA, "checklist": CHECKLIST, "draft": (out.relative_to(V.ROOT) if out.is_relative_to(V.ROOT) else out).as_posix(),
+                   "n_claims": len(inv["verified_claims"])})
+    return 200, {"record": rec, "signature": sig, "draft": rec["draft"], "md": md}
+
+
+def reject(pid: str, why: str) -> dict:
+    """Record a rejection with its reason (no draft)."""
+    ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return _record({"ts": ts, "decision": "rejected", "pack_id": pid, "reason": why})
+
+
 class Handler(BaseHTTPRequestHandler):
     def _send(self, body: bytes, code=200):
         self.send_response(code)
@@ -71,16 +123,16 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path.startswith("/canary"):
-            r = V.verify_all([V.CANARY])[0]
+            r = canary()
             self._send(_page(f"<h2>Seeded test claim (deliberately false, for the demo)</h2><p>{html.escape(V.CANARY['text'])}</p>"
                              f"<p class=bad><b>Verifier: {'accepted' if r['ok'] else 'REJECTED'}</b></p><ul>" +
                              "".join(f"<li>{html.escape(x)}</li>" for x in r["reasons"]) + "</ul><a href=/>back</a>"))
             return
-        inv, md, pid = _load()
-        checks = {c["id"]: c for c in V.verify_all(P.for_verifier(inv["verified_claims"]))}
+        inv, md, pid = load()
+        chk = checks(inv)
         rows = "".join(
-            f"<tr><td>{html.escape(c['id'])}</td><td>{c['type']}</td><td class={'ok' if checks[c['id']]['ok'] else 'bad'}>"
-            f"{'verified' if checks[c['id']]['ok'] else 'FAILS: ' + html.escape('; '.join(checks[c['id']]['reasons']))}</td>"
+            f"<tr><td>{html.escape(c['id'])}</td><td>{c['type']}</td><td class={'ok' if chk[c['id']]['ok'] else 'bad'}>"
+            f"{'verified' if chk[c['id']]['ok'] else 'FAILS: ' + html.escape('; '.join(chk[c['id']]['reasons']))}</td>"
             f"<td>{html.escape(c['text'])}</td><td>{html.escape(', '.join(x['chunk_id'] for x in c.get('citations') or []))}"
             f"{html.escape(', '.join(c.get('stat_keys') or []))}</td></tr>" for c in inv["verified_claims"])
         boxes = "".join(f"<label><input type=checkbox name=c{i}> {html.escape(t)}</label><br>" for i, t in enumerate(CHECKLIST))
@@ -97,33 +149,21 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         n = int(self.headers.get("Content-Length", 0))
         form = {k: v[0] for k, v in urllib.parse.parse_qs(self.rfile.read(n).decode()).items()}
-        inv, md, pid = _load()
-        ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
         if self.path == "/reject":
-            _record({"ts": ts, "decision": "rejected", "pack_id": pid, "reason": form.get("why", "")})
+            reject(load()[2], form.get("why", ""))
             self._send(_page(f"<h2>Rejected</h2><p>Recorded, no draft created.</p><a href=/>back</a>"))
             return
-        missing = [t for i, t in enumerate(CHECKLIST) if f"c{i}" not in form]
-        who = form.get("who", "").strip()
-        if missing or not who or form.get("pid") != pid:
-            why = ["the pack changed since the page was loaded"] if form.get("pid") != pid else []
-            self._send(_page("<h2>Not approved</h2><ul>" + "".join(f"<li>unchecked: {html.escape(m)}</li>" for m in missing) +
-                             ("<li>approver name missing</li>" if not who else "") +
+        code, r = approve(form.get("pid"), form.get("who", ""), {i for i in range(len(CHECKLIST)) if f"c{i}" in form})
+        if code == 400:
+            why = ["the pack changed since the page was loaded"] if r["pack_changed"] else []
+            self._send(_page("<h2>Not approved</h2><ul>" + "".join(f"<li>unchecked: {html.escape(m)}</li>" for m in r["missing"]) +
+                             ("<li>approver name missing</li>" if r["approver_missing"] else "") +
                              "".join(f"<li>{w}</li>" for w in why) + "</ul><a href=/>back</a>"), 400)
-            return
-        fails = [c for c in V.verify_all(P.for_verifier(inv["verified_claims"])) if not c["ok"]]
-        if fails:
-            self._send(_page(f"<h2>Not approved</h2><p>{len(fails)} claims no longer verify.</p><a href=/>back</a>"), 409)
-            return
-        sig = hashlib.sha256((md + who + ts + V.VERIFIER_SHA).encode()).hexdigest()
-        out = P.DRAFTS / f"APPROVED_{pid}.md"
-        P.DRAFTS.mkdir(parents=True, exist_ok=True)
-        out.write_text(md + f"\n_Approved as a DRAFT by {who} at {ts}. Signature {sig}. Not sent._\n", encoding="utf-8")
-        rec = _record({"ts": ts, "decision": "approved", "pack_id": pid, "approver": who, "signature": sig,
-                       "verifier_sha": V.VERIFIER_SHA, "checklist": CHECKLIST, "draft": (out.relative_to(V.ROOT) if out.is_relative_to(V.ROOT) else out).as_posix(),
-                       "n_claims": len(inv["verified_claims"])})
-        self._send(_page(f"<h2>Approved as a draft</h2><p>Signature <code>{sig}</code></p><p>Draft: {rec['draft']}</p>"
-                         f"<p>Nothing was sent.</p>"))
+        elif code == 409:
+            self._send(_page(f"<h2>Not approved</h2><p>{len(r['fails'])} claims no longer verify.</p><a href=/>back</a>"), 409)
+        else:
+            self._send(_page(f"<h2>Approved as a draft</h2><p>Signature <code>{r['signature']}</code></p><p>Draft: {r['draft']}</p>"
+                             f"<p>Nothing was sent.</p>"))
 
     def log_message(self, *a):
         pass

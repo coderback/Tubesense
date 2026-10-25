@@ -12,8 +12,11 @@ The repository has three layers:
   repeat between rides, section loudness from phone audio, GPS-free positioning, a live tracker.
 - **Post-hoc improvements** (`posthoc/`): official section lengths and a stop gate for the tracker,
   evaluated on the 23 Oct rides only.
-- **Agent and data** (`agent/`, `atlas/`): the Argon analyst and investigator, the scoring harness,
-  the verifier, the approval page, and the MongoDB Atlas store and search.
+- **Agent and data** (`agent/`, `atlas/`): the Argon agents (analyst, investigator, Ask Argon, roughness
+  reader, recheck, ride reports), the scoring harness, the verifier, the approval page, and the MongoDB
+  Atlas store, search and stream processing.
+- **App** (`webapp/`, `live/`, `mobile/`): the web app the demo runs on (live ride tracking, the agents at work,
+  the evidence pack with human approval), and live phone sensors read from phyphox over the network.
 
 The sensing results are in [`outputs/FINDINGS.md`](outputs/FINDINGS.md); the architecture and build
 plan are in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); privacy is in [`docs/PRIVACY.md`](docs/PRIVACY.md).
@@ -71,6 +74,9 @@ The data is our own rides from 23 Oct, plus the 24 Oct rides analysed under the 
 | **24 Oct, pre-registered H3/H4:** magnetism, deep tube vs sub-surface; platform signatures | H3: the pre-registered test says the lines differ (excess r +0.23, CI 0.10–0.36), but the Hammersmith & City side is a single pair, so we do not claim it. H4 (exploratory; street-level calibration 45.6 µT, misfit 0.5 %): inside a stopped train the field is 2–3× Earth's, and repeat visits to one platform vary nearly as much as different stations do (sd 19 vs 22 µT), so there is no stable platform fingerprint in this data | `FINDINGS.md` (24 Oct), `gonogo/mag_compare.json` |
 | **24 Oct, pre-registered H5:** absolute level, NIOSH SLM app (indicative) | LAeq 91.9 dB(A) Liverpool Street→Mile End and 87.3 dB(A) back, one trip each, iPhone built-in microphone (validated only up to about 85 dB(A)). The phone's Voice Memos levels do not track this difference, so they cannot be turned into dB(A) with one offset | `outputs_posthoc/h5_niosh.md` |
 | Investigator corpus and search in Atlas | 14 public documents, 44 chunks. Hybrid search ranks the expected document first on 12/12 test questions (questions written by us, not blind) | `atlas/search.py` |
+| Argon reads TfL's 2018 rail-roughness charts (post-hoc) | The FOI PDF is four charts stored as images. Argon's readings matched a separate pixel reader on 120/120 values (median 0.3 dB). Both runs find one rough stretch at about 725–905 m on both rails and both wavelength bands, overlapping TfL's own statement in the same FOI ("elevated rail roughness levels between 720 and 880m", grinding planned Feb 2019). The checks also caught Argon's mistakes (line colours misnamed, readings that did not match the pixels, two summary sentences with numbers it worked out itself), which were left out. TfL's 2018 data, Bethnal Green→Mile End only; **pending a human check by eye** | `outputs_posthoc/roughness/roughness.md`, `HUMAN_CHECK.md` |
+| Argon re-derives our headline numbers with its own code (post-hoc) | Given only summary tables and the frozen rule text, never our answers, Argon's code (code execution) reproduced all 65 values (the loudness contrast and NO-GO, section means, H2b 1.95 m, the NIOSH arithmetic) in about 35 s. A canary plants errors just outside tolerance in our values, and the comparison catches every one | `outputs_posthoc/recheck/latest.md` |
+| Flash vs Argon on the same investigator task (post-hoc) | 6 runs each. **On the verifier loop there was no difference:** 12/12 valid outputs, every rejection fixed in one round, nothing dropped, the same time (median 107 s vs 110 s). Argon used much more of the record (it cited the Mayor's 16 Jul 2026 transparency promise in 5/6 runs vs 0/6, and our NO-GO loudness verdict in 6/6 vs 1/6), but also made more framing errors the verifier cannot catch (median 3 major per run vs 0; one unblinded judge), mostly when joining two documents in one claim | `outputs_posthoc/model_comparison.md` |
 
 The 23 Oct numbers in this table are from the outputs as they were at git tag `prereg-24oct`. Since the
 24 Oct run, `outputs/` holds both days, so some of those files now give pooled numbers.
@@ -114,6 +120,14 @@ The 23 Oct numbers in this table are from the outputs as they were at git tag `p
 
   Argon revised its draft, the verifier re-checked every claim, and a recheck found 3 minor issues,
   fixed in a targeted revision (`outputs_posthoc/pack_review*.json`, `investigation_draft*.json`).
+- **Live answers get the same treatment, automatically.** Ask Argon (`agent/ask.py`) runs the verifier
+  loop on every claim, then a separate Argon review call checks the verified claims against their cited
+  sources only; flagged claims go back for one revision, and a claim returned unchanged is withheld.
+  The one-line answer may cite verified claims only and is checked in code for unsupported numbers and
+  overclaims (e.g. a ranking from our NO-GO phone data, "corrugation has returned", hearing damage).
+  A cached answer is re-verified at the moment it is shown.
+- **Two independent computations must agree.** Argon re-derives our headline statistics with its own
+  code, and code compares its numbers with ours to tolerances fixed in advance (`agent/recheck.py`).
 
 ### Messy inputs, handled automatically (The Real World)
 
@@ -145,10 +159,16 @@ None of these were hand-coded by run name; all are detected from the data and li
 | Analyst | `gemini-4-argon` (thinking medium), function calling | `agent/analyst.py` | Proposes tracker settings with a stated hypothesis, runs them through the fixed harness (four tools: list settings, baseline, run, submit), explains the results and submits one configuration. The session is recorded in `outputs_posthoc/analyst_session.md`. A first session failed on a bug in our tool wrapper and is kept, labelled, in `analyst_session_failed1.md`. |
 | Investigator | `gemini-4-argon` (thinking medium), structured JSON output, long context | `agent/investigator.py` | Reads the whole document corpus plus the Atlas hybrid-search hits for six sub-questions and our measured statistics, and returns typed claims (sourced / measured / derived / inference) with verbatim quotes, plus suggested information requests. Up to two rounds of fixes after the verifier rejects claims; with `--review` it revises its own verified draft to resolve review findings. Run on 25 Oct: 15 claims, 5 rejected by the verifier and fixed; after the review rounds, 16 claims, all verified, 0 dropped, plus 4 information requests. The pack (`outputs_posthoc/drafts/`) awaits human approval. |
 
+| Ask Argon (live) | `gemini-4-argon` (thinking medium), structured output | `agent/ask.py` | Answers a question in 2–5 cited claims from Atlas hybrid-search hits and our statistics, through the verifier loop (up to two fix rounds), a separate Argon review of the claims against their cited sources, and a code-checked one-line answer. Typically 15–60 s. Every answer is saved and stored in Atlas `asks`; a saved answer can be replayed offline, labelled CACHED and re-verified on screen. |
+| Live analyst | `gemini-4-argon` (thinking medium), function calling | `agent/live_analyst.py` | A short live continuation of the analyst: it states a falsifiable hypothesis, the unchanged harness scores the setting on the 23 Oct rides (about 40 s), the pre-declared rule decides, and Argon says whether the hypothesis held. It has no submit or test tools (the one sealed test is spent) and logs to its own hash chain (`attempts_live.jsonl`, Atlas `attempts_live`), so the main chain is untouched. In the session recorded on 25 Oct both hypotheses held and both settings were rejected. |
+| Roughness reader | `gemini-4-argon` (thinking medium), PDF input, structured output | `agent/roughness.py` | Reads the chart images in TfL's 2018 rail-roughness FOI PDF; checked against the page text, the axes and a model-free pixel reader; a human checks by eye before use. |
+| Recheck | `gemini-4-argon` (thinking medium), code execution | `agent/recheck.py` | Re-derives our headline statistics with its own code from summary tables; code compares the numbers with ours. |
+| Ride reports | `gemini-4-argon` (thinking medium), structured output | `agent/ride_report.py` | A plain-English report of one recorded ride (pauses, phone moved, sync quality, section times). Each number must name the stored field it comes from, and code checks its value, sign, unit and source field. Wording is not fully checkable in code (two adversarial reviews kept finding phrasings, such as synonyms and negations, that a word list misses), so a person reads and approves each report before use. |
+| Model comparison | `gemini-4-argon` vs `gemini-3.8-flash` | `agent/compare_models.py` | The investigator task, 6 runs per model, protocol written before the runs (see the results table). |
+
 Only public document text and summary statistics are sent to Gemini; no audio and no raw sensor data.
-Each Argon call takes roughly 30–60 s, so the demo replays the recorded analyst session rather than
-calling the model live. Station-announcement transcription (`gemini-3.5-transcribe`) is designed
-(see `docs/ARCHITECTURE.md`) but not built.
+Every Argon call uses thinking level medium. Station-announcement transcription
+(`gemini-3.5-transcribe`) is designed (see `docs/ARCHITECTURE.md`) but not built.
 
 ### MongoDB Atlas
 
@@ -161,16 +181,18 @@ creates everything idempotently.
 | Automated Embedding + Voyage AI | `documents.docs_auto` (`autoEmbed`, `voyage-4`) | Atlas embeds each chunk and each query itself |
 | Vector Search | `$vectorSearch` on `docs_auto`; `yaw_windows.yaw_vec` index (64-d, euclidean) created for sensor fingerprints | Semantic retrieval for the investigator. Sensor fingerprints are not loaded yet |
 | Hybrid Search | `$rankFusion` over `docs_text` + `docs_auto` in `atlas/search.py` | The investigator's retrieval: ranks the expected document first on 12/12 test questions |
-| Stream Processing | not set up | Planned: a recorded ride streamed into Atlas for the live map |
+| Stream Processing | processor `live_windows` (`atlas/stream/processor.json`), SP2 workspace in AWS Dublin | Reads the change stream of `ingest_live`, where each ride (a replay run through the tracker now, or live phone sensors) arrives one row per second under a random trip id; groups 10 s tumbling windows (mean and max relative level, distance covered, confident and stopped seconds) and `$merge`s them into `live_view`, which the web app shows. Windows are 10 s of wall clock, so at 4× replay one window covers about 40 s of the ride. `atlas/stream_setup.py` creates, starts, stops and tears it down; the processor runs (and is billed) only while in use |
 
-Other collections: `attempts` (the analyst's hash-chained log), `section_stats` (the statistics the
-investigator may cite), `claims`, `approvals`. Only public document text is embedded (Automated
+Other collections: `attempts` (the analyst's hash-chained log) and `attempts_live` (the live session's
+own chain), `section_stats` (the statistics the investigator may cite), `claims`, `approvals`, `asks`,
+`roughness`, `rechecks`, `ride_reports`, `ingest_live` and `live_view`. Only public document text is embedded (Automated
 Embedding runs in a US region); rider data is never embedded.
 
 ### Where the human approves
 
-`agent/approve.py` serves a page on `http://127.0.0.1:8765/` (local only). It shows the evidence
-pack, every claim with its type, sources and a fresh verification result, and a checklist:
+The web app's Evidence pack page (and the standalone `agent/approve.py` page on
+`http://127.0.0.1:8765/`, local only; both use the same checks) shows the evidence pack, every claim
+with its type, sources and a fresh verification result, and a checklist:
 
 - I have read every claim and opened its sources.
 - Our own numbers are labelled relative / indicative, never as certified dB.
@@ -185,9 +207,12 @@ recorded with a reason. `/canary` shows the verifier rejecting a deliberately fa
 
 ### Data sources
 
-- **Our own rides:** 9 recordings on 23 Oct 2026 (Victoria and Central lines), made on an iPhone 12 with
-  phyphox 1.2.1 (accelerometer, gyroscope, magnetometer, barometer) and Voice Memos audio. Raw files
-  are not published.
+- **Our own rides:** 9 recordings on 23 Oct 2026 (Victoria and Central lines) and, on 24 Oct, 6 Central
+  and 3 Hammersmith & City rides, 2 NIOSH-only trips and a street-level magnetometer calibration. All
+  made on an iPhone 12 with phyphox 1.2.1 (accelerometer and gyroscope at about 99 Hz, magnetometer,
+  barometer at about 1 Hz) and Voice Memos audio. Raw files are not published.
+- **TfL rail roughness plots** (FOI-1730-1819, Jan 2018, Bethnal Green→Mile End eastbound): read by the
+  roughness agent; context only, not our measurement.
 - **TfL Unified API:** the public `Line/central/Route/Sequence`, fetched for track geometry. Its
   lineStrings join stations with straight segments, so the frozen v1 uses straight-line lengths and
   flags them. Station coordinates are in `tubesense/stops.py`.
@@ -266,7 +291,49 @@ Time conventions: sensor time is phyphox experiment time, which stops while phyp
 `Run.to_wall()` maps it to wall-clock time, and `sync.sensor_to_audio()` maps it to seconds in the
 audio file.
 
-## Live demo
+## Web app (what the demo runs)
+
+```
+PYTHONPATH=. .venv/Scripts/python -m webapp.server        # http://127.0.0.1:8770/  (local only; --lan to open to the network)
+```
+
+Standard library only, no build step; it works at phone width and can be added to a phone's home
+screen. Pages: Story; Ride (a recorded ride replayed through the tracker now, second by second: the dot
+on a noise-coloured strip map with its 90 % band, a geographic view (schematic, straight lines between
+stations), the messy-input flags); Agent (the recorded analyst session with its hash chain re-checked,
+and a live session); Ask Argon (live, with every verifier verdict shown and rejected claims struck
+through); Argon at work (roughness charts, recheck, ride reports); Evidence pack (approval); Atlas (the
+same question through full-text, vector and hybrid search, and the Stream Processing windows); Why Argon;
+Privacy & method; Research Box (a concept for where this goes next, not built). The Demo button walks
+the 3-minute path. Heavy work (tracker, agents) runs in separate processes whose output is streamed to
+the page; anything replayed, cached or precomputed is labelled as such.
+
+### Live phone sensors
+
+With phyphox's "Allow remote access" on, the laptop reads the phone's sensors over the network
+(`live/phyphox.py`) and runs the live detectors (`live/detect.py`): yaw rate about gravity, moving or
+stopped, the double knock used for sync, placement changes, pressure steps. Only per-second summaries
+leave the laptop (to Atlas `ingest_live`, then the stream processor). Off a train this shows live
+sensing, not position. Venue Wi-Fi often isolates devices; connect the laptop to the phone's hotspot.
+
+```
+PYTHONPATH=. .venv/Scripts/python -m live.capture --url http://172.20.10.1 --jsonl [--atlas]
+PYTHONPATH=. .venv/Scripts/python -m live.capture --mock R9 --jsonl   # no phone: replays a recording, labelled MOCK
+```
+
+The web app's Live sensors page runs the same capture with a live yaw trace, the moving/stopped state,
+knocks, placement, pressure and |B|. Tested on the iPhone 12 over its hotspot on 25 Oct: rotation,
+stillness, pressure and |B| come through live. The knock detector is tuned on the rides' firm case knocks
+(peaks 30–46 m/s²); light knocks on a phone lying on a table (4–7 m/s²) stay below its 10 m/s² threshold.
+
+### Mobile app prototype (not yet run on a device)
+
+`mobile/` is a React Native / Expo capture app: the same per-second summaries from the phone's own
+motion sensors, magnetometer and barometer, posted to the web app's `/api/live/ingest`; no microphone.
+It type-checks, its maths passes its tests and it builds for iOS, but it has not run on a phone (Expo
+Go now needs an Expo account sign-in). Steps are in `mobile/README.md`.
+
+### Terminal demo (earlier)
 
 `scripts/demo.py` replays a ride through the online tracker: a dot moves along a strip map of the
 section coloured by the map's noise level, with a 90 % band, while the ride's own 1-s noise is painted
@@ -301,6 +368,14 @@ Credentials live in a gitignored `.env` (`GEMINI_API_KEY`, `MONGODB_URI`). From 
 .venv/Scripts/python -m agent.investigator       # Argon investigator + verifier loop
 .venv/Scripts/python -m agent.pack               # render the evidence pack from verified claims
 .venv/Scripts/python -m agent.approve            # human approval page on 127.0.0.1:8765
+.venv/Scripts/python -m agent.ask "Was Liverpool Street to Bethnal Green ground for noise?"   # live; --cached replays
+.venv/Scripts/python -m agent.live_analyst --jsonl --max-experiments 2   # live analyst, own hash chain
+.venv/Scripts/python -m agent.roughness --cached # re-check the saved roughness-chart readings
+.venv/Scripts/python -m agent.recheck            # Argon re-derives our headline numbers (code execution)
+.venv/Scripts/python -m agent.ride_report R14    # ride report (pending human approval)
+.venv/Scripts/python -m agent.compare_models summarise   # Flash vs Argon tables
+.venv/Scripts/python -m atlas.stream_setup       # Stream Processing plan; create / start --yes / stop / teardown --yes
+.venv/Scripts/python -m atlas.stream_replay R5 --track "EB LST->BTH" --speed 4   # a ride into ingest_live
 ```
 
 ## Privacy
@@ -314,7 +389,8 @@ Summary below; the full data inventory, boundaries and retention are in [`docs/P
   speech flag, limiter flags). These are coarser than the 125 ms third-octave frames that Gontier et
   al. (2017) found make speech almost unintelligible.
 - Gemini receives only public document text and summary statistics; Atlas holds only derived data
-  and public documents.
+  and public documents. Rides streamed to Atlas carry a random trip id, never the ride name, and live
+  phone sensors send only per-second summaries (no microphone).
 - The ICO's video-surveillance guidance calls recording conversations between members of the public
   "highly intrusive", so the design keeps no audio at all.
 - Station labels currently come from the stop sequence.

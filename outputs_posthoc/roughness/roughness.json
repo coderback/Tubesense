@@ -1,0 +1,8986 @@
+{
+ "ts": "2026-10-25T04:19:42+00:00",
+ "status": "post-hoc; pending human confirmation",
+ "source": {
+  "doc_id": "FOI-1730-1819",
+  "corpus_chunk": "FOI-1730-1819#001",
+  "publisher": "TfL",
+  "published": "2018-10-22",
+  "title": "Rail Roughness Plots BEG-MIE January 2018",
+  "url": "https://foi.tfl.gov.uk/FOI-1730-1819/Rail%20Roughness%20Plots%20BEG-MIE%20January%202018.pdf"
+ },
+ "mode": "pdf",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "tolerances": {
+  "agree_fraction_of_axis_span": 0.05,
+  "tight_fraction_of_axis_span": 0.02,
+  "text": "exact after case, whitespace, dash and micro-sign normalisation",
+  "position_reading_vs_pixels": "envelope maximum within +-10 m of x equals y within 5% of the trace span",
+  "exceedance_arithmetic_km": "0.005 x length + 0.0005 (integer % rounding)",
+  "exceedance_vs_trace_pct": "within the digitizer's [lower, upper] bound +- 1",
+  "rough_zone": "envelope median inside > threshold and >= 2 x envelope median outside",
+  "tfl_anchor": "a zone passing the zone rule overlaps the stretch TfL's response calls elevated (parsed from the corpus)",
+  "summary": "never verified; rejected on banned phrasing, an identified unlabelled line, or a claim the pixels contradict"
+ },
+ "pdf_facts": {
+  "n_pages": 2,
+  "caption_pages": {
+   "1": 1,
+   "2": 1,
+   "3": 2,
+   "4": 2
+  },
+  "n_images": 4,
+  "page_text": {
+   "1": "Central line Rail Roughness Plots\nEastbound Bethnal Green to Mile End\nFigure 1 – LHR 30-100mm\nFigure 2 – LHR 100-300mm",
+   "2": "Figure 3 – RHR 30-100mm\nFigure 4 – RHR 100-300mm"
+  }
+ },
+ "pixel_identical": {
+  "1v2": true,
+  "3v4": true
+ },
+ "digitizer": {
+  "1": {
+   "line_colour_pixels": {
+    "grey": {
+     "position": 0,
+     "spectrum": 997
+    },
+    "magenta": {
+     "position": 0,
+     "spectrum": 1079
+    },
+    "olive": {
+     "position": 0,
+     "spectrum": 823
+    },
+    "pink": {
+     "position": 2130,
+     "spectrum": 0
+    }
+   },
+   "pos_x_calib": {
+    "a": 1.0517305832670807,
+    "b": -86.7268026020532,
+    "interior_max_px": 0.54,
+    "edge_px": [
+     -0.06,
+     -0.01
+    ]
+   },
+   "pos_y_calib": {
+    "a": -0.6548038344920523,
+    "b": 165.2739579185936,
+    "interior_max_px": 0.32,
+    "edge_px": [
+     -0.02,
+     -0.4
+    ]
+   },
+   "spec_y_calib": {
+    "a": -0.361749859786876,
+    "b": 161.93494111048796,
+    "interior_max_px": 0.36,
+    "edge_px": [
+     0.28,
+     0.66
+    ]
+   },
+   "global_max": {
+    "x": 865.1,
+    "y": 136.5,
+    "tied_x": [
+     865.1
+    ]
+   },
+   "n_columns": 1463,
+   "x_range": [
+    -4.6276,
+    1534.0
+   ],
+   "band_levels": {
+    "2000": 43.3,
+    "1600": 40.7,
+    "1250": 38.6,
+    "1000": 35.3,
+    "800": 32.8,
+    "630": 30.3,
+    "500": 27.7,
+    "400": 25.9,
+    "315": 24.1,
+    "250": 20.5,
+    "200": 19.0,
+    "160": 21.2,
+    "125": 23.0,
+    "100": 19.4,
+    "80.0": 15.8,
+    "63.0": 15.8,
+    "50.0": 12.2,
+    "40.0": 7.8,
+    "31.5": 2.8,
+    "25.0": 3.9,
+    "20.0": -2.7,
+    "16.0": -5.0,
+    "12.5": 1.7,
+    "10.0": -3.0,
+    "8.0": -1.6,
+    "6.3": 0.6,
+    "5.0": 1.0,
+    "4.0": 0.6,
+    "3.15": -5.6
+   },
+   "bands_interpolated_overdrawn": [
+    "16.0"
+   ],
+   "exceedance_bounds_pct_at_printed_threshold": [
+    34.0,
+    49.2
+   ],
+   "elevated_stretches": [
+    [
+     725,
+     1209
+    ]
+   ],
+   "envelope_max_per_100m": {
+    "-100": 4.0,
+    "0": 19.0,
+    "100": 28.0,
+    "200": 48.0,
+    "300": 13.0,
+    "400": 26.0,
+    "500": 32.0,
+    "600": 38.0,
+    "700": 111.0,
+    "800": 136.0,
+    "900": 65.0,
+    "1000": 62.0,
+    "1100": 80.0,
+    "1200": 46.0,
+    "1300": 28.0,
+    "1400": 77.0,
+    "1500": 12.0
+   }
+  },
+  "2": {
+   "line_colour_pixels": {
+    "grey": {
+     "position": 0,
+     "spectrum": 997
+    },
+    "magenta": {
+     "position": 0,
+     "spectrum": 1079
+    },
+    "olive": {
+     "position": 0,
+     "spectrum": 823
+    },
+    "pink": {
+     "position": 2123,
+     "spectrum": 0
+    }
+   },
+   "pos_x_calib": {
+    "a": 1.0517305832670807,
+    "b": -86.7268026020532,
+    "interior_max_px": 0.54,
+    "edge_px": [
+     -0.06,
+     -0.01
+    ]
+   },
+   "pos_y_calib": {
+    "a": -1.5737036757491132,
+    "b": 396.3676503887084,
+    "interior_max_px": 0.45,
+    "edge_px": [
+     0.09,
+     0.13
+    ]
+   },
+   "spec_y_calib": {
+    "a": -0.361749859786876,
+    "b": 161.93494111048796,
+    "interior_max_px": 0.36,
+    "edge_px": [
+     0.28,
+     0.66
+    ]
+   },
+   "global_max": {
+    "x": 169.9,
+    "y": 327.1,
+    "tied_x": [
+     169.9
+    ]
+   },
+   "n_columns": 1463,
+   "x_range": [
+    -4.6276,
+    1534.0
+   ],
+   "band_levels": {
+    "2000": 43.3,
+    "1600": 40.7,
+    "1250": 38.6,
+    "1000": 35.3,
+    "800": 32.8,
+    "630": 30.3,
+    "500": 27.7,
+    "400": 25.9,
+    "315": 24.1,
+    "250": 20.5,
+    "200": 19.0,
+    "160": 21.2,
+    "125": 23.0,
+    "100": 19.4,
+    "80.0": 15.8,
+    "63.0": 15.8,
+    "50.0": 12.2,
+    "40.0": 7.8,
+    "31.5": 2.8,
+    "25.0": 3.9,
+    "20.0": -2.7,
+    "16.0": -5.0,
+    "12.5": 1.7,
+    "10.0": -3.0,
+    "8.0": -1.6,
+    "6.3": 0.6,
+    "5.0": 1.0,
+    "4.0": 0.6,
+    "3.15": -5.6
+   },
+   "bands_interpolated_overdrawn": [
+    "16.0"
+   ],
+   "exceedance_bounds_pct_at_printed_threshold": [
+    27.1,
+    53.3
+   ],
+   "elevated_stretches": [
+    [
+     732,
+     903
+    ]
+   ],
+   "envelope_max_per_100m": {
+    "-100": 14.0,
+    "0": 108.0,
+    "100": 327.0,
+    "200": 299.0,
+    "300": 82.0,
+    "400": 123.0,
+    "500": 93.0,
+    "600": 162.0,
+    "700": 193.0,
+    "800": 285.0,
+    "900": 245.0,
+    "1000": 168.0,
+    "1100": 149.0,
+    "1200": 135.0,
+    "1300": 174.0,
+    "1400": 152.0,
+    "1500": 39.0
+   }
+  },
+  "3": {
+   "line_colour_pixels": {
+    "grey": {
+     "position": 0,
+     "spectrum": 998
+    },
+    "magenta": {
+     "position": 0,
+     "spectrum": 1079
+    },
+    "olive": {
+     "position": 0,
+     "spectrum": 823
+    },
+    "pink": {
+     "position": 3848,
+     "spectrum": 0
+    }
+   },
+   "pos_x_calib": {
+    "a": 1.0558063469198393,
+    "b": -82.35247506816175,
+    "interior_max_px": 0.43,
+    "edge_px": [
+     0.0,
+     0.1
+    ]
+   },
+   "pos_y_calib": {
+    "a": -0.5376188686880367,
+    "b": 135.3741653900627,
+    "interior_max_px": 0.4,
+    "edge_px": [
+     -0.18,
+     0.2
+    ]
+   },
+   "spec_y_calib": {
+    "a": -0.36648210076201965,
+    "b": 164.34131900663337,
+    "interior_max_px": 0.43,
+    "edge_px": [
+     0.55,
+     0.98
+    ]
+   },
+   "global_max": {
+    "x": 168.9,
+    "y": 111.7,
+    "tied_x": [
+     168.9,
+     264.0
+    ]
+   },
+   "n_columns": 1463,
+   "x_range": [
+    0.0,
+    1544.5434
+   ],
+   "band_levels": {
+    "2000": 44.1,
+    "1600": 42.7,
+    "1250": 40.1,
+    "1000": 37.5,
+    "800": 33.9,
+    "630": 31.3,
+    "500": 28.7,
+    "400": 25.8,
+    "315": 24.0,
+    "250": 22.5,
+    "200": 24.3,
+    "160": 20.3,
+    "125": 18.5,
+    "100": 16.3,
+    "80.0": 13.0,
+    "63.0": 11.9,
+    "50.0": 10.1,
+    "40.0": 4.6,
+    "31.5": -0.2,
+    "25.0": 1.3,
+    "20.0": -3.5,
+    "16.0": -6.6,
+    "12.5": -3.9,
+    "10.0": -5.7,
+    "8.0": -4.2,
+    "6.3": -4.2,
+    "5.0": -5.0,
+    "4.0": -7.2,
+    "3.15": -8.6
+   },
+   "bands_interpolated_overdrawn": [
+    "20.0",
+    "16.0"
+   ],
+   "exceedance_bounds_pct_at_printed_threshold": [
+    22.8,
+    42.6
+   ],
+   "elevated_stretches": [
+    [
+     729,
+     893
+    ],
+    [
+     1295,
+     1398
+    ]
+   ],
+   "envelope_max_per_100m": {
+    "0": 55.0,
+    "100": 112.0,
+    "200": 112.0,
+    "300": 19.0,
+    "400": 33.0,
+    "500": 13.0,
+    "600": 48.0,
+    "700": 65.0,
+    "800": 62.0,
+    "900": 58.0,
+    "1000": 23.0,
+    "1100": 32.0,
+    "1200": 35.0,
+    "1300": 82.0,
+    "1400": 86.0,
+    "1500": 46.0
+   }
+  },
+  "4": {
+   "line_colour_pixels": {
+    "grey": {
+     "position": 0,
+     "spectrum": 998
+    },
+    "magenta": {
+     "position": 0,
+     "spectrum": 1079
+    },
+    "olive": {
+     "position": 0,
+     "spectrum": 823
+    },
+    "pink": {
+     "position": 4027,
+     "spectrum": 0
+    }
+   },
+   "pos_x_calib": {
+    "a": 1.0558063469198393,
+    "b": -82.35247506816175,
+    "interior_max_px": 0.43,
+    "edge_px": [
+     0.0,
+     0.1
+    ]
+   },
+   "pos_y_calib": {
+    "a": -1.832410503810098,
+    "b": 462.29647497395956,
+    "interior_max_px": 0.43,
+    "edge_px": [
+     0.0,
+     -0.29
+    ]
+   },
+   "spec_y_calib": {
+    "a": -0.36648210076201965,
+    "b": 164.34131900663337,
+    "interior_max_px": 0.43,
+    "edge_px": [
+     0.55,
+     0.98
+    ]
+   },
+   "global_max": {
+    "x": 886.9,
+    "y": 381.7,
+    "tied_x": [
+     886.9
+    ]
+   },
+   "n_columns": 1463,
+   "x_range": [
+    0.0,
+    1544.5434
+   ],
+   "band_levels": {
+    "2000": 44.1,
+    "1600": 42.7,
+    "1250": 40.1,
+    "1000": 37.5,
+    "800": 33.9,
+    "630": 31.3,
+    "500": 28.7,
+    "400": 25.8,
+    "315": 24.0,
+    "250": 22.5,
+    "200": 24.3,
+    "160": 20.3,
+    "125": 18.5,
+    "100": 16.3,
+    "80.0": 13.0,
+    "63.0": 11.9,
+    "50.0": 10.1,
+    "40.0": 4.6,
+    "31.5": -0.2,
+    "25.0": 1.3,
+    "20.0": -3.5,
+    "16.0": -6.6,
+    "12.5": -3.9,
+    "10.0": -5.7,
+    "8.0": -4.2,
+    "6.3": -4.2,
+    "5.0": -5.0,
+    "4.0": -7.2,
+    "3.15": -8.6
+   },
+   "bands_interpolated_overdrawn": [
+    "20.0",
+    "16.0"
+   ],
+   "exceedance_bounds_pct_at_printed_threshold": [
+    19.5,
+    48.0
+   ],
+   "elevated_stretches": [
+    [
+     729,
+     903
+    ]
+   ],
+   "envelope_max_per_100m": {
+    "0": 79.0,
+    "100": 231.0,
+    "200": 239.0,
+    "300": 83.0,
+    "400": 153.0,
+    "500": 96.0,
+    "600": 98.0,
+    "700": 325.0,
+    "800": 382.0,
+    "900": 186.0,
+    "1000": 244.0,
+    "1100": 215.0,
+    "1200": 103.0,
+    "1300": 158.0,
+    "1400": 202.0,
+    "1500": 195.0
+   }
+  }
+ },
+ "digitizer_calib_max_px": 0.54,
+ "digitizer_edge_max_px": 0.98,
+ "tfl_anchor": {
+  "stated": {
+   "chunk": "FOI-1730-1819#000",
+   "zone_m": [
+    720.0,
+    880.0
+   ],
+   "zone_sentence": "The rail roughness measurements confirm an elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site.",
+   "grinding_planned": "February 2019",
+   "grinding_sentence": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface.",
+   "note": "the causal claim ('likely cause of the noise') is TfL's; we did not link roughness to noise"
+  },
+  "pixels": {
+   "1": {
+    "onset_m": 725,
+    "median_in_um": 73.3,
+    "median_out_um": 8.1
+   },
+   "2": {
+    "onset_m": 732,
+    "median_in_um": 135.1,
+    "median_out_um": 28.1
+   },
+   "3": {
+    "onset_m": 729,
+    "median_in_um": 28.7,
+    "median_out_um": 6.9
+   },
+   "4": {
+    "onset_m": 729,
+    "median_in_um": 149.0,
+    "median_out_um": 24.4
+   }
+  },
+  "common_zone_range": [
+   720.0,
+   1220.0
+  ],
+  "common_zone_by_figure": {
+   "1": {
+    "start_m": [
+     720.0,
+     735.0
+    ],
+    "end_m": [
+     1210.0,
+     1220.0
+    ]
+   },
+   "2": {
+    "start_m": [
+     720.0,
+     735.0
+    ],
+    "end_m": [
+     1200.0,
+     1200.0
+    ]
+   },
+   "3": {
+    "start_m": [
+     725.0,
+     725.0
+    ],
+    "end_m": [
+     905.0,
+     905.0
+    ]
+   },
+   "4": {
+    "start_m": [
+     725.0,
+     725.0
+    ],
+    "end_m": [
+     905.0,
+     910.0
+    ]
+   }
+  },
+  "common_zone_all_figures_overlap_range": [
+   735.0,
+   905.0
+  ],
+  "common_zone_overlaps": true
+ },
+ "consolidated": {
+  "1": {
+   "header_text": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+   "header_same_in_all_runs": true,
+   "global_max_by_run": [
+    [
+     869.0,
+     135.0
+    ],
+    [
+     883.0,
+     135.0
+    ]
+   ],
+   "global_max_digitizer": {
+    "x": 865.1,
+    "y": 136.5,
+    "tied_x": [
+     865.1
+    ]
+   },
+   "zones": [
+    {
+     "start_by_run": [
+      170.0,
+      165.0
+     ],
+     "end_by_run": [
+      315.0,
+      285.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 170.0,
+      "end": 315.0,
+      "ok": false,
+      "median_in": 12.0,
+      "median_out": 9.4
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      510.0
+     ],
+     "end_by_run": [
+      655.0
+     ],
+     "runs_agree": false,
+     "zone_rule": {
+      "start": 510.0,
+      "end": 655.0,
+      "ok": false,
+      "median_in": 7.5,
+      "median_out": 10.1
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      720.0,
+      735.0
+     ],
+     "end_by_run": [
+      1210.0,
+      1220.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 720.0,
+      "end": 1210.0,
+      "ok": true,
+      "median_in": 42.8,
+      "median_out": 6.2
+     },
+     "confirmed": true
+    },
+    {
+     "start_by_run": [
+      1350.0
+     ],
+     "end_by_run": [
+      1500.0
+     ],
+     "runs_agree": false,
+     "zone_rule": {
+      "start": 1350.0,
+      "end": 1500.0,
+      "ok": false,
+      "median_in": 8.1,
+      "median_out": 10.1
+     },
+     "confirmed": false
+    }
+   ],
+   "spectrum_peaks_all_agree": [
+    {
+     "band_mm": "125",
+     "db": 23.0,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "12.5",
+     "db": 1.7,
+     "prominence_db": 4.7
+    }
+   ],
+   "spectrum_peaks_digitizer_only": [
+    "25.0"
+   ],
+   "global_max_pixel_ok_by_run": [
+    true,
+    false
+   ]
+  },
+  "2": {
+   "header_text": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+   "header_same_in_all_runs": true,
+   "global_max_by_run": [
+    [
+     169.0,
+     325.0
+    ],
+    [
+     168.0,
+     324.0
+    ]
+   ],
+   "global_max_digitizer": {
+    "x": 169.9,
+    "y": 327.1,
+    "tied_x": [
+     169.9
+    ]
+   },
+   "zones": [
+    {
+     "start_by_run": [
+      160.0,
+      160.0
+     ],
+     "end_by_run": [
+      265.0,
+      260.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 160.0,
+      "end": 265.0,
+      "ok": false,
+      "median_in": 44.6,
+      "median_out": 32.8
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      370.0,
+      605.0
+     ],
+     "end_by_run": [
+      650.0,
+      645.0
+     ],
+     "runs_agree": false,
+     "zone_rule": {
+      "start": 370.0,
+      "end": 650.0,
+      "ok": false,
+      "median_in": 28.1,
+      "median_out": 36.0
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      720.0,
+      735.0
+     ],
+     "end_by_run": [
+      1200.0,
+      1200.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 720.0,
+      "end": 1200.0,
+      "ok": true,
+      "median_in": 87.9,
+      "median_out": 21.8
+     },
+     "confirmed": true
+    },
+    {
+     "start_by_run": [
+      1355.0
+     ],
+     "end_by_run": [
+      1490.0
+     ],
+     "runs_agree": false,
+     "zone_rule": {
+      "start": 1355.0,
+      "end": 1490.0,
+      "ok": false,
+      "median_in": 26.5,
+      "median_out": 34.4
+     },
+     "confirmed": false
+    }
+   ],
+   "spectrum_peaks_all_agree": [
+    {
+     "band_mm": "125",
+     "db": 23.0,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "12.5",
+     "db": 1.7,
+     "prominence_db": 4.7
+    }
+   ],
+   "spectrum_peaks_digitizer_only": [
+    "25.0"
+   ],
+   "global_max_pixel_ok_by_run": [
+    true,
+    true
+   ]
+  },
+  "3": {
+   "header_text": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+   "header_same_in_all_runs": true,
+   "global_max_by_run": [
+    [
+     262.0,
+     112.0
+    ],
+    [
+     265.0,
+     111.0
+    ]
+   ],
+   "global_max_digitizer": {
+    "x": 168.9,
+    "y": 111.7,
+    "tied_x": [
+     168.9,
+     264.0
+    ]
+   },
+   "zones": [
+    {
+     "start_by_run": [
+      85.0,
+      95.0
+     ],
+     "end_by_run": [
+      275.0,
+      275.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 85.0,
+      "end": 275.0,
+      "ok": true,
+      "median_in": 18.2,
+      "median_out": 6.9
+     },
+     "confirmed": true
+    },
+    {
+     "start_by_run": [
+      725.0,
+      725.0
+     ],
+     "end_by_run": [
+      905.0,
+      905.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 725.0,
+      "end": 905.0,
+      "ok": true,
+      "median_in": 28.4,
+      "median_out": 6.9
+     },
+     "confirmed": true
+    },
+    {
+     "start_by_run": [
+      1285.0,
+      1295.0
+     ],
+     "end_by_run": [
+      1510.0,
+      1505.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 1285.0,
+      "end": 1510.0,
+      "ok": true,
+      "median_in": 27.9,
+      "median_out": 6.9
+     },
+     "confirmed": true
+    }
+   ],
+   "spectrum_peaks_all_agree": [
+    {
+     "band_mm": "200",
+     "db": 24.3,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "25.0",
+     "db": 1.3,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "12.5",
+     "db": -3.9,
+     "prominence_db": 1.8
+    }
+   ],
+   "spectrum_peaks_digitizer_only": [],
+   "global_max_pixel_ok_by_run": [
+    true,
+    true
+   ]
+  },
+  "4": {
+   "header_text": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+   "header_same_in_all_runs": true,
+   "global_max_by_run": [
+    [
+     886.0,
+     378.0
+    ],
+    [
+     884.0,
+     385.0
+    ]
+   ],
+   "global_max_digitizer": {
+    "x": 886.9,
+    "y": 381.7,
+    "tied_x": [
+     886.9
+    ]
+   },
+   "zones": [
+    {
+     "start_by_run": [
+      120.0,
+      125.0
+     ],
+     "end_by_run": [
+      280.0,
+      285.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 120.0,
+      "end": 280.0,
+      "ok": false,
+      "median_in": 30.8,
+      "median_out": 28.0
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      400.0
+     ],
+     "end_by_run": [
+      530.0
+     ],
+     "runs_agree": false,
+     "zone_rule": {
+      "start": 400.0,
+      "end": 530.0,
+      "ok": false,
+      "median_in": 24.4,
+      "median_out": 29.8
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      725.0,
+      725.0
+     ],
+     "end_by_run": [
+      910.0,
+      905.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 725.0,
+      "end": 910.0,
+      "ok": true,
+      "median_in": 141.6,
+      "median_out": 24.4
+     },
+     "confirmed": true
+    },
+    {
+     "start_by_run": [
+      940.0,
+      945.0
+     ],
+     "end_by_run": [
+      1240.0,
+      1240.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 940.0,
+      "end": 1240.0,
+      "ok": false,
+      "median_in": 33.5,
+      "median_out": 26.2
+     },
+     "confirmed": false
+    },
+    {
+     "start_by_run": [
+      1290.0,
+      1295.0
+     ],
+     "end_by_run": [
+      1525.0,
+      1520.0
+     ],
+     "runs_agree": true,
+     "zone_rule": {
+      "start": 1290.0,
+      "end": 1525.0,
+      "ok": true,
+      "median_in": 55.5,
+      "median_out": 26.2
+     },
+     "confirmed": true
+    }
+   ],
+   "spectrum_peaks_all_agree": [
+    {
+     "band_mm": "200",
+     "db": 24.3,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "25.0",
+     "db": 1.3,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "12.5",
+     "db": -3.9,
+     "prominence_db": 1.8
+    }
+   ],
+   "spectrum_peaks_digitizer_only": [],
+   "global_max_pixel_ok_by_run": [
+    true,
+    true
+   ]
+  }
+ },
+ "runs": [
+  {
+   "run": 1,
+   "mode": "pdf",
+   "ts": "2026-10-25T04:17:58+00:00",
+   "model": "gemini-4-argon",
+   "model_version": "gemini-4-argon",
+   "thinking": "medium",
+   "media_resolution": "high",
+   "seconds": 118.4,
+   "usage": {
+    "prompt": 5375,
+    "output": 13699,
+    "thoughts": null
+   },
+   "extraction": {
+    "document_title": "Central line Rail Roughness Plots — Eastbound Bethnal Green to Mile End",
+    "n_pages": 2,
+    "n_figures": 4,
+    "figures": [
+     {
+      "figure_no": 1,
+      "page": 1,
+      "figure_caption": "Figure 1 – LHR 30-100mm",
+      "header_text": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+      "header_values": {
+       "main_av_pp_um": 16.5,
+       "exceedance_pct": 41.0,
+       "exceedance_km": 0.626,
+       "threshold_um": 10.0
+      },
+      "rail_label": "LHR",
+      "band_label": "30-100mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": -4.6276,
+        "max": 1534.0,
+        "tick_labels": [
+         "-4.6276",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1534.0000"
+        ]
+       },
+       "y_axis": {
+        "label": "30-100mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 143.0,
+        "tick_labels": [
+         "143",
+         "120",
+         "100",
+         "80",
+         "60",
+         "40",
+         "20",
+         "0"
+        ]
+       },
+       "threshold_value": 10.0,
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 869.0,
+         "y": 135.0,
+         "note": "Narrow spike near the upper end of the 720–900 m elevated zone, reaching just below the 143 µm top of the axis"
+        },
+        {
+         "kind": "local_max",
+         "x": 802.0,
+         "y": 106.0,
+         "note": "Tallest peak in the middle of the 720–900 m elevated zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 825.0,
+         "y": 98.0,
+         "note": "Second peak near 100 µm within the 720–900 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1413.0,
+         "y": 73.0,
+         "note": "Isolated narrow spike just past 1400 m"
+        },
+        {
+         "kind": "local_max",
+         "x": 1138.0,
+         "y": 72.0,
+         "note": "Highest spike in the 1085–1210 m cluster"
+        },
+        {
+         "kind": "local_max",
+         "x": 265.0,
+         "y": 46.0,
+         "note": "Highest peak in the smaller 170–315 m cluster"
+        },
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 10.0,
+         "note": "Horizontal dashed line at 10 µm across the full position range (matching '>10µm' in the header)"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 170.0,
+         "end": 315.0,
+         "note": "Intermittent cluster of peaks mostly between 10 and 46 µm"
+        },
+        {
+         "start": 510.0,
+         "end": 655.0,
+         "note": "Intermittent spikes above 10 µm, peaking around 28–33 µm"
+        },
+        {
+         "start": 720.0,
+         "end": 1210.0,
+         "note": "Continuous elevated stretch ~490 m long: highest between 720 and 900 m (typically 35–100 µm, global max 135 µm at ~869 m), dropping to 15–62 µm over 900–1085 m and rising again to 20–72 µm over 1085–1210 m"
+        },
+        {
+         "start": 1350.0,
+         "end": 1500.0,
+         "note": "Repeating narrow spikes reaching 25–73 µm above a low baseline"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 47.0,
+        "tick_labels": [
+         "47",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "Dark-red solid polyline with square vertex markers at every one-third-octave wavelength from 2000 mm to 3.15 mm (unlabelled in figure)",
+        "Green smooth curve without markers from 630 mm to 10.0 mm (unlabelled in figure)",
+        "Magenta/purple smooth curve without markers from 400 mm to 3.15 mm (unlabelled in figure)",
+        "Brown/olive lower smooth curve without markers from 200 mm to 5.0 mm (unlabelled in figure)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 43.5
+        },
+        {
+         "band_mm": "1600",
+         "db": 41.5
+        },
+        {
+         "band_mm": "1250",
+         "db": 39.5
+        },
+        {
+         "band_mm": "1000",
+         "db": 36.5
+        },
+        {
+         "band_mm": "800",
+         "db": 33.5
+        },
+        {
+         "band_mm": "630",
+         "db": 30.5
+        },
+        {
+         "band_mm": "500",
+         "db": 28.0
+        },
+        {
+         "band_mm": "400",
+         "db": 25.5
+        },
+        {
+         "band_mm": "315",
+         "db": 23.5
+        },
+        {
+         "band_mm": "250",
+         "db": 19.5
+        },
+        {
+         "band_mm": "200",
+         "db": 19.0
+        },
+        {
+         "band_mm": "160",
+         "db": 20.5
+        },
+        {
+         "band_mm": "125",
+         "db": 22.5
+        },
+        {
+         "band_mm": "100",
+         "db": 19.0
+        },
+        {
+         "band_mm": "80.0",
+         "db": 15.5
+        },
+        {
+         "band_mm": "63.0",
+         "db": 15.0
+        },
+        {
+         "band_mm": "50.0",
+         "db": 12.5
+        },
+        {
+         "band_mm": "40.0",
+         "db": 9.0
+        },
+        {
+         "band_mm": "31.5",
+         "db": 3.0
+        },
+        {
+         "band_mm": "25.0",
+         "db": 4.0
+        },
+        {
+         "band_mm": "20.0",
+         "db": -2.5
+        },
+        {
+         "band_mm": "16.0",
+         "db": -5.5
+        },
+        {
+         "band_mm": "12.5",
+         "db": 1.0
+        },
+        {
+         "band_mm": "10.0",
+         "db": -2.5
+        },
+        {
+         "band_mm": "8.0",
+         "db": -0.5
+        },
+        {
+         "band_mm": "6.3",
+         "db": 1.0
+        },
+        {
+         "band_mm": "5.0",
+         "db": 1.5
+        },
+        {
+         "band_mm": "4.0",
+         "db": 0.5
+        },
+        {
+         "band_mm": "3.15",
+         "db": -6.0
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 43.5,
+         "note": "Highest point of the dark-red spectrum curve, at the 2000 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 125.0,
+         "y": 22.5,
+         "note": "Broad local hump centred at the 125 mm band (rising from 19.0 dB at 200 mm to 22.5 dB at 125 mm)"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 4.0,
+         "note": "Small local peak at the 25.0 mm band (1 dB above 31.5 mm)"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": 1.0,
+         "note": "Sharp local peak at the 12.5 mm band (6.5 dB above the 16.0 mm trough)"
+        },
+        {
+         "kind": "local_max",
+         "x": 5.0,
+         "y": 1.5,
+         "note": "Broad short-wavelength hump across 8.0–4.0 mm, peaking at 5.0 mm"
+        }
+       ]
+      }
+     },
+     {
+      "figure_no": 2,
+      "page": 1,
+      "figure_caption": "Figure 2 – LHR 100-300mm",
+      "header_text": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+      "header_values": {
+       "main_av_pp_um": 39.2,
+       "exceedance_pct": 41.0,
+       "exceedance_km": 0.626,
+       "threshold_um": 30.0
+      },
+      "rail_label": "LHR",
+      "band_label": "100-300mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": -4.6276,
+        "max": 1534.0,
+        "tick_labels": [
+         "-4.6276",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1534.0000"
+        ]
+       },
+       "y_axis": {
+        "label": "100-300mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 343.0,
+        "tick_labels": [
+         "343",
+         "300",
+         "250",
+         "200",
+         "150",
+         "100",
+         "50",
+         "0"
+        ]
+       },
+       "threshold_value": 30.0,
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 169.0,
+         "y": 325.0,
+         "note": "Tallest spike in the figure, just below the 343 µm top of the axis, inside the 160–240 m spike cluster"
+        },
+        {
+         "kind": "local_max",
+         "x": 218.0,
+         "y": 292.0,
+         "note": "Second tall spike in the 160–240 m cluster, with an adjacent spike of ~255 µm at ~215 m"
+        },
+        {
+         "kind": "local_max",
+         "x": 883.0,
+         "y": 288.0,
+         "note": "Tallest spike near the upper end of the 720–900 m elevated zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 182.0,
+         "y": 265.0,
+         "note": "Intermediate tall spike in the 160–240 m cluster"
+        },
+        {
+         "kind": "local_max",
+         "x": 968.0,
+         "y": 250.0,
+         "note": "Sharp spike reaching the 250 µm gridline in the 900–1200 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 850.0,
+         "y": 235.0,
+         "note": "Peak within the dense 720–900 m rough zone (with nearby peaks of ~225 µm at ~810 m and ~825 m)"
+        },
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 30.0,
+         "note": "Horizontal dashed line at 30 µm across the full position range (matching '>30µm' in the header)"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 160.0,
+         "end": 265.0,
+         "note": "Group of very tall spikes reaching 255–325 µm between 165 and 220 m"
+        },
+        {
+         "start": 370.0,
+         "end": 650.0,
+         "note": "Repeated clusters above 30 µm, peaking around 120 µm at ~418 m and ~152 µm at ~622–628 m"
+        },
+        {
+         "start": 720.0,
+         "end": 1200.0,
+         "note": "Long continuous elevated stretch ~480 m long: 70–288 µm over 720–900 m and 30–250 µm over 900–1200 m"
+        },
+        {
+         "start": 1355.0,
+         "end": 1490.0,
+         "note": "Cluster of spikes above 30 µm with peaks of ~172 µm at ~1360 m and ~150 µm at ~1415 m"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 47.0,
+        "tick_labels": [
+         "47",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "Dark-red solid polyline with square vertex markers at every one-third-octave wavelength from 2000 mm to 3.15 mm (unlabelled in figure; identical to Figure 1)",
+        "Green smooth curve without markers from 630 mm to 10.0 mm (unlabelled in figure)",
+        "Magenta/purple smooth curve without markers from 400 mm to 3.15 mm (unlabelled in figure)",
+        "Brown/olive lower smooth curve without markers from 200 mm to 5.0 mm (unlabelled in figure)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 43.5
+        },
+        {
+         "band_mm": "1600",
+         "db": 41.5
+        },
+        {
+         "band_mm": "1250",
+         "db": 39.5
+        },
+        {
+         "band_mm": "1000",
+         "db": 36.5
+        },
+        {
+         "band_mm": "800",
+         "db": 33.5
+        },
+        {
+         "band_mm": "630",
+         "db": 30.5
+        },
+        {
+         "band_mm": "500",
+         "db": 28.0
+        },
+        {
+         "band_mm": "400",
+         "db": 25.5
+        },
+        {
+         "band_mm": "315",
+         "db": 23.5
+        },
+        {
+         "band_mm": "250",
+         "db": 19.5
+        },
+        {
+         "band_mm": "200",
+         "db": 19.0
+        },
+        {
+         "band_mm": "160",
+         "db": 20.5
+        },
+        {
+         "band_mm": "125",
+         "db": 22.5
+        },
+        {
+         "band_mm": "100",
+         "db": 19.0
+        },
+        {
+         "band_mm": "80.0",
+         "db": 15.5
+        },
+        {
+         "band_mm": "63.0",
+         "db": 15.0
+        },
+        {
+         "band_mm": "50.0",
+         "db": 12.5
+        },
+        {
+         "band_mm": "40.0",
+         "db": 9.0
+        },
+        {
+         "band_mm": "31.5",
+         "db": 3.0
+        },
+        {
+         "band_mm": "25.0",
+         "db": 4.0
+        },
+        {
+         "band_mm": "20.0",
+         "db": -2.5
+        },
+        {
+         "band_mm": "16.0",
+         "db": -5.5
+        },
+        {
+         "band_mm": "12.5",
+         "db": 1.0
+        },
+        {
+         "band_mm": "10.0",
+         "db": -2.5
+        },
+        {
+         "band_mm": "8.0",
+         "db": -0.5
+        },
+        {
+         "band_mm": "6.3",
+         "db": 1.0
+        },
+        {
+         "band_mm": "5.0",
+         "db": 1.5
+        },
+        {
+         "band_mm": "4.0",
+         "db": 0.5
+        },
+        {
+         "band_mm": "3.15",
+         "db": -6.0
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 43.5,
+         "note": "Highest point of the dark-red spectrum curve, at the 2000 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 125.0,
+         "y": 22.5,
+         "note": "Broad local hump centred at the 125 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 4.0,
+         "note": "Small local peak at the 25.0 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": 1.0,
+         "note": "Sharp local peak at the 12.5 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 5.0,
+         "y": 1.5,
+         "note": "Broad short-wavelength hump across 8.0–4.0 mm, peaking at 5.0 mm"
+        }
+       ]
+      }
+     },
+     {
+      "figure_no": 3,
+      "page": 2,
+      "figure_caption": "Figure 3 – RHR 30-100mm",
+      "header_text": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+      "header_values": {
+       "main_av_pp_um": 10.9,
+       "exceedance_pct": 33.0,
+       "exceedance_km": 0.504,
+       "threshold_um": 10.0
+      },
+      "rail_label": "RHR",
+      "band_label": "30-100mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": 0.0,
+        "max": 1544.5434,
+        "tick_labels": [
+         "0.0000",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1544.5434"
+        ]
+       },
+       "y_axis": {
+        "label": "30-100mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 117.0,
+        "tick_labels": [
+         "117",
+         "100",
+         "80",
+         "60",
+         "40",
+         "20",
+         "0"
+        ]
+       },
+       "threshold_value": 10.0,
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 262.0,
+         "y": 112.0,
+         "note": "Sharp spike near the end of the 85–275 m zone, approaching the 117 µm top of the axis"
+        },
+        {
+         "kind": "local_max",
+         "x": 166.0,
+         "y": 110.0,
+         "note": "Nearly equal tall spike at ~166 m inside the 85–275 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 243.0,
+         "y": 98.0,
+         "note": "Tall peak in the 230–265 m group of spikes"
+        },
+        {
+         "kind": "local_max",
+         "x": 133.0,
+         "y": 87.0,
+         "note": "Spike near the red vertical line at ~133 m"
+        },
+        {
+         "kind": "local_max",
+         "x": 1445.0,
+         "y": 85.0,
+         "note": "Tallest spike in the 1285–1510 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1303.0,
+         "y": 79.0,
+         "note": "Early peak in the 1285–1510 m rough zone (with nearby peaks of ~68 µm at ~1318 m and ~1345 m)"
+        },
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 10.0,
+         "note": "Horizontal dashed line at 10 µm across the full position range (matching '>10µm' in the header)"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 85.0,
+         "end": 275.0,
+         "note": "Active rough zone with frequent spikes between 20 and 112 µm"
+        },
+        {
+         "start": 725.0,
+         "end": 905.0,
+         "note": "Continuous elevated band of 15–65 µm (tallest peaks ~65 µm at ~748 m and ~61 µm at ~865 m)"
+        },
+        {
+         "start": 1285.0,
+         "end": 1510.0,
+         "note": "Rough zone near the end of the section with dense peaks of 20–85 µm between 1285 and 1400 m and further clusters up to 85 µm between 1410 and 1510 m"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 48.0,
+        "tick_labels": [
+         "48",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "Dark-red solid polyline with square vertex markers at every one-third-octave wavelength from 2000 mm to 3.15 mm (unlabelled in figure)",
+        "Green smooth curve without markers from 630 mm to 10.0 mm (unlabelled in figure)",
+        "Magenta/purple smooth curve without markers from 400 mm to 3.15 mm (unlabelled in figure)",
+        "Brown/olive lower smooth curve without markers from 200 mm to 5.0 mm (unlabelled in figure)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 45.0
+        },
+        {
+         "band_mm": "1600",
+         "db": 43.0
+        },
+        {
+         "band_mm": "1250",
+         "db": 40.0
+        },
+        {
+         "band_mm": "1000",
+         "db": 37.5
+        },
+        {
+         "band_mm": "800",
+         "db": 34.0
+        },
+        {
+         "band_mm": "630",
+         "db": 31.5
+        },
+        {
+         "band_mm": "500",
+         "db": 29.0
+        },
+        {
+         "band_mm": "400",
+         "db": 26.0
+        },
+        {
+         "band_mm": "315",
+         "db": 23.5
+        },
+        {
+         "band_mm": "250",
+         "db": 23.0
+        },
+        {
+         "band_mm": "200",
+         "db": 24.5
+        },
+        {
+         "band_mm": "160",
+         "db": 21.5
+        },
+        {
+         "band_mm": "125",
+         "db": 19.5
+        },
+        {
+         "band_mm": "100",
+         "db": 16.5
+        },
+        {
+         "band_mm": "80.0",
+         "db": 13.0
+        },
+        {
+         "band_mm": "63.0",
+         "db": 12.0
+        },
+        {
+         "band_mm": "50.0",
+         "db": 9.5
+        },
+        {
+         "band_mm": "40.0",
+         "db": 4.5
+        },
+        {
+         "band_mm": "31.5",
+         "db": -0.5
+        },
+        {
+         "band_mm": "25.0",
+         "db": 1.0
+        },
+        {
+         "band_mm": "20.0",
+         "db": -3.5
+        },
+        {
+         "band_mm": "16.0",
+         "db": -6.5
+        },
+        {
+         "band_mm": "12.5",
+         "db": -4.0
+        },
+        {
+         "band_mm": "10.0",
+         "db": -5.5
+        },
+        {
+         "band_mm": "8.0",
+         "db": -4.5
+        },
+        {
+         "band_mm": "6.3",
+         "db": -4.5
+        },
+        {
+         "band_mm": "5.0",
+         "db": -5.0
+        },
+        {
+         "band_mm": "4.0",
+         "db": -7.5
+        },
+        {
+         "band_mm": "3.15",
+         "db": -8.5
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 45.0,
+         "note": "Highest point of the dark-red spectrum curve, at the 2000 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 200.0,
+         "y": 24.5,
+         "note": "Local peak at the 200 mm band (1.5 dB above 250 mm and 3.0 dB above 160 mm)"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 1.0,
+         "note": "Local peak at the 25.0 mm band (1.5 dB above 31.5 mm)"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": -4.0,
+         "note": "Small local peak at the 12.5 mm band (2.5 dB above 16.0 mm and 1.5 dB above 10.0 mm)"
+        },
+        {
+         "kind": "local_max",
+         "x": 8.0,
+         "y": -4.5,
+         "note": "Flat local plateau across the 8.0 and 6.3 mm bands at -4.5 dB"
+        }
+       ]
+      }
+     },
+     {
+      "figure_no": 4,
+      "page": 2,
+      "figure_caption": "Figure 4 – RHR 100-300mm",
+      "header_text": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+      "header_values": {
+       "main_av_pp_um": 35.7,
+       "exceedance_pct": 34.0,
+       "exceedance_km": 0.519,
+       "threshold_um": 30.0
+      },
+      "rail_label": "RHR",
+      "band_label": "100-300mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": 0.0,
+        "max": 1544.5434,
+        "tick_labels": [
+         "0.0000",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1544.5434"
+        ]
+       },
+       "y_axis": {
+        "label": "100-300mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 400.0,
+        "tick_labels": [
+         "400",
+         "350",
+         "300",
+         "250",
+         "200",
+         "150",
+         "100",
+         "50",
+         "0"
+        ]
+       },
+       "threshold_value": 30.0,
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 886.0,
+         "y": 378.0,
+         "note": "Tallest spike in the figure, near the upper end of the 725–910 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 755.0,
+         "y": 340.0,
+         "note": "Tall spike near the start of the 725–910 m zone (with an adjacent ~320 µm spike at ~733 m)"
+        },
+        {
+         "kind": "local_max",
+         "x": 773.0,
+         "y": 335.0,
+         "note": "Third tall spike in the 730–780 m group"
+        },
+        {
+         "kind": "local_max",
+         "x": 851.0,
+         "y": 325.0,
+         "note": "Tall spike in the middle of the 725–910 m zone (with nearby peaks of ~310 µm at ~785 m and ~892 m)"
+        },
+        {
+         "kind": "local_max",
+         "x": 203.0,
+         "y": 318.0,
+         "note": "Tallest spike in the 120–280 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1020.0,
+         "y": 248.0,
+         "note": "Tallest spike in the 940–1240 m rough zone (with ~200 µm at ~1156 m)"
+        },
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 30.0,
+         "note": "Horizontal dashed line at 30 µm across the full position range (matching '>30µm' in the header)"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 120.0,
+         "end": 280.0,
+         "note": "Cluster of spikes above 30 µm, including ~205 µm at ~133 m, ~318 µm at ~203 m, ~218 µm at ~218 m, and ~225 µm at ~243 m"
+        },
+        {
+         "start": 400.0,
+         "end": 530.0,
+         "note": "Intermittent clusters above 30 µm, peaking around 150 µm at ~485 m"
+        },
+        {
+         "start": 725.0,
+         "end": 910.0,
+         "note": "Intense rough zone ~185 m long with dense spikes between 100 and 378 µm"
+        },
+        {
+         "start": 940.0,
+         "end": 1240.0,
+         "note": "Continued elevated roughness mostly between 30 and 150 µm, with spikes to ~195 µm at ~980 m, ~248 µm at ~1020 m, and ~200 µm at ~1156 m"
+        },
+        {
+         "start": 1290.0,
+         "end": 1525.0,
+         "note": "Rough zone across the final ~235 m with peaks mostly 40–195 µm (tallest ~195 µm at ~1488 m)"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 48.0,
+        "tick_labels": [
+         "48",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "Dark-red solid polyline with square vertex markers at every one-third-octave wavelength from 2000 mm to 3.15 mm (unlabelled in figure; identical to Figure 3)",
+        "Green smooth curve without markers from 630 mm to 10.0 mm (unlabelled in figure)",
+        "Magenta/purple smooth curve without markers from 400 mm to 3.15 mm (unlabelled in figure)",
+        "Brown/olive lower smooth curve without markers from 200 mm to 5.0 mm (unlabelled in figure)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 45.0
+        },
+        {
+         "band_mm": "1600",
+         "db": 43.0
+        },
+        {
+         "band_mm": "1250",
+         "db": 40.0
+        },
+        {
+         "band_mm": "1000",
+         "db": 37.5
+        },
+        {
+         "band_mm": "800",
+         "db": 34.0
+        },
+        {
+         "band_mm": "630",
+         "db": 31.5
+        },
+        {
+         "band_mm": "500",
+         "db": 29.0
+        },
+        {
+         "band_mm": "400",
+         "db": 26.0
+        },
+        {
+         "band_mm": "315",
+         "db": 23.5
+        },
+        {
+         "band_mm": "250",
+         "db": 23.0
+        },
+        {
+         "band_mm": "200",
+         "db": 24.5
+        },
+        {
+         "band_mm": "160",
+         "db": 21.5
+        },
+        {
+         "band_mm": "125",
+         "db": 19.5
+        },
+        {
+         "band_mm": "100",
+         "db": 16.5
+        },
+        {
+         "band_mm": "80.0",
+         "db": 13.0
+        },
+        {
+         "band_mm": "63.0",
+         "db": 12.0
+        },
+        {
+         "band_mm": "50.0",
+         "db": 9.5
+        },
+        {
+         "band_mm": "40.0",
+         "db": 4.5
+        },
+        {
+         "band_mm": "31.5",
+         "db": -0.5
+        },
+        {
+         "band_mm": "25.0",
+         "db": 1.0
+        },
+        {
+         "band_mm": "20.0",
+         "db": -3.5
+        },
+        {
+         "band_mm": "16.0",
+         "db": -6.5
+        },
+        {
+         "band_mm": "12.5",
+         "db": -4.0
+        },
+        {
+         "band_mm": "10.0",
+         "db": -5.5
+        },
+        {
+         "band_mm": "8.0",
+         "db": -4.5
+        },
+        {
+         "band_mm": "6.3",
+         "db": -4.5
+        },
+        {
+         "band_mm": "5.0",
+         "db": -5.0
+        },
+        {
+         "band_mm": "4.0",
+         "db": -7.5
+        },
+        {
+         "band_mm": "3.15",
+         "db": -8.5
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 45.0,
+         "note": "Highest point of the dark-red spectrum curve, at the 2000 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 200.0,
+         "y": 24.5,
+         "note": "Local peak at the 200 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 1.0,
+         "note": "Local peak at the 25.0 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": -4.0,
+         "note": "Small local peak at the 12.5 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 8.0,
+         "y": -4.5,
+         "note": "Flat local plateau across the 8.0 and 6.3 mm bands at -4.5 dB"
+        }
+       ]
+      }
+     }
+    ],
+    "unlabelled_elements": [
+     "In every lower (spectrum) panel, three smooth coloured curves without markers are plotted beneath the dark-red square-marker spectrum curve and have no legend or text label: a green curve spanning 630 mm to 10.0 mm (falling from about +27 dB to -8 dB), a magenta/purple curve spanning 400 mm to 3.15 mm (falling from about +19 dB to -11 dB), and a brown/olive curve spanning 200 mm to 5.0 mm (falling from about -6 dB to -27 dB).",
+     "In every upper (position) panel, thin vertical coloured lines run the full height of the plot at specific positions without any legend or text label: in Figures 1 and 2 (LHR) red and green vertical lines appear around 1225 m and 1285 m; in Figures 3 and 4 (RHR) red and green vertical lines appear around 133 m, 220 m, 710 m, 1272 m, 1360 m, and 1540 m.",
+     "In every upper (position) panel, a horizontal dashed line is drawn across the full position range at 10 µm (Figures 1 and 3) or 30 µm (Figures 2 and 4); it has no direct on-axis label, though its level matches the '>10µm' and '>30µm' exceedance values printed in each figure header."
+    ],
+    "summary": [
+     "The four figures show Moving Average Peak-to-Peak rail roughness traces against position (upper panels) and one-third-octave roughness spectra from 2000 mm down to 3.15 mm wavelength (lower panels) for Eastbound Bethnal Green to Mile End on the Central line, covering LHR (Figures 1–2, -4.6276 to 1534.0000 m) and RHR (Figures 3–4, 0.0000 to 1544.5434 m) in the 30–100 mm and 100–300 mm wavelength bands.",
+     "On the LHR, both bands have a 41% (0.626 km) exceedance above their respective thresholds, with a main average P-P of 16.5 µm (>10 µm) in the 30–100 mm band and 39.2 µm (>30 µm) in the 100–300 mm band; the longest continuous rough stretch runs from roughly 720 m to 1210 m (peaking at ~135 µm at ~869 m in 30–100 mm and ~288 µm at ~883 m in 100–300 mm), while the 100–300 mm trace also has a cluster of taller spikes between 165 m and 220 m reaching a global maximum of ~325 µm at ~169 m.",
+     "On the RHR, the main average P-P and exceedance are lower than on the LHR in both bands: 10.9 µm with 33% (0.504 km) >10 µm for 30–100 mm, and 35.7 µm with 34% (0.519 km) >30 µm for 100–300 mm.",
+     "The RHR position traces concentrate their highest roughness in three main stretches: roughly 85–280 m (where RHR 30–100 mm reaches its global maximum of ~112 µm at ~262 m and ~110 µm at ~166 m, and RHR 100–300 mm reaches ~318 µm at ~203 m), 725–910 m (where RHR 100–300 mm reaches its global maximum of ~378 µm at ~886 m), and 1285–1525 m (peaking at ~85 µm in 30–100 mm and ~195 µm in 100–300 mm).",
+     "For each rail, the 30–100 mm and 100–300 mm figures display the same full-range one-third-octave spectrum curve in the lower panel, falling overall from 43.5 dB (LHR) and 45.0 dB (RHR) at 2000 mm to -6.0 dB (LHR) and -8.5 dB (RHR) at 3.15 mm.",
+     "Comparing the two spectra, the LHR curve is higher than the RHR curve at every band from 125 mm down to 3.15 mm (by 2.5–3.5 dB across 125–31.5 mm and by 5–6.5 dB at 12.5 mm and 6.3–4.0 mm), whereas the RHR curve is 0.5–5.5 dB higher than the LHR curve across the longer wavelengths from 2000 mm to 160 mm, with a local peak of 24.5 dB at 200 mm."
+    ]
+   },
+   "checks": {
+    "ok": false,
+    "failures": [
+     "document_title is not verbatim page-1 text",
+     "fig 1: zone 170-315 m not confirmed by the zone rule (envelope median 12.0 inside vs 9.4 outside, threshold 10.0)",
+     "fig 1: zone 510-655 m not confirmed by the zone rule (envelope median 7.5 inside vs 10.1 outside, threshold 10.0)",
+     "fig 1: zone 1350-1500 m not confirmed by the zone rule (envelope median 8.1 inside vs 10.1 outside, threshold 10.0)",
+     "fig 2: zone 160-265 m not confirmed by the zone rule (envelope median 44.6 inside vs 32.8 outside, threshold 30.0)",
+     "fig 2: zone 370-650 m not confirmed by the zone rule (envelope median 28.1 inside vs 36.0 outside, threshold 30.0)",
+     "fig 2: zone 1355-1490 m not confirmed by the zone rule (envelope median 26.5 inside vs 34.4 outside, threshold 30.0)",
+     "fig 4: zone 120-280 m not confirmed by the zone rule (envelope median 30.8 inside vs 28.0 outside, threshold 30.0)",
+     "fig 4: zone 400-530 m not confirmed by the zone rule (envelope median 24.4 inside vs 29.8 outside, threshold 30.0)",
+     "fig 4: zone 940-1240 m not confirmed by the zone rule (envelope median 33.5 inside vs 26.2 outside, threshold 30.0)",
+     "fig 1: local_max reading 72.0 µm at 1138 m fails the pixel check: pixels give 80.1 µm within ±10 m of x (|Δ| 8.1 > 7.2)",
+     "fig 3: local_max reading 98.0 µm at 243 m fails the pixel check: pixels give 87.5 µm within ±10 m of x (|Δ| 10.5 > 5.9)",
+     "fig 4: local_max reading 318.0 µm at 203 m fails the pixel check: pixels give 238.7 µm within ±10 m of x (|Δ| 79.3 > 20.0)",
+     "summary sentence 4 rejected: contradicted by the pixels: ~318 µm at ~203 m (fig 4: 238.7 µm within ±10 m)",
+     "summary sentence 6 rejected: contradicted by the pixels: RHR curve is 0.5–5.5 dB higher than the LHR from 2000 mm to 160 mm (RHR - LHR over 12 bands: -0.9 to +5.3 dB)",
+     "unlabelled elements: the grey line (128, 128, 128) on the spectrum panel is not named by its colour in an element about that panel",
+     "unlabelled elements: the pink line (255, 204, 204) on the position panel is not named by its colour in an element about that panel",
+     "unlabelled elements: vertical lines on the position panel are called green/red but the pixels hold only pink (255, 204, 204)"
+    ],
+    "notes": [
+     "axis titles in the PDF text layer: 0/16 (the axes are raster inside the figure images; the text layer holds the title and captions only)"
+    ],
+    "axis_labels": [
+     {
+      "figure": 1,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 1,
+      "axis": "pos_y",
+      "label": "30-100mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 1,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 1,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "pos_y",
+      "label": "100-300mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "pos_y",
+      "label": "30-100mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "pos_y",
+      "label": "100-300mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     }
+    ],
+    "zones": [
+     {
+      "start": 170.0,
+      "end": 315.0,
+      "ok": false,
+      "median_in": 12.0,
+      "median_out": 9.4,
+      "figure": 1
+     },
+     {
+      "start": 510.0,
+      "end": 655.0,
+      "ok": false,
+      "median_in": 7.5,
+      "median_out": 10.1,
+      "figure": 1
+     },
+     {
+      "start": 720.0,
+      "end": 1210.0,
+      "ok": true,
+      "median_in": 42.8,
+      "median_out": 6.2,
+      "figure": 1
+     },
+     {
+      "start": 1350.0,
+      "end": 1500.0,
+      "ok": false,
+      "median_in": 8.1,
+      "median_out": 10.1,
+      "figure": 1
+     },
+     {
+      "start": 160.0,
+      "end": 265.0,
+      "ok": false,
+      "median_in": 44.6,
+      "median_out": 32.8,
+      "figure": 2
+     },
+     {
+      "start": 370.0,
+      "end": 650.0,
+      "ok": false,
+      "median_in": 28.1,
+      "median_out": 36.0,
+      "figure": 2
+     },
+     {
+      "start": 720.0,
+      "end": 1200.0,
+      "ok": true,
+      "median_in": 87.9,
+      "median_out": 21.8,
+      "figure": 2
+     },
+     {
+      "start": 1355.0,
+      "end": 1490.0,
+      "ok": false,
+      "median_in": 26.5,
+      "median_out": 34.4,
+      "figure": 2
+     },
+     {
+      "start": 85.0,
+      "end": 275.0,
+      "ok": true,
+      "median_in": 18.2,
+      "median_out": 6.9,
+      "figure": 3
+     },
+     {
+      "start": 725.0,
+      "end": 905.0,
+      "ok": true,
+      "median_in": 28.4,
+      "median_out": 6.9,
+      "figure": 3
+     },
+     {
+      "start": 1285.0,
+      "end": 1510.0,
+      "ok": true,
+      "median_in": 27.9,
+      "median_out": 6.9,
+      "figure": 3
+     },
+     {
+      "start": 120.0,
+      "end": 280.0,
+      "ok": false,
+      "median_in": 30.8,
+      "median_out": 28.0,
+      "figure": 4
+     },
+     {
+      "start": 400.0,
+      "end": 530.0,
+      "ok": false,
+      "median_in": 24.4,
+      "median_out": 29.8,
+      "figure": 4
+     },
+     {
+      "start": 725.0,
+      "end": 910.0,
+      "ok": true,
+      "median_in": 141.6,
+      "median_out": 24.4,
+      "figure": 4
+     },
+     {
+      "start": 940.0,
+      "end": 1240.0,
+      "ok": false,
+      "median_in": 33.5,
+      "median_out": 26.2,
+      "figure": 4
+     },
+     {
+      "start": 1290.0,
+      "end": 1525.0,
+      "ok": true,
+      "median_in": 55.5,
+      "median_out": 26.2,
+      "figure": 4
+     }
+    ],
+    "summary": [
+     {
+      "sentence": "The four figures show Moving Average Peak-to-Peak rail roughness traces against position (upper panels) and one-third-octave roughness spectra from 2000 mm down to 3.15 mm wavelength (lower panels) for Eastbound Bethnal Green to Mile End on the Central line, covering LHR (Figures 1–2, -4.6276 to 1534.0000 m) and RHR (Figures 3–4, 0.0000 to 1544.5434 m) in the 30–100 mm and 100–300 mm wavelength bands.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": []
+     },
+     {
+      "sentence": "On the LHR, both bands have a 41% (0.626 km) exceedance above their respective thresholds, with a main average P-P of 16.5 µm (>10 µm) in the 30–100 mm band and 39.2 µm (>30 µm) in the 100–300 mm band; the longest continuous rough stretch runs from roughly 720 m to 1210 m (peaking at ~135 µm at ~869 m in 30–100 mm and ~288 µm at ~883 m in 100–300 mm), while the 100–300 mm trace also has a cluster of taller spikes between 165 m and 220 m reaching a global maximum of ~325 µm at ~169 m.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": [
+       {
+        "claim": "~135 µm at ~869 m",
+        "figures": [
+         1
+        ],
+        "ok": true,
+        "pixel": "fig 1: 136.5 µm within ±10 m"
+       },
+       {
+        "claim": "~288 µm at ~883 m",
+        "figures": [
+         2
+        ],
+        "ok": true,
+        "pixel": "fig 2: 284.6 µm within ±10 m"
+       },
+       {
+        "claim": "~325 µm at ~169 m",
+        "figures": [
+         2
+        ],
+        "ok": true,
+        "pixel": "fig 2: 327.1 µm within ±10 m"
+       }
+      ]
+     },
+     {
+      "sentence": "On the RHR, the main average P-P and exceedance are lower than on the LHR in both bands: 10.9 µm with 33% (0.504 km) >10 µm for 30–100 mm, and 35.7 µm with 34% (0.519 km) >30 µm for 100–300 mm.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": []
+     },
+     {
+      "sentence": "The RHR position traces concentrate their highest roughness in three main stretches: roughly 85–280 m (where RHR 30–100 mm reaches its global maximum of ~112 µm at ~262 m and ~110 µm at ~166 m, and RHR 100–300 mm reaches ~318 µm at ~203 m), 725–910 m (where RHR 100–300 mm reaches its global maximum of ~378 µm at ~886 m), and 1285–1525 m (peaking at ~85 µm in 30–100 mm and ~195 µm in 100–300 mm).",
+      "status": "rejected",
+      "reasons": [
+       "contradicted by the pixels: ~318 µm at ~203 m (fig 4: 238.7 µm within ±10 m)"
+      ],
+      "consistent_with_extraction": false,
+      "numbers_not_in_extraction": [
+       "195"
+      ],
+      "pixel_claims": [
+       {
+        "claim": "~112 µm at ~262 m",
+        "figures": [
+         3
+        ],
+        "ok": true,
+        "pixel": "fig 3: 111.7 µm within ±10 m"
+       },
+       {
+        "claim": "~110 µm at ~166 m",
+        "figures": [
+         3
+        ],
+        "ok": true,
+        "pixel": "fig 3: 111.7 µm within ±10 m"
+       },
+       {
+        "claim": "~318 µm at ~203 m",
+        "figures": [
+         4
+        ],
+        "ok": false,
+        "pixel": "fig 4: 238.7 µm within ±10 m"
+       },
+       {
+        "claim": "~378 µm at ~886 m",
+        "figures": [
+         4
+        ],
+        "ok": true,
+        "pixel": "fig 4: 381.7 µm within ±10 m"
+       }
+      ]
+     },
+     {
+      "sentence": "For each rail, the 30–100 mm and 100–300 mm figures display the same full-range one-third-octave spectrum curve in the lower panel, falling overall from 43.5 dB (LHR) and 45.0 dB (RHR) at 2000 mm to -6.0 dB (LHR) and -8.5 dB (RHR) at 3.15 mm.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": []
+     },
+     {
+      "sentence": "Comparing the two spectra, the LHR curve is higher than the RHR curve at every band from 125 mm down to 3.15 mm (by 2.5–3.5 dB across 125–31.5 mm and by 5–6.5 dB at 12.5 mm and 6.3–4.0 mm), whereas the RHR curve is 0.5–5.5 dB higher than the LHR curve across the longer wavelengths from 2000 mm to 160 mm, with a local peak of 24.5 dB at 200 mm.",
+      "status": "rejected",
+      "reasons": [
+       "contradicted by the pixels: RHR curve is 0.5–5.5 dB higher than the LHR from 2000 mm to 160 mm (RHR - LHR over 12 bands: -0.9 to +5.3 dB)"
+      ],
+      "consistent_with_extraction": false,
+      "numbers_not_in_extraction": [
+       "2.5",
+       "3.5",
+       "6.5",
+       "5.5"
+      ],
+      "pixel_claims": [
+       {
+        "claim": "RHR curve is 0.5–5.5 dB higher than the LHR from 2000 mm to 160 mm",
+        "figures": [
+         3,
+         1
+        ],
+        "ok": false,
+        "pixel": "RHR - LHR over 12 bands: -0.9 to +5.3 dB"
+       },
+       {
+        "claim": "24.5 dB at 200 mm",
+        "kind": "level",
+        "figures": [
+         1,
+         3
+        ],
+        "ok": true,
+        "pixel": "LHR: 19.0 dB / RHR: 24.3 dB"
+       }
+      ]
+     }
+    ],
+    "readings": [
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 869.0,
+      "x_units": "m",
+      "argon_y": 135.0,
+      "y_units": "µm",
+      "pixel": 136.5,
+      "where": "within ±10 m of x",
+      "abs_err": 1.5,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 802.0,
+      "x_units": "m",
+      "argon_y": 106.0,
+      "y_units": "µm",
+      "pixel": 110.9,
+      "where": "within ±10 m of x",
+      "abs_err": 4.9,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 825.0,
+      "x_units": "m",
+      "argon_y": 98.0,
+      "y_units": "µm",
+      "pixel": 97.2,
+      "where": "within ±10 m of x",
+      "abs_err": 0.8,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1413.0,
+      "x_units": "m",
+      "argon_y": 73.0,
+      "y_units": "µm",
+      "pixel": 76.9,
+      "where": "within ±10 m of x",
+      "abs_err": 3.9,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1138.0,
+      "x_units": "m",
+      "argon_y": 72.0,
+      "y_units": "µm",
+      "pixel": 80.1,
+      "where": "within ±10 m of x",
+      "abs_err": 8.1,
+      "tolerance": 7.2,
+      "ok": false
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 265.0,
+      "x_units": "m",
+      "argon_y": 46.0,
+      "y_units": "µm",
+      "pixel": 48.1,
+      "where": "within ±10 m of x",
+      "abs_err": 2.1,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 43.5,
+      "y_units": "dB",
+      "pixel": 43.3,
+      "where": "at that band",
+      "abs_err": 0.2,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 125.0,
+      "x_units": "mm",
+      "argon_y": 22.5,
+      "y_units": "dB",
+      "pixel": 23.0,
+      "where": "at that band",
+      "abs_err": 0.5,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 4.0,
+      "y_units": "dB",
+      "pixel": 3.9,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": 1.0,
+      "y_units": "dB",
+      "pixel": 1.7,
+      "where": "at that band",
+      "abs_err": 0.7,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 5.0,
+      "x_units": "mm",
+      "argon_y": 1.5,
+      "y_units": "dB",
+      "pixel": 1.0,
+      "where": "at that band",
+      "abs_err": 0.5,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 169.0,
+      "x_units": "m",
+      "argon_y": 325.0,
+      "y_units": "µm",
+      "pixel": 327.1,
+      "where": "within ±10 m of x",
+      "abs_err": 2.1,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 218.0,
+      "x_units": "m",
+      "argon_y": 292.0,
+      "y_units": "µm",
+      "pixel": 298.8,
+      "where": "within ±10 m of x",
+      "abs_err": 6.8,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 883.0,
+      "x_units": "m",
+      "argon_y": 288.0,
+      "y_units": "µm",
+      "pixel": 284.6,
+      "where": "within ±10 m of x",
+      "abs_err": 3.4,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 182.0,
+      "x_units": "m",
+      "argon_y": 265.0,
+      "y_units": "µm",
+      "pixel": 265.8,
+      "where": "within ±10 m of x",
+      "abs_err": 0.8,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 968.0,
+      "x_units": "m",
+      "argon_y": 250.0,
+      "y_units": "µm",
+      "pixel": 245.3,
+      "where": "within ±10 m of x",
+      "abs_err": 4.7,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 850.0,
+      "x_units": "m",
+      "argon_y": 235.0,
+      "y_units": "µm",
+      "pixel": 226.4,
+      "where": "within ±10 m of x",
+      "abs_err": 8.6,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 43.5,
+      "y_units": "dB",
+      "pixel": 43.3,
+      "where": "at that band",
+      "abs_err": 0.2,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 125.0,
+      "x_units": "mm",
+      "argon_y": 22.5,
+      "y_units": "dB",
+      "pixel": 23.0,
+      "where": "at that band",
+      "abs_err": 0.5,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 4.0,
+      "y_units": "dB",
+      "pixel": 3.9,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": 1.0,
+      "y_units": "dB",
+      "pixel": 1.7,
+      "where": "at that band",
+      "abs_err": 0.7,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 5.0,
+      "x_units": "mm",
+      "argon_y": 1.5,
+      "y_units": "dB",
+      "pixel": 1.0,
+      "where": "at that band",
+      "abs_err": 0.5,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 262.0,
+      "x_units": "m",
+      "argon_y": 112.0,
+      "y_units": "µm",
+      "pixel": 111.7,
+      "where": "within ±10 m of x",
+      "abs_err": 0.3,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 166.0,
+      "x_units": "m",
+      "argon_y": 110.0,
+      "y_units": "µm",
+      "pixel": 111.7,
+      "where": "within ±10 m of x",
+      "abs_err": 1.7,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 243.0,
+      "x_units": "m",
+      "argon_y": 98.0,
+      "y_units": "µm",
+      "pixel": 87.5,
+      "where": "within ±10 m of x",
+      "abs_err": 10.5,
+      "tolerance": 5.9,
+      "ok": false
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 133.0,
+      "x_units": "m",
+      "argon_y": 87.0,
+      "y_units": "µm",
+      "pixel": 92.4,
+      "where": "within ±10 m of x",
+      "abs_err": 5.4,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1445.0,
+      "x_units": "m",
+      "argon_y": 85.0,
+      "y_units": "µm",
+      "pixel": 86.5,
+      "where": "within ±10 m of x",
+      "abs_err": 1.5,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1303.0,
+      "x_units": "m",
+      "argon_y": 79.0,
+      "y_units": "µm",
+      "pixel": 81.6,
+      "where": "within ±10 m of x",
+      "abs_err": 2.6,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 45.0,
+      "y_units": "dB",
+      "pixel": 44.1,
+      "where": "at that band",
+      "abs_err": 0.9,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 200.0,
+      "x_units": "mm",
+      "argon_y": 24.5,
+      "y_units": "dB",
+      "pixel": 24.3,
+      "where": "at that band",
+      "abs_err": 0.2,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 1.0,
+      "y_units": "dB",
+      "pixel": 1.3,
+      "where": "at that band",
+      "abs_err": 0.3,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": -4.0,
+      "y_units": "dB",
+      "pixel": -3.9,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 8.0,
+      "x_units": "mm",
+      "argon_y": -4.5,
+      "y_units": "dB",
+      "pixel": -4.2,
+      "where": "at that band",
+      "abs_err": 0.3,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 886.0,
+      "x_units": "m",
+      "argon_y": 378.0,
+      "y_units": "µm",
+      "pixel": 381.7,
+      "where": "within ±10 m of x",
+      "abs_err": 3.7,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 755.0,
+      "x_units": "m",
+      "argon_y": 340.0,
+      "y_units": "µm",
+      "pixel": 324.9,
+      "where": "within ±10 m of x",
+      "abs_err": 15.1,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 773.0,
+      "x_units": "m",
+      "argon_y": 335.0,
+      "y_units": "µm",
+      "pixel": 324.9,
+      "where": "within ±10 m of x",
+      "abs_err": 10.1,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 851.0,
+      "x_units": "m",
+      "argon_y": 325.0,
+      "y_units": "µm",
+      "pixel": 324.9,
+      "where": "within ±10 m of x",
+      "abs_err": 0.1,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 203.0,
+      "x_units": "m",
+      "argon_y": 318.0,
+      "y_units": "µm",
+      "pixel": 238.7,
+      "where": "within ±10 m of x",
+      "abs_err": 79.3,
+      "tolerance": 20.0,
+      "ok": false
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1020.0,
+      "x_units": "m",
+      "argon_y": 248.0,
+      "y_units": "µm",
+      "pixel": 244.2,
+      "where": "within ±10 m of x",
+      "abs_err": 3.8,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 45.0,
+      "y_units": "dB",
+      "pixel": 44.1,
+      "where": "at that band",
+      "abs_err": 0.9,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 200.0,
+      "x_units": "mm",
+      "argon_y": 24.5,
+      "y_units": "dB",
+      "pixel": 24.3,
+      "where": "at that band",
+      "abs_err": 0.2,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 1.0,
+      "y_units": "dB",
+      "pixel": 1.3,
+      "where": "at that band",
+      "abs_err": 0.3,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": -4.0,
+      "y_units": "dB",
+      "pixel": -3.9,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 8.0,
+      "x_units": "mm",
+      "argon_y": -4.5,
+      "y_units": "dB",
+      "pixel": -4.2,
+      "where": "at that band",
+      "abs_err": 0.3,
+      "tolerance": 4.0,
+      "ok": true
+     }
+    ],
+    "tfl_anchor": [
+     {
+      "figure": 1,
+      "overlapping_zones": [
+       [
+        720.0,
+        1210.0
+       ]
+      ],
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "overlapping_zones": [
+       [
+        720.0,
+        1200.0
+       ]
+      ],
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "overlapping_zones": [
+       [
+        725.0,
+        905.0
+       ]
+      ],
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "overlapping_zones": [
+       [
+        725.0,
+        910.0
+       ]
+      ],
+      "ok": true
+     }
+    ],
+    "unlabelled": [
+     {
+      "colour": "grey",
+      "rgb": [
+       128,
+       128,
+       128
+      ],
+      "panel": "spectrum",
+      "named_in_an_element_about_that_panel": false
+     },
+     {
+      "colour": "magenta",
+      "rgb": [
+       255,
+       0,
+       255
+      ],
+      "panel": "spectrum",
+      "named_in_an_element_about_that_panel": true
+     },
+     {
+      "colour": "olive",
+      "rgb": [
+       128,
+       128,
+       0
+      ],
+      "panel": "spectrum",
+      "named_in_an_element_about_that_panel": true
+     },
+     {
+      "colour": "pink",
+      "rgb": [
+       255,
+       204,
+       204
+      ],
+      "panel": "position",
+      "named_in_an_element_about_that_panel": false
+     },
+     {
+      "element": "In every upper (position) panel, thin vertical coloured lines run the full height of the plot at specific positions without any legend or text label: in Figures 1 and 2 (LHR) red and green vertical li",
+      "panel": "position",
+      "wrong_colour_words": [
+       "green",
+       "red"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "run": 2,
+   "mode": "pdf",
+   "ts": "2026-10-25T04:19:42+00:00",
+   "model": "gemini-4-argon",
+   "model_version": "gemini-4-argon",
+   "thinking": "medium",
+   "media_resolution": "high",
+   "seconds": 102.9,
+   "usage": {
+    "prompt": 5375,
+    "output": 12919,
+    "thoughts": null
+   },
+   "extraction": {
+    "document_title": "Central line Rail Roughness Plots — Eastbound Bethnal Green to Mile End",
+    "n_pages": 2,
+    "n_figures": 4,
+    "figures": [
+     {
+      "figure_no": 1,
+      "page": 1,
+      "figure_caption": "Figure 1 – LHR 30-100mm",
+      "header_text": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+      "header_values": {
+       "main_av_pp_um": 16.5,
+       "exceedance_pct": 41.0,
+       "exceedance_km": 0.626,
+       "threshold_um": 10.0
+      },
+      "rail_label": "LHR",
+      "band_label": "30-100mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": -4.6276,
+        "max": 1534.0,
+        "tick_labels": [
+         "-4.6276",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1534.0000"
+        ]
+       },
+       "y_axis": {
+        "label": "30-100mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 143.0,
+        "tick_labels": [
+         "143",
+         "120",
+         "100",
+         "80",
+         "60",
+         "40",
+         "20",
+         "0"
+        ]
+       },
+       "threshold_value": 10.0,
+       "readings": [
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 10.0,
+         "note": "dashed horizontal line across the position panel at 10 µm, matching '>10µm' in the header"
+        },
+        {
+         "kind": "global_max",
+         "x": 883.0,
+         "y": 135.0,
+         "note": "tallest spike on the 30-100mm MA Pk-Pk trace, near the end of the 735-905 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 816.0,
+         "y": 106.0,
+         "note": "peak within the 735-905 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 800.0,
+         "y": 101.0,
+         "note": "peak at the 800 m gridline within the 735-905 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1423.0,
+         "y": 75.0,
+         "note": "isolated spike past 1400 m"
+        },
+        {
+         "kind": "local_max",
+         "x": 1148.0,
+         "y": 69.0,
+         "note": "tallest peak in the 905-1220 m rough zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1007.0,
+         "y": 54.0,
+         "note": "peak just above 1000 m"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 165.0,
+         "end": 285.0,
+         "note": "elevated cluster between ~165 m and ~285 m with peaks up to ~44 µm at ~272 m"
+        },
+        {
+         "start": 735.0,
+         "end": 905.0,
+         "note": "sustained high-amplitude zone, mostly 35-105 µm, reaching the global maximum of ~135 µm at ~883 m"
+        },
+        {
+         "start": 905.0,
+         "end": 1220.0,
+         "note": "continuation above the 10 µm dashed line from ~905 m to ~1220 m, mostly 15-70 µm"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 47.0,
+        "tick_labels": [
+         "47",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+        "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+        "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+        "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 44.3
+        },
+        {
+         "band_mm": "1600",
+         "db": 41.2
+        },
+        {
+         "band_mm": "1250",
+         "db": 39.0
+        },
+        {
+         "band_mm": "1000",
+         "db": 35.8
+        },
+        {
+         "band_mm": "800",
+         "db": 33.4
+        },
+        {
+         "band_mm": "630",
+         "db": 30.2
+        },
+        {
+         "band_mm": "500",
+         "db": 27.6
+        },
+        {
+         "band_mm": "400",
+         "db": 25.4
+        },
+        {
+         "band_mm": "315",
+         "db": 23.6
+        },
+        {
+         "band_mm": "250",
+         "db": 19.8
+        },
+        {
+         "band_mm": "200",
+         "db": 19.6
+        },
+        {
+         "band_mm": "160",
+         "db": 21.6
+        },
+        {
+         "band_mm": "125",
+         "db": 23.0
+        },
+        {
+         "band_mm": "100",
+         "db": 19.2
+        },
+        {
+         "band_mm": "80.0",
+         "db": 15.8
+        },
+        {
+         "band_mm": "63.0",
+         "db": 15.0
+        },
+        {
+         "band_mm": "50.0",
+         "db": 11.4
+        },
+        {
+         "band_mm": "40.0",
+         "db": 8.0
+        },
+        {
+         "band_mm": "31.5",
+         "db": 2.9
+        },
+        {
+         "band_mm": "25.0",
+         "db": 3.8
+        },
+        {
+         "band_mm": "20.0",
+         "db": -2.4
+        },
+        {
+         "band_mm": "16.0",
+         "db": -5.6
+        },
+        {
+         "band_mm": "12.5",
+         "db": 1.3
+        },
+        {
+         "band_mm": "10.0",
+         "db": -2.9
+        },
+        {
+         "band_mm": "8.0",
+         "db": -0.2
+        },
+        {
+         "band_mm": "6.3",
+         "db": 0.6
+        },
+        {
+         "band_mm": "5.0",
+         "db": 1.4
+        },
+        {
+         "band_mm": "4.0",
+         "db": 0.4
+        },
+        {
+         "band_mm": "3.15",
+         "db": -5.6
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 44.3,
+         "note": "highest level on the dark-red spectrum curve, at the 2000 mm end"
+        },
+        {
+         "kind": "local_max",
+         "x": 125.0,
+         "y": 23.0,
+         "note": "local peak at the 125 mm band (hump across 200-100 mm)"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 3.8,
+         "note": "small local peak at the 25.0 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": 1.3,
+         "note": "sharp local peak at the 12.5 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 5.0,
+         "y": 1.4,
+         "note": "broad local peak around the 5.0 mm band"
+        }
+       ]
+      }
+     },
+     {
+      "figure_no": 2,
+      "page": 1,
+      "figure_caption": "Figure 2 – LHR 100-300mm",
+      "header_text": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+      "header_values": {
+       "main_av_pp_um": 39.2,
+       "exceedance_pct": 41.0,
+       "exceedance_km": 0.626,
+       "threshold_um": 30.0
+      },
+      "rail_label": "LHR",
+      "band_label": "100-300mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": -4.6276,
+        "max": 1534.0,
+        "tick_labels": [
+         "-4.6276",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1534.0000"
+        ]
+       },
+       "y_axis": {
+        "label": "100-300mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 343.0,
+        "tick_labels": [
+         "343",
+         "300",
+         "250",
+         "200",
+         "150",
+         "100",
+         "50",
+         "0"
+        ]
+       },
+       "threshold_value": 30.0,
+       "readings": [
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 30.0,
+         "note": "dashed horizontal line across the position panel at 30 µm, matching '>30µm' in the header"
+        },
+        {
+         "kind": "global_max",
+         "x": 168.0,
+         "y": 324.0,
+         "note": "tallest spike on the 100-300mm MA Pk-Pk trace"
+        },
+        {
+         "kind": "local_max",
+         "x": 215.0,
+         "y": 292.0,
+         "note": "second tall spike in the 160-260 m cluster"
+        },
+        {
+         "kind": "local_max",
+         "x": 883.0,
+         "y": 284.0,
+         "note": "tallest spike in the 735-905 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 182.0,
+         "y": 272.0,
+         "note": "spike between the 168 m and 215 m spikes"
+        },
+        {
+         "kind": "local_max",
+         "x": 968.0,
+         "y": 250.0,
+         "note": "spike at ~968 m reaching the 250 µm gridline"
+        },
+        {
+         "kind": "local_max",
+         "x": 826.0,
+         "y": 232.0,
+         "note": "peak within the 735-905 m rough zone"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 160.0,
+         "end": 260.0,
+         "note": "cluster of large spikes between ~160 m and ~260 m reaching 324 µm at ~168 m and 292 µm at ~215 m"
+        },
+        {
+         "start": 605.0,
+         "end": 645.0,
+         "note": "elevated group around 605-645 m with peaks up to ~160 µm"
+        },
+        {
+         "start": 735.0,
+         "end": 905.0,
+         "note": "sustained high-amplitude zone, mostly 70-235 µm with a spike to ~284 µm at ~883 m"
+        },
+        {
+         "start": 905.0,
+         "end": 1200.0,
+         "note": "continued exceedances above 30 µm from ~905 m to ~1200 m, mostly 35-150 µm with a 250 µm spike at ~968 m"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 47.0,
+        "tick_labels": [
+         "47",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+        "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+        "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+        "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 44.3
+        },
+        {
+         "band_mm": "1600",
+         "db": 41.2
+        },
+        {
+         "band_mm": "1250",
+         "db": 39.0
+        },
+        {
+         "band_mm": "1000",
+         "db": 35.8
+        },
+        {
+         "band_mm": "800",
+         "db": 33.4
+        },
+        {
+         "band_mm": "630",
+         "db": 30.2
+        },
+        {
+         "band_mm": "500",
+         "db": 27.6
+        },
+        {
+         "band_mm": "400",
+         "db": 25.4
+        },
+        {
+         "band_mm": "315",
+         "db": 23.6
+        },
+        {
+         "band_mm": "250",
+         "db": 19.8
+        },
+        {
+         "band_mm": "200",
+         "db": 19.6
+        },
+        {
+         "band_mm": "160",
+         "db": 21.6
+        },
+        {
+         "band_mm": "125",
+         "db": 23.0
+        },
+        {
+         "band_mm": "100",
+         "db": 19.2
+        },
+        {
+         "band_mm": "80.0",
+         "db": 15.8
+        },
+        {
+         "band_mm": "63.0",
+         "db": 15.0
+        },
+        {
+         "band_mm": "50.0",
+         "db": 11.4
+        },
+        {
+         "band_mm": "40.0",
+         "db": 8.0
+        },
+        {
+         "band_mm": "31.5",
+         "db": 2.9
+        },
+        {
+         "band_mm": "25.0",
+         "db": 3.8
+        },
+        {
+         "band_mm": "20.0",
+         "db": -2.4
+        },
+        {
+         "band_mm": "16.0",
+         "db": -5.6
+        },
+        {
+         "band_mm": "12.5",
+         "db": 1.3
+        },
+        {
+         "band_mm": "10.0",
+         "db": -2.9
+        },
+        {
+         "band_mm": "8.0",
+         "db": -0.2
+        },
+        {
+         "band_mm": "6.3",
+         "db": 0.6
+        },
+        {
+         "band_mm": "5.0",
+         "db": 1.4
+        },
+        {
+         "band_mm": "4.0",
+         "db": 0.4
+        },
+        {
+         "band_mm": "3.15",
+         "db": -5.6
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 44.3,
+         "note": "highest level on the dark-red spectrum curve, identical to Figure 1"
+        },
+        {
+         "kind": "local_max",
+         "x": 125.0,
+         "y": 23.0,
+         "note": "local peak at the 125 mm band, identical to Figure 1"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 3.8,
+         "note": "small local peak at the 25.0 mm band, identical to Figure 1"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": 1.3,
+         "note": "sharp local peak at the 12.5 mm band, identical to Figure 1"
+        },
+        {
+         "kind": "local_max",
+         "x": 5.0,
+         "y": 1.4,
+         "note": "broad local peak around the 5.0 mm band, identical to Figure 1"
+        }
+       ]
+      }
+     },
+     {
+      "figure_no": 3,
+      "page": 2,
+      "figure_caption": "Figure 3 – RHR 30-100mm",
+      "header_text": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+      "header_values": {
+       "main_av_pp_um": 10.9,
+       "exceedance_pct": 33.0,
+       "exceedance_km": 0.504,
+       "threshold_um": 10.0
+      },
+      "rail_label": "RHR",
+      "band_label": "30-100mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": 0.0,
+        "max": 1544.5434,
+        "tick_labels": [
+         "0.0000",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1544.5434"
+        ]
+       },
+       "y_axis": {
+        "label": "30-100mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 117.0,
+        "tick_labels": [
+         "117",
+         "100",
+         "80",
+         "60",
+         "40",
+         "20",
+         "0"
+        ]
+       },
+       "threshold_value": 10.0,
+       "readings": [
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 10.0,
+         "note": "dashed horizontal line across the position panel at 10 µm, matching '>10µm' in the header"
+        },
+        {
+         "kind": "global_max",
+         "x": 265.0,
+         "y": 111.0,
+         "note": "tallest spike on the RHR 30-100mm trace"
+        },
+        {
+         "kind": "local_max",
+         "x": 168.0,
+         "y": 110.0,
+         "note": "nearly equal tallest spike in the 95-275 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 244.0,
+         "y": 87.0,
+         "note": "spike in the 235-270 m cluster"
+        },
+        {
+         "kind": "local_max",
+         "x": 1451.0,
+         "y": 87.0,
+         "note": "tallest spike in the 1295-1505 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1308.0,
+         "y": 81.0,
+         "note": "spike near the start of the 1295-1505 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 1365.0,
+         "y": 79.0,
+         "note": "spike near the red vertical line at ~1365 m"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 95.0,
+         "end": 275.0,
+         "note": "active zone with multiple tall spikes, including ~110 µm at ~168 m and ~111 µm at ~265 m"
+        },
+        {
+         "start": 725.0,
+         "end": 905.0,
+         "note": "sustained zone above 10 µm, mostly 15-65 µm (peak ~66 µm at ~752 m)"
+        },
+        {
+         "start": 1295.0,
+         "end": 1505.0,
+         "note": "sustained zone near the end of the section, mostly 15-87 µm"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 48.0,
+        "tick_labels": [
+         "48",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+        "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+        "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+        "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 45.2
+        },
+        {
+         "band_mm": "1600",
+         "db": 43.2
+        },
+        {
+         "band_mm": "1250",
+         "db": 40.2
+        },
+        {
+         "band_mm": "1000",
+         "db": 37.8
+        },
+        {
+         "band_mm": "800",
+         "db": 34.4
+        },
+        {
+         "band_mm": "630",
+         "db": 31.6
+        },
+        {
+         "band_mm": "500",
+         "db": 29.0
+        },
+        {
+         "band_mm": "400",
+         "db": 26.2
+        },
+        {
+         "band_mm": "315",
+         "db": 23.6
+        },
+        {
+         "band_mm": "250",
+         "db": 22.8
+        },
+        {
+         "band_mm": "200",
+         "db": 24.4
+        },
+        {
+         "band_mm": "160",
+         "db": 20.6
+        },
+        {
+         "band_mm": "125",
+         "db": 18.6
+        },
+        {
+         "band_mm": "100",
+         "db": 15.8
+        },
+        {
+         "band_mm": "80.0",
+         "db": 12.6
+        },
+        {
+         "band_mm": "63.0",
+         "db": 11.4
+        },
+        {
+         "band_mm": "50.0",
+         "db": 9.4
+        },
+        {
+         "band_mm": "40.0",
+         "db": 4.4
+        },
+        {
+         "band_mm": "31.5",
+         "db": -0.2
+        },
+        {
+         "band_mm": "25.0",
+         "db": 1.0
+        },
+        {
+         "band_mm": "20.0",
+         "db": -3.8
+        },
+        {
+         "band_mm": "16.0",
+         "db": -6.8
+        },
+        {
+         "band_mm": "12.5",
+         "db": -4.6
+        },
+        {
+         "band_mm": "10.0",
+         "db": -6.0
+        },
+        {
+         "band_mm": "8.0",
+         "db": -5.0
+        },
+        {
+         "band_mm": "6.3",
+         "db": -4.6
+        },
+        {
+         "band_mm": "5.0",
+         "db": -5.2
+        },
+        {
+         "band_mm": "4.0",
+         "db": -7.6
+        },
+        {
+         "band_mm": "3.15",
+         "db": -8.6
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 45.2,
+         "note": "highest level on the dark-red spectrum curve, at the 2000 mm end"
+        },
+        {
+         "kind": "local_max",
+         "x": 200.0,
+         "y": 24.4,
+         "note": "local peak at the 200 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 1.0,
+         "note": "local peak at the 25.0 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": -4.6,
+         "note": "small local peak at the 12.5 mm band"
+        },
+        {
+         "kind": "local_max",
+         "x": 6.3,
+         "y": -4.6,
+         "note": "broad local peak around the 6.3 mm band"
+        }
+       ]
+      }
+     },
+     {
+      "figure_no": 4,
+      "page": 2,
+      "figure_caption": "Figure 4 – RHR 100-300mm",
+      "header_text": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+      "header_values": {
+       "main_av_pp_um": 35.7,
+       "exceedance_pct": 34.0,
+       "exceedance_km": 0.519,
+       "threshold_um": 30.0
+      },
+      "rail_label": "RHR",
+      "band_label": "100-300mm",
+      "direction": "Eastbound Bethnal Green to Mile End",
+      "position_panel": {
+       "x_axis": {
+        "label": "Position (m)",
+        "units": "m",
+        "min": 0.0,
+        "max": 1544.5434,
+        "tick_labels": [
+         "0.0000",
+         "100.0000",
+         "200.0000",
+         "300.0000",
+         "400.0000",
+         "500.0000",
+         "600.0000",
+         "700.0000",
+         "800.0000",
+         "900.0000",
+         "1000.0000",
+         "1100.0000",
+         "1200.0000",
+         "1300.0000",
+         "1400.0000",
+         "1544.5434"
+        ]
+       },
+       "y_axis": {
+        "label": "100-300mm MA Pk-Pk (µm)",
+        "units": "µm",
+        "min": 0.0,
+        "max": 400.0,
+        "tick_labels": [
+         "400",
+         "350",
+         "300",
+         "250",
+         "200",
+         "150",
+         "100",
+         "50",
+         "0"
+        ]
+       },
+       "threshold_value": 30.0,
+       "readings": [
+        {
+         "kind": "threshold_line",
+         "x": 0.0,
+         "y": 30.0,
+         "note": "dashed horizontal line across the position panel at 30 µm, matching '>30µm' in the header"
+        },
+        {
+         "kind": "global_max",
+         "x": 884.0,
+         "y": 385.0,
+         "note": "tallest spike on the RHR 100-300mm trace, near the end of the 725-905 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 763.0,
+         "y": 343.0,
+         "note": "spike in the first half of the 725-905 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 891.0,
+         "y": 341.0,
+         "note": "spike adjacent to the 884 m global maximum"
+        },
+        {
+         "kind": "local_max",
+         "x": 855.0,
+         "y": 329.0,
+         "note": "spike within the 725-905 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 730.0,
+         "y": 324.0,
+         "note": "spike near the start of the 725-905 m zone"
+        },
+        {
+         "kind": "local_max",
+         "x": 197.0,
+         "y": 324.0,
+         "note": "tallest spike in the 125-285 m zone"
+        }
+       ],
+       "rough_zones": [
+        {
+         "start": 125.0,
+         "end": 285.0,
+         "note": "cluster of spikes above 30 µm, with peaks of ~225 µm at ~131 m, ~324 µm at ~197 m, ~285 µm at ~215 m and ~232 µm at ~244 m"
+        },
+        {
+         "start": 725.0,
+         "end": 905.0,
+         "note": "dense high-amplitude zone, regularly reaching 200-385 µm"
+        },
+        {
+         "start": 945.0,
+         "end": 1240.0,
+         "note": "zone of frequent exceedances above 30 µm, mostly 35-155 µm with a spike to ~246 µm at ~1020 m and ~204 µm at ~1156 m"
+        },
+        {
+         "start": 1295.0,
+         "end": 1520.0,
+         "note": "zone of exceedances near the end of the section, mostly 35-160 µm with spikes up to ~195 µm at ~1494 m and ~190 µm at ~1516 m"
+        }
+       ]
+      },
+      "spectrum_panel": {
+       "x_axis": {
+        "label": "Wavelength (mm)",
+        "units": "mm",
+        "min": 3.15,
+        "max": 2000.0,
+        "tick_labels": [
+         "2000",
+         "1600",
+         "1250",
+         "1000",
+         "800",
+         "630",
+         "500",
+         "400",
+         "315",
+         "250",
+         "200",
+         "160",
+         "125",
+         "100",
+         "80.0",
+         "63.0",
+         "50.0",
+         "40.0",
+         "31.5",
+         "25.0",
+         "20.0",
+         "16.0",
+         "12.5",
+         "10.0",
+         "8.0",
+         "6.3",
+         "5.0",
+         "4.0",
+         "3.15"
+        ]
+       },
+       "y_axis": {
+        "label": "dB rel 1µmRMS",
+        "units": "dB rel 1µmRMS",
+        "min": -31.0,
+        "max": 48.0,
+        "tick_labels": [
+         "48",
+         "40",
+         "30",
+         "20",
+         "10",
+         "0",
+         "-10",
+         "-20",
+         "-31"
+        ]
+       },
+       "series": [
+        "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+        "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+        "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+        "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+       ],
+       "band_levels": [
+        {
+         "band_mm": "2000",
+         "db": 45.2
+        },
+        {
+         "band_mm": "1600",
+         "db": 43.2
+        },
+        {
+         "band_mm": "1250",
+         "db": 40.2
+        },
+        {
+         "band_mm": "1000",
+         "db": 37.8
+        },
+        {
+         "band_mm": "800",
+         "db": 34.4
+        },
+        {
+         "band_mm": "630",
+         "db": 31.6
+        },
+        {
+         "band_mm": "500",
+         "db": 29.0
+        },
+        {
+         "band_mm": "400",
+         "db": 26.2
+        },
+        {
+         "band_mm": "315",
+         "db": 23.6
+        },
+        {
+         "band_mm": "250",
+         "db": 22.8
+        },
+        {
+         "band_mm": "200",
+         "db": 24.4
+        },
+        {
+         "band_mm": "160",
+         "db": 20.6
+        },
+        {
+         "band_mm": "125",
+         "db": 18.6
+        },
+        {
+         "band_mm": "100",
+         "db": 15.8
+        },
+        {
+         "band_mm": "80.0",
+         "db": 12.6
+        },
+        {
+         "band_mm": "63.0",
+         "db": 11.4
+        },
+        {
+         "band_mm": "50.0",
+         "db": 9.4
+        },
+        {
+         "band_mm": "40.0",
+         "db": 4.4
+        },
+        {
+         "band_mm": "31.5",
+         "db": -0.2
+        },
+        {
+         "band_mm": "25.0",
+         "db": 1.0
+        },
+        {
+         "band_mm": "20.0",
+         "db": -3.8
+        },
+        {
+         "band_mm": "16.0",
+         "db": -6.8
+        },
+        {
+         "band_mm": "12.5",
+         "db": -4.6
+        },
+        {
+         "band_mm": "10.0",
+         "db": -6.0
+        },
+        {
+         "band_mm": "8.0",
+         "db": -5.0
+        },
+        {
+         "band_mm": "6.3",
+         "db": -4.6
+        },
+        {
+         "band_mm": "5.0",
+         "db": -5.2
+        },
+        {
+         "band_mm": "4.0",
+         "db": -7.6
+        },
+        {
+         "band_mm": "3.15",
+         "db": -8.6
+        }
+       ],
+       "readings": [
+        {
+         "kind": "global_max",
+         "x": 2000.0,
+         "y": 45.2,
+         "note": "highest level on the dark-red spectrum curve, identical to Figure 3"
+        },
+        {
+         "kind": "local_max",
+         "x": 200.0,
+         "y": 24.4,
+         "note": "local peak at the 200 mm band, identical to Figure 3"
+        },
+        {
+         "kind": "local_max",
+         "x": 25.0,
+         "y": 1.0,
+         "note": "local peak at the 25.0 mm band, identical to Figure 3"
+        },
+        {
+         "kind": "local_max",
+         "x": 12.5,
+         "y": -4.6,
+         "note": "small local peak at the 12.5 mm band, identical to Figure 3"
+        },
+        {
+         "kind": "local_max",
+         "x": 6.3,
+         "y": -4.6,
+         "note": "broad local peak around the 6.3 mm band, identical to Figure 3"
+        }
+       ]
+      }
+     }
+    ],
+    "unlabelled_elements": [
+     "Three smooth coloured curves without data markers in every spectrum panel: an upper green/olive curve (630 mm to 3.15 mm), a middle magenta/pink curve (315 mm to 3.15 mm), and a lower green/olive curve (200 mm to 5.0 mm); no legend or text in the PDF names them.",
+     "The dark-red spectrum curve with square markers in every lower panel has no legend entry (it is the only curve with data markers).",
+     "Thin vertical coloured lines across the upper position panels: on Figures 1 and 2 (LHR) a green line near 1230 m and a red line near 1295 m; on Figures 3 and 4 (RHR) green and red vertical lines near 125 m, 225 m, 715 m, 1280 m, 1365 m and 1544 m; no legend or label in the PDF explains them.",
+     "A dashed horizontal line across each upper position panel at 10 µm (Figures 1 and 3) or 30 µm (Figures 2 and 4); it matches the '>10µm' and '>30µm' exceedance text in the figure headers but is not separately labelled on the axis."
+    ],
+    "summary": [
+     "The four figures show rail roughness along ~1.54 km of the Eastbound Central line from Bethnal Green to Mile End for two rails (LHR on page 1, RHR on page 2) and two moving-average peak-to-peak wavelength bands (30-100mm and 100-300mm).",
+     "On the LHR, the 30-100mm trace (Figure 1) has a main average P-P of 16.5 µm with 41% (0.626 km) exceeding 10 µm and a global peak of ~135 µm at ~883 m, while the 100-300mm trace (Figure 2) has a main average P-P of 39.2 µm with 41% (0.626 km) exceeding 30 µm and peaks up to ~324 µm at ~168 m and ~284 µm at ~883 m.",
+     "On the RHR, the 30-100mm trace (Figure 3) has a lower main average P-P of 10.9 µm with 33% (0.504 km) exceeding 10 µm and peaks of ~110-111 µm at ~168 m and ~265 m, while the 100-300mm trace (Figure 4) has a main average P-P of 35.7 µm with 34% (0.519 km) exceeding 30 µm and a global peak of ~385 µm at ~884 m.",
+     "Both rails show sustained rough activity between roughly 725 m and 905 m (continuing above threshold to ~1200 m on LHR and in shorter stretches on RHR), plus a rough cluster around 100-285 m and, on RHR, an additional rough zone between ~1295 m and ~1510 m.",
+     "Within each rail, the lower spectrum panel is identical between the 30-100mm and 100-300mm figures (Figure 1 matches Figure 2; Figure 3 matches Figure 4), falling from ~44-45 dB rel 1 µmRMS at 2000 mm to below 0 dB at short wavelengths.",
+     "Comparing the two spectra, RHR is 1-5 dB higher than LHR at wavelengths from 2000 mm down to 200 mm (with a local peak of 24.4 dB at 200 mm), whereas LHR is higher than RHR across 160 mm to 3.15 mm (with local peaks of 23.0 dB at 125 mm, 3.8 dB at 25 mm, 1.3 dB at 12.5 mm and 1.4 dB at 5 mm)."
+    ]
+   },
+   "checks": {
+    "ok": false,
+    "failures": [
+     "document_title is not verbatim page-1 text",
+     "fig 1: zone 165-285 m not confirmed by the zone rule (envelope median 14.0 inside vs 9.4 outside, threshold 10.0)",
+     "fig 2: zone 160-260 m not confirmed by the zone rule (envelope median 47.0 inside vs 32.8 outside, threshold 30.0)",
+     "fig 2: zone 605-645 m not confirmed by the zone rule (envelope median 60.4 inside vs 32.8 outside, threshold 30.0)",
+     "fig 4: zone 125-285 m not confirmed by the zone rule (envelope median 31.7 inside vs 28.0 outside, threshold 30.0)",
+     "fig 4: zone 945-1240 m not confirmed by the zone rule (envelope median 35.3 inside vs 26.2 outside, threshold 30.0)",
+     "fig 1: global_max reading 135.0 µm at 883 m fails the pixel check: pixels give 103.7 µm within ±10 m of x (|Δ| 31.3 > 7.2)",
+     "fig 1: local_max reading 106.0 µm at 816 m fails the pixel check: pixels give 97.2 µm within ±10 m of x (|Δ| 8.8 > 7.2)",
+     "fig 1: local_max reading 101.0 µm at 800 m fails the pixel check: pixels give 110.9 µm within ±10 m of x (|Δ| 9.9 > 7.2)",
+     "fig 4: local_max reading 341.0 µm at 891 m fails the pixel check: pixels give 381.7 µm within ±10 m of x (|Δ| 40.7 > 20.0)",
+     "fig 4: local_max reading 324.0 µm at 197 m fails the pixel check: pixels give 238.7 µm within ±10 m of x (|Δ| 85.3 > 20.0)",
+     "summary sentence 2 rejected: contradicted by the pixels: ~135 µm at ~883 m (fig 1: 103.7 µm within ±10 m)",
+     "summary sentence 6 rejected: contradicted by the pixels: RHR is 1-5 dB higher than LHR from 2000 mm down to 200 mm (RHR - LHR over 11 bands: -0.1 to +5.3 dB)",
+     "unlabelled elements: the grey line (128, 128, 128) on the spectrum panel is not named by its colour in an element about that panel",
+     "unlabelled elements: vertical lines on the position panel are called green/red but the pixels hold only pink (255, 204, 204)"
+    ],
+    "notes": [
+     "axis titles in the PDF text layer: 0/16 (the axes are raster inside the figure images; the text layer holds the title and captions only)"
+    ],
+    "axis_labels": [
+     {
+      "figure": 1,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 1,
+      "axis": "pos_y",
+      "label": "30-100mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 1,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 1,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "pos_y",
+      "label": "100-300mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 2,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "pos_y",
+      "label": "30-100mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 3,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "pos_x",
+      "label": "Position (m)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "pos_y",
+      "label": "100-300mm MA Pk-Pk (µm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "spec_x",
+      "label": "Wavelength (mm)",
+      "in_text_layer": false,
+      "matches_printed": true
+     },
+     {
+      "figure": 4,
+      "axis": "spec_y",
+      "label": "dB rel 1µmRMS",
+      "in_text_layer": false,
+      "matches_printed": true
+     }
+    ],
+    "zones": [
+     {
+      "start": 165.0,
+      "end": 285.0,
+      "ok": false,
+      "median_in": 14.0,
+      "median_out": 9.4,
+      "figure": 1
+     },
+     {
+      "start": 735.0,
+      "end": 905.0,
+      "ok": true,
+      "median_in": 71.0,
+      "median_out": 8.1,
+      "figure": 1
+     },
+     {
+      "start": 905.0,
+      "end": 1220.0,
+      "ok": true,
+      "median_in": 32.3,
+      "median_out": 7.5,
+      "figure": 1
+     },
+     {
+      "start": 160.0,
+      "end": 260.0,
+      "ok": false,
+      "median_in": 47.0,
+      "median_out": 32.8,
+      "figure": 2
+     },
+     {
+      "start": 605.0,
+      "end": 645.0,
+      "ok": false,
+      "median_in": 60.4,
+      "median_out": 32.8,
+      "figure": 2
+     },
+     {
+      "start": 735.0,
+      "end": 905.0,
+      "ok": true,
+      "median_in": 135.1,
+      "median_out": 28.1,
+      "figure": 2
+     },
+     {
+      "start": 905.0,
+      "end": 1200.0,
+      "ok": true,
+      "median_in": 67.5,
+      "median_out": 25.0,
+      "figure": 2
+     },
+     {
+      "start": 95.0,
+      "end": 275.0,
+      "ok": true,
+      "median_in": 19.2,
+      "median_out": 6.9,
+      "figure": 3
+     },
+     {
+      "start": 725.0,
+      "end": 905.0,
+      "ok": true,
+      "median_in": 28.4,
+      "median_out": 6.9,
+      "figure": 3
+     },
+     {
+      "start": 1295.0,
+      "end": 1505.0,
+      "ok": true,
+      "median_in": 28.9,
+      "median_out": 6.9,
+      "figure": 3
+     },
+     {
+      "start": 125.0,
+      "end": 285.0,
+      "ok": false,
+      "median_in": 31.7,
+      "median_out": 28.0,
+      "figure": 4
+     },
+     {
+      "start": 725.0,
+      "end": 905.0,
+      "ok": true,
+      "median_in": 149.0,
+      "median_out": 24.4,
+      "figure": 4
+     },
+     {
+      "start": 945.0,
+      "end": 1240.0,
+      "ok": false,
+      "median_in": 35.3,
+      "median_out": 26.2,
+      "figure": 4
+     },
+     {
+      "start": 1295.0,
+      "end": 1520.0,
+      "ok": true,
+      "median_in": 57.3,
+      "median_out": 26.2,
+      "figure": 4
+     }
+    ],
+    "summary": [
+     {
+      "sentence": "The four figures show rail roughness along ~1.54 km of the Eastbound Central line from Bethnal Green to Mile End for two rails (LHR on page 1, RHR on page 2) and two moving-average peak-to-peak wavelength bands (30-100mm and 100-300mm).",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": []
+     },
+     {
+      "sentence": "On the LHR, the 30-100mm trace (Figure 1) has a main average P-P of 16.5 µm with 41% (0.626 km) exceeding 10 µm and a global peak of ~135 µm at ~883 m, while the 100-300mm trace (Figure 2) has a main average P-P of 39.2 µm with 41% (0.626 km) exceeding 30 µm and peaks up to ~324 µm at ~168 m and ~284 µm at ~883 m.",
+      "status": "rejected",
+      "reasons": [
+       "contradicted by the pixels: ~135 µm at ~883 m (fig 1: 103.7 µm within ±10 m)"
+      ],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": [
+       {
+        "claim": "~135 µm at ~883 m",
+        "figures": [
+         1
+        ],
+        "ok": false,
+        "pixel": "fig 1: 103.7 µm within ±10 m"
+       },
+       {
+        "claim": "~324 µm at ~168 m",
+        "figures": [
+         2
+        ],
+        "ok": true,
+        "pixel": "fig 2: 327.1 µm within ±10 m"
+       },
+       {
+        "claim": "~284 µm at ~883 m",
+        "figures": [
+         2
+        ],
+        "ok": true,
+        "pixel": "fig 2: 284.6 µm within ±10 m"
+       }
+      ]
+     },
+     {
+      "sentence": "On the RHR, the 30-100mm trace (Figure 3) has a lower main average P-P of 10.9 µm with 33% (0.504 km) exceeding 10 µm and peaks of ~110-111 µm at ~168 m and ~265 m, while the 100-300mm trace (Figure 4) has a main average P-P of 35.7 µm with 34% (0.519 km) exceeding 30 µm and a global peak of ~385 µm at ~884 m.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": [
+       {
+        "claim": "111 µm at ~168 m",
+        "figures": [
+         3
+        ],
+        "ok": true,
+        "pixel": "fig 3: 111.7 µm within ±10 m"
+       },
+       {
+        "claim": "~385 µm at ~884 m",
+        "figures": [
+         4
+        ],
+        "ok": true,
+        "pixel": "fig 4: 381.7 µm within ±10 m"
+       }
+      ]
+     },
+     {
+      "sentence": "Both rails show sustained rough activity between roughly 725 m and 905 m (continuing above threshold to ~1200 m on LHR and in shorter stretches on RHR), plus a rough cluster around 100-285 m and, on RHR, an additional rough zone between ~1295 m and ~1510 m.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": []
+     },
+     {
+      "sentence": "Within each rail, the lower spectrum panel is identical between the 30-100mm and 100-300mm figures (Figure 1 matches Figure 2; Figure 3 matches Figure 4), falling from ~44-45 dB rel 1 µmRMS at 2000 mm to below 0 dB at short wavelengths.",
+      "status": "unverified",
+      "reasons": [],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": []
+     },
+     {
+      "sentence": "Comparing the two spectra, RHR is 1-5 dB higher than LHR at wavelengths from 2000 mm down to 200 mm (with a local peak of 24.4 dB at 200 mm), whereas LHR is higher than RHR across 160 mm to 3.15 mm (with local peaks of 23.0 dB at 125 mm, 3.8 dB at 25 mm, 1.3 dB at 12.5 mm and 1.4 dB at 5 mm).",
+      "status": "rejected",
+      "reasons": [
+       "contradicted by the pixels: RHR is 1-5 dB higher than LHR from 2000 mm down to 200 mm (RHR - LHR over 11 bands: -0.1 to +5.3 dB)"
+      ],
+      "consistent_with_extraction": true,
+      "numbers_not_in_extraction": [],
+      "pixel_claims": [
+       {
+        "claim": "RHR is 1-5 dB higher than LHR from 2000 mm down to 200 mm",
+        "figures": [
+         3,
+         1
+        ],
+        "ok": false,
+        "pixel": "RHR - LHR over 11 bands: -0.1 to +5.3 dB"
+       },
+       {
+        "claim": "24.4 dB at 200 mm",
+        "kind": "level",
+        "figures": [
+         1,
+         3
+        ],
+        "ok": true,
+        "pixel": "LHR: 19.0 dB / RHR: 24.3 dB"
+       },
+       {
+        "claim": "23.0 dB at 125 mm",
+        "kind": "level",
+        "figures": [
+         1,
+         3
+        ],
+        "ok": true,
+        "pixel": "LHR: 23.0 dB / RHR: 18.5 dB"
+       },
+       {
+        "claim": "3.8 dB at 25 mm",
+        "kind": "level",
+        "figures": [
+         1,
+         3
+        ],
+        "ok": true,
+        "pixel": "LHR: 3.9 dB / RHR: 1.3 dB"
+       },
+       {
+        "claim": "1.3 dB at 12.5 mm",
+        "kind": "level",
+        "figures": [
+         1,
+         3
+        ],
+        "ok": true,
+        "pixel": "LHR: 1.7 dB / RHR: -3.9 dB"
+       },
+       {
+        "claim": "1.4 dB at 5 mm",
+        "kind": "level",
+        "figures": [
+         1,
+         3
+        ],
+        "ok": true,
+        "pixel": "LHR: 1.0 dB / RHR: -5.0 dB"
+       }
+      ]
+     }
+    ],
+    "readings": [
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 883.0,
+      "x_units": "m",
+      "argon_y": 135.0,
+      "y_units": "µm",
+      "pixel": 103.7,
+      "where": "within ±10 m of x",
+      "abs_err": 31.3,
+      "tolerance": 7.2,
+      "ok": false
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 816.0,
+      "x_units": "m",
+      "argon_y": 106.0,
+      "y_units": "µm",
+      "pixel": 97.2,
+      "where": "within ±10 m of x",
+      "abs_err": 8.8,
+      "tolerance": 7.2,
+      "ok": false
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 800.0,
+      "x_units": "m",
+      "argon_y": 101.0,
+      "y_units": "µm",
+      "pixel": 110.9,
+      "where": "within ±10 m of x",
+      "abs_err": 9.9,
+      "tolerance": 7.2,
+      "ok": false
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1423.0,
+      "x_units": "m",
+      "argon_y": 75.0,
+      "y_units": "µm",
+      "pixel": 76.9,
+      "where": "within ±10 m of x",
+      "abs_err": 1.9,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1148.0,
+      "x_units": "m",
+      "argon_y": 69.0,
+      "y_units": "µm",
+      "pixel": 72.9,
+      "where": "within ±10 m of x",
+      "abs_err": 3.9,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1007.0,
+      "x_units": "m",
+      "argon_y": 54.0,
+      "y_units": "µm",
+      "pixel": 52.0,
+      "where": "within ±10 m of x",
+      "abs_err": 2.0,
+      "tolerance": 7.2,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 44.3,
+      "y_units": "dB",
+      "pixel": 43.3,
+      "where": "at that band",
+      "abs_err": 1.0,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 125.0,
+      "x_units": "mm",
+      "argon_y": 23.0,
+      "y_units": "dB",
+      "pixel": 23.0,
+      "where": "at that band",
+      "abs_err": 0.0,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 3.8,
+      "y_units": "dB",
+      "pixel": 3.9,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": 1.3,
+      "y_units": "dB",
+      "pixel": 1.7,
+      "where": "at that band",
+      "abs_err": 0.4,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 1,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 5.0,
+      "x_units": "mm",
+      "argon_y": 1.4,
+      "y_units": "dB",
+      "pixel": 1.0,
+      "where": "at that band",
+      "abs_err": 0.4,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 168.0,
+      "x_units": "m",
+      "argon_y": 324.0,
+      "y_units": "µm",
+      "pixel": 327.1,
+      "where": "within ±10 m of x",
+      "abs_err": 3.1,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 215.0,
+      "x_units": "m",
+      "argon_y": 292.0,
+      "y_units": "µm",
+      "pixel": 298.8,
+      "where": "within ±10 m of x",
+      "abs_err": 6.8,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 883.0,
+      "x_units": "m",
+      "argon_y": 284.0,
+      "y_units": "µm",
+      "pixel": 284.6,
+      "where": "within ±10 m of x",
+      "abs_err": 0.6,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 182.0,
+      "x_units": "m",
+      "argon_y": 272.0,
+      "y_units": "µm",
+      "pixel": 265.8,
+      "where": "within ±10 m of x",
+      "abs_err": 6.2,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 968.0,
+      "x_units": "m",
+      "argon_y": 250.0,
+      "y_units": "µm",
+      "pixel": 245.3,
+      "where": "within ±10 m of x",
+      "abs_err": 4.7,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 826.0,
+      "x_units": "m",
+      "argon_y": 232.0,
+      "y_units": "µm",
+      "pixel": 220.1,
+      "where": "within ±10 m of x",
+      "abs_err": 11.9,
+      "tolerance": 17.2,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 44.3,
+      "y_units": "dB",
+      "pixel": 43.3,
+      "where": "at that band",
+      "abs_err": 1.0,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 125.0,
+      "x_units": "mm",
+      "argon_y": 23.0,
+      "y_units": "dB",
+      "pixel": 23.0,
+      "where": "at that band",
+      "abs_err": 0.0,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 3.8,
+      "y_units": "dB",
+      "pixel": 3.9,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": 1.3,
+      "y_units": "dB",
+      "pixel": 1.7,
+      "where": "at that band",
+      "abs_err": 0.4,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 5.0,
+      "x_units": "mm",
+      "argon_y": 1.4,
+      "y_units": "dB",
+      "pixel": 1.0,
+      "where": "at that band",
+      "abs_err": 0.4,
+      "tolerance": 3.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 265.0,
+      "x_units": "m",
+      "argon_y": 111.0,
+      "y_units": "µm",
+      "pixel": 111.7,
+      "where": "within ±10 m of x",
+      "abs_err": 0.7,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 168.0,
+      "x_units": "m",
+      "argon_y": 110.0,
+      "y_units": "µm",
+      "pixel": 111.7,
+      "where": "within ±10 m of x",
+      "abs_err": 1.7,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 244.0,
+      "x_units": "m",
+      "argon_y": 87.0,
+      "y_units": "µm",
+      "pixel": 87.5,
+      "where": "within ±10 m of x",
+      "abs_err": 0.5,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1451.0,
+      "x_units": "m",
+      "argon_y": 87.0,
+      "y_units": "µm",
+      "pixel": 86.5,
+      "where": "within ±10 m of x",
+      "abs_err": 0.5,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1308.0,
+      "x_units": "m",
+      "argon_y": 81.0,
+      "y_units": "µm",
+      "pixel": 81.6,
+      "where": "within ±10 m of x",
+      "abs_err": 0.6,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 1365.0,
+      "x_units": "m",
+      "argon_y": 79.0,
+      "y_units": "µm",
+      "pixel": 81.6,
+      "where": "within ±10 m of x",
+      "abs_err": 2.6,
+      "tolerance": 5.9,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 45.2,
+      "y_units": "dB",
+      "pixel": 44.1,
+      "where": "at that band",
+      "abs_err": 1.1,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 200.0,
+      "x_units": "mm",
+      "argon_y": 24.4,
+      "y_units": "dB",
+      "pixel": 24.3,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 1.0,
+      "y_units": "dB",
+      "pixel": 1.3,
+      "where": "at that band",
+      "abs_err": 0.3,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": -4.6,
+      "y_units": "dB",
+      "pixel": -3.9,
+      "where": "at that band",
+      "abs_err": 0.7,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 6.3,
+      "x_units": "mm",
+      "argon_y": -4.6,
+      "y_units": "dB",
+      "pixel": -4.2,
+      "where": "at that band",
+      "abs_err": 0.4,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "global_max",
+      "x": 884.0,
+      "x_units": "m",
+      "argon_y": 385.0,
+      "y_units": "µm",
+      "pixel": 381.7,
+      "where": "within ±10 m of x",
+      "abs_err": 3.3,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 763.0,
+      "x_units": "m",
+      "argon_y": 343.0,
+      "y_units": "µm",
+      "pixel": 324.9,
+      "where": "within ±10 m of x",
+      "abs_err": 18.1,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 891.0,
+      "x_units": "m",
+      "argon_y": 341.0,
+      "y_units": "µm",
+      "pixel": 381.7,
+      "where": "within ±10 m of x",
+      "abs_err": 40.7,
+      "tolerance": 20.0,
+      "ok": false
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 855.0,
+      "x_units": "m",
+      "argon_y": 329.0,
+      "y_units": "µm",
+      "pixel": 324.9,
+      "where": "within ±10 m of x",
+      "abs_err": 4.1,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 730.0,
+      "x_units": "m",
+      "argon_y": 324.0,
+      "y_units": "µm",
+      "pixel": 321.2,
+      "where": "within ±10 m of x",
+      "abs_err": 2.8,
+      "tolerance": 20.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "position",
+      "kind": "local_max",
+      "x": 197.0,
+      "x_units": "m",
+      "argon_y": 324.0,
+      "y_units": "µm",
+      "pixel": 238.7,
+      "where": "within ±10 m of x",
+      "abs_err": 85.3,
+      "tolerance": 20.0,
+      "ok": false
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "global_max",
+      "x": 2000.0,
+      "x_units": "mm",
+      "argon_y": 45.2,
+      "y_units": "dB",
+      "pixel": 44.1,
+      "where": "at that band",
+      "abs_err": 1.1,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 200.0,
+      "x_units": "mm",
+      "argon_y": 24.4,
+      "y_units": "dB",
+      "pixel": 24.3,
+      "where": "at that band",
+      "abs_err": 0.1,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 25.0,
+      "x_units": "mm",
+      "argon_y": 1.0,
+      "y_units": "dB",
+      "pixel": 1.3,
+      "where": "at that band",
+      "abs_err": 0.3,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 12.5,
+      "x_units": "mm",
+      "argon_y": -4.6,
+      "y_units": "dB",
+      "pixel": -3.9,
+      "where": "at that band",
+      "abs_err": 0.7,
+      "tolerance": 4.0,
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "panel": "spectrum",
+      "kind": "local_max",
+      "x": 6.3,
+      "x_units": "mm",
+      "argon_y": -4.6,
+      "y_units": "dB",
+      "pixel": -4.2,
+      "where": "at that band",
+      "abs_err": 0.4,
+      "tolerance": 4.0,
+      "ok": true
+     }
+    ],
+    "tfl_anchor": [
+     {
+      "figure": 1,
+      "overlapping_zones": [
+       [
+        735.0,
+        905.0
+       ]
+      ],
+      "ok": true
+     },
+     {
+      "figure": 2,
+      "overlapping_zones": [
+       [
+        735.0,
+        905.0
+       ]
+      ],
+      "ok": true
+     },
+     {
+      "figure": 3,
+      "overlapping_zones": [
+       [
+        725.0,
+        905.0
+       ]
+      ],
+      "ok": true
+     },
+     {
+      "figure": 4,
+      "overlapping_zones": [
+       [
+        725.0,
+        905.0
+       ]
+      ],
+      "ok": true
+     }
+    ],
+    "unlabelled": [
+     {
+      "colour": "grey",
+      "rgb": [
+       128,
+       128,
+       128
+      ],
+      "panel": "spectrum",
+      "named_in_an_element_about_that_panel": false
+     },
+     {
+      "colour": "magenta",
+      "rgb": [
+       255,
+       0,
+       255
+      ],
+      "panel": "spectrum",
+      "named_in_an_element_about_that_panel": true
+     },
+     {
+      "colour": "olive",
+      "rgb": [
+       128,
+       128,
+       0
+      ],
+      "panel": "spectrum",
+      "named_in_an_element_about_that_panel": true
+     },
+     {
+      "colour": "pink",
+      "rgb": [
+       255,
+       204,
+       204
+      ],
+      "panel": "position",
+      "named_in_an_element_about_that_panel": true
+     },
+     {
+      "element": "Thin vertical coloured lines across the upper position panels: on Figures 1 and 2 (LHR) a green line near 1230 m and a red line near 1295 m; on Figures 3 and 4 (RHR) green and red vertical lines near ",
+      "panel": "position",
+      "wrong_colour_words": [
+       "green",
+       "red"
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "agreement": {
+  "1v2": {
+   "rows": [
+    {
+     "figure": 1,
+     "item": "header_text",
+     "a": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+     "b": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+     "agree": true
+    },
+    {
+     "figure": 1,
+     "item": "caption",
+     "a": "Figure 1 – LHR 30-100mm",
+     "b": "Figure 1 – LHR 30-100mm",
+     "agree": true
+    },
+    {
+     "figure": 1,
+     "item": "header.main_av_pp_um",
+     "a": 16.5,
+     "b": 16.5,
+     "agree": true
+    },
+    {
+     "figure": 1,
+     "item": "header.exceedance_pct",
+     "a": 41.0,
+     "b": 41.0,
+     "agree": true
+    },
+    {
+     "figure": 1,
+     "item": "header.exceedance_km",
+     "a": 0.626,
+     "b": 0.626,
+     "agree": true
+    },
+    {
+     "figure": 1,
+     "item": "header.threshold_um",
+     "a": 10.0,
+     "b": 10.0,
+     "agree": true
+    },
+    {
+     "figure": 1,
+     "item": "global_max",
+     "a": [
+      869.0,
+      135.0
+     ],
+     "b": [
+      883.0,
+      135.0
+     ],
+     "abs_dx_m": 14.0,
+     "abs_dy_um": 0.0,
+     "dx_span": 0.0091,
+     "dy_span": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 2000 mm",
+     "a": 43.5,
+     "b": 44.3,
+     "abs_db": 0.8,
+     "d_span": 0.0103,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1600 mm",
+     "a": 41.5,
+     "b": 41.2,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1250 mm",
+     "a": 39.5,
+     "b": 39.0,
+     "abs_db": 0.5,
+     "d_span": 0.0064,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1000 mm",
+     "a": 36.5,
+     "b": 35.8,
+     "abs_db": 0.7,
+     "d_span": 0.009,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 800 mm",
+     "a": 33.5,
+     "b": 33.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 630 mm",
+     "a": 30.5,
+     "b": 30.2,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 500 mm",
+     "a": 28.0,
+     "b": 27.6,
+     "abs_db": 0.4,
+     "d_span": 0.0051,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 400 mm",
+     "a": 25.5,
+     "b": 25.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 315 mm",
+     "a": 23.5,
+     "b": 23.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 250 mm",
+     "a": 19.5,
+     "b": 19.8,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 200 mm",
+     "a": 19.0,
+     "b": 19.6,
+     "abs_db": 0.6,
+     "d_span": 0.0077,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 160 mm",
+     "a": 20.5,
+     "b": 21.6,
+     "abs_db": 1.1,
+     "d_span": 0.0141,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 125 mm",
+     "a": 22.5,
+     "b": 23.0,
+     "abs_db": 0.5,
+     "d_span": 0.0064,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 100 mm",
+     "a": 19.0,
+     "b": 19.2,
+     "abs_db": 0.2,
+     "d_span": 0.0026,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 80.0 mm",
+     "a": 15.5,
+     "b": 15.8,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 63.0 mm",
+     "a": 15.0,
+     "b": 15.0,
+     "abs_db": 0.0,
+     "d_span": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 50.0 mm",
+     "a": 12.5,
+     "b": 11.4,
+     "abs_db": 1.1,
+     "d_span": 0.0141,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 40.0 mm",
+     "a": 9.0,
+     "b": 8.0,
+     "abs_db": 1.0,
+     "d_span": 0.0128,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 31.5 mm",
+     "a": 3.0,
+     "b": 2.9,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 25.0 mm",
+     "a": 4.0,
+     "b": 3.8,
+     "abs_db": 0.2,
+     "d_span": 0.0026,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 20.0 mm",
+     "a": -2.5,
+     "b": -2.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 16.0 mm",
+     "a": -5.5,
+     "b": -5.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 12.5 mm",
+     "a": 1.0,
+     "b": 1.3,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 10.0 mm",
+     "a": -2.5,
+     "b": -2.9,
+     "abs_db": 0.4,
+     "d_span": 0.0051,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 8.0 mm",
+     "a": -0.5,
+     "b": -0.2,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 6.3 mm",
+     "a": 1.0,
+     "b": 0.6,
+     "abs_db": 0.4,
+     "d_span": 0.0051,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 5.0 mm",
+     "a": 1.5,
+     "b": 1.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 4.0 mm",
+     "a": 0.5,
+     "b": 0.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 3.15 mm",
+     "a": -6.0,
+     "b": -5.6,
+     "abs_db": 0.4,
+     "d_span": 0.0051,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "zone",
+     "a": [
+      170.0,
+      315.0
+     ],
+     "b": [
+      165.0,
+      285.0
+     ],
+     "boundary_m": 30.0,
+     "d_span": 0.0195,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "zone",
+     "a": [
+      720.0,
+      1210.0
+     ],
+     "b": [
+      735.0,
+      1220.0
+     ],
+     "boundary_m": 15.0,
+     "d_span": 0.0097,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "zone",
+     "a": [
+      510.0,
+      655.0
+     ],
+     "b": null,
+     "agree": false
+    },
+    {
+     "figure": 1,
+     "item": "zone",
+     "a": [
+      1350.0,
+      1500.0
+     ],
+     "b": null,
+     "agree": false
+    },
+    {
+     "figure": 2,
+     "item": "header_text",
+     "a": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+     "b": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+     "agree": true
+    },
+    {
+     "figure": 2,
+     "item": "caption",
+     "a": "Figure 2 – LHR 100-300mm",
+     "b": "Figure 2 – LHR 100-300mm",
+     "agree": true
+    },
+    {
+     "figure": 2,
+     "item": "header.main_av_pp_um",
+     "a": 39.2,
+     "b": 39.2,
+     "agree": true
+    },
+    {
+     "figure": 2,
+     "item": "header.exceedance_pct",
+     "a": 41.0,
+     "b": 41.0,
+     "agree": true
+    },
+    {
+     "figure": 2,
+     "item": "header.exceedance_km",
+     "a": 0.626,
+     "b": 0.626,
+     "agree": true
+    },
+    {
+     "figure": 2,
+     "item": "header.threshold_um",
+     "a": 30.0,
+     "b": 30.0,
+     "agree": true
+    },
+    {
+     "figure": 2,
+     "item": "global_max",
+     "a": [
+      169.0,
+      325.0
+     ],
+     "b": [
+      168.0,
+      324.0
+     ],
+     "abs_dx_m": 1.0,
+     "abs_dy_um": 1.0,
+     "dx_span": 0.0006,
+     "dy_span": 0.0029,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 2,
+     "item": "zone",
+     "a": [
+      160.0,
+      265.0
+     ],
+     "b": [
+      160.0,
+      260.0
+     ],
+     "boundary_m": 5.0,
+     "d_span": 0.0032,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 2,
+     "item": "zone",
+     "a": [
+      370.0,
+      650.0
+     ],
+     "b": [
+      605.0,
+      645.0
+     ],
+     "boundary_m": 235.0,
+     "d_span": 0.1527,
+     "agree": false,
+     "tight": false
+    },
+    {
+     "figure": 2,
+     "item": "zone",
+     "a": [
+      720.0,
+      1200.0
+     ],
+     "b": [
+      735.0,
+      1200.0
+     ],
+     "boundary_m": 15.0,
+     "d_span": 0.0097,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 2,
+     "item": "zone",
+     "a": [
+      1355.0,
+      1490.0
+     ],
+     "b": null,
+     "agree": false
+    },
+    {
+     "figure": 3,
+     "item": "header_text",
+     "a": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+     "b": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+     "agree": true
+    },
+    {
+     "figure": 3,
+     "item": "caption",
+     "a": "Figure 3 – RHR 30-100mm",
+     "b": "Figure 3 – RHR 30-100mm",
+     "agree": true
+    },
+    {
+     "figure": 3,
+     "item": "header.main_av_pp_um",
+     "a": 10.9,
+     "b": 10.9,
+     "agree": true
+    },
+    {
+     "figure": 3,
+     "item": "header.exceedance_pct",
+     "a": 33.0,
+     "b": 33.0,
+     "agree": true
+    },
+    {
+     "figure": 3,
+     "item": "header.exceedance_km",
+     "a": 0.504,
+     "b": 0.504,
+     "agree": true
+    },
+    {
+     "figure": 3,
+     "item": "header.threshold_um",
+     "a": 10.0,
+     "b": 10.0,
+     "agree": true
+    },
+    {
+     "figure": 3,
+     "item": "global_max",
+     "a": [
+      262.0,
+      112.0
+     ],
+     "b": [
+      265.0,
+      111.0
+     ],
+     "abs_dx_m": 3.0,
+     "abs_dy_um": 1.0,
+     "dx_span": 0.0019,
+     "dy_span": 0.0085,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 2000 mm",
+     "a": 45.0,
+     "b": 45.2,
+     "abs_db": 0.2,
+     "d_span": 0.0025,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1600 mm",
+     "a": 43.0,
+     "b": 43.2,
+     "abs_db": 0.2,
+     "d_span": 0.0025,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1250 mm",
+     "a": 40.0,
+     "b": 40.2,
+     "abs_db": 0.2,
+     "d_span": 0.0025,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1000 mm",
+     "a": 37.5,
+     "b": 37.8,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 800 mm",
+     "a": 34.0,
+     "b": 34.4,
+     "abs_db": 0.4,
+     "d_span": 0.0051,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 630 mm",
+     "a": 31.5,
+     "b": 31.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 500 mm",
+     "a": 29.0,
+     "b": 29.0,
+     "abs_db": 0.0,
+     "d_span": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 400 mm",
+     "a": 26.0,
+     "b": 26.2,
+     "abs_db": 0.2,
+     "d_span": 0.0025,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 315 mm",
+     "a": 23.5,
+     "b": 23.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 250 mm",
+     "a": 23.0,
+     "b": 22.8,
+     "abs_db": 0.2,
+     "d_span": 0.0025,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 200 mm",
+     "a": 24.5,
+     "b": 24.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 160 mm",
+     "a": 21.5,
+     "b": 20.6,
+     "abs_db": 0.9,
+     "d_span": 0.0114,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 125 mm",
+     "a": 19.5,
+     "b": 18.6,
+     "abs_db": 0.9,
+     "d_span": 0.0114,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 100 mm",
+     "a": 16.5,
+     "b": 15.8,
+     "abs_db": 0.7,
+     "d_span": 0.0089,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 80.0 mm",
+     "a": 13.0,
+     "b": 12.6,
+     "abs_db": 0.4,
+     "d_span": 0.0051,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 63.0 mm",
+     "a": 12.0,
+     "b": 11.4,
+     "abs_db": 0.6,
+     "d_span": 0.0076,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 50.0 mm",
+     "a": 9.5,
+     "b": 9.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 40.0 mm",
+     "a": 4.5,
+     "b": 4.4,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 31.5 mm",
+     "a": -0.5,
+     "b": -0.2,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 25.0 mm",
+     "a": 1.0,
+     "b": 1.0,
+     "abs_db": 0.0,
+     "d_span": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 20.0 mm",
+     "a": -3.5,
+     "b": -3.8,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 16.0 mm",
+     "a": -6.5,
+     "b": -6.8,
+     "abs_db": 0.3,
+     "d_span": 0.0038,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 12.5 mm",
+     "a": -4.0,
+     "b": -4.6,
+     "abs_db": 0.6,
+     "d_span": 0.0076,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 10.0 mm",
+     "a": -5.5,
+     "b": -6.0,
+     "abs_db": 0.5,
+     "d_span": 0.0063,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 8.0 mm",
+     "a": -4.5,
+     "b": -5.0,
+     "abs_db": 0.5,
+     "d_span": 0.0063,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 6.3 mm",
+     "a": -4.5,
+     "b": -4.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 5.0 mm",
+     "a": -5.0,
+     "b": -5.2,
+     "abs_db": 0.2,
+     "d_span": 0.0025,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 4.0 mm",
+     "a": -7.5,
+     "b": -7.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 3.15 mm",
+     "a": -8.5,
+     "b": -8.6,
+     "abs_db": 0.1,
+     "d_span": 0.0013,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "zone",
+     "a": [
+      85.0,
+      275.0
+     ],
+     "b": [
+      95.0,
+      275.0
+     ],
+     "boundary_m": 10.0,
+     "d_span": 0.0065,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "zone",
+     "a": [
+      725.0,
+      905.0
+     ],
+     "b": [
+      725.0,
+      905.0
+     ],
+     "boundary_m": 0.0,
+     "d_span": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "zone",
+     "a": [
+      1285.0,
+      1510.0
+     ],
+     "b": [
+      1295.0,
+      1505.0
+     ],
+     "boundary_m": 10.0,
+     "d_span": 0.0065,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "header_text",
+     "a": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+     "b": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+     "agree": true
+    },
+    {
+     "figure": 4,
+     "item": "caption",
+     "a": "Figure 4 – RHR 100-300mm",
+     "b": "Figure 4 – RHR 100-300mm",
+     "agree": true
+    },
+    {
+     "figure": 4,
+     "item": "header.main_av_pp_um",
+     "a": 35.7,
+     "b": 35.7,
+     "agree": true
+    },
+    {
+     "figure": 4,
+     "item": "header.exceedance_pct",
+     "a": 34.0,
+     "b": 34.0,
+     "agree": true
+    },
+    {
+     "figure": 4,
+     "item": "header.exceedance_km",
+     "a": 0.519,
+     "b": 0.519,
+     "agree": true
+    },
+    {
+     "figure": 4,
+     "item": "header.threshold_um",
+     "a": 30.0,
+     "b": 30.0,
+     "agree": true
+    },
+    {
+     "figure": 4,
+     "item": "global_max",
+     "a": [
+      886.0,
+      378.0
+     ],
+     "b": [
+      884.0,
+      385.0
+     ],
+     "abs_dx_m": 2.0,
+     "abs_dy_um": 7.0,
+     "dx_span": 0.0013,
+     "dy_span": 0.0175,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "zone",
+     "a": [
+      120.0,
+      280.0
+     ],
+     "b": [
+      125.0,
+      285.0
+     ],
+     "boundary_m": 5.0,
+     "d_span": 0.0032,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "zone",
+     "a": [
+      725.0,
+      910.0
+     ],
+     "b": [
+      725.0,
+      905.0
+     ],
+     "boundary_m": 5.0,
+     "d_span": 0.0032,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "zone",
+     "a": [
+      940.0,
+      1240.0
+     ],
+     "b": [
+      945.0,
+      1240.0
+     ],
+     "boundary_m": 5.0,
+     "d_span": 0.0032,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "zone",
+     "a": [
+      1290.0,
+      1525.0
+     ],
+     "b": [
+      1295.0,
+      1520.0
+     ],
+     "boundary_m": 5.0,
+     "d_span": 0.0032,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "zone",
+     "a": [
+      400.0,
+      530.0
+     ],
+     "b": null,
+     "agree": false
+    }
+   ],
+   "n": 102,
+   "n_agree": 97,
+   "n_numeric": 74,
+   "n_numeric_tight": 73,
+   "stats": {
+    "text_items": {
+     "n": 8,
+     "agree": 8
+    },
+    "header_numbers": {
+     "n": 16,
+     "agree": 16
+    },
+    "global_max": {
+     "dx_m": {
+      "n": 4,
+      "median": 2.5,
+      "max": 14.0
+     },
+     "dy_um": {
+      "n": 4,
+      "median": 1.0,
+      "max": 7.0
+     }
+    },
+    "bands_distinct": {
+     "abs_db": {
+      "n": 58,
+      "median": 0.3,
+      "max": 1.1
+     },
+     "n_over_1p5_db": 0
+    },
+    "zones": {
+     "matched": 12,
+     "unmatched": 4,
+     "boundary_m": {
+      "n": 12,
+      "median": 7.5,
+      "max": 235.0
+     }
+    }
+   },
+   "disagreements": [
+    {
+     "figure": 1,
+     "item": "zone",
+     "a": [
+      510.0,
+      655.0
+     ],
+     "b": null,
+     "agree": false
+    },
+    {
+     "figure": 1,
+     "item": "zone",
+     "a": [
+      1350.0,
+      1500.0
+     ],
+     "b": null,
+     "agree": false
+    },
+    {
+     "figure": 2,
+     "item": "zone",
+     "a": [
+      370.0,
+      650.0
+     ],
+     "b": [
+      605.0,
+      645.0
+     ],
+     "boundary_m": 235.0,
+     "d_span": 0.1527,
+     "agree": false,
+     "tight": false
+    },
+    {
+     "figure": 2,
+     "item": "zone",
+     "a": [
+      1355.0,
+      1490.0
+     ],
+     "b": null,
+     "agree": false
+    },
+    {
+     "figure": 4,
+     "item": "zone",
+     "a": [
+      400.0,
+      530.0
+     ],
+     "b": null,
+     "agree": false
+    }
+   ]
+  }
+ },
+ "vs_digitizer": {
+  "1": {
+   "rows": [
+    {
+     "figure": 1,
+     "item": "global_max",
+     "argon": [
+      869.0,
+      135.0
+     ],
+     "digitizer": [
+      865.1,
+      136.5
+     ],
+     "abs_dx_m": 3.9,
+     "abs_dy_um": 1.5,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 2000 mm",
+     "argon": 43.5,
+     "digitizer": 43.3,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1600 mm",
+     "argon": 41.5,
+     "digitizer": 40.7,
+     "abs_db": 0.8,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1250 mm",
+     "argon": 39.5,
+     "digitizer": 38.6,
+     "abs_db": 0.9,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1000 mm",
+     "argon": 36.5,
+     "digitizer": 35.3,
+     "abs_db": 1.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 800 mm",
+     "argon": 33.5,
+     "digitizer": 32.8,
+     "abs_db": 0.7,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 630 mm",
+     "argon": 30.5,
+     "digitizer": 30.3,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 500 mm",
+     "argon": 28.0,
+     "digitizer": 27.7,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 400 mm",
+     "argon": 25.5,
+     "digitizer": 25.9,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 315 mm",
+     "argon": 23.5,
+     "digitizer": 24.1,
+     "abs_db": 0.6,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 250 mm",
+     "argon": 19.5,
+     "digitizer": 20.5,
+     "abs_db": 1.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 200 mm",
+     "argon": 19.0,
+     "digitizer": 19.0,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 160 mm",
+     "argon": 20.5,
+     "digitizer": 21.2,
+     "abs_db": 0.7,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 125 mm",
+     "argon": 22.5,
+     "digitizer": 23.0,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 100 mm",
+     "argon": 19.0,
+     "digitizer": 19.4,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 80.0 mm",
+     "argon": 15.5,
+     "digitizer": 15.8,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 63.0 mm",
+     "argon": 15.0,
+     "digitizer": 15.8,
+     "abs_db": 0.8,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 50.0 mm",
+     "argon": 12.5,
+     "digitizer": 12.2,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 40.0 mm",
+     "argon": 9.0,
+     "digitizer": 7.8,
+     "abs_db": 1.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 31.5 mm",
+     "argon": 3.0,
+     "digitizer": 2.8,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 25.0 mm",
+     "argon": 4.0,
+     "digitizer": 3.9,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 20.0 mm",
+     "argon": -2.5,
+     "digitizer": -2.7,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 16.0 mm",
+     "argon": -5.5,
+     "digitizer": -5.0,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 12.5 mm",
+     "argon": 1.0,
+     "digitizer": 1.7,
+     "abs_db": 0.7,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 10.0 mm",
+     "argon": -2.5,
+     "digitizer": -3.0,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 8.0 mm",
+     "argon": -0.5,
+     "digitizer": -1.6,
+     "abs_db": 1.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 6.3 mm",
+     "argon": 1.0,
+     "digitizer": 0.6,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 5.0 mm",
+     "argon": 1.5,
+     "digitizer": 1.0,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 4.0 mm",
+     "argon": 0.5,
+     "digitizer": 0.6,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 3.15 mm",
+     "argon": -6.0,
+     "digitizer": -5.6,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 2,
+     "item": "global_max",
+     "argon": [
+      169.0,
+      325.0
+     ],
+     "digitizer": [
+      169.9,
+      327.1
+     ],
+     "abs_dx_m": 0.9,
+     "abs_dy_um": 2.1,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "global_max",
+     "argon": [
+      262.0,
+      112.0
+     ],
+     "digitizer": [
+      168.9,
+      111.7
+     ],
+     "abs_dx_m": 2.0,
+     "abs_dy_um": 0.3,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 2000 mm",
+     "argon": 45.0,
+     "digitizer": 44.1,
+     "abs_db": 0.9,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1600 mm",
+     "argon": 43.0,
+     "digitizer": 42.7,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1250 mm",
+     "argon": 40.0,
+     "digitizer": 40.1,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1000 mm",
+     "argon": 37.5,
+     "digitizer": 37.5,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 800 mm",
+     "argon": 34.0,
+     "digitizer": 33.9,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 630 mm",
+     "argon": 31.5,
+     "digitizer": 31.3,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 500 mm",
+     "argon": 29.0,
+     "digitizer": 28.7,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 400 mm",
+     "argon": 26.0,
+     "digitizer": 25.8,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 315 mm",
+     "argon": 23.5,
+     "digitizer": 24.0,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 250 mm",
+     "argon": 23.0,
+     "digitizer": 22.5,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 200 mm",
+     "argon": 24.5,
+     "digitizer": 24.3,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 160 mm",
+     "argon": 21.5,
+     "digitizer": 20.3,
+     "abs_db": 1.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 125 mm",
+     "argon": 19.5,
+     "digitizer": 18.5,
+     "abs_db": 1.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 100 mm",
+     "argon": 16.5,
+     "digitizer": 16.3,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 80.0 mm",
+     "argon": 13.0,
+     "digitizer": 13.0,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 63.0 mm",
+     "argon": 12.0,
+     "digitizer": 11.9,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 50.0 mm",
+     "argon": 9.5,
+     "digitizer": 10.1,
+     "abs_db": 0.6,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 40.0 mm",
+     "argon": 4.5,
+     "digitizer": 4.6,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 31.5 mm",
+     "argon": -0.5,
+     "digitizer": -0.2,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 25.0 mm",
+     "argon": 1.0,
+     "digitizer": 1.3,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 20.0 mm",
+     "argon": -3.5,
+     "digitizer": -3.5,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 16.0 mm",
+     "argon": -6.5,
+     "digitizer": -6.6,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 12.5 mm",
+     "argon": -4.0,
+     "digitizer": -3.9,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 10.0 mm",
+     "argon": -5.5,
+     "digitizer": -5.7,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 8.0 mm",
+     "argon": -4.5,
+     "digitizer": -4.2,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 6.3 mm",
+     "argon": -4.5,
+     "digitizer": -4.2,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 5.0 mm",
+     "argon": -5.0,
+     "digitizer": -5.0,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 4.0 mm",
+     "argon": -7.5,
+     "digitizer": -7.2,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 3.15 mm",
+     "argon": -8.5,
+     "digitizer": -8.6,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "global_max",
+     "argon": [
+      886.0,
+      378.0
+     ],
+     "digitizer": [
+      886.9,
+      381.7
+     ],
+     "abs_dx_m": 0.9,
+     "abs_dy_um": 3.7,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    }
+   ],
+   "n": 62,
+   "n_agree": 62,
+   "n_tight": 62,
+   "global_max": {
+    "n": 4,
+    "dx_m": {
+     "n": 4,
+     "median": 1.45,
+     "max": 3.9
+    },
+    "dy_um": {
+     "n": 4,
+     "median": 1.8,
+     "max": 3.7
+    }
+   },
+   "bands_distinct": {
+    "n": 58,
+    "abs_db": {
+     "n": 58,
+     "median": 0.3,
+     "max": 1.2
+    },
+    "n_over_1p5_db": 0,
+    "per_spectrum_fig": {
+     "1": {
+      "n": 29,
+      "median": 0.5,
+      "max": 1.2
+     },
+     "3": {
+      "n": 29,
+      "median": 0.2,
+      "max": 1.2
+     }
+    }
+   },
+   "copies": {
+    "2": {
+     "copy_of": 1,
+     "max_abs_db_between_copies": 0.0,
+     "n": 29
+    },
+    "4": {
+     "copy_of": 3,
+     "max_abs_db_between_copies": 0.0,
+     "n": 29
+    }
+   },
+   "disagreements": []
+  },
+  "2": {
+   "rows": [
+    {
+     "figure": 1,
+     "item": "global_max",
+     "argon": [
+      883.0,
+      135.0
+     ],
+     "digitizer": [
+      865.1,
+      136.5
+     ],
+     "abs_dx_m": 17.9,
+     "abs_dy_um": 1.5,
+     "pixel_check_ok": false,
+     "agree": false,
+     "tight": false
+    },
+    {
+     "figure": 1,
+     "item": "band 2000 mm",
+     "argon": 44.3,
+     "digitizer": 43.3,
+     "abs_db": 1.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1600 mm",
+     "argon": 41.2,
+     "digitizer": 40.7,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1250 mm",
+     "argon": 39.0,
+     "digitizer": 38.6,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 1000 mm",
+     "argon": 35.8,
+     "digitizer": 35.3,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 800 mm",
+     "argon": 33.4,
+     "digitizer": 32.8,
+     "abs_db": 0.6,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 630 mm",
+     "argon": 30.2,
+     "digitizer": 30.3,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 500 mm",
+     "argon": 27.6,
+     "digitizer": 27.7,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 400 mm",
+     "argon": 25.4,
+     "digitizer": 25.9,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 315 mm",
+     "argon": 23.6,
+     "digitizer": 24.1,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 250 mm",
+     "argon": 19.8,
+     "digitizer": 20.5,
+     "abs_db": 0.7,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 200 mm",
+     "argon": 19.6,
+     "digitizer": 19.0,
+     "abs_db": 0.6,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 160 mm",
+     "argon": 21.6,
+     "digitizer": 21.2,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 125 mm",
+     "argon": 23.0,
+     "digitizer": 23.0,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 100 mm",
+     "argon": 19.2,
+     "digitizer": 19.4,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 80.0 mm",
+     "argon": 15.8,
+     "digitizer": 15.8,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 63.0 mm",
+     "argon": 15.0,
+     "digitizer": 15.8,
+     "abs_db": 0.8,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 50.0 mm",
+     "argon": 11.4,
+     "digitizer": 12.2,
+     "abs_db": 0.8,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 40.0 mm",
+     "argon": 8.0,
+     "digitizer": 7.8,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 31.5 mm",
+     "argon": 2.9,
+     "digitizer": 2.8,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 25.0 mm",
+     "argon": 3.8,
+     "digitizer": 3.9,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 20.0 mm",
+     "argon": -2.4,
+     "digitizer": -2.7,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 16.0 mm",
+     "argon": -5.6,
+     "digitizer": -5.0,
+     "abs_db": 0.6,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 12.5 mm",
+     "argon": 1.3,
+     "digitizer": 1.7,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 10.0 mm",
+     "argon": -2.9,
+     "digitizer": -3.0,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 8.0 mm",
+     "argon": -0.2,
+     "digitizer": -1.6,
+     "abs_db": 1.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 6.3 mm",
+     "argon": 0.6,
+     "digitizer": 0.6,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 5.0 mm",
+     "argon": 1.4,
+     "digitizer": 1.0,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 4.0 mm",
+     "argon": 0.4,
+     "digitizer": 0.6,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 1,
+     "item": "band 3.15 mm",
+     "argon": -5.6,
+     "digitizer": -5.6,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 2,
+     "item": "global_max",
+     "argon": [
+      168.0,
+      324.0
+     ],
+     "digitizer": [
+      169.9,
+      327.1
+     ],
+     "abs_dx_m": 1.9,
+     "abs_dy_um": 3.1,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "global_max",
+     "argon": [
+      265.0,
+      111.0
+     ],
+     "digitizer": [
+      168.9,
+      111.7
+     ],
+     "abs_dx_m": 1.0,
+     "abs_dy_um": 0.7,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 2000 mm",
+     "argon": 45.2,
+     "digitizer": 44.1,
+     "abs_db": 1.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1600 mm",
+     "argon": 43.2,
+     "digitizer": 42.7,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1250 mm",
+     "argon": 40.2,
+     "digitizer": 40.1,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 1000 mm",
+     "argon": 37.8,
+     "digitizer": 37.5,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 800 mm",
+     "argon": 34.4,
+     "digitizer": 33.9,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 630 mm",
+     "argon": 31.6,
+     "digitizer": 31.3,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 500 mm",
+     "argon": 29.0,
+     "digitizer": 28.7,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 400 mm",
+     "argon": 26.2,
+     "digitizer": 25.8,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 315 mm",
+     "argon": 23.6,
+     "digitizer": 24.0,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 250 mm",
+     "argon": 22.8,
+     "digitizer": 22.5,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 200 mm",
+     "argon": 24.4,
+     "digitizer": 24.3,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 160 mm",
+     "argon": 20.6,
+     "digitizer": 20.3,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 125 mm",
+     "argon": 18.6,
+     "digitizer": 18.5,
+     "abs_db": 0.1,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 100 mm",
+     "argon": 15.8,
+     "digitizer": 16.3,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 80.0 mm",
+     "argon": 12.6,
+     "digitizer": 13.0,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 63.0 mm",
+     "argon": 11.4,
+     "digitizer": 11.9,
+     "abs_db": 0.5,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 50.0 mm",
+     "argon": 9.4,
+     "digitizer": 10.1,
+     "abs_db": 0.7,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 40.0 mm",
+     "argon": 4.4,
+     "digitizer": 4.6,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 31.5 mm",
+     "argon": -0.2,
+     "digitizer": -0.2,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 25.0 mm",
+     "argon": 1.0,
+     "digitizer": 1.3,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 20.0 mm",
+     "argon": -3.8,
+     "digitizer": -3.5,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 16.0 mm",
+     "argon": -6.8,
+     "digitizer": -6.6,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 12.5 mm",
+     "argon": -4.6,
+     "digitizer": -3.9,
+     "abs_db": 0.7,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 10.0 mm",
+     "argon": -6.0,
+     "digitizer": -5.7,
+     "abs_db": 0.3,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 8.0 mm",
+     "argon": -5.0,
+     "digitizer": -4.2,
+     "abs_db": 0.8,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 6.3 mm",
+     "argon": -4.6,
+     "digitizer": -4.2,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 5.0 mm",
+     "argon": -5.2,
+     "digitizer": -5.0,
+     "abs_db": 0.2,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 4.0 mm",
+     "argon": -7.6,
+     "digitizer": -7.2,
+     "abs_db": 0.4,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 3,
+     "item": "band 3.15 mm",
+     "argon": -8.6,
+     "digitizer": -8.6,
+     "abs_db": 0.0,
+     "agree": true,
+     "tight": true
+    },
+    {
+     "figure": 4,
+     "item": "global_max",
+     "argon": [
+      884.0,
+      385.0
+     ],
+     "digitizer": [
+      886.9,
+      381.7
+     ],
+     "abs_dx_m": 2.9,
+     "abs_dy_um": 3.3,
+     "pixel_check_ok": true,
+     "agree": true,
+     "tight": true
+    }
+   ],
+   "n": 62,
+   "n_agree": 61,
+   "n_tight": 61,
+   "global_max": {
+    "n": 4,
+    "dx_m": {
+     "n": 4,
+     "median": 2.4,
+     "max": 17.9
+    },
+    "dy_um": {
+     "n": 4,
+     "median": 2.3,
+     "max": 3.3
+    }
+   },
+   "bands_distinct": {
+    "n": 58,
+    "abs_db": {
+     "n": 58,
+     "median": 0.35,
+     "max": 1.4
+    },
+    "n_over_1p5_db": 0,
+    "per_spectrum_fig": {
+     "1": {
+      "n": 29,
+      "median": 0.4,
+      "max": 1.4
+     },
+     "3": {
+      "n": 29,
+      "median": 0.3,
+      "max": 1.1
+     }
+    }
+   },
+   "copies": {
+    "2": {
+     "copy_of": 1,
+     "max_abs_db_between_copies": 0.0,
+     "n": 29
+    },
+    "4": {
+     "copy_of": 3,
+     "max_abs_db_between_copies": 0.0,
+     "n": 29
+    }
+   },
+   "disagreements": [
+    {
+     "figure": 1,
+     "item": "global_max",
+     "argon": [
+      883.0,
+      135.0
+     ],
+     "digitizer": [
+      865.1,
+      136.5
+     ],
+     "abs_dx_m": 17.9,
+     "abs_dy_um": 1.5,
+     "pixel_check_ok": false,
+     "agree": false,
+     "tight": false
+    }
+   ]
+  }
+ },
+ "peaks": {
+  "digitizer": {
+   "1": [
+    {
+     "band_mm": "125",
+     "db": 23.0,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "25.0",
+     "db": 3.9,
+     "prominence_db": 1.1
+    },
+    {
+     "band_mm": "12.5",
+     "db": 1.7,
+     "prominence_db": 4.7
+    }
+   ],
+   "2": [
+    {
+     "band_mm": "125",
+     "db": 23.0,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "25.0",
+     "db": 3.9,
+     "prominence_db": 1.1
+    },
+    {
+     "band_mm": "12.5",
+     "db": 1.7,
+     "prominence_db": 4.7
+    }
+   ],
+   "3": [
+    {
+     "band_mm": "200",
+     "db": 24.3,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "25.0",
+     "db": 1.3,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "12.5",
+     "db": -3.9,
+     "prominence_db": 1.8
+    }
+   ],
+   "4": [
+    {
+     "band_mm": "200",
+     "db": 24.3,
+     "prominence_db": 1.8
+    },
+    {
+     "band_mm": "25.0",
+     "db": 1.3,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "12.5",
+     "db": -3.9,
+     "prominence_db": 1.8
+    }
+   ]
+  },
+  "argon_run1": {
+   "1": [
+    {
+     "band_mm": "125",
+     "db": 22.5,
+     "prominence_db": 2.0
+    },
+    {
+     "band_mm": "25.0",
+     "db": 4.0,
+     "prominence_db": 1.0
+    },
+    {
+     "band_mm": "12.5",
+     "db": 1.0,
+     "prominence_db": 3.5
+    }
+   ],
+   "2": [
+    {
+     "band_mm": "125",
+     "db": 22.5,
+     "prominence_db": 2.0
+    },
+    {
+     "band_mm": "25.0",
+     "db": 4.0,
+     "prominence_db": 1.0
+    },
+    {
+     "band_mm": "12.5",
+     "db": 1.0,
+     "prominence_db": 3.5
+    }
+   ],
+   "3": [
+    {
+     "band_mm": "200",
+     "db": 24.5,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "25.0",
+     "db": 1.0,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "12.5",
+     "db": -4.0,
+     "prominence_db": 1.5
+    }
+   ],
+   "4": [
+    {
+     "band_mm": "200",
+     "db": 24.5,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "25.0",
+     "db": 1.0,
+     "prominence_db": 1.5
+    },
+    {
+     "band_mm": "12.5",
+     "db": -4.0,
+     "prominence_db": 1.5
+    }
+   ]
+  }
+ },
+ "vs_reference": {
+  "digitizer": [
+   {
+    "ref": "P1",
+    "what": "global maximum of the 30-100 mm MA Pk-Pk trace (LHR)",
+    "claude": [
+     865,
+     135
+    ],
+    "other": [
+     865.1,
+     136.5
+    ],
+    "d_span": 0.0105,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P2",
+    "what": "global maximum of the 100-300 mm MA Pk-Pk trace (RHR)",
+    "claude": [
+     887,
+     381
+    ],
+    "other": [
+     886.9,
+     381.7
+    ],
+    "d_span": 0.0017,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P3",
+    "what": "LHR roughness spectrum at the 125 mm band (local peak)",
+    "claude": [
+     125,
+     23.1
+    ],
+    "other": 23.0,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P4",
+    "what": "LHR roughness spectrum at the 200 mm band (local dip before the 125 mm peak)",
+    "claude": [
+     200,
+     18.9
+    ],
+    "other": 19.0,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P5",
+    "what": "RHR roughness spectrum at the 200 mm band (local peak)",
+    "claude": [
+     200,
+     24.4
+    ],
+    "other": 24.3,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P6",
+    "what": "RHR roughness spectrum at the 250 mm band (local dip before the 200 mm peak)",
+    "claude": [
+     250,
+     22.6
+    ],
+    "other": 22.5,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   }
+  ],
+  "run1": [
+   {
+    "ref": "header fig 1",
+    "claude": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+    "other": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+    "agree": true
+   },
+   {
+    "ref": "header fig 2",
+    "claude": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+    "other": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+    "agree": true
+   },
+   {
+    "ref": "header fig 3",
+    "claude": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+    "other": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+    "agree": true
+   },
+   {
+    "ref": "header fig 4",
+    "claude": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+    "other": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+    "agree": true
+   },
+   {
+    "ref": "P1",
+    "what": "global maximum of the 30-100 mm MA Pk-Pk trace (LHR)",
+    "claude": [
+     865,
+     135
+    ],
+    "other": [
+     869.0,
+     135.0
+    ],
+    "d_span": 0.0026,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P2",
+    "what": "global maximum of the 100-300 mm MA Pk-Pk trace (RHR)",
+    "claude": [
+     887,
+     381
+    ],
+    "other": [
+     886.0,
+     378.0
+    ],
+    "d_span": 0.0075,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P3",
+    "what": "LHR roughness spectrum at the 125 mm band (local peak)",
+    "claude": [
+     125,
+     23.1
+    ],
+    "other": 22.5,
+    "d_span": 0.0077,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P4",
+    "what": "LHR roughness spectrum at the 200 mm band (local dip before the 125 mm peak)",
+    "claude": [
+     200,
+     18.9
+    ],
+    "other": 19.0,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P5",
+    "what": "RHR roughness spectrum at the 200 mm band (local peak)",
+    "claude": [
+     200,
+     24.4
+    ],
+    "other": 24.5,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P6",
+    "what": "RHR roughness spectrum at the 250 mm band (local dip before the 200 mm peak)",
+    "claude": [
+     250,
+     22.6
+    ],
+    "other": 23.0,
+    "d_span": 0.0051,
+    "agree": true,
+    "tight": true
+   }
+  ],
+  "run2": [
+   {
+    "ref": "header fig 1",
+    "claude": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+    "other": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+    "agree": true
+   },
+   {
+    "ref": "header fig 2",
+    "claude": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+    "other": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+    "agree": true
+   },
+   {
+    "ref": "header fig 3",
+    "claude": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+    "other": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+    "agree": true
+   },
+   {
+    "ref": "header fig 4",
+    "claude": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+    "other": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+    "agree": true
+   },
+   {
+    "ref": "P1",
+    "what": "global maximum of the 30-100 mm MA Pk-Pk trace (LHR)",
+    "claude": [
+     865,
+     135
+    ],
+    "other": [
+     883.0,
+     135.0
+    ],
+    "d_span": 0.0117,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P2",
+    "what": "global maximum of the 100-300 mm MA Pk-Pk trace (RHR)",
+    "claude": [
+     887,
+     381
+    ],
+    "other": [
+     884.0,
+     385.0
+    ],
+    "d_span": 0.01,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P3",
+    "what": "LHR roughness spectrum at the 125 mm band (local peak)",
+    "claude": [
+     125,
+     23.1
+    ],
+    "other": 23.0,
+    "d_span": 0.0013,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P4",
+    "what": "LHR roughness spectrum at the 200 mm band (local dip before the 125 mm peak)",
+    "claude": [
+     200,
+     18.9
+    ],
+    "other": 19.6,
+    "d_span": 0.009,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P5",
+    "what": "RHR roughness spectrum at the 200 mm band (local peak)",
+    "claude": [
+     200,
+     24.4
+    ],
+    "other": 24.4,
+    "d_span": 0.0,
+    "agree": true,
+    "tight": true
+   },
+   {
+    "ref": "P6",
+    "what": "RHR roughness spectrum at the 250 mm band (local dip before the 200 mm peak)",
+    "claude": [
+     250,
+     22.6
+    ],
+    "other": 22.8,
+    "d_span": 0.0025,
+    "agree": true,
+    "tight": true
+   }
+  ]
+ }
+}

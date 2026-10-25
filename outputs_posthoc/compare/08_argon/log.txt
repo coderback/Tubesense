@@ -1,0 +1,14 @@
+=== attempt 0 2026-10-25T04:24:01+00:00 exit 0 135 s
+round 0: 15 claims, 7 rejected (65.4 s)
+  x C2: numbers not supported by the cited quotes/stats/formula: ['2018']
+  x C3: quote not found verbatim in CSOPP-2022-12-tube-noise#001: 'Deep Tube reconditioning to replace Pandrol Vanguard with Delkor'; numbers not supported by the cited quotes/stats/formula: ['2022']
+  x C4: quote not found verbatim in CSOPP-2022-12-tube-noise#001: 'Rail grinding is the most effective tool we have to remove corrugation, which is'; quote not found verbatim in CSOPP-2022-12-tube-noise#001: 
+  x C7: numbers not supported by the cited quotes/stats/formula: ['2020', '80']
+  x C12: numbers not supported by the cited quotes/stats/formula: ['2005', '2022', '12']
+  x C13: numbers not supported by the cited quotes/stats/formula: ['2024', '2025']
+  x C15: numbers not supported by the cited quotes/stats/formula: ['2021', '2022', '2022', '2024', '2022', '2023', '24']
+round 1: 15 claims, 0 rejected (65.6 s)
+verified 15, dropped 0, asks 4, 131.0 s -> C:\Users\tobio\PycharmProjects\Tubesense\outputs_posthoc\compare\08_argon\investigation.json (atlas: no-atlas, nothing written)
+
+--- stderr ---
+

@@ -6,7 +6,8 @@ search indexes that carry the scored features:
   documents.docs_auto  Automated Embedding (autoEmbed, Voyage voyage-4): also Voyage AI
   yaw_windows.yaw_vec  Vector Search over sensor fingerprints (64-d, euclidean, exact ENN)
 Hybrid Search is a $rankFusion query over docs_text + docs_auto (atlas/search.py).
-Stream Processing is configured in the Atlas UI (atlas/stream.js), not here.
+Stream Processing is set up by atlas/stream_setup.py (bodies in atlas/stream/), not here; it writes
+ingest_live -> live_view (atlas/stream_replay.py feeds it, atlas/live_view.py reads it).
 
 Run:   .venv/Scripts/python -m atlas.setup            (create + wait until queryable)
        .venv/Scripts/python -m atlas.setup --status   (report only)

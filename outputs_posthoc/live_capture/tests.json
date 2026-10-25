@@ -1,0 +1,15 @@
+{
+ "date": "2026-10-25",
+ "what": "live/ package tests (mock phyphox server + capture; no real phone available to the agent)",
+ "http_end_to_end": {
+  "cmd": "python -m live.capture --mock R9 --speed 4 --seconds 60 --atlas --cleanup --jsonl outputs_posthoc/live_capture/test_mock_R9_x4_60s.jsonl --quiet",
+  "result": "238 per-second rows over 60.5 s wall (R9 0-238 s at x4); rates acc 99.2 / gyr 99.2 / mag 98.8 / baro 0.9 Hz; knocks: single 11.77 s, double 13.24/13.49 s (sync_marker); states: stopped 21 (detected 24), moving 39 (detected 44, door step -0.095 hPa), stopped 177, moving 219 (dwell 42 s); outputs/sections.json R9: LST dwell to 33.3, BTH dwell 175.3-220.3",
+  "atlas": "NOT verified: Atlas unreachable from this laptop today (ServerSelectionTimeoutError; TCP to the shards opens, the handshake never completes: consistent with the laptop's current public IP not being on the Atlas IP access list); the capture continued without Atlas as designed"
+ },
+ "client_completeness": "40 polls at 5 Hz against the mock from buffer start: acc 3259 / gyr 3259 / mag 3245 / baro 32 samples, 0 duplicates, identical to the source samples; stop -> measuring false; start -> continues; clear -> reset flagged, reads restart from t=0; bad threshold -> HTTP 400 surfaced as an error string",
+ "stop_detector_vs_sections_json": "see offline_stop_check.json: 10 rides (R5, R7-R15), interior arrival error median +2.2 s (max 15.3), departure +2.0 s (max 13.7), 4 reference stops missed (ride-edge dwells with the phone handled, R10 5.5 s tunnel stop), 1 extra (R14 after arriving at LST)",
+ "yaw": "R9: live yaw_rate_dps vs frozen tubesense.features.yaw_rate, 1 s means 40-330 s: r 0.997, rms diff 0.094 deg/s; synthetic 3.0 deg/s curve read as 3.02",
+ "synthetic": "dwells 0-20 / 80-110 s detected as stopped 1-21 / 84-111; double knock 3.00/3.31; 180 deg flip reported (reorient 180, screen down); door step 0.41 hPa (truth 0.40)",
+ "errors": "unreachable URL -> one 'error' event with the network advice, retries every 2 s, 'bye' at --seconds; non-phyphox server -> 404 reported, no exception",
+ "save_raw": "--save-raw wrote data/raw/live/<ride_id>_<sensor>.csv (gitignored); test files deleted"
+}

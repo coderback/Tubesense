@@ -1,0 +1,411 @@
+{
+ "question": "How accurately can Tubesense locate the train between stations without GPS?",
+ "norm_question": "how accurately can tubesense locate the train between stations without gps",
+ "ts": "2026-10-25T04:47:12+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 27.7,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "Against a curve-edge reference, Tubesense locates the train with a 1.8 m median error over 10 forward-test runs (versus 11.2 m for a timetable baseline), or 13.5 m when yaw is hidden around each curve edge.",
+  "claim_ids": [
+   "A1",
+   "A2"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "Against a curve-edge reference on 10 forward-test runs, Tubesense achieves a median positioning error of 1.8 m compared with 11.2 m for a timetable baseline, while the fraction of the 90 % band that contains the reference has a mean of 0.951.",
+   "citations": [],
+   "stat_keys": [
+    "positioning.median_error_m",
+    "positioning.timetable_median_m",
+    "positioning.band90_coverage_mean"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "When yaw is hidden around each curve edge in a leave-one-run-out evaluation over 19 Central line runs, the median positioning error against a curve-edge reference is 13.5 m, compared with 22.8 m for the timetable baseline at the same hidden curve edges.",
+   "citations": [],
+   "stat_keys": [
+    "positioning.between_curves_median_m",
+    "positioning.between_curves_timetable_m"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "On the pre-registered H2b test across 6 Liverpool Street to Bethnal Green runs, the positioning verdict is GO with a 1.95 m median error against a curve-edge reference and a mean of 0.963 for the fraction of the 90 % band that contains the reference.",
+   "citations": [],
+   "stat_keys": [
+    "positioning.h2b_verdict"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A4",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "In the v2 post-hoc evaluation using Working Timetable metres against a curve-edge reference, the median error is 2.4 m across 8 development runs (where the fraction of the 90 % band containing the reference has a mean of 0.92) and 1.8 m across 10 forward-test runs (versus 11.85 m for the timetable baseline, with a mean coverage fraction of 0.936).",
+   "citations": [],
+   "stat_keys": [
+    "v2.dev.median_error_m",
+    "v2.dev.band90_coverage_mean",
+    "v2.test.median_error_m",
+    "v2.test.timetable_median_m",
+    "v2.test.band90_coverage_mean"
+   ],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed",
+  "A4": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Against a curve-edge reference on 10 forward-test runs, Tubesense achieves a median positioning error of 1.8 m compared with 11.2 m for a timetable baseline, while the fraction of the 90 % band that contains the reference has a mean of 0.951.",
+     "citations": [],
+     "stat_keys": [
+      "positioning.median_error_m",
+      "positioning.timetable_median_m",
+      "positioning.band90_coverage_mean"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "When yaw is hidden around each curve edge in a leave-one-run-out evaluation over 19 Central line runs, the median positioning error against a curve-edge reference is 13.5 m, compared with 22.8 m for the timetable baseline at the same hidden curve edges.",
+     "citations": [],
+     "stat_keys": [
+      "positioning.between_curves_median_m",
+      "positioning.between_curves_timetable_m"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "On the pre-registered H2b test across 6 Liverpool Street to Bethnal Green runs, the positioning verdict is GO with a 1.95 m median error against a curve-edge reference and a mean of 0.963 for the fraction of the 90 % band that contains the reference, meeting the criterion of a median error of at most 5 m and mean coverage of at least 0.80.",
+     "citations": [],
+     "stat_keys": [
+      "positioning.h2b_verdict"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "In the v2 post-hoc evaluation using Working Timetable metres against a curve-edge reference, the median error is 2.4 m across 8 development runs (where the fraction of the 90 % band containing the reference has a mean of 0.92) and 1.8 m across 10 forward-test runs (versus 11.85 m for the timetable baseline, with a mean coverage fraction of 0.936).",
+     "citations": [],
+     "stat_keys": [
+      "v2.dev.median_error_m",
+      "v2.dev.band90_coverage_mean",
+      "v2.test.median_error_m",
+      "v2.test.timetable_median_m",
+      "v2.test.band90_coverage_mean"
+     ],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": false,
+     "reasons": [
+      "numbers not supported by the cited quotes/stats/formula: ['5', '0.80']"
+     ]
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 10.4,
+   "usage": {
+    "prompt": 13138,
+    "output": 830,
+    "retries": 0
+   },
+   "answer": "Against a curve-edge reference, Tubesense locates the train with a 1.8 m median error over 10 forward-test runs (versus 11.2 m for a timetable baseline), or 13.5 m when yaw is hidden around each curve edge.",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  },
+  {
+   "round": 1,
+   "trigger": "verifier",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Against a curve-edge reference on 10 forward-test runs, Tubesense achieves a median positioning error of 1.8 m compared with 11.2 m for a timetable baseline, while the fraction of the 90 % band that contains the reference has a mean of 0.951.",
+     "citations": [],
+     "stat_keys": [
+      "positioning.median_error_m",
+      "positioning.timetable_median_m",
+      "positioning.band90_coverage_mean"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "When yaw is hidden around each curve edge in a leave-one-run-out evaluation over 19 Central line runs, the median positioning error against a curve-edge reference is 13.5 m, compared with 22.8 m for the timetable baseline at the same hidden curve edges.",
+     "citations": [],
+     "stat_keys": [
+      "positioning.between_curves_median_m",
+      "positioning.between_curves_timetable_m"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "On the pre-registered H2b test across 6 Liverpool Street to Bethnal Green runs, the positioning verdict is GO with a 1.95 m median error against a curve-edge reference and a mean of 0.963 for the fraction of the 90 % band that contains the reference.",
+     "citations": [],
+     "stat_keys": [
+      "positioning.h2b_verdict"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "In the v2 post-hoc evaluation using Working Timetable metres against a curve-edge reference, the median error is 2.4 m across 8 development runs (where the fraction of the 90 % band containing the reference has a mean of 0.92) and 1.8 m across 10 forward-test runs (versus 11.85 m for the timetable baseline, with a mean coverage fraction of 0.936).",
+     "citations": [],
+     "stat_keys": [
+      "v2.dev.median_error_m",
+      "v2.dev.band90_coverage_mean",
+      "v2.test.median_error_m",
+      "v2.test.timetable_median_m",
+      "v2.test.band90_coverage_mean"
+     ],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 9.0,
+   "usage": {
+    "prompt": 14187,
+    "output": 805,
+    "retries": 0
+   },
+   "answer": "Against a curve-edge reference, Tubesense locates the train with a 1.8 m median error over 10 forward-test runs (versus 11.2 m for a timetable baseline), or 13.5 m when yaw is hidden around each curve edge.",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 5.9,
+  "usage": {
+   "prompt": 2850,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 1
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "FOI-3481-2425#003",
+    "score": 0.03132,
+    "ranks": {
+     "semantic": 1,
+     "text": 7
+    },
+    "title": "Central line Working Timetable Notice TTN 37/25: distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2025-01-27",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-1642-2021#002",
+    "score": 0.03083,
+    "ranks": {
+     "semantic": 2,
+     "text": 8
+    },
+    "title": "Circle and Hammersmith & City Working Timetable 31 (18 May 2014): distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2014-05-18",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-3481-2425#001",
+    "score": 0.03078,
+    "ranks": {
+     "semantic": 6,
+     "text": 4
+    },
+    "title": "Central line Working Timetable Notice TTN 37/25: distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2025-01-27",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-1642-2021#000",
+    "score": 0.03077,
+    "ranks": {
+     "semantic": 5,
+     "text": 5
+    },
+    "title": "Circle and Hammersmith & City Working Timetable 31 (18 May 2014): distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2014-05-18",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-3780-2324#003",
+    "score": 0.02986,
+    "ranks": {
+     "semantic": 8,
+     "text": 6
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 4
+   },
+   {
+    "chunk_id": "FOI-3780-2324#001",
+    "score": 0.02921,
+    "ranks": {
+     "semantic": 15,
+     "text": 3
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-3481-2425#002",
+    "score": 0.02914,
+    "ranks": {
+     "semantic": 4,
+     "text": 14
+    },
+    "title": "Central line Working Timetable Notice TTN 37/25: distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2025-01-27",
+    "page": 3
+   },
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.02905,
+    "ranks": {
+     "semantic": 19,
+     "text": 1
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   }
+  ],
+  "stats": [
+   "positioning.median_error_m",
+   "positioning.timetable_median_m",
+   "positioning.band90_coverage_mean",
+   "positioning.h2b_verdict",
+   "positioning.between_curves_median_m",
+   "positioning.between_curves_timetable_m",
+   "v2.dev.median_error_m",
+   "v2.dev.band90_coverage_mean",
+   "v2.dev.n_configs_tried",
+   "v2.test.median_error_m",
+   "v2.test.timetable_median_m",
+   "v2.test.band90_coverage_mean"
+  ],
+  "seconds": 0.9
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T044712Z_how-accurately-can-tubesense-locate-the-train-be.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T044712Z_how-accurately-can-tubesense-locate-the-train-be"
+ }
+}

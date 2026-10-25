@@ -1,0 +1,3539 @@
+[
+ {
+  "label": "P1",
+  "claims": [
+   {
+    "id": "C01",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In Mayor's Question 2022/1791, TfL listed both Bethnal Green to Liverpool Street and Mile End to Bethnal Green on the Central line among sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C02",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Earlier, in FOI-1730-1819 (published 22 October 2018), TfL reported elevated rail roughness between 720 and 880m on the Central line between Bethnal Green and Mile End and stated it would undertake rail grinding at that location in February 2019.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "The rail roughness measurements confirm an elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C03",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL's Head of Track listed Liverpool Street - Bethnal Green Eastbound on the Central line among deep Tube reconditioning works planned for financial year 2023/24.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C04",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "According to TfL's presentation to the Customer Service and Operational Performance Panel on 6 December 2022, rail grinding is the most effective tool to remove corrugation and must be repeated at regular intervals, usually 6 months to a year, to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#000",
+      "quote": "Tube Noise Update\n6 December 2022"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "(usually 6 months \u2013 a year), to maintain"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C05",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-1231-2425, TfL disclosed in-cab noise measurements taken on Monday 24 June 2024 on the Central line, recording 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, and 83 dB LAeq eastbound and 82 dB LAeq westbound between Bethnal Green and Mile End, with readings carried out on a bi-monthly period.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "June 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C06",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab dataset (FOI-1231-2425), Liverpool Street to Bethnal Green was 4 dB LAeq higher than Bethnal Green to Mile End in both the eastbound (87 vs 83 dB LAeq) and westbound (86 vs 82 dB LAeq) directions.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "eb_lst_bth - eb_bth_mle",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "eb_bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "name": "wb_bth_lst",
+       "stat": null,
+       "value": 86.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      },
+      {
+       "name": "wb_mle_bth",
+       "stat": null,
+       "value": 82.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "C07",
+    "section": "context",
+    "type": "sourced",
+    "text": "For workplace noise assessments under The Control of Noise at Work Regulations 2005, TfL references a lower exposure action value of 80 dB(A), an upper exposure action value of 85 dB(A), and an exposure limit value of 87 dB(A) for daily personal noise exposure.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "The noise data was analysed with respect to The Control of Noise at Work Regulations 2005 (CNAWR), specifically:"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'lower exposure action value', corresponding to a daily personal noise exposure level of 80 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'upper exposure action value', corresponding to a daily personal noise exposure level of 85 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "and the 'exposure limit value', corresponding to a daily personal noise exposure level of 87 dB(A)."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C08",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated relative phone-audio recordings, mean relative levels were -18.66 dBFS(A) on eastbound LST-BTH (n=6) and -19.42 dBFS(A) on eastbound BTH-MLE (n=6), while westbound levels were -18.8 dBFS(A) on BTH-LST (n=5) and -19.07 dBFS(A) on MLE-BTH (n=5).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C09",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Within-trip comparisons across 11 trips show LST-BTH was louder than BTH-MLE in 10 of 11 trips with a mean relative difference of 0.54 dB (range -0.13 to 1.21 dB), resulting in a pre-registered NO-GO verdict because the difference is below 1 dB and inside phone limiter compression and run-to-run variation.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE",
+     "loudness.verdict"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C10",
+    "section": "our_measurements",
+    "type": "derived",
+    "text": "In our uncalibrated relative dBFS(A) measurements, eastbound LST-BTH (-18.66 dBFS(A)) was 6.86 dB higher than the sub-surface Hammersmith & City and Circle line section between Aldgate East and Whitechapel (-25.52 dBFS(A)).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.ALE-WCL"
+    ],
+    "formula": {
+     "expression": "round(lst_bth - ale_wcl, 2)",
+     "inputs": [
+      {
+       "name": "lst_bth",
+       "stat": "level.EB.LST-BTH",
+       "value": null,
+       "chunk_id": null,
+       "quote": null
+      },
+      {
+       "name": "ale_wcl",
+       "stat": "level.EB.ALE-WCL",
+       "value": null,
+       "chunk_id": null,
+       "quote": null
+      }
+     ],
+     "result": 6.86
+    }
+   },
+   {
+    "id": "C11",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative whole-trip passenger-saloon measurements using the NIOSH sound level meter app recorded 91.9 dB(A) LAeq eastbound from Liverpool Street to Mile End (n=1) and 87.3 dB(A) LAeq westbound from Mile End to Liverpool Street (n=1), including platform and dwell time, though the app is validated only up to about 85 dB(A) so readings may read low and cannot be compared like-for-like with TfL's per-section in-cab figures.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C12",
+    "section": "context",
+    "type": "sourced",
+    "text": "At Mayor's Question Time on 16 July 2026 (Question 2026/2156), Elly Baker AM stated that TfL's Government Relations team sent an email turning down the majority of her requests for Tube noise data, and the Mayor promised to ensure TfL provides far more detailed information including six-month rail grinding activity and track renewal programmes.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#002",
+      "quote": "I will make sure it provides, in addition, information on what in real-time rail grinding activity is taking place over the next six months, the track renewal programmes, alternative noise reduction measures that are being considered or in delivery."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C13",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press article in Brixton Buzz (27 January 2026, attributing the information to JRPass) cites 92.8 decibels for Liverpool Street to Bethnal Green, but the underlying TfL dataset, measurement date, direction, and car location for that figure are not in the primary corpus.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C14",
+    "section": "limits",
+    "type": "inference",
+    "text": "Because the published grinding list does not specify whether eastbound, westbound, or both tracks were ground, and because subsequent Central line grinding logs and subsequent bi-monthly in-cab logs are absent from the public corpus, the public record cannot establish when LST-BTH and BTH-MLE were last ground or whether the planned eastbound deep Tube reconditioning on LST-BTH was completed.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Provide all bi-monthly Central line in-cab noise measurement tables (LAeq and LCpeak by inter-station section and direction) recorded from January 2022 to the present, specifically including Liverpool Street to Bethnal Green and Bethnal Green to Mile End.",
+    "why": "TfL confirmed in FOI-1231-2425 that Central line in-cab readings are carried out bi-monthly, yet only the single snapshot from 24 June 2024 is available in the public record (C05, C06, C14)."
+   },
+   {
+    "request": "Provide the complete log of rail grinding works (dates, direction/road, and chainage/metres ground) and confirm the completion status and dates of the 2023/24 planned Deep Tube Reconditioning works between Liverpool Street, Bethnal Green, and Mile End from December 2021 to the present.",
+    "why": "MQ 2022/1791 and the December 2022 Head of Track letter show grinding took place in Dec 2021-May 2022 and DTR was planned for 2023/24 on LST-BTH Eastbound, but do not specify which track directions were ground or whether further grinding or DTR was completed despite TfL noting grinding usually needs repeating every 6 to 12 months (C01, C03, C04, C14)."
+   },
+   {
+    "request": "Identify the specific TfL disclosure or dataset that contained the 92.8 dB figure for Liverpool Street to Bethnal Green cited by JRPass and Brixton Buzz, including the measurement date, car/cab location, and metric definition.",
+    "why": "Resolves the provenance gap between the secondary press report of 92.8 dB and TfL's primary 24 June 2024 in-cab figures of 87 dB eastbound and 86 dB westbound (C05, C13)."
+   },
+   {
+    "request": "Disclose the rail roughness / corrugation plots and any passenger-saloon acoustic measurements held by TfL for Liverpool Street to Bethnal Green and Bethnal Green to Mile End since 2021.",
+    "why": "TfL previously released rail roughness plots for BTH-MLE in FOI-1730-1819 and claims a data-led approach to corrugation, while our indicative passenger-saloon readings and relative audio recordings cannot directly measure rail corrugation or substitute for calibrated saloon and track data (C02, C08, C09, C11, C12)."
+   }
+  ],
+  "headline_claim_ids": [
+   "C01",
+   "C05",
+   "C04",
+   "C11",
+   "C14"
+  ]
+ },
+ {
+  "label": "P2",
+  "claims": [
+   {
+    "id": "claim-01",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Between December 2021 and May 2022, TfL reported that Bethnal Green to Liverpool Street and Mile End to Bethnal Green benefited from rail grinding to help reduce noise levels.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)\nCentral\nBethnal Green to Liverpool Street\nHolland Park to Shepherds Bush\nMarble Arch to Lancaster Gate\nMile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim-02",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL listed deep Tube reconditioning works planned for financial year 2023/24 as including Liverpool Street - Bethnal Green Eastbound Central.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24\nSouth Kensington to Knightsbridge Eastbound Piccadilly\nArnos Grove to Bounds Green Westbound Piccadilly\nEmbankment to Waterloo Southbound Bakerloo\nEuston - Camden Town Northbound Northern\nCamden Town - Euston Southbound Northern\nPimlico to Victoria Northbound Victoria\nKing's Cross to Euston Southbound Victoria\nBounds Green to Wood Green Westbound Piccadilly\nStratford to Leyton Eastbound Central\nBaker Street to Regent's Park Southbound Bakerloo\nWarren St to Euston Northbound Northern\nShepherd's Bush to White City Westbound Central\nWanstead - Leytonstone Outer Road Central\nLiverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim-03",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "On 24 June 2024, TfL recorded train operator cab noise levels of 87 dB LAeq for Liverpool Street to Bethnal Green and 83 dB LAeq for Bethnal Green to Mile End eastbound.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab.\nCentral line Eastbound | dB LAeq"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87\nBethnal Green to Mile End | 83"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim-04",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL recorded westbound train operator cab noise levels of 82 dB LAeq for Mile End to Bethnal Green and 86 dB LAeq for Bethnal Green to Liverpool Street.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Central line Westbound | dB LAeq\nNewbury Park to Gant's Hill | 84\nGant's Hill to Redbridge | 80\nRedbridge to Wanstead | 80\nWanstead to Leytonstone | 84\nLeytonstone to Leyton | 76\nLeyton to Stratford | 77\nStratford to Mile End | 82\nMile End to Bethnal Green | 82\nBethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim-05",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's eastbound cab recordings, Liverpool Street to Bethnal Green was 4 dB louder than Bethnal Green to Mile End.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87\nBethnal Green to Mile End | 83"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "lst_bth_eb - bth_mle_eb",
+     "inputs": [
+      {
+       "name": "lst_bth_eb",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "bth_mle_eb",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "claim-06",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our phone-audio recordings measured an uncalibrated relative mean level of -18.66 dBFS(A) eastbound from Liverpool Street to Bethnal Green across 6 runs.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim-07",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our phone-audio recordings measured an uncalibrated relative mean level of -19.42 dBFS(A) eastbound from Bethnal Green to Mile End across 6 runs.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim-08",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 within-trip paired runs, Liverpool Street-Bethnal Green was on average 0.54 dB higher in uncalibrated relative audio level than Bethnal Green-Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim-09",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative sound level meter measurements over one whole eastbound trip between Liverpool Street and Mile End recorded an LAeq of 91.9 dB(A) including platform and dwell time.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim-10",
+    "section": "limits",
+    "type": "inference",
+    "text": "These indicative app readings cannot be compared like-for-like with TfL's figures because TfL measurements were taken in train operator cabs, while our app measurements were taken in passenger saloons, included platform and dwell times, and were on single trips.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim-11",
+    "section": "context",
+    "type": "sourced",
+    "text": "TfL stated that rail grinding to remove corrugation must be repeated at regular intervals, usually 6 months to a year, to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals\no\n(usually 6 months \u2013 a year), to maintain\neffectiveness"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim-12",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press report citing JRPass claimed Liverpool Street to Bethnal Green registered 92.8 decibels, but this secondary figure is not TfL primary data.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim-13",
+    "section": "context",
+    "type": "sourced",
+    "text": "Assembly Member Elly Baker highlighted at Mayor's Question Time that TfL Government Relations turned down requests for specific noise data citing constrained resources.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "Last week, I received an email, not from Andy Lord - I did not get a letter back from Andy Lord, despite the\nfact we put a lot of effort into that letter, making sure it was really comprehensive - just an email from TfL's\nGovernment Relations turning down the majority of the requests for data. It contained the reassuring phrase,\n\"We are fully committed to tackling Tube noise, but \u2013 as you have said \u2013 resources remain constrained\"."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Request the complete log of completed rail grinding and track reconditioning works on the Central line between Liverpool Street and Mile End (specifying date, track direction, and exact chainage) from May 2022 to date.",
+    "why": "Public disclosures confirm grinding took place up to May 2022 (claim-01) and reconditioning was scheduled for 2023/24 (claim-02), but the public record lacks verification of whether works occurred or were repeated within the recommended 6 to 12 month interval (claim-11)."
+   },
+   {
+    "request": "Request all bi-monthly in-cab and saloon noise monitoring surveys conducted by TfL on the Central line between Liverpool Street and Mile End from July 2024 to date.",
+    "why": "TfL conducts noise readings bi-monthly (FOI-1231-2425), but the latest disclosed official section-level in-cab dataset is from June 2024 showing levels up to 87 dB LAeq (claim-03, claim-04); current official levels remain undisclosed to Assembly Members (claim-13)."
+   },
+   {
+    "request": "Clarify the provenance and methodology of the 92.8 dB figure reported for Liverpool Street to Bethnal Green in January 2026 media reports attributing data to TfL via JRPass.",
+    "why": "The 92.8 dB figure appears in media reporting as TfL data but is unverified against primary FOI releases, creating confusion about whether it represents peak saloon exposure or cab monitoring (claim-12)."
+   }
+  ],
+  "headline_claim_ids": [
+   "claim-01",
+   "claim-03",
+   "claim-04",
+   "claim-11",
+   "claim-08"
+  ]
+ },
+ {
+  "label": "P3",
+  "claims": [
+   {
+    "id": "c1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In response to Mayor's Question 2022/1791, TfL confirmed that Bethnal Green to Liverpool Street and Mile End to Bethnal Green benefited from rail grinding to reduce noise between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Under FOI-1730-1819, TfL stated it would undertake rail grinding between Bethnal Green and Mile End in February 2019 to improve the wheel-rail interface.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL stated that rail grinding must be repeated at regular intervals, usually 6 months to a year, to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "(usually 6 months \u2013 a year), to maintain"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c4",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL listed Liverpool Street to Bethnal Green eastbound on the Central line under deep Tube reconditioning works planned for financial year 2023/24.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c5",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In-cab measurements recorded by TfL on 24 June 2024 showed 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "June 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c6",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In-cab measurements recorded by TfL on 24 June 2024 showed 83 dB LAeq eastbound and 82 dB LAeq westbound between Bethnal Green and Mile End.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "June 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c7",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "TfL's in-cab LAeq level on 24 June 2024 was 4 dB higher on eastbound Liverpool Street to Bethnal Green than on eastbound Bethnal Green to Mile End.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": {
+     "expression": "lst_bth_eb - bth_mle_eb",
+     "inputs": [
+      {
+       "name": "lst_bth_eb",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "bth_mle_eb",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "c8",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative phone-audio recordings showed mean levels of -18.66 dBFS(A) eastbound and -18.8 dBFS(A) westbound between Liverpool Street and Bethnal Green.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.WB.BTH-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "c9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative phone-audio recordings showed mean levels of -19.42 dBFS(A) eastbound and -19.07 dBFS(A) westbound between Bethnal Green and Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.BTH-MLE",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "c10",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "The mean within-trip relative contrast between Liverpool Street to Bethnal Green and Bethnal Green to Mile End was 0.54 dB.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "c11",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative sound levels from a phone app over one whole journey including dwell times recorded 91.9 dB(A) eastbound and 87.3 dB(A) westbound between Liverpool Street and Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "c12",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A press report published by Brixton Buzz attributed an average noise level of 92.8 decibels between Liverpool Street and Bethnal Green to JRPass rather than primary TfL documentation.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c13",
+    "section": "limits",
+    "type": "inference",
+    "text": "Publicly disclosed records do not establish whether grinding or reconditioning took place on these specific Central line tracks in subsequent years, nor how in-cab sound levels correlate with passenger saloon sound levels.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "c14",
+    "section": "our_measurements",
+    "type": "inference",
+    "text": "The pre-registered loudness check concluded with a NO-GO verdict because the relative loudness difference between sections was smaller than one decibel and failed across all evaluation variants.",
+    "citations": [],
+    "stat_keys": [
+     "loudness.verdict"
+    ],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Request the complete log of completed rail grinding and deep Tube reconditioning works for the Central line between Liverpool Street and Mile End from 2022 to date, broken down by date, track direction, and running metres.",
+    "why": "Disclosures confirm grinding in 2021-2022 and planned 2023/24 reconditioning, but TfL has not published whether works were completed or repeated at the required 6-12 month intervals (claims c1, c3, c4, c13)."
+   },
+   {
+    "request": "Request the bi-monthly in-cab noise surveys and any saloon noise surveys on the Central line between Liverpool Street and Mile End conducted since June 2024.",
+    "why": "TfL stated in FOI-1231-2425 that Central line noise readings occur bi-monthly, but the last disclosed section figures date from June 2024, leaving recent levels unconfirmed (claims c5, c6, c13)."
+   },
+   {
+    "request": "Ask the Mayor to disclose the primary dataset, methodology, and measurement locations behind the 92.8 dB figure reported in the press for the Liverpool Street to Bethnal Green section.",
+    "why": "The 92.8 dB figure circulates as a secondary press attribution via JRPass without public TfL provenance or specification of whether it represents in-cab or in-carriage noise (claim c12)."
+   }
+  ],
+  "headline_claim_ids": [
+   "c1",
+   "c5",
+   "c8",
+   "c11",
+   "c13"
+  ]
+ },
+ {
+  "label": "P4",
+  "claims": [
+   {
+    "id": "C1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In Mayor's Question 2022/1791, TfL listed both Bethnal Green to Liverpool Street and Mile End to Bethnal Green on the Central line among sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Earlier, under FOI-1730-1819, TfL stated that elevated rail roughness levels between 720 and 880m between Bethnal Green and Mile End were the likely cause of noise and planned rail grinding there in February 2019.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "The rail roughness measurements confirm an elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL's Head of Track listed Liverpool Street - Bethnal Green Eastbound Central among the deep Tube reconditioning works planned for financial year 2023/24, a programme that converts Pandrol Vanguard track fastenings to Delkor to mitigate in-carriage noise.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#000",
+      "quote": "We have completed PV conversion to Delkor as part of Deep Tube Reconditioning at seven locations"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C4",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL states that rail grinding is its most effective tool to remove corrugation, that it must be repeated at regular intervals (usually 6 months to a year) to maintain effectiveness, and that the continuous grinding programme is confirmed around eight weeks in advance.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "(usually 6 months \u2013 a year), to maintain"
+     },
+     {
+      "chunk_id": "MQ-2022-2799#000",
+      "quote": "TfL's continuous rail grinding programme is confirmed around eight weeks in advance of works, with safety and operationally critical work prioritised."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C5",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-1231-2425, TfL reported in-cab noise measurements taken on 24 June 2024 on the Central line showing 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, and 83 dB LAeq eastbound and 82 dB LAeq westbound between Bethnal Green and Mile End, noting that readings are carried out on a bi-monthly period.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Please see below the noise levels recorded on the Monday 24 June 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87\nBethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82\nBethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C6",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab measurements (FOI-1231-2425), Liverpool Street to Bethnal Green was 4 dB LAeq higher than Bethnal Green to Mile End in both the eastbound (87 vs 83 dB LAeq) and westbound (86 vs 82 dB LAeq) directions.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87\nBethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82\nBethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "eb_lst_bth - eb_bth_mle",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "eb_bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "C7",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated relative phone-audio recordings in the passenger saloon, mean relative levels were -18.66 dBFS(A) on eastbound Liverpool Street to Bethnal Green (n=6, sd=0.35), -19.42 dBFS(A) on eastbound Bethnal Green to Mile End (n=6, sd=0.35), -18.8 dBFS(A) on westbound Bethnal Green to Liverpool Street (n=5, sd=0.48), and -19.07 dBFS(A) on westbound Mile End to Bethnal Green (n=5, sd=0.65).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C8",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 paired trips, the within-trip relative contrast between Liverpool Street to Bethnal Green and Bethnal Green to Mile End averaged 0.54 dB (sd=0.36, range -0.13 to 1.21, positive in 10 of 11 trips, one-sided sign test p=0.0059), yielding a pre-registered NO-GO loudness verdict because the difference is within limiter compression and run-to-run variability.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE",
+     "loudness.verdict"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Using the NIOSH sound level meter app on an iPhone in the passenger saloon over one whole trip per direction (including platform waits and the Bethnal Green dwell), we recorded indicative levels of 91.9 dB(A) LAeq eastbound (Liverpool Street to Mile End, max 109.7 dB, LCpeak 124.4 dB) and 87.3 dB(A) LAeq westbound (Mile End to Liverpool Street, max 105.3 dB, LCpeak 120.2 dB), though the built-in microphone is validated only up to about 85 dB(A) so these indicative readings may read low and cannot be compared like-for-like with TfL's per-section in-cab figures.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C10",
+    "section": "context",
+    "type": "sourced",
+    "text": "Under The Control of Noise at Work Regulations 2005, which apply to workplace noise exposure for staff such as train operators over an 8-hour shift, the lower exposure action value is a daily personal noise exposure level (LEP,d) of 80 dB(A), the upper exposure action value is 85 dB(A), and the exposure limit value is 87 dB(A).",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "The noise data was analysed with respect to The Control of Noise at Work Regulations 2005 (CNAWR), specifically:"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'lower exposure action value', corresponding to a daily personal noise exposure level of 80 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'upper exposure action value', corresponding to a daily personal noise exposure level of 85 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "and the 'exposure limit value', corresponding to a daily personal noise exposure level of 87 dB(A)."
+     },
+     {
+      "chunk_id": "FOI-3780-2324#001",
+      "quote": "A train operator's daily noise exposure level is a log average of all the noise levels he/she is exposed to throughout an 8 hour shift."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C11",
+    "section": "context",
+    "type": "sourced",
+    "text": "At Mayor's Question Time on 16 July 2026 (2026/2156), after Elly Baker AM reported that TfL had turned down the majority of her requests for noise data, the Mayor committed to ensuring TfL provides far more detailed information, including real-time rail grinding activity over the next six months, track renewal programmes, and a constituency-level breakdown of complaints.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#002",
+      "quote": "I will make sure it provides, in addition, information on what in real-time rail grinding activity is taking place over the next six months, the track renewal programmes, alternative noise reduction measures that are being considered or in delivery."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C12",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press report in Brixton Buzz (via JRPass) cites 92.8 decibels for Liverpool Street to Bethnal Green, which is not a primary TfL disclosure in our corpus and whose underlying measurement date, direction, and car or cab location cannot be verified from the public record.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C13",
+    "section": "limits",
+    "type": "inference",
+    "text": "From the available public documents and our measurements, it cannot be determined which track direction or chainage between Liverpool Street, Bethnal Green, and Mile End was ground during the reported grinding window, whether either section has been ground again since then, whether the planned eastbound deep Tube reconditioning between Liverpool Street and Bethnal Green was completed, or what the certified passenger-saloon noise levels are per section.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Provide the complete bi-monthly Central line in-cab LAeq noise measurement tables from January 2022 to the present, including the specific sections Liverpool Street to Bethnal Green and Bethnal Green to Mile End in both eastbound and westbound directions, plus any passenger-saloon acoustic measurements held for those sections.",
+    "why": "TfL confirmed in FOI-1231-2425 that Central line in-cab readings are carried out on a bi-monthly period (C5), and releasing the time series would clarify the trend since the 2021-2022 grinding (C1) and identify the source of the 92.8 dB figure reported by Brixton Buzz/JRPass (C12, C13)."
+   },
+   {
+    "request": "Provide all rail grinding and track intervention logs (including dates, direction/road, start and end chainage, and pre/post rail roughness or noise readings) for Liverpool Street to Bethnal Green and Bethnal Green to Mile End from December 2021 to the present, as well as the current eight-week confirmed forward grinding schedule for the Central line.",
+    "why": "MQ 2022/1791 did not specify which direction or chainage was ground in Dec 2021-May 2022 (C1, C13), and since grinding must be repeated every 6 to 12 months and is confirmed eight weeks in advance (C4), these logs will show whether maintenance has kept pace with corrugation."
+   },
+   {
+    "request": "Confirm whether the Deep Tube Reconditioning works planned for financial year 2023/24 on Liverpool Street to Bethnal Green Eastbound (to replace Pandrol Vanguard with Delkor) were completed, the dates of completion, and any before-and-after in-carriage and residential noise measurements.",
+    "why": "TfL listed Liverpool Street - Bethnal Green Eastbound in its 2023/24 Deep Tube Reconditioning plan (C3), but subsequent Assembly updates did not state whether this site was among the completed conversions (C13)."
+   }
+  ],
+  "headline_claim_ids": [
+   "C1",
+   "C5",
+   "C9",
+   "C8",
+   "C13"
+  ]
+ },
+ {
+  "label": "P5",
+  "claims": [
+   {
+    "id": "C1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In Mayor's Question 2022/1791, TfL listed both Bethnal Green to Liverpool Street and Mile End to Bethnal Green on the Central line among sections that benefited from noise-reduction rail grinding between December 2021 and May 2022, after previously scheduling grinding between Bethnal Green and Mile End for February 2019 in FOI-1730-1819.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)\nCentral\nBethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Marble Arch to Lancaster Gate\nMile End to Bethnal Green\nNotting Hill Gate to Holland Park"
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In its 6 December 2022 presentation to the Customer Service and Operational Performance Panel, TfL stated that rail grinding is its most effective tool to remove corrugation and must be repeated at regular intervals of usually 6 months to a year to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#000",
+      "quote": "Tube Noise Update\n6 December 2022"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we\no\nhave to remove corrugation, which is the\nprincipal cause of noise\nIt must be repeated at regular intervals\no\n(usually 6 months \u2013 a year), to maintain\neffectiveness"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "On 09 December 2022, TfL's Head of Track listed Liverpool Street to Bethnal Green Eastbound on the Central line among deep Tube reconditioning works planned for financial year 2023/24, a programme that includes Pandrol Vanguard conversion to Delkor.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#000",
+      "quote": "London E16 1ZE\n09 December 2022\nDear Zack,"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Wanstead - Leytonstone Outer Road Central\nLiverpool Street - Bethnal Green Eastbound Central\nLeytonstone - Wanstead Inner Road Central"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#000",
+      "quote": "We have completed PV conversion to Delkor as part of Deep Tube\nReconditioning at seven locations"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C4",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-1231-2425, TfL disclosed in-cab noise measurements taken on 24 June 2024 on the Central line showing 87 dB LAeq eastbound from Liverpool Street to Bethnal Green, 83 dB LAeq eastbound from Bethnal Green to Mile End, 86 dB LAeq westbound from Bethnal Green to Liverpool Street, and 82 dB LAeq westbound from Mile End to Bethnal Green.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87\nBethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82\nBethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C5",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab measurements (FOI-1231-2425), the Liverpool Street and Bethnal Green section was 4 dB LAeq higher than the Bethnal Green and Mile End section in both the eastbound (87 versus 83 dB LAeq) and westbound (86 versus 82 dB LAeq) directions.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87\nBethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82\nBethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "eb_lst_bth - eb_bth_mle",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "eb_bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "name": "wb_bth_lst",
+       "stat": null,
+       "value": 86.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      },
+      {
+       "name": "wb_mle_bth",
+       "stat": null,
+       "value": 82.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "C6",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-2986-2324, TfL disclosed whole-tunnel Central line in-cab recordings from 4 September 2023 between White City and Newbury Park showing 89 dB Leq A (110.4 dB Lmax) eastbound and 83 dB Leq A (104.5 dB Lmax) westbound, and stated in FOI-1231-2425 that Central line readings are carried out on a bi-monthly period.",
+    "citations": [
+     {
+      "chunk_id": "FOI-2986-2324#000",
+      "quote": "The attached table, which contains data taken on 4 September 2023, provides the levels and 1/3rd octaves in a Central line train cab recorded for the entire tunnel sections between White City and Newbury Park."
+     },
+     {
+      "chunk_id": "FOI-2986-2324#001",
+      "quote": "Leq A dB 89 110.4 Leq A dB 83 104.5"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C7",
+    "section": "context",
+    "type": "sourced",
+    "text": "Under The Control of Noise at Work Regulations 2005 cited by TfL for worker occupational health assessments, the lower exposure action value for daily personal noise exposure is 80 dB(A), the upper exposure action value is 85 dB(A), and the exposure limit value is 87 dB(A).",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "The noise data was analysed with respect to The Control of Noise at Work Regulations 2005 (CNAWR), specifically:\n\u2022 the 'lower exposure action value', corresponding to a daily personal noise exposure level of\n80 dB(A);\n\u2022 the 'upper exposure action value', corresponding to a daily personal noise exposure level of\n85 dB(A);\n\u2022 and the 'exposure limit value', corresponding to a daily personal noise exposure level of 87\ndB(A)."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C8",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated relative phone-audio recordings in the passenger saloon, mean levels were -18.66 dBFS(A) (n=6, sd=0.35) on eastbound Liverpool Street to Bethnal Green, -19.42 dBFS(A) (n=6, sd=0.35) on eastbound Bethnal Green to Mile End, -18.8 dBFS(A) (n=5, sd=0.48) on westbound Bethnal Green to Liverpool Street, and -19.07 dBFS(A) (n=5, sd=0.65) on westbound Mile End to Bethnal Green.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 paired trips, the mean within-trip relative contrast between Liverpool Street to Bethnal Green and Bethnal Green to Mile End was 0.54 dB (sd=0.36, range -0.13 to 1.21 dB, positive in 10 of 11 trips, one-sided sign test p=0.0059), yielding a pre-registered NO-GO loudness verdict because the difference is below 1 dB and inside phone limiter compression and run-to-run variability.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE",
+     "loudness.verdict"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C10",
+    "section": "our_measurements",
+    "type": "derived",
+    "text": "In our uncalibrated relative dBFS(A) measurements, eastbound Liverpool Street to Bethnal Green (-18.66 dBFS(A)) was 4.85 dB higher than the quietest Central line section we rode, eastbound Holborn to Chancery Lane (-23.51 dBFS(A)).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.HOL-CYL"
+    ],
+    "formula": {
+     "expression": "round(eb_lst_bth - eb_hol_cyl, 2)",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": "level.EB.LST-BTH",
+       "value": null,
+       "chunk_id": null,
+       "quote": null
+      },
+      {
+       "name": "eb_hol_cyl",
+       "stat": "level.EB.HOL-CYL",
+       "value": null,
+       "chunk_id": null,
+       "quote": null
+      }
+     ],
+     "result": 4.85
+    }
+   },
+   {
+    "id": "C11",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our indicative NIOSH Sound Level Meter app measurements in the passenger saloon over one whole trip per direction between Liverpool Street and Mile End (including platform waits and Bethnal Green dwell time) recorded 91.9 dB(A) LAeq eastbound (max 109.7 dB, LCpeak 124.4 dB) and 87.3 dB(A) LAeq westbound (max 105.3 dB, LCpeak 120.2 dB), though the app with the built-in iPhone microphone is validated only up to about 85 dB(A) so these indicative readings may read low and cannot be compared like-for-like with TfL's per-section in-cab figures.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C12",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press report by Brixton Buzz (crediting JRPass) cites a figure of 92.8 decibels for Liverpool Street to Bethnal Green, which is higher than the 87 dB and 86 dB LAeq in-cab figures in TfL's primary FOI-1231-2425 disclosure and whose underlying TfL source dataset and measurement location are not identified in the corpus.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C13",
+    "section": "limits",
+    "type": "inference",
+    "text": "Because the Mayor's Question grinding list gives station pairs without specifying track direction or exact chainage and subsequent TfL Assembly updates omit the Central line from their hotspot lists, the public record does not show which direction or chainage between Liverpool Street, Bethnal Green, and Mile End was ground, whether rail grinding has been repeated there since, or whether the planned eastbound Deep Tube Reconditioning between Liverpool Street and Bethnal Green was completed.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C14",
+    "section": "context",
+    "type": "sourced",
+    "text": "At Mayor's Question Time on 16 July 2026 (Question 2026/2156), after Elly Baker AM noted that TfL's Government Relations team had turned down the majority of her requests for Tube noise data and cited an eight-week grinding planning window, the Mayor committed to ensuring TfL provides far more detailed information including real-time rail grinding activity, track renewal programmes, and the eight-week forward programme.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "just an email from TfL's\nGovernment Relations turning down the majority of the requests for data."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#002",
+      "quote": "I will make sure it provides, in addition, information on what in real-time rail\ngrinding activity is taking place over the next six months, the track renewal programmes, alternative noise\nreduction measures that are being considered or in delivery."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#003",
+      "quote": "I cannot see a reason why the eight weeks programme cannot be provided."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Provide the complete log of rail grinding works carried out on the Central line between Liverpool Street and Bethnal Green and between Bethnal Green and Mile End from December 2021 to the present, specifying dates, track direction (eastbound or westbound), start and end chainage in metres, and any works scheduled in the current 8-week forward programme.",
+    "why": "Closes the gap in C1, C2, and C13: MQ 2022/1791 did not specify direction or chainage for the Dec 2021-May 2022 grinding, and despite TfL stating that grinding usually needs repeating every 6 to 12 months (C2), no post-May 2022 grinding records for these sections have been published."
+   },
+   {
+    "request": "Provide all bi-monthly in-cab noise measurement runs (LAeq and LCpeak by inter-station section and direction) recorded on the Central line since January 2022, along with any passenger saloon noise measurements or rail roughness (corrugation) plots held for Liverpool Street to Bethnal Green and Bethnal Green to Mile End.",
+    "why": "Closes the gap in C4, C6, C9, and C11: TfL confirmed in FOI-1231-2425 that Central line readings are taken bi-monthly (C6), yet only a single snapshot from 24 June 2024 is public (C4), and TfL stated in FOI-2986-2324 that it had no study on in-carriage saloon noise."
+   },
+   {
+    "request": "Confirm the completion status, dates, and exact chainages of the Deep Tube Reconditioning works (replacing Pandrol Vanguard with Delkor fastenings) on the Liverpool Street to Bethnal Green Eastbound section that were listed as planned for FY 2023/24, together with any before-and-after in-cab or saloon noise measurements.",
+    "why": "Closes the gap in C3 and C13: TfL's Head of Track listed Liverpool Street to Bethnal Green Eastbound for Deep Tube Reconditioning in FY 2023/24 (C3), but subsequent Assembly updates in August 2024 and August 2025 did not report whether this Central line work was completed or its acoustic effect."
+   },
+   {
+    "request": "Confirm whether TfL holds any dataset or report recording an average noise level of 92.8 dB between Liverpool Street and Bethnal Green, and if so, disclose the report, date, direction, and whether it was measured in the cab, passenger saloon, or tunnel.",
+    "why": "Closes the gap in C12: resolves the discrepancy between the secondary press figure of 92.8 dB (Brixton Buzz / JRPass) and TfL's primary FOI-1231-2425 disclosure of 87 dB eastbound and 86 dB westbound in-cab LAeq (C4)."
+   }
+  ],
+  "headline_claim_ids": [
+   "C1",
+   "C4",
+   "C11",
+   "C9",
+   "C13"
+  ]
+ },
+ {
+  "label": "P6",
+  "claims": [
+   {
+    "id": "C1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In Mayor's Question 2022/1791, TfL listed both Bethnal Green to Liverpool Street and Mile End to Bethnal Green on the Central line among the sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Earlier, in FOI-1730-1819, TfL stated it would undertake rail grinding between Bethnal Green and Mile End in February 2019 to improve the wheel-rail interface after measurements confirmed elevated rail roughness levels between 720 and 880m.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "The rail roughness measurements confirm an elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL's 6 December 2022 presentation states that rail grinding is the most effective tool to remove corrugation, which is the principal cause of noise, and that it must be repeated at regular intervals (usually 6 months \u2013 a year) to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#000",
+      "quote": "Tube Noise Update\n6 December 2022"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "have to remove corrugation, which is the\nprincipal cause of noise"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "(usually 6 months \u2013 a year), to maintain\neffectiveness"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C4",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL's Head of Track also listed Liverpool Street - Bethnal Green Eastbound Central among the deep Tube reconditioning works planned for financial year 2023/24, a programme that involves Pandrol Vanguard conversion to Delkor.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#000",
+      "quote": "We have completed PV conversion to Delkor as part of Deep Tube"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C5",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-1231-2425, TfL reported Central line noise levels recorded on Monday 24 June 2024 from within the train operator's cab of 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, and 83 dB LAeq eastbound and 82 dB LAeq westbound between Bethnal Green and Mile End.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Please see below the noise levels recorded on the Monday 24 June 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C6",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab measurements (FOI-1231-2425), Liverpool Street to Bethnal Green was 4 dB LAeq higher than Bethnal Green to Mile End in both the eastbound (87 vs 83 dB LAeq) and westbound (86 vs 82 dB LAeq) directions.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "eb_lst_bth - eb_bth_mle",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "eb_bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "name": "wb_bth_lst",
+       "stat": null,
+       "value": 86.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      },
+      {
+       "name": "wb_mle_bth",
+       "stat": null,
+       "value": 82.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "C7",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL stated in FOI-1231-2425 that in-cab noise readings on the Central line are carried out on a bi-monthly period, and in FOI-2986-2324 disclosed earlier Central line cab recordings taken on 4 September 2023 showing an overall tunnel Leq of 89 dB(A) eastbound and 83 dB(A) westbound between White City and Newbury Park.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     },
+     {
+      "chunk_id": "FOI-2986-2324#000",
+      "quote": "The attached table, which contains data taken on 4 September 2023, provides the levels and 1/3rd octaves in a Central line train cab recorded for the entire tunnel sections between White City and Newbury Park."
+     },
+     {
+      "chunk_id": "FOI-2986-2324#001",
+      "quote": "Leq A dB 89 110.4 Leq A dB 83 104.5"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C8",
+    "section": "context",
+    "type": "sourced",
+    "text": "Under The Control of Noise at Work Regulations 2005 cited by TfL for worker occupational health, the lower exposure action value is a daily personal noise exposure level (LEPd) of 80 dB(A), the upper exposure action value is 85 dB(A), and the exposure limit value is 87 dB(A).",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "The noise data was analysed with respect to The Control of Noise at Work Regulations 2005 (CNAWR), specifically:"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'lower exposure action value', corresponding to a daily personal noise exposure level of 80 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'upper exposure action value', corresponding to a daily personal noise exposure level of 85 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "and the 'exposure limit value', corresponding to a daily personal noise exposure level of 87 dB(A)."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated relative phone-audio recordings in the passenger saloon, mean levels were -18.66 dBFS(A) on eastbound LST-BTH (n=6) and -19.42 dBFS(A) on eastbound BTH-MLE (n=6), and -18.8 dBFS(A) on westbound BTH-LST (n=5) and -19.07 dBFS(A) on westbound MLE-BTH (n=5).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C10",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across n=11 paired trips in our uncalibrated relative phone-audio measurements, the mean within-trip difference between LST-BTH and BTH-MLE was 0.54 dB (sd 0.36 dB, range -0.13 to 1.21 dB), resulting in a pre-registered NO-GO verdict because the contrast is under 1 dB and inside limiter compression and run-to-run variation.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE",
+     "loudness.verdict"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C11",
+    "section": "our_measurements",
+    "type": "derived",
+    "text": "In our uncalibrated relative phone-audio data, eastbound LST-BTH (-18.66 dBFS(A)) was 4.01 dB higher than the sub-surface Hammersmith & City and Circle line section between Liverpool Street and Aldgate East (-22.67 dBFS(A)), and outperformed quieter Central line sections such as Holborn to Chancery Lane (-23.51 dBFS(A)).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.LST-ALE",
+     "level.EB.HOL-CYL"
+    ],
+    "formula": {
+     "expression": "round(eb_lst_bth - eb_lst_ale, 2)",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": "level.EB.LST-BTH",
+       "value": null,
+       "chunk_id": null,
+       "quote": null
+      },
+      {
+       "name": "eb_lst_ale",
+       "stat": "level.EB.LST-ALE",
+       "value": null,
+       "chunk_id": null,
+       "quote": null
+      }
+     ],
+     "result": 4.01
+    }
+   },
+   {
+    "id": "C12",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Separate indicative measurements using the NIOSH sound level meter app on an iPhone in the passenger saloon over one whole trip per direction (including platform and dwell time) recorded 91.9 dB(A) LAeq eastbound from Liverpool Street to Mile End (n=1) and 87.3 dB(A) LAeq westbound from Mile End to Liverpool Street (n=1), though the app is validated only up to about 85 dB(A) so readings above 85 dB(A) may read low and are not like-for-like with TfL's per-section in-cab figures.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C13",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press report in Brixton Buzz (attributing information to JRPass) cites 92.8 decibels for Liverpool Street to Bethnal Green, but this is not a primary TfL disclosure in the corpus and neither its measurement location (cab vs saloon) nor its underlying TfL source is established.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C14",
+    "section": "limits",
+    "type": "inference",
+    "text": "The public record in the corpus does not establish which track direction (eastbound, westbound, or both) was ground on LST-BTH and BTH-MLE, whether either section has been ground again since, or whether the planned eastbound LST-BTH deep Tube reconditioning was completed.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C15",
+    "section": "context",
+    "type": "sourced",
+    "text": "At Mayor's Question Time on 16 July 2026 (2026/2156), Elly Baker AM reported that TfL's Government Relations team had turned down the majority of her requests for Tube noise data and noted that rail grinding is only planned eight weeks in advance, prompting the Mayor to promise far more detailed information on rail grinding and track renewal programmes.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#003",
+      "quote": "We cannot do that because it is only planned eight weeks in advance"
+     },
+     {
+      "chunk_id": "MQT-2026-2156#002",
+      "quote": "I will make sure it provides, in addition, information on what in real-time rail grinding activity is taking place over the next six months, the track renewal programmes, alternative noise reduction measures that are being considered or in delivery."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Please provide the complete log of all rail grinding carried out on the Central line between Liverpool Street and Bethnal Green and between Bethnal Green and Mile End from December 2021 to the present, specifying for each intervention the exact dates, direction (eastbound or westbound), chainage/metres ground, and whether the eight-week rolling programme currently schedules further grinding on either section.",
+    "why": "Closes the gap on which direction was ground in Dec 2021-May 2022 and whether repeat grinding has been carried out at the 6-12 month interval TfL says is needed to maintain effectiveness (C1, C3, C14, C15)."
+   },
+   {
+    "request": "Please confirm whether the Deep Tube Reconditioning (Pandrol Vanguard conversion to Delkor) planned for 2023/24 on Liverpool Street to Bethnal Green Eastbound was completed, provide the completion date and chainage covered, and state whether Pandrol Vanguard fastenings remain in place on either direction of LST-BTH or BTH-MLE.",
+    "why": "Clarifies whether the planned track reconditioning on LST-BTH eastbound actually took place before or after TfL's June 2024 cab measurements (C4, C5, C14)."
+   },
+   {
+    "request": "Please provide all bi-monthly in-cab LAeq noise measurements and any passenger saloon noise or rail roughness (corrugation) measurements recorded for the Central line sections Liverpool Street-Bethnal Green and Bethnal Green-Mile End (both directions) from 2021 to the present, and clarify whether TfL holds any dataset containing a 92.8 dB figure for Liverpool Street-Bethnal Green.",
+    "why": "Establishes the full bi-monthly time series of in-cab noise levels before and after grinding, provides any passenger saloon data to compare with cab readings, and resolves the provenance of the secondary 92.8 dB press figure (C5, C7, C12, C13)."
+   }
+  ],
+  "headline_claim_ids": [
+   "C1",
+   "C5",
+   "C10",
+   "C12",
+   "C14"
+  ]
+ },
+ {
+  "label": "P7",
+  "claims": [
+   {
+    "id": "claim_1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Between December 2021 and May 2022, TfL recorded that Bethnal Green to Liverpool Street and Mile End to Bethnal Green benefited from rail grinding to help reduce noise levels.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL listed Liverpool Street to Bethnal Green Eastbound as planned for deep Tube reconditioning works in financial year 2023/24.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL notes that rail grinding is the most effective tool to remove corrugation and must be repeated at regular intervals.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_4",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL states that its continuous rail grinding programme is confirmed around eight weeks in advance of works.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-2799#000",
+      "quote": "TfL's continuous rail grinding programme is confirmed around eight weeks in advance of works, with safety and operationally critical work prioritised."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_5",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL recorded in-cab noise levels of 87 dB LAeq eastbound from Liverpool Street to Bethnal Green and 83 dB LAeq from Bethnal Green to Mile End.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_6",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL recorded in-cab noise levels of 82 dB LAeq westbound from Mile End to Bethnal Green and 86 dB LAeq from Bethnal Green to Liverpool Street.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_7",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's in-cab measurements, the eastbound noise level from Liverpool Street to Bethnal Green exceeded Bethnal Green to Mile End by 4 dB LAeq.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": {
+     "expression": "LST_BTH - BTH_MLE",
+     "inputs": [
+      {
+       "name": "LST_BTH",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "BTH_MLE",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "claim_8",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated passenger saloon audio recordings showed an uncalibrated mean level of -18.66 dBFS(A) eastbound from Liverpool Street to Bethnal Green and -19.42 dBFS(A) from Bethnal Green to Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 paired trips, Liverpool Street to Bethnal Green was louder than Bethnal Green to Mile End by an uncalibrated mean contrast of 0.54 dB.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_10",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "An indicative sound level meter app recording across one whole trip including dwell times showed 91.9 dB(A) LAeq eastbound between Liverpool Street and Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_11",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "An indicative sound level meter app recording across one whole trip including dwell times showed 87.3 dB(A) LAeq westbound between Mile End and Liverpool Street.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_12",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press report citing JRPass attributed an average noise level of 92.8 decibels to Liverpool Street to Bethnal Green rather than TfL directly.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_13",
+    "section": "limits",
+    "type": "inference",
+    "text": "Public records do not show whether rail grinding was carried out in both directions on these sections in subsequent years, nor whether the planned deep Tube reconditioning was completed.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_14",
+    "section": "limits",
+    "type": "inference",
+    "text": "Because our saloon recordings are uncalibrated and indicative app readings face microphone limitations at higher sound levels, our data cannot be compared directly like-for-like with TfL in-cab figures.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_15",
+    "section": "context",
+    "type": "sourced",
+    "text": "London Assembly Member Elly Baker reported that TfL turned down requests for specific Tube noise data.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "turning down the majority of the requests for data"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Provide complete historical dates, running directions, and completion records for all rail grinding and deep Tube reconditioning carried out on the Central line between Liverpool Street, Bethnal Green, and Mile End from June 2022 to the present.",
+    "why": "Existing disclosures only confirm past grinding up to May 2022 and planned works for 2023/24, leaving it unclear what maintenance took place and in which directions (claims claim_1, claim_2, claim_13)."
+   },
+   {
+    "request": "Disclose TfL's bi-monthly in-cab noise monitoring logs for all Central line tunnel sections from June 2024 to date, alongside any corresponding passenger saloon acoustic measurements.",
+    "why": "TfL's disclosed section-level data is limited to June 2024 cab readings, preventing the London Assembly from tracking ongoing noise trends or assessing conditions in passenger carriages (claims claim_5, claim_6, claim_14)."
+   },
+   {
+    "request": "Clarify the methodology, dates, and measurement locations behind the 92.8 dB figure cited in public media for the Liverpool Street to Bethnal Green section.",
+    "why": "The widely reported 92.8 dB figure stems from a third-party product head rather than TfL's official disclosures, requiring formal clarification of whether TfL data was the source (claim claim_12)."
+   }
+  ],
+  "headline_claim_ids": [
+   "claim_1",
+   "claim_5",
+   "claim_7",
+   "claim_9",
+   "claim_12"
+  ]
+ },
+ {
+  "label": "P8",
+  "claims": [
+   {
+    "id": "C1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In Mayor's Question 2022/1791, TfL listed both Bethnal Green to Liverpool Street and Mile End to Bethnal Green on the Central line as sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Earlier, in FOI-1730-1819 regarding the Central line between Bethnal Green and Mile End, TfL stated it would undertake rail grinding in February 2019 after identifying elevated rail roughness levels between 720 and 880m.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "The rail roughness measurements confirm an elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL's presentation to the Customer Service and Operational Performance Panel states that rail grinding is the most effective tool to remove corrugation and must be repeated at regular intervals, usually 6 months to a year, to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "have to remove corrugation, which is the"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "(usually 6 months \u2013 a year), to maintain"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C4",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "On 09 December 2022, TfL's Head of Track listed Liverpool Street - Bethnal Green Eastbound Central among the deep Tube reconditioning works planned for financial year 2023/24, where deep Tube reconditioning replaces Pandrol Vanguard with Delkor.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#000",
+      "quote": "London E16 1ZE\n09 December 2022\nDear Zack,"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#000",
+      "quote": "We have completed PV conversion to Delkor as part of Deep Tube"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C5",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-1231-2425, TfL disclosed bi-monthly noise levels recorded on Monday 24 June 2024 from within the train operator's cab on the Central line, showing Eastbound levels of 87 dB LAeq for Liverpool Street to Bethnal Green and 83 dB LAeq for Bethnal Green to Mile End, and Westbound levels of 86 dB LAeq for Bethnal Green to Liverpool Street and 82 dB LAeq for Mile End to Bethnal Green.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C6",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab measurements (FOI-1231-2425), the Liverpool Street and Bethnal Green section was 4 dB LAeq higher than the Bethnal Green and Mile End section in both the Eastbound direction (87 minus 83) and the Westbound direction (86 minus 82).",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "eb_lst_bth - eb_bth_mle",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "eb_bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "name": "wb_bth_lst",
+       "stat": null,
+       "value": 86.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      },
+      {
+       "name": "wb_mle_bth",
+       "stat": null,
+       "value": 82.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "C7",
+    "section": "context",
+    "type": "sourced",
+    "text": "Under The Control of Noise at Work Regulations 2005 cited by TfL in its occupational health acoustic reports for Train Operators, the lower exposure action value is a daily personal noise exposure level of 80 dB(A), the upper exposure action value is 85 dB(A), and the exposure limit value is 87 dB(A).",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "The noise data was analysed with respect to The Control of Noise at Work Regulations 2005 (CNAWR), specifically:"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'lower exposure action value', corresponding to a daily personal noise exposure level of 80 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'upper exposure action value', corresponding to a daily personal noise exposure level of 85 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "and the 'exposure limit value', corresponding to a daily personal noise exposure level of 87 dB(A)."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C8",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated relative phone-audio recordings in the passenger saloon, mean levels were -18.66 dBFS(A) on Eastbound LST-BTH (n=6, sd=0.35), -19.42 dBFS(A) on Eastbound BTH-MLE (n=6, sd=0.35), -18.8 dBFS(A) on Westbound BTH-LST (n=5, sd=0.48), and -19.07 dBFS(A) on Westbound MLE-BTH (n=5, sd=0.65).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our pre-registered within-trip relative contrast between LST-BTH and BTH-MLE had a mean of 0.54 dB across 11 trips (sd 0.36, range -0.13 to 1.21, positive in 10 of 11 trips, one-sided sign test p=0.0059), resulting in a NO-GO verdict because the difference was below 1 dB and inside Voice Memos limiter compression and run-to-run variability.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE",
+     "loudness.verdict"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C10",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative whole-trip readings in the passenger saloon from the NIOSH Sound Level Meter app on an iPhone built-in microphone (validated only up to about 85 dB(A), so readings above that may read low) recorded 91.9 dB(A) LAeq (max 109.7 dB, LCpeak 124.4 dB) on 1 Eastbound trip from Liverpool Street to Mile End and 87.3 dB(A) LAeq (max 105.3 dB, LCpeak 120.2 dB) on 1 Westbound trip from Mile End to Liverpool Street, including platform and dwell time.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C11",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press article in Brixton Buzz (27 January 2026, attributing the figures to JRPass) reported an average noise level of 92.8 decibels for Liverpool Street to Bethnal Green (Central line), but the underlying dataset, date, measurement location, and methodology for this 92.8 figure are not in TfL's primary disclosures in our corpus.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C12",
+    "section": "limits",
+    "type": "inference",
+    "text": "The available public evidence does not establish which track direction or exact chainage was ground during the reported grinding window, whether rail grinding or deep Tube reconditioning on LST-BTH and BTH-MLE has been carried out subsequently, or how in-cab or passenger-saloon noise levels changed immediately before and after any intervention.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C13",
+    "section": "context",
+    "type": "sourced",
+    "text": "At Mayor's Question Time on 16 July 2026 (Question 2026/2156), after Elly Baker AM noted that TfL's Government Relations had turned down the majority of her requests for data, the Mayor committed to ensuring TfL provides far more detailed information including rail grinding activity over the next six months, track renewal programmes, and the eight weeks grinding programme.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#002",
+      "quote": "I will make sure it provides, in addition, information on what in real-time rail grinding activity is taking place over the next six months, the track renewal programmes, alternative noise reduction measures that are being considered or in delivery."
+     },
+     {
+      "chunk_id": "MQT-2026-2156#003",
+      "quote": "I cannot see a reason why the eight weeks programme cannot be provided."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Provide the complete log of all rail grinding works carried out on the Central line between Liverpool Street and Bethnal Green (LST-BTH) and between Bethnal Green and Mile End (BTH-MLE) from December 2021 to the present, specifying dates, track direction (Eastbound/Westbound), and start/end chainages (in metres).",
+    "why": "MQ 2022/1791 confirmed grinding occurred between December 2021 and May 2022 without specifying direction or chainage, and given TfL's stated 6-to-12-month repeat cycle, this closes the gap on whether and when grinding has been repeated since May 2022 (see C1, C3, C12)."
+   },
+   {
+    "request": "Confirm whether the Deep Tube Reconditioning works on Liverpool Street to Bethnal Green Eastbound (planned for FY 2023/24) were completed, including the exact dates, chainages, and which track fastenings (e.g. Pandrol Vanguard, Delkor, or resilient baseplates) are currently installed on both directions of LST-BTH and BTH-MLE.",
+    "why": "TfL listed LST-BTH Eastbound for Deep Tube Reconditioning in FY 2023/24, and subsequent updates note ongoing PV conversion across the network without naming the Central line sites completed (see C4, C12)."
+   },
+   {
+    "request": "Provide all bi-monthly in-cab noise measurements (dB LAeq and LCpeak, Eastbound and Westbound) recorded on the Central line for LST-BTH and BTH-MLE from January 2021 to the present, alongside any passenger-saloon noise measurements or rail roughness plots held for these sections.",
+    "why": "FOI-1231-2425 confirms TfL takes bi-monthly Central line cab readings and showed 86-87 dB LAeq on LST-BTH and 82-83 dB LAeq on BTH-MLE on 24 June 2024; releasing the full time series will clarify how cab levels evolved and resolve the provenance of the 92.8 dB figure reported by Brixton Buzz/JRPass (see C5, C6, C10, C11, C12)."
+   }
+  ],
+  "headline_claim_ids": [
+   "C1",
+   "C5",
+   "C10",
+   "C3",
+   "C12"
+  ]
+ },
+ {
+  "label": "P9",
+  "claims": [
+   {
+    "id": "C1",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "In Mayor's Question 2022/1791, TfL listed both Bethnal Green to Liverpool Street and Mile End to Bethnal Green on the Central line among sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C2",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "Earlier, under FOI-1730-1819 on 22 October 2018, TfL reported elevated rail roughness between 720 and 880m on the Central line between Bethnal Green and Mile End and stated that it would undertake rail grinding at this location in February 2019.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "Date published: 22 October 2018"
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+     },
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C3",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "On 09 December 2022, TfL's Head of Track also listed Liverpool Street - Bethnal Green Eastbound Central among the deep Tube reconditioning works planned for financial year 2023/24, where PV conversion to Delkor is carried out as part of Deep Tube Reconditioning.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#000",
+      "quote": "London E16 1ZE\n09 December 2022\nDear Zack,"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#000",
+      "quote": "We have completed PV conversion to Delkor as part of Deep Tube\nReconditioning at seven locations"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C4",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL's 6 December 2022 presentation to its Customer Service and Operational Performance Panel states that rail grinding is the most effective tool to remove corrugation, and that it must be repeated at regular intervals (usually 6 months - a year) to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#000",
+      "quote": "Tube Noise Update\n6 December 2022"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "Rail grinding is the most effective tool we\no\nhave to remove corrugation, which is the\nprincipal cause of noise"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals\no\n(usually 6 months \u2013 a year), to maintain\neffectiveness"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C5",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In FOI-1231-2425, TfL disclosed bi-monthly noise levels recorded on Monday 24 June 2024 from within the train operator's cab on the Central line, showing Eastbound Liverpool Street to Bethnal Green at 87 dB LAeq and Bethnal Green to Mile End at 83 dB LAeq, and Westbound Mile End to Bethnal Green at 82 dB LAeq and Bethnal Green to Liverpool Street at 86 dB LAeq.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C6",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab measurements (FOI-1231-2425), the Liverpool Street-Bethnal Green section was 4 dB LAeq higher than the adjacent Bethnal Green-Mile End section in both the eastbound (87 vs 83 dB LAeq) and westbound (86 vs 82 dB LAeq) directions.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": {
+     "expression": "eb_lst_bth - eb_bth_mle",
+     "inputs": [
+      {
+       "name": "eb_lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "eb_bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "name": "wb_bth_lst",
+       "stat": null,
+       "value": 86.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      },
+      {
+       "name": "wb_mle_bth",
+       "stat": null,
+       "value": 82.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "C7",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "By comparison, a July 2020 TfL occupational health assessment for the sub-surface Hammersmith & City line (FOI-3780-2324) recorded in-cab inter-station levels of 65 dB(A) LAeq from Liverpool Street to Aldgate East, 64 dB(A) LAeq from Aldgate East to Whitechapel, and 65 dB(A) LAeq from Whitechapel to Mile End eastbound, with all duties below the Lower Exposure Action Value of 80dB(A).",
+    "citations": [
+     {
+      "chunk_id": "FOI-3780-2324#001",
+      "quote": "The measurements were carried out on the 29th and 30th July 2020 using one handheld"
+     },
+     {
+      "chunk_id": "FOI-3780-2324#002",
+      "quote": "Liverpool Street to Aldgate East 65 103"
+     },
+     {
+      "chunk_id": "FOI-3780-2324#002",
+      "quote": "Aldgate East to Whitechapel 64 100"
+     },
+     {
+      "chunk_id": "FOI-3780-2324#002",
+      "quote": "Whitechapel to Mile End 65 100"
+     },
+     {
+      "chunk_id": "FOI-3780-2324#004",
+      "quote": "Value (LEAV) for continuous noise at an L of 80dB(A) and as such train"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C8",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated relative phone-audio recordings in the passenger saloon, mean levels on the Central line were -18.66 dBFS(A) eastbound on LST-BTH (n=6, sd=0.35), -19.42 dBFS(A) eastbound on BTH-MLE (n=6, sd=0.35), -18.8 dBFS(A) westbound on BTH-LST (n=5, sd=0.48), and -19.07 dBFS(A) westbound on MLE-BTH (n=5, sd=0.65).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C9",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 placement-ok trips, the mean within-trip relative difference between LST-BTH and BTH-MLE was 0.54 dB (sd 0.36, range -0.13 to 1.21, positive in 10 of 11 trips, one-sided sign test p=0.0059), which resulted in a pre-registered NO-GO verdict because the contrast is below 1 dB and inside phone limiter compression and run-to-run variation.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE",
+     "loudness.verdict"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C10",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative levels on both Central line sections (-18.66 to -19.42 dBFS(A)) were substantially higher than on the sub-surface parallel route between Liverpool Street, Aldgate East, and Whitechapel (-22.67 dBFS(A) on EB LST-ALE, -25.52 dBFS(A) on EB ALE-WCL, -24.54 dBFS(A) on WB WCL-ALE, and -24.65 dBFS(A) on WB ALE-LST) and quieter Central line sections such as EB HOL-CYL (-23.51 dBFS(A)).",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE",
+     "level.EB.LST-ALE",
+     "level.EB.ALE-WCL",
+     "level.WB.WCL-ALE",
+     "level.WB.ALE-LST",
+     "level.EB.HOL-CYL"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C11",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Separate indicative measurements using the NIOSH Sound Level Meter app on an iPhone in the passenger saloon over one whole trip per direction between Liverpool Street and Mile End (including platform waits and the Bethnal Green dwell) recorded 91.9 dB(A) LAeq eastbound (max 109.7 dB, LCpeak 124.4 dB) and 87.3 dB(A) LAeq westbound (max 105.3 dB, LCpeak 120.2 dB), though the app is validated only up to about 85 dB(A) so readings above that may read low and cannot be compared like-for-like with TfL's per-section in-cab figures.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "C12",
+    "section": "context",
+    "type": "sourced",
+    "text": "Under The Control of Noise at Work Regulations 2005 cited in TfL's acoustic reports, the workplace lower exposure action value for workers is a daily personal noise exposure level (LEP,d) of 80 dB(A), the upper exposure action value is 85 dB(A), and the exposure limit value is 87 dB(A).",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "The noise data was analysed with respect to The Control of Noise at Work Regulations 2005"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'lower exposure action value', corresponding to a daily personal noise exposure level of\n80 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'upper exposure action value', corresponding to a daily personal noise exposure level of\n85 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "and the 'exposure limit value', corresponding to a daily personal noise exposure level of 87\ndB(A)."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C13",
+    "section": "context",
+    "type": "sourced",
+    "text": "At Mayor's Question Time on 16 July 2026 (2026/2156), Elly Baker AM stated that TfL's Government Relations had sent an email turning down the majority of her requests for noise data, while TfL's updates to the London Assembly on 9 August 2024 and 20 August 2025 omitted any Central line hotspot updates despite TfL holding bi-monthly cab measurements.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "just an email from TfL's Government Relations turning down the majority of the requests for data."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#000",
+      "quote": "9 August 2024 Chief Operating Officer"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2024-08#001",
+      "quote": "Please find below further updates on known noise hotspot locations which you may\nfind useful:"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2025-08#000",
+      "quote": "Chief Operating Officer\n20 August 2025\nTransport for London"
+     },
+     {
+      "chunk_id": "TfL-noise-update-2025-08#001",
+      "quote": "Please find updates on known noise 'hotspot' locations which you may find useful\nbelow."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C14",
+    "section": "limits",
+    "type": "sourced",
+    "text": "The 92.8 decibels figure for Liverpool Street to Bethnal Green appears only in a secondary press article (Brixton Buzz, attributing the study to JRPass) without specifying the underlying TfL document, measurement date, direction, or whether it was recorded in the cab or passenger saloon.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "C15",
+    "section": "limits",
+    "type": "inference",
+    "text": "Because the Mayor's Question response on rail grinding does not specify which track direction or chainage was ground, and because no subsequent Central line grinding logs or earlier section-by-section noise readings are in the public corpus, the evidence cannot establish whether LST-BTH or BTH-MLE were ground again afterwards, whether the planned eastbound deep Tube reconditioning on LST-BTH was completed, or how noise levels changed immediately before and after grinding.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Provide the complete log of all rail grinding works carried out on the Central line between Liverpool Street, Bethnal Green, and Mile End from January 2021 to the present, specifying for each intervention the date, track direction (eastbound/westbound), and start and end chainage (metres).",
+    "why": "MQ 2022/1791 confirms grinding took place between December 2021 and May 2022 on both sections, and TfL states grinding must be repeated every 6 to 12 months, but the public record does not state which direction was ground or whether any grinding has occurred in the years since (C1, C4, C15)."
+   },
+   {
+    "request": "Confirm whether the Deep Tube Reconditioning works planned for financial year 2023/24 on Liverpool Street to Bethnal Green Eastbound (converting Pandrol Vanguard to Delkor fastenings) were completed, including the completion date and chainage covered, and whether any reconditioning is planned for the westbound track or for Bethnal Green to Mile End.",
+    "why": "TfL's Head of Track listed Liverpool Street - Bethnal Green Eastbound in the 2023/24 reconditioning plan in December 2022, and later updates note completed and in-progress sites across the network without identifying if this Central line section was among them (C3, C15)."
+   },
+   {
+    "request": "Release all bi-monthly in-cab noise measurements (dB LAeq and LCpeak, eastbound and westbound) recorded on the Central line from January 2021 to the present, together with any passenger saloon noise measurements and the specific dataset or FOI response underlying the 92.8 dB figure for Liverpool Street to Bethnal Green cited in the press.",
+    "why": "TfL confirmed in FOI-1231-2425 that Central line readings are carried out bi-monthly and that June 2024 cab levels were 86-87 dB LAeq on LST-BTH and 82-83 dB LAeq on BTH-MLE, but without the bi-monthly time series it is impossible to evaluate the effectiveness and decay rate of grinding or verify the 92.8 dB secondary press figure (C5, C6, C13, C14, C15)."
+   },
+   {
+    "request": "Provide the latest rail roughness (corrugation) plots for both eastbound and westbound tracks between Liverpool Street and Bethnal Green and between Bethnal Green and Mile End.",
+    "why": "TfL previously disclosed rail roughness plots for Bethnal Green to Mile End under FOI-1730-1819 in 2018 and states that it uses a data-led approach analysing network-wide corrugation to prioritise grinding, yet refuses to share section-level data with Assembly Members (C2, C13)."
+   }
+  ],
+  "headline_claim_ids": [
+   "C1",
+   "C5",
+   "C9",
+   "C11",
+   "C15"
+  ]
+ },
+ {
+  "label": "P10",
+  "claims": [
+   {
+    "id": "grind-records-2022",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL listed Bethnal Green to Liverpool Street and Mile End to Bethnal Green among the sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "grind-interval-leadtime",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL confirmed that its continuous rail grinding programme is confirmed around eight weeks in advance of works, with safety and operationally critical work prioritised.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-2799#000",
+      "quote": "TfL's continuous rail grinding programme is confirmed around eight weeks in advance of works, with safety and operationally critical work prioritised."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "reconditioning-planned-lst-bth",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL listed Liverpool Street - Bethnal Green Eastbound Central under deep Tube reconditioning works planned for financial year 2023/24.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "tfl-cab-readings-eb-2024",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In TfL in-cab recordings disclosed under FOI-1231-2425, eastbound noise was recorded at 87 dB LAeq for Liverpool Street to Bethnal Green and 83 dB LAeq for Bethnal Green to Mile End.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "tfl-cab-difference-eb",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL in-cab recordings, eastbound Liverpool Street to Bethnal Green was 4 dB higher than Bethnal Green to Mile End.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": {
+     "expression": "lst_bth - bth_mle",
+     "inputs": [
+      {
+       "name": "lst_bth",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "bth_mle",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "tfl-cab-readings-wb-2024",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "In TfL in-cab recordings disclosed under FOI-1231-2425, westbound noise was recorded at 86 dB LAeq for Bethnal Green to Liverpool Street and 82 dB LAeq for Mile End to Bethnal Green.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "tfl-monitoring-frequency",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL confirmed in FOI-1231-2425 that in-cab noise readings on the Central line are carried out on a bi-monthly period.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Readings are carried out on a bi-monthly period."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "our-relative-loudness-eb",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative audio measurements recorded mean levels of -18.66 dBFS(A) between Liverpool Street and Bethnal Green eastbound and -19.42 dBFS(A) between Bethnal Green and Mile End eastbound.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "our-relative-loudness-wb",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative audio measurements recorded mean levels of -18.8 dBFS(A) between Bethnal Green and Liverpool Street westbound and -19.07 dBFS(A) between Mile End and Bethnal Green westbound.",
+    "citations": [],
+    "stat_keys": [
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "our-relative-contrast",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 trips, our uncalibrated relative audio measurements showed an average within-trip difference of 0.54 dB between Liverpool Street to Bethnal Green and Bethnal Green to Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "our-indicative-niosh-saloon",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative sound level meter app measurements recorded whole-trip passenger saloon averages of 91.9 dB(A) LAeq eastbound from Liverpool Street to Mile End and 87.3 dB(A) LAeq westbound from Mile End to Liverpool Street, including station dwell times.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "limits-brixton-buzz-origin",
+    "section": "limits",
+    "type": "sourced",
+    "text": "The widely reported figure of 92.8 decibels for Liverpool Street to Bethnal Green originates from a secondary report in Brixton Buzz quoting third-party figures from JRPass rather than TfL primary data.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "limits-grinding-direction-gaps",
+    "section": "limits",
+    "type": "inference",
+    "text": "Public TfL disclosures do not establish whether past grinding covered both tracks or whether any subsequent grinding has taken place between Liverpool Street and Mile End since that period.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "limits-measurement-comparability",
+    "section": "limits",
+    "type": "inference",
+    "text": "Our phone-audio recordings cannot be compared like-for-like with TfL in-cab figures because our dBFS(A) levels are uncalibrated and relative, while our indicative app readings reflect passenger saloon exposure over entire journeys including station dwell time.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "transparency-refusal-context",
+    "section": "context",
+    "type": "sourced",
+    "text": "Elly Baker AM stated that TfL turned down requests for specific data based on residents casework citing constrained resources.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "turning down the majority of the requests for data."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Request complete track-specific grinding logs for the Central line between Liverpool Street and Mile End from June 2022 to the present, specifying the exact dates of grinding, track direction, and whether work was scheduled for noise mitigation or defect management.",
+    "why": "Closes the evidentiary gap identified in claim limits-grinding-direction-gaps concerning whether repeat grinding took place after the works listed in claim grind-records-2022."
+   },
+   {
+    "request": "Request the bi-monthly Central line in-cab noise monitoring datasets from July 2024 to date, broken down by station section and direction.",
+    "why": "Extends the official TfL in-cab dataset beyond the single snapshot disclosed under FOI-1231-2425 in claims tfl-cab-readings-eb-2024 and tfl-cab-readings-wb-2024."
+   },
+   {
+    "request": "Request an operational status update on the deep Tube reconditioning works planned for Liverpool Street to Bethnal Green Eastbound Central for financial year 2023/24, confirming whether track replacement or Pandrol Vanguard conversion was executed.",
+    "why": "Directly resolves whether the engineering intervention committed to in claim reconditioning-planned-lst-bth was completed on the track."
+   }
+  ],
+  "headline_claim_ids": [
+   "grind-records-2022",
+   "tfl-cab-readings-eb-2024",
+   "our-relative-loudness-eb",
+   "limits-brixton-buzz-origin",
+   "limits-grinding-direction-gaps"
+  ]
+ },
+ {
+  "label": "P11",
+  "claims": [
+   {
+    "id": "claim_grinding_completed_2022",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL records show that between December 2021 and May 2022, sections including Bethnal Green to Liverpool Street and Mile End to Bethnal Green benefited from rail grinding to help reduce noise levels.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_planned_reconditioning_2023",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL reported that deep Tube reconditioning works were planned for financial year 2023/24 on Liverpool Street - Bethnal Green Eastbound Central.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_grinding_repetition_needed",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL documents state that rail grinding must be repeated at regular intervals, usually 6 months to a year, to maintain effectiveness.",
+    "citations": [
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "It must be repeated at regular intervals"
+     },
+     {
+      "chunk_id": "CSOPP-2022-12-tube-noise#001",
+      "quote": "(usually 6 months \u2013 a year), to maintain"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_tfl_cab_eastbound_2024",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "On 24 June 2024, TfL recorded in-cab noise levels of 87 dB LAeq from Liverpool Street to Bethnal Green and 83 dB LAeq from Bethnal Green to Mile End eastbound.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_tfl_cab_westbound_2024",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "On 24 June 2024, TfL recorded westbound in-cab noise levels of 82 dB LAeq from Mile End to Bethnal Green and 86 dB LAeq from Bethnal Green to Liverpool Street.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "these measurements were taken from within the train operator's cab."
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_tfl_eastbound_difference",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "On 24 June 2024, TfL's recorded in-cab noise level was 4 dB higher between Liverpool Street and Bethnal Green than between Bethnal Green and Mile End eastbound.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": {
+     "expression": "lst_bth_eb - bth_mle_eb",
+     "inputs": [
+      {
+       "name": "lst_bth_eb",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "bth_mle_eb",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "claim_measured_lst_bth_relative",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated phone audio recordings, relative noise levels averaged -18.66 dBFS(A) eastbound from Liverpool Street to Bethnal Green across 6 runs and -18.80 dBFS(A) westbound from Bethnal Green to Liverpool Street across 5 runs.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.WB.BTH-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_measured_bth_mle_relative",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "In our uncalibrated phone audio recordings, relative noise levels between Bethnal Green and Mile End averaged -19.42 dBFS(A) eastbound across 6 runs and -19.07 dBFS(A) westbound across 5 runs.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.BTH-MLE",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_measured_within_trip_contrast",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Across 11 paired trips, the uncalibrated mean within-trip relative contrast between Liverpool Street-Bethnal Green and Bethnal Green-Mile End was 0.54 dB.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_measured_indicative_niosh",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative sound level meter app recordings over an entire trip including platform and dwell times registered 91.9 dB(A) LAeq eastbound from Liverpool Street to Mile End and 87.3 dB(A) LAeq westbound from Mile End to Liverpool Street.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_worker_exposure_standards",
+    "section": "context",
+    "type": "sourced",
+    "text": "Under the noise regulations cited by TfL, the lower exposure action value is 80 dB(A) and the upper exposure action value is 85 dB(A) for daily personal noise exposure of workers.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'lower exposure action value', corresponding to a daily personal noise exposure level of 80 dB(A);"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#003",
+      "quote": "the 'upper exposure action value', corresponding to a daily personal noise exposure level of 85 dB(A);"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_press_secondary_source_92db",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A 92.8 decibels figure for Liverpool Street to Bethnal Green was published in a media report citing analysis by JRPass rather than TfL primary data.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_limits_grinding_gaps",
+    "section": "limits",
+    "type": "inference",
+    "text": "TfL's published records do not clarify whether historical rail grinding covered both running directions on these sections, nor whether grinding has been repeated on them in subsequent years.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_limits_measurement_methodology",
+    "section": "limits",
+    "type": "inference",
+    "text": "Our relative sound levels are uncalibrated and cannot be compared directly against TfL cab figures, while our indicative saloon measurements cover entire journeys including station stops rather than isolated inter-station running.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Request an itemised log of all rail grinding and track maintenance completed on the Central line between Liverpool Street and Mile End from June 2022 to date, specifying exact dates, direction (eastbound vs westbound), and chainage.",
+    "why": "TfL confirmed grinding between December 2021 and May 2022 in MQ 2022/1791, but subsequent updates do not record whether grinding has recurred within TfL's recommended regular cycle (claim_grinding_completed_2022, claim_grinding_repetition_needed, claim_limits_grinding_gaps)."
+   },
+   {
+    "request": "Request the latest bi-monthly in-cab noise measurement logs for all Central line sections between Liverpool Street and Stratford from July 2024 to present, alongside confirmation of whether planned 2023/24 deep Tube reconditioning on Liverpool Street-Bethnal Green was completed.",
+    "why": "TfL recorded 87 dB LAeq in the cab between Liverpool Street and Bethnal Green on 24 June 2024 (FOI-1231-2425) and planned capital track reconditioning, but more recent official data has been withheld from Assembly inquiries (claim_planned_reconditioning_2023, claim_tfl_cab_eastbound_2024, claim_tfl_cab_westbound_2024)."
+   },
+   {
+    "request": "Request clarification on whether TfL holds any primary saloon noise measurements matching the 92.8 dB figure reported in the press for Liverpool Street to Bethnal Green, including measurement location and train operating conditions.",
+    "why": "Press coverage cited 92.8 dB via secondary analysis by JRPass, but TfL's official disclosures only report in-cab measurements (claim_press_secondary_source_92db, claim_limits_measurement_methodology)."
+   }
+  ],
+  "headline_claim_ids": [
+   "claim_grinding_completed_2022",
+   "claim_tfl_cab_eastbound_2024",
+   "claim_measured_lst_bth_relative",
+   "claim_measured_indicative_niosh"
+  ]
+ },
+ {
+  "label": "P12",
+  "claims": [
+   {
+    "id": "claim_grinding_completed_2022",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL recorded Bethnal Green to Liverpool Street and Mile End to Bethnal Green among sections that benefited from rail grinding to help reduce noise levels between December 2021 and May 2022.",
+    "citations": [
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Sections of the London Underground that have benefited from rail grinding to help reduce noise levels (December 2021-May 2022)"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Bethnal Green to Liverpool Street"
+     },
+     {
+      "chunk_id": "MQ-2022-1791#001",
+      "quote": "Mile End to Bethnal Green"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_grinding_planned_2019",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL stated in FOI-1730-1819 that it would undertake rail grinding between Bethnal Green and Mile End in February 2019 to improve the wheel-rail interface.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1730-1819#000",
+      "quote": "We will undertake rail grinding at this location in February 2019, with the intention to improve the wheel-rail interface."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_reconditioning_planned_2023_2024",
+    "section": "grinding",
+    "type": "sourced",
+    "text": "TfL listed Liverpool Street to Bethnal Green eastbound on the Central line under deep Tube reconditioning works planned for financial year 2023/24.",
+    "citations": [
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Deep Tube reconditioning works planned for financial year 2023/24"
+     },
+     {
+      "chunk_id": "Weir-letter-2022-12#001",
+      "quote": "Liverpool Street - Bethnal Green Eastbound Central"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_tfl_cab_eb_2024",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL in-cab measurements taken on 24 June 2024 recorded 87 dB LAeq eastbound from Liverpool Street to Bethnal Green and 83 dB LAeq from Bethnal Green to Mile End.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Liverpool Street to Bethnal Green | 87"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Mile End | 83"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_tfl_cab_wb_2024",
+    "section": "tfl_data",
+    "type": "sourced",
+    "text": "TfL in-cab measurements taken on 24 June 2024 recorded 82 dB LAeq westbound from Mile End to Bethnal Green and 86 dB LAeq from Bethnal Green to Liverpool Street.",
+    "citations": [
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Mile End to Bethnal Green | 82"
+     },
+     {
+      "chunk_id": "FOI-1231-2425#000",
+      "quote": "Bethnal Green to Liverpool Street | 86"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_tfl_cab_diff_eb",
+    "section": "tfl_data",
+    "type": "derived",
+    "text": "In TfL's 24 June 2024 in-cab data, eastbound sound levels between Liverpool Street and Bethnal Green were 4 dB higher than between Bethnal Green and Mile End.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": {
+     "expression": "LST_BTH - BTH_MLE",
+     "inputs": [
+      {
+       "name": "LST_BTH",
+       "stat": null,
+       "value": 87.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "name": "BTH_MLE",
+       "stat": null,
+       "value": 83.0,
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      }
+     ],
+     "result": 4.0
+    }
+   },
+   {
+    "id": "claim_our_relative_levels_eb",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative phone audio measurements recorded -18.66 dBFS(A) eastbound from Liverpool Street to Bethnal Green and -19.42 dBFS(A) eastbound from Bethnal Green to Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "level.EB.LST-BTH",
+     "level.EB.BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_our_relative_levels_wb",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative phone audio measurements recorded -18.8 dBFS(A) westbound from Bethnal Green to Liverpool Street and -19.07 dBFS(A) westbound from Mile End to Bethnal Green.",
+    "citations": [],
+    "stat_keys": [
+     "level.WB.BTH-LST",
+     "level.WB.MLE-BTH"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_our_contrast",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Our uncalibrated relative measurements across eleven runs found a mean within-trip contrast of 0.54 dB between Liverpool Street to Bethnal Green and Bethnal Green to Mile End.",
+    "citations": [],
+    "stat_keys": [
+     "contrast.LST-BTH_minus_BTH-MLE"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_our_niosh",
+    "section": "our_measurements",
+    "type": "measured",
+    "text": "Indicative sound level meter app readings over one whole trip including platform and dwell time recorded 91.9 dB(A) LAeq eastbound between Liverpool Street and Mile End and 87.3 dB(A) LAeq westbound.",
+    "citations": [],
+    "stat_keys": [
+     "niosh.EB.LST-MLE",
+     "niosh.WB.MLE-LST"
+    ],
+    "formula": null
+   },
+   {
+    "id": "claim_secondary_press_figure",
+    "section": "limits",
+    "type": "sourced",
+    "text": "A secondary press report citing JRPass attributed an average noise level of 92.8 decibels to the Central line between Liverpool Street and Bethnal Green.",
+    "citations": [
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+     },
+     {
+      "chunk_id": "BrixtonBuzz-2026-01-27#000",
+      "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_limits_methodology",
+    "section": "limits",
+    "type": "inference",
+    "text": "Our uncalibrated relative phone measurements and indicative app readings cannot be compared directly with TfL in-cab figures or secondary media reports.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_limits_history",
+    "section": "limits",
+    "type": "inference",
+    "text": "Public records do not confirm which track direction was treated during earlier grinding, whether grinding was subsequently repeated on these sections, or whether the planned deep Tube reconditioning was completed.",
+    "citations": [],
+    "stat_keys": [],
+    "formula": null
+   },
+   {
+    "id": "claim_context_baker_refusal",
+    "section": "context",
+    "type": "sourced",
+    "text": "During Mayor's Question Time 2026/2156, Elly Baker AM stated that TfL Government Relations responded to her request by turning down the majority of the requests for data.",
+    "citations": [
+     {
+      "chunk_id": "MQT-2026-2156#001",
+      "quote": "turning down the majority of the requests for data."
+     }
+    ],
+    "stat_keys": [],
+    "formula": null
+   }
+  ],
+  "asks": [
+   {
+    "request": "Request the complete log of rail grinding interventions carried out on the Central line between Liverpool Street and Mile End from June 2022 to date, specifying track direction, dates, and whether work was for safety defects or noise mitigation.",
+    "why": "Resolves the evidentiary gap identified in claim_limits_history regarding whether grinding has recurred since the works cited in claim_grinding_completed_2022."
+   },
+   {
+    "request": "Request the status and verification reports for the deep Tube reconditioning planned for financial year 2023/24 on the Central line eastbound between Liverpool Street and Bethnal Green.",
+    "why": "Establishes whether long-term track replacement occurred as scheduled in claim_reconditioning_planned_2023_2024 or remains outstanding."
+   },
+   {
+    "request": "Request TfL's bi-monthly in-cab noise monitoring records for the Central line from July 2024 through 2026, alongside any passenger saloon noise surveys conducted on the section.",
+    "why": "Updates the single 24 June 2024 snapshot from claim_tfl_cab_eb_2024 and claim_tfl_cab_wb_2024 and bridges cab versus saloon acoustic conditions."
+   },
+   {
+    "request": "Request the primary dataset and calculation methodology underpinning the 92.8 dB figure reported for Liverpool Street to Bethnal Green.",
+    "why": "Clarifies whether the media figure cited in claim_secondary_press_figure originated from official TfL data or external uncalibrated measurements."
+   }
+  ],
+  "headline_claim_ids": [
+   "claim_grinding_completed_2022",
+   "claim_tfl_cab_eb_2024",
+   "claim_our_relative_levels_eb",
+   "claim_limits_history"
+  ]
+ }
+]

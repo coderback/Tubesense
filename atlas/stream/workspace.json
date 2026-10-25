@@ -1,0 +1,5 @@
+{
+  "name": "tubesense-sp",
+  "dataProcessRegion": {"cloudProvider": "AWS", "region": "DUBLIN_IRL"},
+  "streamConfig": {"tier": "SP2", "maxTierSize": "SP2"}
+}

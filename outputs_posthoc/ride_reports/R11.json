@@ -1,0 +1,1003 @@
+{
+ "run": "R11",
+ "ts": "2026-10-25T08:32:11+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "post_hoc": "added 25 Oct 2026 after prereg-24oct; inputs are precomputed outputs",
+ "schema": "claims with facts/comparisons/qualifiers, bound by code (ride_report v2)",
+ "stats_file": "outputs_posthoc/ride_stats/R11.json",
+ "stats_sha": "fe01dc40eae516fb",
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "ride_checks_sha": "339f3f0c5dc0f10f3eb7a753fe4b676282b846a4dc48ed6dc17503af1588d958",
+ "rounds": [
+  {
+   "round": 0,
+   "seconds": 29.9,
+   "claims": [
+    {
+     "id": "C1",
+     "text": "Ride R11 on the eastbound Central line route LST-MLE recorded 338.1 s of sensor data and 348.2 s of audio across 2 sections with no pauses.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "ride.sensor_duration_s",
+       "field": "value",
+       "value_as_written": "338.1",
+       "role": "sensor data"
+      },
+      {
+       "stat_key": "ride.audio_duration_s",
+       "field": "value",
+       "value_as_written": "348.2",
+       "role": "audio"
+      },
+      {
+       "stat_key": "ride.route",
+       "field": "n_sections",
+       "value_as_written": "2",
+       "role": "sections"
+      },
+      {
+       "stat_key": "ride.phyphox_pauses",
+       "field": "value",
+       "value_as_written": "no",
+       "role": "pauses"
+      }
+     ],
+     "comparisons": [],
+     "cites": [
+      "ride.id",
+      "ride.route"
+     ]
+    },
+    {
+     "id": "C2",
+     "text": "Quality control logged 3 QC flags, including a handled interval for 1.5 s from 9.01 s to 10.51 s and atypical coupling lasting 311.0 s from 21.01 s to 332.01 s.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "qc.flag_counts",
+       "field": "value",
+       "value_as_written": "3",
+       "role": "QC flags"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "value",
+       "value_as_written": "1.5",
+       "role": "handled interval for"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "t0_s",
+       "value_as_written": "9.01",
+       "role": "from"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "t1_s",
+       "value_as_written": "10.51",
+       "role": "to"
+      },
+      {
+       "stat_key": "qc.atypical_coupling.1",
+       "field": "value",
+       "value_as_written": "311.0",
+       "role": "atypical coupling lasting"
+      },
+      {
+       "stat_key": "qc.atypical_coupling.1",
+       "field": "t0_s",
+       "value_as_written": "21.01",
+       "role": "from"
+      },
+      {
+       "stat_key": "qc.atypical_coupling.1",
+       "field": "t1_s",
+       "value_as_written": "332.01",
+       "role": "to"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    },
+    {
+     "id": "C3",
+     "text": "Coarse cross-correlation without tap markers gave an audio-sensor offset of 3.95 s with a sync uncertainty of 5.0 s, while the moving level (-19.1 dBFS) was louder than the platform dwell level (-25.0 dBFS).",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level"
+     ],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "value",
+       "value_as_written": "3.95",
+       "role": "offset of"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "5.0",
+       "role": "uncertainty of"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "moving_level",
+       "value_as_written": "-19.1",
+       "role": "moving level"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "dwell_level",
+       "value_as_written": "-25.0",
+       "role": "platform dwell level"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "moving_level"
+       },
+       "b": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "dwell_level"
+       },
+       "relation": "greater",
+       "relation_word": "louder",
+       "a_text": "moving level",
+       "b_text": "platform dwell level",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C4",
+     "text": "LST-BTH duration (143.0 s) was shorter than the timetable expected time (159.8 s), whereas only 118.8 s of BTH-MLE was recorded from 218.76 s to 337.51 s (arrival not observed).",
+     "type": "measured",
+     "qualifiers": [
+      "lower_bound",
+      "approximate"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.LST-BTH.duration_s",
+       "field": "value",
+       "value_as_written": "143.0",
+       "role": "LST-BTH duration"
+      },
+      {
+       "stat_key": "section.LST-BTH.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "159.8",
+       "role": "timetable expected time"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "value",
+       "value_as_written": "118.8",
+       "role": "only"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "span_start_t_s",
+       "value_as_written": "218.76",
+       "role": "from"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "span_end_t_s",
+       "value_as_written": "337.51",
+       "role": "to"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.LST-BTH.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.LST-BTH.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "less",
+       "relation_word": "shorter",
+       "a_text": "LST-BTH duration",
+       "b_text": "timetable expected time",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C5",
+     "text": "On LST-BTH, the leave-one-out tracker median error (1.7 m) was lower than the timetable baseline median error (17.6 m) with a p90 error of 4.0 m and 99.8 % band coverage, whereas BTH-MLE was not evaluated.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "value",
+       "value_as_written": "1.7",
+       "role": "tracker median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "timetable_baseline_median_m",
+       "value_as_written": "17.6",
+       "role": "timetable baseline median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "p90_m",
+       "value_as_written": "4.0",
+       "role": "p90 error of"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "99.8",
+       "role": "band coverage"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "timetable_baseline_median_m"
+       },
+       "relation": "less",
+       "relation_word": "lower",
+       "a_text": "leave-one-out tracker median error",
+       "b_text": "timetable baseline median error",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": [
+      "positioning.BTH-MLE.status"
+     ]
+    },
+    {
+     "id": "C6",
+     "text": "LST-BTH (-18.78 dBFS) was louder than BTH-MLE (-19.45 dBFS), a 0.67 dB difference in relative level, while 34.2 % of overall seconds and 100.0 % of the loudest 10 % of seconds sat at the limiter ceiling.",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.LST-BTH.level",
+       "field": "value",
+       "value_as_written": "-18.78",
+       "role": "LST-BTH"
+      },
+      {
+       "stat_key": "section.BTH-MLE.level",
+       "field": "value",
+       "value_as_written": "-19.45",
+       "role": "BTH-MLE"
+      },
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "limiter_pct",
+       "value_as_written": "34.2",
+       "role": "of overall"
+      },
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "limiter_pct_loudest_10pct",
+       "value_as_written": "100.0",
+       "role": "of the loudest"
+      },
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "loudest_subset_pct",
+       "value_as_written": "10",
+       "role": "loudest"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.LST-BTH.level",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.BTH-MLE.level",
+        "field": "value"
+       },
+       "relation": "greater",
+       "relation_word": "louder",
+       "a_text": "LST-BTH",
+       "b_text": "BTH-MLE",
+       "difference_as_written": "0.67"
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C7",
+     "text": "For relative noise and LST-BTH positioning, this ride is usable given the sync uncertainty of 5.0 s, provided vibration features are normalised over the 311.0 s atypical coupling interval and noting that only 118.8 s of BTH-MLE was recorded (arrival not observed).",
+     "type": "inference",
+     "qualifiers": [
+      "lower_bound",
+      "approximate",
+      "single_ride"
+     ],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "5.0",
+       "role": "uncertainty of"
+      },
+      {
+       "stat_key": "qc.atypical_coupling.1",
+       "field": "value",
+       "value_as_written": "311.0",
+       "role": "atypical coupling"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "value",
+       "value_as_written": "118.8",
+       "role": "only"
+      }
+     ],
+     "comparisons": [],
+     "cites": [
+      "positioning.LST-BTH.loo_median_m",
+      "positioning.BTH-MLE.status"
+     ]
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "C1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C4",
+     "ok": false,
+     "reasons": [
+      "role 'timetable expected time' uses 'time', which names a different field of section.LST-BTH.duration_s than timetable_expected_s (timetable section time)",
+      "159.8 is section.LST-BTH.duration_s.timetable_expected_s of LST-BTH, but the section named nearest to it is BTH-MLE",
+      "comparison 'shorter': b_text: 'timetable expected time' uses 'time', a word of the other side (LST-BTH section time, departure to arrival)"
+     ]
+    },
+    {
+     "id": "C5",
+     "ok": false,
+     "reasons": [
+      "17.6 is positioning.LST-BTH.loo_median_m.timetable_baseline_median_m of LST-BTH, but the section named nearest to it is BTH-MLE",
+      "4.0 is positioning.LST-BTH.loo_median_m.p90_m of LST-BTH, but the section named nearest to it is BTH-MLE",
+      "99.8 is positioning.LST-BTH.loo_median_m.band90_coverage_pct of LST-BTH, but the section named nearest to it is BTH-MLE"
+     ]
+    },
+    {
+     "id": "C6",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C7",
+     "ok": false,
+     "reasons": [
+      "ride rule: 'usable' calls a result usable, but positioning.BTH-MLE.status is not evaluated: say what is excluded or not evaluated instead"
+     ]
+    }
+   ],
+   "usage": {
+    "prompt": 20245,
+    "output": 3413,
+    "thoughts": null
+   },
+   "usage_raw": {
+    "candidates_token_count": 3413,
+    "candidates_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 3413
+     }
+    ],
+    "prompt_token_count": 20245,
+    "prompt_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 20245
+     }
+    ],
+    "total_token_count": 23658
+   },
+   "thinking_note": "thoughts_token_count not returned in this chat usage record (thinking_level=medium was sent in the request config)"
+  },
+  {
+   "round": 1,
+   "seconds": 15.5,
+   "claims": [
+    {
+     "id": "C4",
+     "text": "LST-BTH duration (143.0 s) was shorter than the LST-BTH timetable expectation (159.8 s), whereas only 118.8 s of BTH-MLE was recorded from 218.76 s to 337.51 s (arrival not observed).",
+     "type": "measured",
+     "qualifiers": [
+      "lower_bound",
+      "approximate"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.LST-BTH.duration_s",
+       "field": "value",
+       "value_as_written": "143.0",
+       "role": "LST-BTH duration"
+      },
+      {
+       "stat_key": "section.LST-BTH.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "159.8",
+       "role": "LST-BTH timetable expectation"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "value",
+       "value_as_written": "118.8",
+       "role": "only"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "span_start_t_s",
+       "value_as_written": "218.76",
+       "role": "from"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "span_end_t_s",
+       "value_as_written": "337.51",
+       "role": "to"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.LST-BTH.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.LST-BTH.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "less",
+       "relation_word": "shorter",
+       "a_text": "LST-BTH duration",
+       "b_text": "LST-BTH timetable expectation",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C5",
+     "text": "Whereas BTH-MLE was not evaluated, on LST-BTH the leave-one-out tracker median error (1.7 m) was lower than the timetable baseline (17.6 m), with a p90 error of 4.0 m and 99.8 % band coverage on LST-BTH.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "value",
+       "value_as_written": "1.7",
+       "role": "tracker median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "timetable_baseline_median_m",
+       "value_as_written": "17.6",
+       "role": "timetable baseline"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "p90_m",
+       "value_as_written": "4.0",
+       "role": "p90 error of"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "99.8",
+       "role": "band coverage"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "timetable_baseline_median_m"
+       },
+       "relation": "less",
+       "relation_word": "lower",
+       "a_text": "leave-one-out tracker median error",
+       "b_text": "timetable baseline",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": [
+      "positioning.BTH-MLE.status"
+     ]
+    },
+    {
+     "id": "C7",
+     "text": "Given the sync uncertainty of 5.0 s, an analyst should normalise vibration features over the 311.0 s atypical coupling interval, drop the 1.5 s handled interval, and note that BTH-MLE positioning was not evaluated as only 118.8 s of BTH-MLE was recorded (arrival not observed).",
+     "type": "inference",
+     "qualifiers": [
+      "lower_bound",
+      "approximate",
+      "single_ride"
+     ],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "5.0",
+       "role": "uncertainty of"
+      },
+      {
+       "stat_key": "qc.atypical_coupling.1",
+       "field": "value",
+       "value_as_written": "311.0",
+       "role": "atypical coupling"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "value",
+       "value_as_written": "1.5",
+       "role": "handled interval"
+      },
+      {
+       "stat_key": "section.BTH-MLE.recorded_span_s",
+       "field": "value",
+       "value_as_written": "118.8",
+       "role": "only"
+      }
+     ],
+     "comparisons": [],
+     "cites": [
+      "positioning.BTH-MLE.status"
+     ]
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "C4",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C5",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C7",
+     "ok": false,
+     "reasons": [
+      "'drop' states a direction of change; write it as a declared comparison (A was higher than B)"
+     ]
+    }
+   ],
+   "usage": {
+    "prompt": 25548,
+    "output": 1567,
+    "thoughts": null
+   },
+   "usage_raw": {
+    "candidates_token_count": 1567,
+    "candidates_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 1567
+     }
+    ],
+    "prompt_token_count": 25548,
+    "prompt_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 25548
+     }
+    ],
+    "total_token_count": 27115
+   },
+   "thinking_note": "thoughts_token_count not returned in this chat usage record (thinking_level=medium was sent in the request config)"
+  }
+ ],
+ "verified_claims": [
+  {
+   "id": "C1",
+   "text": "Ride R11 on the eastbound Central line route LST-MLE recorded 338.1 s of sensor data and 348.2 s of audio across 2 sections with no pauses.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "ride.sensor_duration_s",
+     "field": "value",
+     "value_as_written": "338.1",
+     "role": "sensor data"
+    },
+    {
+     "stat_key": "ride.audio_duration_s",
+     "field": "value",
+     "value_as_written": "348.2",
+     "role": "audio"
+    },
+    {
+     "stat_key": "ride.route",
+     "field": "n_sections",
+     "value_as_written": "2",
+     "role": "sections"
+    },
+    {
+     "stat_key": "ride.phyphox_pauses",
+     "field": "value",
+     "value_as_written": "no",
+     "role": "pauses"
+    }
+   ],
+   "comparisons": [],
+   "cites": [
+    "ride.id",
+    "ride.route"
+   ]
+  },
+  {
+   "id": "C2",
+   "text": "Quality control logged 3 QC flags, including a handled interval for 1.5 s from 9.01 s to 10.51 s and atypical coupling lasting 311.0 s from 21.01 s to 332.01 s.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "qc.flag_counts",
+     "field": "value",
+     "value_as_written": "3",
+     "role": "QC flags"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "value",
+     "value_as_written": "1.5",
+     "role": "handled interval for"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "t0_s",
+     "value_as_written": "9.01",
+     "role": "from"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "t1_s",
+     "value_as_written": "10.51",
+     "role": "to"
+    },
+    {
+     "stat_key": "qc.atypical_coupling.1",
+     "field": "value",
+     "value_as_written": "311.0",
+     "role": "atypical coupling lasting"
+    },
+    {
+     "stat_key": "qc.atypical_coupling.1",
+     "field": "t0_s",
+     "value_as_written": "21.01",
+     "role": "from"
+    },
+    {
+     "stat_key": "qc.atypical_coupling.1",
+     "field": "t1_s",
+     "value_as_written": "332.01",
+     "role": "to"
+    }
+   ],
+   "comparisons": [],
+   "cites": []
+  },
+  {
+   "id": "C3",
+   "text": "Coarse cross-correlation without tap markers gave an audio-sensor offset of 3.95 s with a sync uncertainty of 5.0 s, while the moving level (-19.1 dBFS) was louder than the platform dwell level (-25.0 dBFS).",
+   "type": "measured",
+   "qualifiers": [
+    "relative_level"
+   ],
+   "facts": [
+    {
+     "stat_key": "sync.offset_s",
+     "field": "value",
+     "value_as_written": "3.95",
+     "role": "offset of"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "uncertainty_s",
+     "value_as_written": "5.0",
+     "role": "uncertainty of"
+    },
+    {
+     "stat_key": "noise.moving_minus_dwell_db",
+     "field": "moving_level",
+     "value_as_written": "-19.1",
+     "role": "moving level"
+    },
+    {
+     "stat_key": "noise.moving_minus_dwell_db",
+     "field": "dwell_level",
+     "value_as_written": "-25.0",
+     "role": "platform dwell level"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "noise.moving_minus_dwell_db",
+      "field": "moving_level"
+     },
+     "b": {
+      "stat_key": "noise.moving_minus_dwell_db",
+      "field": "dwell_level"
+     },
+     "relation": "greater",
+     "relation_word": "louder",
+     "a_text": "moving level",
+     "b_text": "platform dwell level",
+     "difference_as_written": ""
+    }
+   ],
+   "cites": []
+  },
+  {
+   "id": "C4",
+   "text": "LST-BTH duration (143.0 s) was shorter than the LST-BTH timetable expectation (159.8 s), whereas only 118.8 s of BTH-MLE was recorded from 218.76 s to 337.51 s (arrival not observed).",
+   "type": "measured",
+   "qualifiers": [
+    "lower_bound",
+    "approximate"
+   ],
+   "facts": [
+    {
+     "stat_key": "section.LST-BTH.duration_s",
+     "field": "value",
+     "value_as_written": "143.0",
+     "role": "LST-BTH duration"
+    },
+    {
+     "stat_key": "section.LST-BTH.duration_s",
+     "field": "timetable_expected_s",
+     "value_as_written": "159.8",
+     "role": "LST-BTH timetable expectation"
+    },
+    {
+     "stat_key": "section.BTH-MLE.recorded_span_s",
+     "field": "value",
+     "value_as_written": "118.8",
+     "role": "only"
+    },
+    {
+     "stat_key": "section.BTH-MLE.recorded_span_s",
+     "field": "span_start_t_s",
+     "value_as_written": "218.76",
+     "role": "from"
+    },
+    {
+     "stat_key": "section.BTH-MLE.recorded_span_s",
+     "field": "span_end_t_s",
+     "value_as_written": "337.51",
+     "role": "to"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "section.LST-BTH.duration_s",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.LST-BTH.duration_s",
+      "field": "timetable_expected_s"
+     },
+     "relation": "less",
+     "relation_word": "shorter",
+     "a_text": "LST-BTH duration",
+     "b_text": "LST-BTH timetable expectation",
+     "difference_as_written": ""
+    }
+   ],
+   "cites": []
+  },
+  {
+   "id": "C5",
+   "text": "Whereas BTH-MLE was not evaluated, on LST-BTH the leave-one-out tracker median error (1.7 m) was lower than the timetable baseline (17.6 m), with a p90 error of 4.0 m and 99.8 % band coverage on LST-BTH.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "value",
+     "value_as_written": "1.7",
+     "role": "tracker median error"
+    },
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "timetable_baseline_median_m",
+     "value_as_written": "17.6",
+     "role": "timetable baseline"
+    },
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "p90_m",
+     "value_as_written": "4.0",
+     "role": "p90 error of"
+    },
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "band90_coverage_pct",
+     "value_as_written": "99.8",
+     "role": "band coverage"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "positioning.LST-BTH.loo_median_m",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "positioning.LST-BTH.loo_median_m",
+      "field": "timetable_baseline_median_m"
+     },
+     "relation": "less",
+     "relation_word": "lower",
+     "a_text": "leave-one-out tracker median error",
+     "b_text": "timetable baseline",
+     "difference_as_written": ""
+    }
+   ],
+   "cites": [
+    "positioning.BTH-MLE.status"
+   ]
+  },
+  {
+   "id": "C6",
+   "text": "LST-BTH (-18.78 dBFS) was louder than BTH-MLE (-19.45 dBFS), a 0.67 dB difference in relative level, while 34.2 % of overall seconds and 100.0 % of the loudest 10 % of seconds sat at the limiter ceiling.",
+   "type": "measured",
+   "qualifiers": [
+    "relative_level"
+   ],
+   "facts": [
+    {
+     "stat_key": "section.LST-BTH.level",
+     "field": "value",
+     "value_as_written": "-18.78",
+     "role": "LST-BTH"
+    },
+    {
+     "stat_key": "section.BTH-MLE.level",
+     "field": "value",
+     "value_as_written": "-19.45",
+     "role": "BTH-MLE"
+    },
+    {
+     "stat_key": "noise.limiter_fraction",
+     "field": "limiter_pct",
+     "value_as_written": "34.2",
+     "role": "of overall"
+    },
+    {
+     "stat_key": "noise.limiter_fraction",
+     "field": "limiter_pct_loudest_10pct",
+     "value_as_written": "100.0",
+     "role": "of the loudest"
+    },
+    {
+     "stat_key": "noise.limiter_fraction",
+     "field": "loudest_subset_pct",
+     "value_as_written": "10",
+     "role": "loudest"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "section.LST-BTH.level",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.BTH-MLE.level",
+      "field": "value"
+     },
+     "relation": "greater",
+     "relation_word": "louder",
+     "a_text": "LST-BTH",
+     "b_text": "BTH-MLE",
+     "difference_as_written": "0.67"
+    }
+   ],
+   "cites": []
+  }
+ ],
+ "claims_sha": "0da16d162baaac9d",
+ "dropped_claims": [
+  {
+   "claim": {
+    "id": "C7",
+    "text": "Given the sync uncertainty of 5.0 s, an analyst should normalise vibration features over the 311.0 s atypical coupling interval, drop the 1.5 s handled interval, and note that BTH-MLE positioning was not evaluated as only 118.8 s of BTH-MLE was recorded (arrival not observed).",
+    "type": "inference",
+    "qualifiers": [
+     "lower_bound",
+     "approximate",
+     "single_ride"
+    ],
+    "facts": [
+     {
+      "stat_key": "sync.offset_s",
+      "field": "uncertainty_s",
+      "value_as_written": "5.0",
+      "role": "uncertainty of"
+     },
+     {
+      "stat_key": "qc.atypical_coupling.1",
+      "field": "value",
+      "value_as_written": "311.0",
+      "role": "atypical coupling"
+     },
+     {
+      "stat_key": "qc.handled_mid_ride.1",
+      "field": "value",
+      "value_as_written": "1.5",
+      "role": "handled interval"
+     },
+     {
+      "stat_key": "section.BTH-MLE.recorded_span_s",
+      "field": "value",
+      "value_as_written": "118.8",
+      "role": "only"
+     }
+    ],
+    "comparisons": [],
+    "cites": [
+     "positioning.BTH-MLE.status"
+    ]
+   },
+   "reasons": [
+    "'drop' states a direction of change; write it as a declared comparison (A was higher than B)"
+   ]
+  }
+ ],
+ "n_claims_ok_range": true,
+ "claims_total": 7,
+ "seeded_canary": false,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "ts": null
+ },
+ "seconds_total": 47.7
+}

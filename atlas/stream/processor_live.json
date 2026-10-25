@@ -1,0 +1,60 @@
+{
+  "name": "live_capture_windows",
+  "tier": "SP2",
+  "options": {"dlq": {"connectionName": "tsCluster", "db": "tubesense", "coll": "sp_dlq"}},
+  "pipeline": [
+    {"$source": {
+      "connectionName": "tsCluster",
+      "db": "tubesense",
+      "coll": "ingest_live",
+      "timeField": {"$toDate": "$fullDocument.ts"},
+      "config": {"pipeline": [{"$match": {"operationType": "insert", "fullDocument.live": true}}]}
+    }},
+    {"$tumblingWindow": {
+      "interval": {"size": 10, "unit": "second"},
+      "idleTimeout": {"size": 5, "unit": "second"},
+      "allowedLateness": 0,
+      "pipeline": [
+        {"$group": {
+          "_id": "$fullDocument.ride_id",
+          "n": {"$sum": 1},
+          "t_min": {"$min": "$fullDocument.t"},
+          "t_max": {"$max": "$fullDocument.t"},
+          "mean_abs_yaw_dps": {"$avg": {"$abs": "$fullDocument.yaw_rate_dps"}},
+          "max_abs_yaw_dps": {"$max": {"$abs": "$fullDocument.yaw_rate_dps"}},
+          "max_vib_rms": {"$max": "$fullDocument.vib_rms"},
+          "mean_vib_rms": {"$avg": "$fullDocument.vib_rms"},
+          "n_knocks": {"$sum": {"$cond": ["$fullDocument.knock", 1, 0]}},
+          "n_stopped": {"$sum": {"$cond": ["$fullDocument.stopped", 1, 0]}},
+          "n_handled": {"$sum": {"$cond": ["$fullDocument.handled", 1, 0]}},
+          "p_min": {"$min": "$fullDocument.pressure_hpa"},
+          "p_max": {"$max": "$fullDocument.pressure_hpa"},
+          "mean_b_ut": {"$avg": "$fullDocument.b_abs_ut"},
+          "last_state": {"$top": {"sortBy": {"fullDocument.t": 1}, "output": "$fullDocument.state"}},
+          "replay": {"$max": "$fullDocument.replay"},
+          "n_segments": {"$max": "$fullDocument.segment"}
+        }}
+      ]
+    }},
+    {"$addFields": {
+      "window_start": {"$meta": "stream.window.start"},
+      "window_end": {"$meta": "stream.window.end"},
+      "p_range_hpa": {"$subtract": ["$p_max", "$p_min"]}
+    }},
+    {"$project": {
+      "_id": {"$concat": ["$_id", "|", {"$toString": "$window_start"}]},
+      "ride_id": "$_id",
+      "n": 1, "t_min": 1, "t_max": 1, "mean_abs_yaw_dps": 1, "max_abs_yaw_dps": 1, "max_vib_rms": 1,
+      "mean_vib_rms": 1, "n_knocks": 1, "n_stopped": 1, "n_handled": 1, "p_range_hpa": 1, "mean_b_ut": 1,
+      "last_state": 1, "replay": 1, "n_segments": 1, "window_start": 1, "window_end": 1,
+      "live": {"$literal": true},
+      "processor": {"$literal": "live_capture_windows"}
+    }},
+    {"$merge": {
+      "into": {"connectionName": "tsCluster", "db": "tubesense", "coll": "live_capture_view"},
+      "on": "_id",
+      "whenMatched": "replace",
+      "whenNotMatched": "insert"
+    }}
+  ]
+}

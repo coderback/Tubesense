@@ -1,0 +1,423 @@
+{
+ "question": "Is Liverpool Street to Bethnal Green louder than Bethnal Green to Mile End?",
+ "norm_question": "is liverpool street to bethnal green louder than bethnal green to mile end",
+ "ts": "2026-10-25T08:02:22+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 59.2,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "TfL's in-cab figures in FOI-1231-2425 put Liverpool Street to Bethnal Green (87 and 86 dB LAeq) above Bethnal Green to Mile End (83 and 82 dB LAeq), whereas our NO-GO phone check (mean +0.54 dB) does not rank the sections.",
+  "claim_ids": [
+   "A1",
+   "A2"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In TfL's in-cab measurements from 24 June 2024 disclosed in FOI-1231-2425, Liverpool Street to Bethnal Green recorded 87 dB LAeq eastbound and 86 dB LAeq westbound (listed as Bethnal Green to Liverpool Street), higher than Bethnal Green to Mile End at 83 dB LAeq eastbound and 82 dB LAeq westbound (listed as Mile End to Bethnal Green).",
+   "citations": [
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "measurements were taken from within the train operator's cab."
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Liverpool Street to Bethnal Green | 87"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Bethnal Green to Mile End | 83"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Mile End to Bethnal Green | 82"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Bethnal Green to Liverpool Street | 86"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "Our pre-registered within-trip loudness check between the two sections returned a NO-GO verdict because one of the 11 placement-ok trips went the other way at -0.13 dB, with the other GO conditions also unmet (a mean within-trip difference of +0.54 dB, below the 1 dB threshold and inside the Voice Memos limiter compression, and level variants not agreeing in every trip), so our phone data do not rank the sections.",
+   "citations": [],
+   "stat_keys": [
+    "loudness.verdict",
+    "contrast.LST-BTH_minus_BTH-MLE"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "limits",
+   "type": "measured",
+   "text": "Our uncalibrated relative phone-audio mean levels were -18.66 dBFS(A) on eastbound Liverpool Street to Bethnal Green (6 runs) and -19.42 dBFS(A) on eastbound Bethnal Green to Mile End (6 runs), and -18.8 dBFS(A) on westbound Bethnal Green to Liverpool Street (5 runs) and -19.07 dBFS(A) on westbound Mile End to Bethnal Green (5 runs), which cannot be compared with TfL's in-cab dB figures.",
+   "citations": [],
+   "stat_keys": [
+    "level.EB.LST-BTH",
+    "level.EB.BTH-MLE",
+    "level.WB.BTH-LST",
+    "level.WB.MLE-BTH",
+    "loudness.verdict"
+   ],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In TfL's in-cab measurements from 24 June 2024 disclosed in FOI-1231-2425, Liverpool Street to Bethnal Green recorded 87 dB LAeq eastbound and 86 dB LAeq westbound (listed as Bethnal Green to Liverpool Street), higher than Bethnal Green to Mile End at 83 dB LAeq eastbound and 82 dB LAeq westbound (listed as Mile End to Bethnal Green).",
+     "citations": [
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "measurements were taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Our pre-registered within-trip loudness check between the two sections returned a NO-GO verdict because one of the 11 placement-ok trips went the other way at -0.13 dB, with the other GO conditions also unmet (a mean within-trip difference of +0.54 dB, below the 1 dB threshold and inside the ~1-3 dB Voice Memos limiter compression, and level variants not agreeing in every trip), so our phone data do not rank the sections.",
+     "citations": [],
+     "stat_keys": [
+      "loudness.verdict",
+      "contrast.LST-BTH_minus_BTH-MLE"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "limits",
+     "type": "measured",
+     "text": "Our uncalibrated relative phone-audio mean levels were -18.66 dBFS(A) on eastbound Liverpool Street to Bethnal Green (6 runs) and -19.42 dBFS(A) on eastbound Bethnal Green to Mile End (6 runs), and -18.8 dBFS(A) on westbound Bethnal Green to Liverpool Street (5 runs) and -19.07 dBFS(A) on westbound Mile End to Bethnal Green (5 runs), which cannot be compared with TfL's in-cab dB figures.",
+     "citations": [],
+     "stat_keys": [
+      "level.EB.LST-BTH",
+      "level.EB.BTH-MLE",
+      "level.WB.BTH-LST",
+      "level.WB.MLE-BTH",
+      "loudness.verdict"
+     ],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": false,
+     "reasons": [
+      "numbers not supported by the cited quotes/stats/formula: ['3']"
+     ]
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 38.8,
+   "usage": {
+    "prompt": 15619,
+    "output": 830,
+    "retries": 0
+   },
+   "answer": "TfL's in-cab figures in FOI-1231-2425 put Liverpool Street to Bethnal Green (87 and 86 dB LAeq) above Bethnal Green to Mile End (83 and 82 dB LAeq), whereas our NO-GO phone check (mean +0.54 dB) does not rank the sections.",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": false,
+    "reasons": [
+     "answer cites claims that did not pass the verifier: ['A2']",
+     "answer numbers (with sign) not in the text of the claims it cites: ['+0.54']"
+    ]
+   },
+   "parse_error": null
+  },
+  {
+   "round": 1,
+   "trigger": "verifier",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In TfL's in-cab measurements from 24 June 2024 disclosed in FOI-1231-2425, Liverpool Street to Bethnal Green recorded 87 dB LAeq eastbound and 86 dB LAeq westbound (listed as Bethnal Green to Liverpool Street), higher than Bethnal Green to Mile End at 83 dB LAeq eastbound and 82 dB LAeq westbound (listed as Mile End to Bethnal Green).",
+     "citations": [
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "measurements were taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Our pre-registered within-trip loudness check between the two sections returned a NO-GO verdict because one of the 11 placement-ok trips went the other way at -0.13 dB, with the other GO conditions also unmet (a mean within-trip difference of +0.54 dB, below the 1 dB threshold and inside the Voice Memos limiter compression, and level variants not agreeing in every trip), so our phone data do not rank the sections.",
+     "citations": [],
+     "stat_keys": [
+      "loudness.verdict",
+      "contrast.LST-BTH_minus_BTH-MLE"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "limits",
+     "type": "measured",
+     "text": "Our uncalibrated relative phone-audio mean levels were -18.66 dBFS(A) on eastbound Liverpool Street to Bethnal Green (6 runs) and -19.42 dBFS(A) on eastbound Bethnal Green to Mile End (6 runs), and -18.8 dBFS(A) on westbound Bethnal Green to Liverpool Street (5 runs) and -19.07 dBFS(A) on westbound Mile End to Bethnal Green (5 runs), which cannot be compared with TfL's in-cab dB figures.",
+     "citations": [],
+     "stat_keys": [
+      "level.EB.LST-BTH",
+      "level.EB.BTH-MLE",
+      "level.WB.BTH-LST",
+      "level.WB.MLE-BTH",
+      "loudness.verdict"
+     ],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 14.2,
+   "usage": {
+    "prompt": 19344,
+    "output": 823,
+    "retries": 0
+   },
+   "answer": "TfL's in-cab figures in FOI-1231-2425 put Liverpool Street to Bethnal Green (87 and 86 dB LAeq) above Bethnal Green to Mile End (83 and 82 dB LAeq), whereas our NO-GO phone check (mean +0.54 dB) does not rank the sections.",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   },
+   "parse_error": null
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 3.4,
+  "usage": {
+   "prompt": 4198,
+   "output": 22,
+   "retries": 0
+  },
+  "reviewed_round": 1
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.03178,
+    "ranks": {
+     "semantic": 5,
+     "text": 1
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.03102,
+    "ranks": {
+     "semantic": 3,
+     "text": 6
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   },
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.03083,
+    "ranks": {
+     "semantic": 8,
+     "text": 2
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-3780-2324#002",
+    "score": 0.03048,
+    "ranks": {
+     "semantic": 1,
+     "text": 11
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.03037,
+    "ranks": {
+     "semantic": 9,
+     "text": 3
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-3780-2324#006",
+    "score": 0.02983,
+    "ranks": {
+     "semantic": 2,
+     "text": 13
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 9
+   },
+   {
+    "chunk_id": "FOI-3481-2425#003",
+    "score": 0.02971,
+    "ranks": {
+     "semantic": 11,
+     "text": 4
+    },
+    "title": "Central line Working Timetable Notice TTN 37/25: distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2025-01-27",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-3780-2324#003",
+    "score": 0.02848,
+    "ranks": {
+     "semantic": 6,
+     "text": 15
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 4
+   }
+  ],
+  "stats": [
+   "level.EB.LST-BTH",
+   "level.EB.BTH-MLE",
+   "level.WB.MLE-BTH",
+   "level.WB.BTH-LST",
+   "duration.EB.LST-BTH",
+   "duration.EB.BTH-MLE",
+   "duration.WB.BTH-LST",
+   "duration.WB.MLE-BTH",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 0.95
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T080222Z_is-liverpool-street-to-bethnal-green-louder-than.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T080222Z_is-liverpool-street-to-bethnal-green-louder-than"
+ }
+}

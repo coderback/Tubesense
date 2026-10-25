@@ -1,0 +1,355 @@
+{
+ "question": "Is Central line noise damaging passengers' hearing between Liverpool Street and Mile End?",
+ "norm_question": "is central line noise damaging passengers hearing between liverpool street and mile end",
+ "ts": "2026-10-25T04:45:32+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 21.9,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "The evidence cannot show whether Central line noise between Liverpool Street and Mile End is damaging passengers' hearing, because neither TfL's in-cab measurements nor our indicative whole-trip phone readings from Liverpool Street to Mile End measure passenger hearing or cumulative exposure.",
+  "claim_ids": [
+   "A1",
+   "A2",
+   "A3",
+   "A4"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "limits",
+   "type": "inference",
+   "text": "The held documents and our measurements cannot show whether noise between Liverpool Street and Mile End is damaging passengers' hearing, as neither dataset measures passenger audiometry or cumulative personal noise exposure, and workplace exposure regulations apply to employees such as Train Operators rather than passengers.",
+   "citations": [],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In FOI-1231-2425 (published 08 August 2024), a TfL FOI Case Officer provided Central line noise levels recorded on 24 June 2024 from within the train operator's cab\u2014not the passenger saloon\u2014of 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, and 83 dB LAeq eastbound and 82 dB LAeq westbound between Bethnal Green and Mile End.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "taken from within the train operator's cab."
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Liverpool Street to Bethnal Green | 87"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Bethnal Green to Mile End | 83"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Mile End to Bethnal Green | 82"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Bethnal Green to Liverpool Street | 86"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "limits",
+   "type": "sourced",
+   "text": "In a 9 December 2022 letter to the Environment Committee, TfL's Head of Track stated that TfL implements workplace noise measures and health surveillance for Train Operators with respect to the Control of Noise at Work Regulations, while a secondary press report in Brixton Buzz (27 January 2026, via JRPass) notes that public health guidance links prolonged or repeated exposure above 85 decibels to increased risk over time even though individual Tube journeys are typically short.",
+   "citations": [
+    {
+     "chunk_id": "Weir-letter-2022-12#004",
+     "quote": "information regarding their daily personal noise exposure with respect to the CNAWR, their obligations under the regulations and ways to minimise risk of hearing loss"
+    },
+    {
+     "chunk_id": "BrixtonBuzz-2026-01-27#000",
+     "quote": "Public health guidance commonly notes that prolonged or repeated exposure to sounds above 85 decibels can increase the risk of hearing damage over time."
+    },
+    {
+     "chunk_id": "BrixtonBuzz-2026-01-27#000",
+     "quote": "While individual Tube journeys are typically short, commuters who regularly travel on the loudest sections of the Underground may experience repeated exposure to higher noise levels, particularly during peak travel hours."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A4",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "Our indicative NIOSH sound level meter app readings from the passenger saloon over one whole trip per direction between Liverpool Street and Mile End (including platform waits and the Bethnal Green dwell) were 91.9 dB(A) LAeq eastbound and 87.3 dB(A) LAeq westbound (1 trip per direction on different trains), using an iPhone microphone validated only up to about 85 dB(A) so the readings may read low and are not a certified meter.",
+   "citations": [],
+   "stat_keys": [
+    "niosh.EB.LST-MLE",
+    "niosh.WB.MLE-LST"
+   ],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed",
+  "A4": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "limits",
+     "type": "inference",
+     "text": "The held documents and our measurements cannot show whether noise between Liverpool Street and Mile End is damaging passengers' hearing, as neither dataset measures passenger audiometry or cumulative personal noise exposure, and workplace exposure regulations apply to employees such as Train Operators rather than passengers.",
+     "citations": [],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In FOI-1231-2425 (published 08 August 2024), a TfL FOI Case Officer provided Central line noise levels recorded on 24 June 2024 from within the train operator's cab\u2014not the passenger saloon\u2014of 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, and 83 dB LAeq eastbound and 82 dB LAeq westbound between Bethnal Green and Mile End.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Mile End | 83"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Mile End to Bethnal Green | 82"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "limits",
+     "type": "sourced",
+     "text": "In a 9 December 2022 letter to the Environment Committee, TfL's Head of Track stated that TfL implements workplace noise measures and health surveillance for Train Operators with respect to the Control of Noise at Work Regulations, while a secondary press report in Brixton Buzz (27 January 2026, via JRPass) notes that public health guidance links prolonged or repeated exposure above 85 decibels to increased risk over time even though individual Tube journeys are typically short.",
+     "citations": [
+      {
+       "chunk_id": "Weir-letter-2022-12#004",
+       "quote": "information regarding their daily personal noise exposure with respect to the CNAWR, their obligations under the regulations and ways to minimise risk of hearing loss"
+      },
+      {
+       "chunk_id": "BrixtonBuzz-2026-01-27#000",
+       "quote": "Public health guidance commonly notes that prolonged or repeated exposure to sounds above 85 decibels can increase the risk of hearing damage over time."
+      },
+      {
+       "chunk_id": "BrixtonBuzz-2026-01-27#000",
+       "quote": "While individual Tube journeys are typically short, commuters who regularly travel on the loudest sections of the Underground may experience repeated exposure to higher noise levels, particularly during peak travel hours."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Our indicative NIOSH sound level meter app readings from the passenger saloon over one whole trip per direction between Liverpool Street and Mile End (including platform waits and the Bethnal Green dwell) were 91.9 dB(A) LAeq eastbound and 87.3 dB(A) LAeq westbound (1 trip per direction on different trains), using an iPhone microphone validated only up to about 85 dB(A) so the readings may read low and are not a certified meter.",
+     "citations": [],
+     "stat_keys": [
+      "niosh.EB.LST-MLE",
+      "niosh.WB.MLE-LST"
+     ],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 14.0,
+   "usage": {
+    "prompt": 14304,
+    "output": 1191,
+    "retries": 0
+   },
+   "answer": "The evidence cannot show whether Central line noise between Liverpool Street and Mile End is damaging passengers' hearing, because neither TfL's in-cab measurements nor our indicative whole-trip phone readings from Liverpool Street to Mile End measure passenger hearing or cumulative exposure.",
+   "answer_claim_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "A4"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 5.3,
+  "usage": {
+   "prompt": 5693,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 0
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.03252,
+    "ranks": {
+     "semantic": 1,
+     "text": 2
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.03227,
+    "ranks": {
+     "semantic": 3,
+     "text": 1
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.03083,
+    "ranks": {
+     "semantic": 2,
+     "text": 8
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.03033,
+    "ranks": {
+     "semantic": 8,
+     "text": 4
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "FOI-3780-2324#002",
+    "score": 0.03012,
+    "ranks": {
+     "semantic": 4,
+     "text": 9
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 3
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#004",
+    "score": 0.02854,
+    "ranks": {
+     "semantic": 5,
+     "text": 16
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 8
+   },
+   {
+    "chunk_id": "FOI-3780-2324#006",
+    "score": 0.02848,
+    "ranks": {
+     "semantic": 6,
+     "text": 15
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 9
+   },
+   {
+    "chunk_id": "FOI-2986-2324#000",
+    "score": 0.02838,
+    "ranks": {
+     "semantic": 9,
+     "text": 12
+    },
+    "title": "Central line noise: Central line cab recordings (September 2023)",
+    "publisher": "TfL",
+    "doc_date": "2023-12-12",
+    "page": null
+   }
+  ],
+  "stats": [
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 0.95
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T044532Z_is-central-line-noise-damaging-passengers-hearin.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T044532Z_is-central-line-noise-damaging-passengers-hearin"
+ }
+}

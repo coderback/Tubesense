@@ -1,0 +1,916 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tubesense Research Box</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a technical drawing sheet. Exploded isometric hero with leader-line callouts, orthographic views with dimensions, then a spec block, block diagram and title block, like a manufacturer's blueprint. Light = paper blueprint, dark = classic navy blueprint. */
+:root{
+  --paper:#F3F5FB; --sheet:#F7F8FC; --ink:#2E3FA3; --ink-2:#6170BF; --ink-3:#A9B2E0;
+  --fill-1:#F4F6FF; --fill-2:#DCE2FA; --fill-3:#B8C2EE; --hi:#E1952A;
+  --studio-1:#FBFBFC; --studio-2:#C4C9D0; --studio-ink:#1A1F29; --studio-edge:#4F5763;
+  --grid-minor:rgba(46,63,163,.07); --grid-major:rgba(46,63,163,.13); --dot:rgba(46,63,163,.22);
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --studio-1:#3A414B; --studio-2:#0B0D10; --studio-ink:#05070A; --studio-edge:#C9D2DC;
+  --paper:#0E2E68; --sheet:#123874; --ink:#E9F1FF; --ink-2:#A9C2EC; --ink-3:#5E80BD;
+  --fill-1:#2A5AA6; --fill-2:#1F4C95; --fill-3:#173F80; --hi:#F2B33D;
+  --grid-minor:rgba(170,200,255,.07); --grid-major:rgba(170,200,255,.16); --dot:rgba(170,200,255,.22); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --studio-1:#3A414B; --studio-2:#0B0D10; --studio-ink:#05070A; --studio-edge:#C9D2DC;
+  --paper:#0E2E68; --sheet:#123874; --ink:#E9F1FF; --ink-2:#A9C2EC; --ink-3:#5E80BD;
+  --fill-1:#2A5AA6; --fill-2:#1F4C95; --fill-3:#173F80; --hi:#F2B33D;
+  --grid-minor:rgba(170,200,255,.07); --grid-major:rgba(170,200,255,.16); --dot:rgba(170,200,255,.22); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.page{max-width:1400px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Drawing sheet */
+.sheet{position:relative;background-color:var(--sheet);border:1.5px solid var(--ink);padding:14px;
+  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:100px 100px,100px 100px,20px 20px,20px 20px}
+.sheet::before{content:"";position:absolute;inset:6px;border:.75px solid var(--ink-3);pointer-events:none}
+.hdr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:start;padding:10px 12px 14px;border-bottom:1px solid var(--ink-3)}
+.brand{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,6.2vw,84px);line-height:.88;letter-spacing:.02em;text-transform:uppercase;margin:6px 0 8px;text-wrap:balance}
+.subtitle{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border-top:1px solid var(--ink);display:inline-block;padding-top:6px}
+.unitbox{font-family:var(--mono);font-size:12px;letter-spacing:.08em;border:1.5px solid var(--ink);padding:6px 10px;text-transform:uppercase;white-space:nowrap}
+.status{margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--hi);border:1px solid var(--hi);padding:4px 8px;text-align:center;text-transform:uppercase}
+
+/* Main stage */
+.stage{position:relative;height:clamp(480px,74vh,860px);margin-top:10px}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.stage svg.callouts{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.stage.present{position:fixed;inset:0;z-index:60;height:auto;margin:0;background-color:var(--sheet);
+  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:100px 100px,100px 100px,20px 20px,20px 20px}
+.stage:fullscreen{background-color:var(--sheet);
+  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:100px 100px,100px 100px,20px 20px,20px 20px}
+.stage.rd,.stage.rd.present,.stage.rd:fullscreen{background:radial-gradient(130% 95% at 50% 30%,var(--studio-1) 0%,var(--studio-2) 100%)}
+.stage.rd::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px var(--ink-3)}
+.view-tag{position:absolute;left:12px;top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);pointer-events:none}
+.co text{font-family:var(--mono);fill:var(--ink)}
+.co .nm{font-size:11.5px;letter-spacing:.06em;font-weight:500}
+.co .pt{font-size:10px;fill:var(--ink-2);letter-spacing:.03em}
+.co .ld{stroke:var(--ink);stroke-width:1;fill:none}
+.co .dot{fill:var(--ink)}
+.co .num{font-size:10px;fill:var(--sheet)}
+.co .badge{fill:var(--ink)}
+.co{cursor:pointer}
+.co.on .ld{stroke:var(--hi);stroke-width:1.6}
+.co.on .dot,.co.on .badge{fill:var(--hi)}
+.co.on .nm{fill:var(--hi)}
+.co:focus{outline:none}
+.co:focus-visible .nm{text-decoration:underline}
+
+.ctrl{position:absolute;right:max(10px,env(safe-area-inset-right,0px));bottom:max(10px,env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:calc(100% - 20px)}
+.seg{display:inline-flex;border:1.5px solid var(--ink);background:var(--sheet)}
+.btn{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--sheet);color:var(--ink);border:0;padding:7px 10px;cursor:pointer}
+.seg .btn+.btn{border-left:1px solid var(--ink)}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.btn.solo{border:1.5px solid var(--ink)}
+.btn:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
+.card{position:absolute;left:12px;bottom:12px;width:min(340px,calc(100% - 24px));background:var(--sheet);border:1.5px solid var(--ink);padding:10px 12px;font-size:13px}
+.card .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.card h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:.02em;margin:1px 0 4px;text-transform:uppercase;line-height:1.05}
+.card p{margin:0 0 6px;color:var(--ink)}
+.card .fix{border-left:2px solid var(--hi);padding-left:8px;color:var(--ink-2);margin:0}
+@media (max-width:820px){.card.out{position:static;width:auto;margin-top:8px}.stage{height:clamp(400px,calc(60vw + 200px),620px)}}
+@media (max-width:600px){.hdr{grid-template-columns:minmax(0,1fr)}.hdr .unitbox,.hdr .status{display:inline-block;margin-right:6px}}
+
+/* Legend for small screens */
+.legend{display:none;list-style:none;margin:8px 0 0;padding:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 12px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.legend button{background:none;border:0;color:var(--ink);font:inherit;text-align:left;padding:4px 0;cursor:pointer;display:flex;gap:6px}
+.legend .n{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--ink);color:var(--sheet);font-size:10px;flex:none}
+.compact .legend{display:grid}
+@media (max-width:440px){.legend{grid-template-columns:minmax(0,1fr)}}
+
+/* Orthographic views */
+.views{display:grid;grid-template-columns:2.1fr 1.4fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:900px){.views{grid-template-columns:minmax(0,1fr)}}
+.vw{position:relative;border:1px solid var(--ink-3);min-width:0}
+.vw h4{position:absolute;left:0;right:0;bottom:6px;margin:0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;font-weight:500;text-decoration:underline;text-underline-offset:3px;pointer-events:none}
+.vw .box{position:relative;height:250px}
+.vw canvas{position:absolute;inset:0;width:100%;height:100%}
+.vw svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.dim line,.dim path{stroke:var(--ink);stroke-width:.9;fill:none}
+.dim .ext{stroke:var(--ink-2);stroke-width:.6;stroke-dasharray:3 3}
+.dim text{font-family:var(--mono);font-size:10.5px;fill:var(--ink);letter-spacing:.04em}
+.dim .arr{fill:var(--ink);stroke:none}
+
+/* Lower blocks */
+.lower{display:grid;grid-template-columns:1.1fr 1.5fr 1fr;gap:12px;margin-top:12px}
+@media (max-width:1000px){.lower{grid-template-columns:minmax(0,1fr)}}
+.blk{border:1px solid var(--ink-3);padding:10px 12px;min-width:0}
+.blk h5{margin:0 0 8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;font-weight:500;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:5px}
+.spec{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px}
+.spec td{padding:3px 0;vertical-align:top}
+.spec td:first-child{color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em;padding-right:10px;white-space:nowrap}
+.bd{width:100%;height:auto;display:block}
+.bd rect{fill:var(--sheet);stroke:var(--ink);stroke-width:1}
+.bd rect.q{stroke-dasharray:4 3}
+.bd text{font-family:var(--mono);font-size:9.5px;fill:var(--ink);letter-spacing:.05em}
+.bd .ln{stroke:var(--ink);stroke-width:1;fill:none}
+.bd .ar{fill:var(--ink)}
+.bd .q{stroke-dasharray:4 3}
+.bd .lbl{fill:var(--ink-2);font-size:8.5px}
+.tblock{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px}
+.tblock td{border:1px solid var(--ink-3);padding:5px 7px;text-transform:uppercase;letter-spacing:.06em}
+.tblock td:first-child{color:var(--ink-2);width:42%}
+
+/* Below the sheet */
+section{margin-top:32px}
+h2{font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:.02em;text-transform:uppercase;margin:0 0 4px}
+.sub{color:var(--ink-2);margin:0 0 12px;max-width:72ch}
+.tscroll{overflow-x:auto;border:1.5px solid var(--ink);background:var(--sheet)}
+table.data{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+table.data th,table.data td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--ink-3);vertical-align:top}
+table.data th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-weight:500}
+table.data td.m{font-family:var(--mono);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.data td.ex{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+table.data tr:last-child td{border-bottom:0}
+table.data tfoot td{font-weight:600;border-top:1.5px solid var(--ink)}
+footer{margin-top:28px;font-family:var(--mono);font-size:11px;color:var(--ink-2);max-width:110ch}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="page">
+  <div class="sheet" id="sheet">
+    <div class="hdr">
+      <div>
+        <div class="brand">Tubesense · Encode London 2026</div>
+        <h1>Research Box v2</h1>
+        <div class="subtitle">Multi-sensor instrument for GPS-free train positioning · Exploded isometric</div>
+      </div>
+      <div>
+        <div class="unitbox">Units: mm</div>
+        <div class="status">Concept · not built</div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" aria-label="Interactive exploded 3D drawing of the Tubesense Research Box. Drag to rotate, scroll or pinch to zoom. Hover a label to highlight a part.">
+      <canvas id="cvMain"></canvas>
+      <svg class="callouts" id="callouts" aria-hidden="false"></svg>
+      <div class="view-tag" id="viewTag">Fig. 1 · Exploded view</div>
+      <div class="card" id="card" aria-live="polite"></div>
+      <div class="ctrl">
+        <div class="seg" role="group" aria-label="Assembly">
+          <button class="btn" id="bExp" aria-pressed="true">Exploded</button>
+          <button class="btn" id="bAsm" aria-pressed="false">Assembled</button>
+        </div>
+        <div class="seg" role="group" aria-label="Style">
+          <button class="btn" id="bBp" aria-pressed="true">Blueprint</button>
+          <button class="btn" id="bRd" aria-pressed="false">Render</button>
+        </div>
+        <button class="btn solo" id="bRot" aria-pressed="false">Rotate</button>
+        <button class="btn solo" id="bPres">Present</button>
+      </div>
+    </div>
+    <ul class="legend" id="legend"></ul>
+
+    <div class="views">
+      <div class="vw"><div class="box"><canvas id="cvTop"></canvas><svg id="dTop" class="dim"></svg></div><h4>TOP VIEW</h4></div>
+      <div class="vw"><div class="box"><canvas id="cvFront"></canvas><svg id="dFront" class="dim"></svg></div><h4>SIDE VIEW (WINDOW FACE)</h4></div>
+      <div class="vw"><div class="box"><canvas id="cvEnd"></canvas><svg id="dEnd" class="dim"></svg></div><h4>END VIEW</h4></div>
+    </div>
+
+    <div class="lower">
+      <div class="blk">
+        <h5>Specifications</h5>
+        <table class="spec">
+          <tr><td>Length, with boom</td><td>772 mm</td></tr>
+          <tr><td>Enclosure</td><td>300 × 180 × 96 mm</td></tr>
+          <tr><td>Magnetometers</td><td>3 × RM3100, 140 mm pitch</td></tr>
+          <tr><td>Battery → nearest mag</td><td>≥ 400 mm</td></tr>
+          <tr><td>Inertial</td><td>ADIS16470-class IMU, isolated</td></tr>
+          <tr><td>Speed sources</td><td>Radar Doppler · sleeper frequency</td></tr>
+          <tr><td>Pressure</td><td>BMP585-class, tens of Hz, vented</td></tr>
+          <tr><td>Acoustic</td><td>2 × I²S MEMS, dB(A) on device</td></tr>
+          <tr><td>Timebase</td><td>GNSS PPS + DS3231 RTC</td></tr>
+          <tr><td>Compute</td><td>Raspberry Pi 5 + RP2040 hub</td></tr>
+          <tr><td>Est. cost</td><td>£700–1,400 (owned Pi 5)</td></tr>
+        </table>
+      </div>
+      <div class="blk">
+        <h5>Block diagram</h5>
+        <svg class="bd" viewBox="0 0 520 250" role="img" aria-label="Block diagram: eight sensors feed a sensor hub that timestamps on one clock, then a Raspberry Pi 5 running on-device sound levels and the positioning filter, which matches against the shared track map and outputs position with uncertainty.">
+          <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="ar"/></marker></defs>
+          <g>
+            <rect x="6" y="8" width="112" height="22"/><text x="62" y="23" text-anchor="middle">IMU</text>
+            <rect x="6" y="36" width="112" height="22"/><text x="62" y="51" text-anchor="middle">MAG ARRAY ×3</text>
+            <rect x="6" y="64" width="112" height="22"/><text x="62" y="79" text-anchor="middle">mmWAVE RADAR</text>
+            <rect x="6" y="92" width="112" height="22"/><text x="62" y="107" text-anchor="middle">VIBRATION ACC.</text>
+            <rect x="6" y="120" width="112" height="22"/><text x="62" y="135" text-anchor="middle">BAROMETER</text>
+            <rect x="6" y="148" width="112" height="22"/><text x="62" y="163" text-anchor="middle">MEMS MICS ×2</text>
+            <rect x="6" y="176" width="112" height="22"/><text x="62" y="191" text-anchor="middle">LIGHT SENSOR</text>
+            <rect x="6" y="204" width="112" height="22"/><text x="62" y="219" text-anchor="middle">GNSS + PPS</text>
+            <path class="ln" d="M118,19 H140 M118,47 H140 M118,75 H140 M118,103 H140 M118,131 H140 M118,159 H140 M118,187 H140 M118,215 H140 M140,19 V215"/>
+            <path class="ln" d="M140,117 H164" marker-end="url(#ah)"/>
+            <rect x="166" y="96" width="86" height="42"/><text x="209" y="114" text-anchor="middle">SENSOR HUB</text><text x="209" y="128" text-anchor="middle" class="lbl">ONE CLOCK</text>
+            <path class="ln" d="M252,117 H276" marker-end="url(#ah)"/>
+            <rect x="278" y="96" width="86" height="42"/><text x="321" y="114" text-anchor="middle">PI 5</text><text x="321" y="128" text-anchor="middle" class="lbl">dB · LOGGING</text>
+            <path class="ln" d="M364,117 H388" marker-end="url(#ah)"/>
+            <rect x="390" y="96" width="122" height="42"/><text x="451" y="114" text-anchor="middle">POSITION FILTER</text><text x="451" y="128" text-anchor="middle" class="lbl">s · v · BIASES</text>
+            <path class="ln" d="M470,138 V166" marker-end="url(#ah)"/>
+            <rect x="428" y="168" width="84" height="26"/><text x="470" y="185" text-anchor="middle">POSITION ± σ</text>
+            <rect x="390" y="34" width="122" height="26" class="q"/><text x="451" y="51" text-anchor="middle">QUANTUM IMU (FUTURE)</text>
+            <path class="ln q" d="M451,60 V94" marker-end="url(#ah)"/>
+            <path class="ln" d="M278,190 a43,7 0 0 0 86,0 a43,7 0 0 0 -86,0 v26 a43,7 0 0 0 86,0 v-26"/>
+            <text x="321" y="214" text-anchor="middle">TRACK MAP</text><text x="321" y="182" text-anchor="middle" class="lbl">MONGODB</text>
+            <path class="ln" d="M364,203 H414 V140" marker-end="url(#ah)"/>
+            <text x="452" y="26" text-anchor="middle" class="lbl">DROP-IN, SAME FILTER</text>
+          </g>
+        </svg>
+      </div>
+      <div class="blk">
+        <h5>Title block</h5>
+        <table class="tblock">
+          <tr><td>Model</td><td>TS-RB v2</td></tr>
+          <tr><td>Project</td><td>Tubesense</td></tr>
+          <tr><td>Drawn by</td><td>T. Ojebiyi</td></tr>
+          <tr><td>Date</td><td>24 / 10 / 2026</td></tr>
+          <tr><td>Units</td><td>Millimetres</td></tr>
+          <tr><td>Scale</td><td>NTS</td></tr>
+          <tr><td>Status</td><td>Concept</td></tr>
+          <tr><td>Rev.</td><td>A</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>What each sensor fixes</h2>
+    <p class="sub">Every part answers a limit found while building Tubesense with phones. Part numbers are examples to verify, not a tested bill of materials.</p>
+    <div class="tscroll"><table class="data"><thead><tr><th>Component</th><th>Example part</th><th>Limit it removes</th></tr></thead><tbody id="fixRows"></tbody></table></div>
+  </section>
+
+  <section>
+    <h2>Cost to build</h2>
+    <p class="sub">Rough retail estimates including VAT, before shipping. Not checked against live listings.</p>
+    <div class="tscroll"><table class="data">
+      <thead><tr><th>Stage</th><th>Adds</th><th>Rough cost</th><th>Unlocks</th></tr></thead>
+      <tbody>
+        <tr><td class="m">1 · Phone-plus</td><td>Pi 5 (owned), hub, fast barometer, one RM3100, MEMS mic, light sensor, GNSS + RTC, enclosure</td><td class="m">£150–250</td><td>One clock, fast pressure, raw magnetic data, real dB SPL, GPS ground truth above ground</td></tr>
+        <tr><td class="m">2 · Speed</td><td>Vibration accelerometer + fast ADC, mmWave radar</td><td class="m">+£60–350</td><td>Speed underground, which limits dead-reckoning drift</td></tr>
+        <tr><td class="m">3 · High grade</td><td>Industrial IMU, two more RM3100 for the array</td><td class="m">+£300–600</td><td>The bridge to quantum comparison, magnetic gradient</td></tr>
+      </tbody>
+      <tfoot><tr><td class="m">Full box</td><td>All stages, owned Pi 5</td><td class="m">≈ £700–1,400</td><td>A second box for the lag test: ≈ £1,300–2,500 total</td></tr></tfoot>
+    </table></div>
+  </section>
+
+  <footer>Concept design for Tubesense. Quantum navigation context: Imperial College quantum accelerometer tests on London Underground test trains (The Observer, 15 Jun 2024); RQINS further funding (Rail Business UK, 23 Oct 2026). Deployment on trains would need TfL permission. No partnership with TfL, MoniRail or Imperial is implied.</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+'use strict';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const tok = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+/* ---------------- Component info ---------------- */
+const INFO = {
+  lid:{n:1,name:'Top shell',part:'Vented lid · 4 × M3',side:'L',role:'Translucent lid with vent slots over the power pack and ports for the mics and GNSS cable.',fix:'Keeps sensors in a fixed, repeatable layout instead of a phone placed differently each ride.'},
+  gnss:{n:2,name:'GNSS antenna',part:'Active patch · SMA',side:'L',role:'Roof-mounted antenna for satellite fixes on above-ground sections.',fix:'Ground truth to score GPS-free positioning where satellites can be seen, e.g. Stratford to Leyton.'},
+  mics:{n:3,name:'MEMS microphones ×2',part:'TDK ICS-43434 · I²S',side:'R',role:'Digital microphones with known sensitivity. Levels and bands are computed on the Pi.',fix:'Phone mics are uncalibrated and apply auto-gain. These give real dB(A) with headroom for 100 dB+ peaks.'},
+  pi:{n:4,name:'Raspberry Pi 5',part:'Edge compute · active cooler',side:'L',role:'Runs on-device noise levels, logging and the live positioning filter.',fix:'Raw audio never leaves the box; only levels, bands and features are stored.'},
+  hub:{n:5,name:'Sensor hub',part:'RP2040 · hardware timestamps',side:'R',role:'Samples every sensor on one clock.',fix:'Ends the syncing problems of matching phone sensors to a separate audio recording.'},
+  gnssrx:{n:6,name:'GNSS receiver + RTC',part:'u-blox · DS3231 · CR2032',side:'L',role:'Pulse-per-second timing above ground; a precision clock holds time underground.',fix:'Accurate time across tunnels, so every sensor lines up with the track map.'},
+  imu:{n:7,name:'Industrial IMU',part:'ADIS16470 class',side:'R',role:'Accelerometer and gyroscope with far lower drift than a phone.',fix:'Phone IMUs drift within seconds. This is the classical bridge towards a quantum accelerometer.'},
+  imuplate:{n:8,name:'Isolated sub-plate',part:'4 × silicone grommets',side:'R',role:'Decouples the IMU from high-frequency vibration.',fix:'Stops rail vibration from saturating the inertial sensors.'},
+  vib:{n:9,name:'Vibration accelerometer',part:'ADXL1002 · stud-mounted',side:'R',role:'Bolted straight to the plate. Sleeper-passing frequency gives a second speed estimate.',fix:'Adds a speed check and a direct rail-roughness and corrugation signal.'},
+  baro:{n:10,name:'Fast barometer',part:'BMP585 class · vented',side:'R',role:'Breathes through a wall vent and logs fast enough to see the shape of pressure waves.',fix:'The iPhone logs pressure at about 1 Hz. Fast sampling turns doors and ventilation shafts into landmarks.'},
+  radar:{n:11,name:'mmWave radar',part:'TI IWR6843 · 60 GHz',side:'R',role:'Looks through the window and measures Doppler speed against the tunnel wall.',fix:'Underground there is no speed reference; radar gives ground speed directly, in the dark.'},
+  light:{n:12,name:'Light sensor',part:'VEML7700',side:'L',role:'Catches the brightness edge as the train enters or leaves a platform.',fix:'Precise station boundary timestamps to anchor every section.'},
+  battery:{n:13,name:'Power pack',part:'USB-C PD · strapped',side:'L',role:'Sits at the far end from the magnetometer boom.',fix:'Batteries distort magnetic readings, so distance is part of the design.'},
+  pods:{n:14,name:'Magnetometer pods ×3',part:'PNI RM3100 · 140 mm pitch',side:'R',role:'Three high-sensitivity magnetometers in sealed pods along the boom.',fix:'The gradient across the array separates fixed track features from traction-current fields.'},
+  boom:{n:15,name:'Carbon boom',part:'Ø12 mm · 440 mm',side:'R',role:'Non-magnetic tube that holds the array clear of the electronics.',fix:'Keeps the magnetometers ≥ 400 mm from the battery.'},
+  plate:{n:16,name:'Base plate',part:'6 mm aluminium',side:'L',role:'Rigid floor mount with a known orientation.',fix:'Every run is mounted the same way, so runs stay comparable.'},
+  feet:{n:17,name:'Isolator feet',part:'4 × rubber mounts',side:'L',role:'Damp the whole box against carriage floor shocks.',fix:'Protects the electronics while the vibration sensor stays rigidly coupled.'}
+};
+
+/* ---------------- Materials ---------------- */
+function carbonTexture(){
+  const c=document.createElement('canvas'); c.width=c.height=64; const g=c.getContext('2d');
+  g.fillStyle='#1d1f22'; g.fillRect(0,0,64,64);
+  for(let y=0;y<64;y+=8) for(let x=0;x<64;x+=8){ g.fillStyle=((x+y)/8)%2?'#2b2e33':'#16181b'; g.fillRect(x,y,8,8); g.fillStyle='rgba(255,255,255,.05)'; g.fillRect(x,y,8,2); }
+  const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(40,1); return t;
+}
+const RENDER = {
+  alu:{c:0xAEB4BB,m:1,r:.42}, aluDark:{c:0x3B4048,m:.85,r:.38}, pcb:{c:0x0D5A39,m:0,r:.42,cc:.7}, pcbBlue:{c:0x103C8C,m:0,r:.4,cc:.7},
+  pcbBlack:{c:0x141619,m:0,r:.4,cc:.7}, chip:{c:0x17191C,m:.1,r:.32}, gold:{c:0xEBC665,m:1,r:.22}, copper:{c:0xE0955A,m:1,r:.28},
+  brass:{c:0xD4B266,m:1,r:.3}, rubber:{c:0x1B1D1F,m:0,r:.88}, carbon:{c:0xffffff,m:.2,r:.35,map:'carbon',cc:1}, white:{c:0xEEEEEB,m:0,r:.38,cc:.3},
+  plastic:{c:0x202327,m:0,r:.45}, label:{c:0xE8962A,m:0,r:.45}, shell:{c:0xA9BCCB,m:0,r:.04,op:.2,cc:1}, glass:{c:0xffffff,m:0,r:.02,op:.55,cc:1},
+  cable:{c:0x1E2023,m:0,r:.55}, cableRed:{c:0xB02A27,m:0,r:.5}, cableBlue:{c:0x245BC0,m:0,r:.5}, steel:{c:0xD2D6DA,m:1,r:.2}, mesh:{c:0x5A5F66,m:.9,r:.5}
+};
+const BPCLASS = {alu:2,aluDark:3,pcb:1,pcbBlue:1,pcbBlack:1,chip:3,gold:2,copper:2,brass:2,rubber:3,carbon:3,white:1,plastic:3,label:2,shell:1,glass:1,cable:3,cableRed:3,cableBlue:3,steel:2,mesh:3};
+let carbonTex=null;
+function makeMats(style){
+  const out={};
+  if(style==='bp'){
+    const f=[null,tok('--fill-1'),tok('--fill-2'),tok('--fill-3')];
+    for(const k in BPCLASS){
+      const mat=new THREE.MeshLambertMaterial({color:new THREE.Color(f[BPCLASS[k]]), polygonOffset:true, polygonOffsetFactor:1, polygonOffsetUnits:1});
+      if(k==='shell'){ mat.transparent=true; mat.opacity=.28; mat.depthWrite=false; }
+      if(k==='glass'){ mat.transparent=true; mat.opacity=.6; }
+      out[k]=mat;
+    }
+  } else {
+    if(!carbonTex) carbonTex=carbonTexture();
+    for(const k in RENDER){
+      const s=RENDER[k];
+      const P={color:new THREE.Color(s.c).convertSRGBToLinear(), metalness:s.m, roughness:s.r, polygonOffset:true, polygonOffsetFactor:1, polygonOffsetUnits:1};
+      const mat = s.cc ? new THREE.MeshPhysicalMaterial(Object.assign(P,{clearcoat:s.cc,clearcoatRoughness:.12})) : new THREE.MeshStandardMaterial(P);
+      if(s.map==='carbon'){ carbonTex.encoding=THREE.sRGBEncoding; mat.map=carbonTex; }
+      if(s.op){ mat.transparent=true; mat.opacity=s.op; mat.depthWrite=false; }
+      out[k]=mat;
+    }
+  }
+  return out;
+}
+let HI_MAT=null;
+
+/* ---------------- Geometry helpers ---------------- */
+function rrShape(w,d,r){
+  const s=new THREE.Shape(), x=-w/2, y=-d/2;
+  s.moveTo(x+r,y); s.lineTo(x+w-r,y); s.absarc(x+w-r,y+r,r,-Math.PI/2,0,false);
+  s.lineTo(x+w,y+d-r); s.absarc(x+w-r,y+d-r,r,0,Math.PI/2,false);
+  s.lineTo(x+r,y+d); s.absarc(x+r,y+d-r,r,Math.PI/2,Math.PI,false);
+  s.lineTo(x,y+r); s.absarc(x+r,y+r,r,Math.PI,1.5*Math.PI,false); return s;
+}
+function circlePath(cx,cy,r){ const p=new THREE.Path(); p.absarc(cx,cy,r,0,Math.PI*2,true); return p; }
+function slotPath(cx,cy,len,r,vertical){
+  const p=new THREE.Path();
+  if(vertical){ p.absarc(cx,cy+len/2,r,0,Math.PI,false); p.absarc(cx,cy-len/2,r,Math.PI,2*Math.PI,false); }
+  else { p.absarc(cx-len/2,cy,r,Math.PI/2,1.5*Math.PI,false); p.absarc(cx+len/2,cy,r,1.5*Math.PI,2.5*Math.PI,false); }
+  p.closePath(); return p;
+}
+function slabGeo(w,d,h,r,holes,bevel){
+  const s=rrShape(w,d,r); (holes||[]).forEach(hp=>s.holes.push(hp));
+  const g=new THREE.ExtrudeGeometry(s,{depth:h,bevelEnabled:!!bevel,bevelThickness:bevel||0,bevelSize:bevel||0,bevelSegments:2,curveSegments:10});
+  g.rotateX(-Math.PI/2); if(bevel) g.translate(0,bevel,0); return g;
+}
+function ringGeo(w,d,r,t,h){ const s=rrShape(w,d,r); const hole=rrShape(w-2*t,d-2*t,Math.max(.1,r-t)); s.holes.push(hole); const g=new THREE.ExtrudeGeometry(s,{depth:h,bevelEnabled:false,curveSegments:10}); g.rotateX(-Math.PI/2); return g; }
+const BOX=(w,h,d)=>new THREE.BoxGeometry(w,h,d);
+const CYL=(r,h,seg,rt)=>new THREE.CylinderGeometry(rt??r,r,h,seg||28);
+
+/* ---------------- Model ---------------- */
+function buildModel(mats){
+  const root=new THREE.Group(); const parts={}; const meshes={}; const cables=[]; const pods=[]; const caps=[]; const lineObjs=[];
+  const edgeMatRef={m:null};
+  function part(id,pos,off,anchor){
+    const g=new THREE.Group(); g.position.set(...pos);
+    g.userData={base:new THREE.Vector3(...pos),off:new THREE.Vector3(...(off||[0,0,0])),anchor:new THREE.Vector3(...(anchor||[0,0,0]))};
+    root.add(g); parts[id]=g; meshes[id]=meshes[id]||[]; return g;
+  }
+  function mesh(id,parent,geo,key,pos,rot,opts){
+    const m=new THREE.Mesh(geo,mats[key]); m.userData.key=key; m.userData.part=id;
+    if(pos) m.position.set(...pos); if(rot) m.rotation.set(...rot);
+    if(opts&&opts.translucent){ m.layers.set(1); const e=new THREE.LineSegments(new THREE.EdgesGeometry(geo,25), new THREE.LineBasicMaterial({color:0x000000})); e.layers.set(2); e.userData.ink=true; m.add(e); lineObjs.push(e); }
+    parent.add(m); (meshes[id]=meshes[id]||[]).push(m); return m;
+  }
+  const hexBolt=(id,p,pos,s=1,axis)=>{ const r=axis==='x'?[0,0,Math.PI/2]:axis==='z'?[Math.PI/2,0,0]:null; mesh(id,p,CYL(.32*s,.22*s,6),'steel',pos,r); };
+
+  /* 16 Base plate */
+  const plate=part('plate',[0,0,0],[0,-4.5,0],[-13,0.6,9.5]);
+  const ph=[[-13,-8],[13,-8],[-13,8],[13,8]].map(([x,z])=>circlePath(x,-z,.28));
+  ph.push(slotPath(0,-9,6,.35,false), slotPath(0,9,6,.35,false), slotPath(-15,0,4,.35,true), slotPath(15,0,4,.35,true));
+  mesh('plate',plate,slabGeo(32,20,.6,1.2,ph,0),'alu');
+
+  /* 17 Isolator feet */
+  const feet=part('feet',[0,0,0],[0,-8,0],[-13,-0.9,8]);
+  [[-13,-8],[13,-8],[-13,8],[13,8]].forEach(([x,z])=>{
+    mesh('feet',feet,CYL(.95,.9,32),'rubber',[x,-.45,z]);
+    mesh('feet',feet,CYL(1.05,.08,32),'steel',[x,-.94,z]);
+    hexBolt('feet',feet,[x,.72,z]);
+  });
+
+  /* Enclosure walls (translucent) + window frames */
+  const walls=part('walls',[0,0,0],[0,0,0],[0,5,9]);
+  mesh('walls',walls,ringGeo(30,18,1.0,.4,8.4),'shell',[0,.6,0],null,{translucent:true});
+  const frame=(w,h,cx,cy,z,flip)=>{ const s=rrShape(w,h,.4); s.holes.push(rrShape(w-.6,h-.6,.2)); const g=new THREE.ExtrudeGeometry(s,{depth:.18,bevelEnabled:false}); const m=mesh('walls',walls,g,'aluDark',[cx,cy,z]); if(flip) m.rotation.y=Math.PI; };
+  frame(7.6,5.4,1,5.4,9.0); frame(2.2,2.2,-6,6.6,9.0);
+  mesh('walls',walls,CYL(1.2,.7,32),'aluDark',[15.35,5,0],[0,0,Math.PI/2]);
+  for(let i=0;i<6;i++) mesh('walls',walls,BOX(.12,.9,4.2),'aluDark',[-13.4+i*.55,5.2,-9.06]);
+
+  /* 1 Lid */
+  const lid=part('lid',[0,9.0,0],[0,15,0],[-11,0.6,-6]);
+  const lh=[];
+  for(let r=0;r<5;r++) lh.push(slotPath(-10,-6+r*3,3.6,.22,false));
+  lh.push(circlePath(0,-4,.78),circlePath(8,-4,.78),circlePath(-8,4,.42));
+  [[-14,-8],[14,-8],[-14,8],[14,8]].forEach(([x,z])=>lh.push(circlePath(x,-z,.2)));
+  mesh('lid',lid,slabGeo(30,18,.6,1.0,lh,0),'shell',[0,0,0],null,{translucent:true});
+  [[-14,-8],[14,-8],[-14,8],[14,8]].forEach(([x,z])=>{ mesh('lid',lid,CYL(.36,.2,28),'steel',[x,.7,z]); mesh('lid',lid,BOX(.5,.05,.08),'chip',[x,.82,z]); });
+
+  /* 3 Mics */
+  const mics=part('mics',[0,9.6,4],[0,21,0],[4,1.5,0]);
+  [0,8].forEach(x=>{
+    mesh('mics',mics,CYL(.75,1.3,40),'alu',[x,.65,0]);
+    mesh('mics',mics,new THREE.TorusGeometry(.76,.06,8,40),'steel',[x,.3,0],[Math.PI/2,0,0]);
+    mesh('mics',mics,new THREE.TorusGeometry(.76,.06,8,40),'steel',[x,.95,0],[Math.PI/2,0,0]);
+    mesh('mics',mics,CYL(.62,.06,40),'mesh',[x,1.33,0]);
+    for(let a=0;a<8;a++){ const t=a/8*Math.PI*2; mesh('mics',mics,CYL(.07,.07,8),'chip',[x+Math.cos(t)*.38,1.36,Math.sin(t)*.38]); }
+    mesh('mics',mics,CYL(.1,.07,8),'chip',[x,1.36,0]);
+    mesh('mics',mics,CYL(.62,.32,6),'steel',[x,-.95,0]);
+    mesh('mics',mics,BOX(1.5,.12,1.1),'pcbBlue',[x,-1.3,0]);
+    mesh('mics',mics,BOX(.4,.14,.32),'steel',[x,-1.42,0]);
+  });
+
+  /* 2 GNSS antenna */
+  const gnss=part('gnss',[-8,9.6,-4],[0,21,0],[0,.9,0]);
+  const prof=[[0,0],[1.65,0],[1.7,.12],[1.62,.55],[1.35,.82],[0,.86]].map(p=>new THREE.Vector2(p[0],p[1]));
+  mesh('gnss',gnss,new THREE.LatheGeometry(prof,48),'plastic');
+  mesh('gnss',gnss,CYL(.42,.6,6),'brass',[0,-.85,0]);
+  mesh('gnss',gnss,CYL(.18,1.2,16),'cable',[0,-1.4,0]);
+
+  /* 6 GNSS receiver + RTC */
+  const grx=part('gnssrx',[-5,0.6,5],[0,8,0],[0,1.4,0]);
+  [[-1.4,-1.0],[1.4,-1.0],[-1.4,1.0],[1.4,1.0]].forEach(([x,z])=>mesh('gnssrx',grx,CYL(.16,.8,6),'brass',[x,.4,z]));
+  mesh('gnssrx',grx,slabGeo(3.4,2.6,.16,.15,[[-1.4,-1.0],[1.4,-1.0],[-1.4,1.0],[1.4,1.0]].map(([x,z])=>circlePath(x,-z,.12))),'pcb',[0,.8,0]);
+  mesh('gnssrx',grx,BOX(1.3,.3,1.3),'steel',[-.7,1.11,-.3]);
+  mesh('gnssrx',grx,CYL(1.0,.3,40),'chip',[.85,1.11,.35]);
+  mesh('gnssrx',grx,CYL(.95,.08,40),'steel',[.85,1.3,.35]);
+  mesh('gnssrx',grx,CYL(.22,.7,16),'gold',[-1.9,1.1,-.6],[0,0,Math.PI/2]);
+  mesh('gnssrx',grx,BOX(.5,.3,.42),'white',[1.3,1.11,-.9]);
+
+  /* 13 Battery / power pack */
+  const bat=part('battery',[-10,0.6,0],[-10,2,0],[-3.5,3.1,-3.6]);
+  mesh('battery',bat,slabGeo(8.4,7,2.9,.7,null,.08),'plastic');
+  mesh('battery',bat,slabGeo(8.5,7.1,.9,.72,null,0),'label',[0,1.05,0]);
+  mesh('battery',bat,BOX(.12,.32,.9),'chip',[4.25,1.0,1.8]);
+  mesh('battery',bat,BOX(.12,.5,1.3),'chip',[4.25,1.0,0]);
+  for(let i=0;i<4;i++) mesh('battery',bat,CYL(.09,.06,12),'glass',[2.6+i*.4,3.12,2.6]);
+  [-2,2].forEach(x=>{ mesh('battery',bat,BOX(1.1,.08,7.4),'cable',[x,3.1,0]); mesh('battery',bat,BOX(1.1,3.1,.08),'cable',[x,1.5,3.72]); mesh('battery',bat,BOX(1.1,3.1,.08),'cable',[x,1.5,-3.72]); });
+
+  /* 4 Raspberry Pi 5 */
+  const pi=part('pi',[-1,0.6,-2.6],[0,10.5,0],[-2.5,4,0]);
+  const piHoles=[[-3.85,-2.45],[2.0,-2.45],[-3.85,2.45],[2.0,2.45]];
+  piHoles.forEach(([x,z])=>mesh('pi',pi,CYL(.18,1.0,6),'brass',[x,.5,z]));
+  mesh('pi',pi,slabGeo(8.5,5.6,.16,.3,piHoles.map(([x,z])=>circlePath(x,-z,.14))),'pcb',[0,1.0,0]);
+  const py=1.16;
+  mesh('pi',pi,BOX(5.1,.25,.5),'chip',[-.9,py+.12,-2.5]);
+  for(let i=0;i<20;i++) for(let j=0;j<2;j++) mesh('pi',pi,BOX(.06,.55,.06),'gold',[-3.31+i*.254,py+.45,-2.63+j*.254]);
+  mesh('pi',pi,BOX(1.75,1.6,1.33),'steel',[3.55,py+.8,-1.5]); mesh('pi',pi,BOX(.1,.42,1.0),'chip',[4.43,py+.5,-1.5]); mesh('pi',pi,BOX(.1,.42,1.0),'chip',[4.43,py+1.12,-1.5]);
+  mesh('pi',pi,BOX(1.75,1.6,1.33),'steel',[3.55,py+.8,.2]); mesh('pi',pi,BOX(.1,.42,1.0),'chip',[4.43,py+.5,.2]); mesh('pi',pi,BOX(.1,.42,1.0),'chip',[4.43,py+1.12,.2]);
+  mesh('pi',pi,BOX(2.1,1.35,1.6),'steel',[3.4,py+.68,1.95]); mesh('pi',pi,BOX(.1,.8,1.1),'chip',[4.47,py+.6,1.95]);
+  mesh('pi',pi,BOX(.9,.32,.75),'steel',[-3.0,py+.16,2.5]);
+  mesh('pi',pi,BOX(.65,.3,.75),'steel',[-1.5,py+.15,2.5]); mesh('pi',pi,BOX(.65,.3,.75),'steel',[-.2,py+.15,2.5]);
+  mesh('pi',pi,BOX(1.0,.2,.45),'white',[1.4,py+.1,2.45]); mesh('pi',pi,BOX(1.0,.2,.45),'white',[2.6,py+.1,2.45]);
+  mesh('pi',pi,BOX(1.25,.12,1.0),'chip',[-2.3,py+.06,.2]);
+  mesh('pi',pi,BOX(.9,.12,.9),'chip',[1.4,py+.06,-.4]);
+  mesh('pi',pi,BOX(5.4,.25,3.8),'aluDark',[-1.0,py+.75,-.1]);
+  for(let i=0;i<13;i++) mesh('pi',pi,BOX(.08,.75,3.6),'aluDark',[-3.5+i*.32,py+1.25,-.1]);
+  mesh('pi',pi,CYL(1.35,.55,40),'plastic',[-2.4,py+1.6,0]);
+  mesh('pi',pi,CYL(.45,.58,24),'aluDark',[-2.4,py+1.62,0]);
+  for(let b=0;b<9;b++){ const t=b/9*Math.PI*2; const bl=mesh('pi',pi,BOX(.75,.38,.08),'plastic',[-2.4+Math.cos(t)*.85,py+1.62,Math.sin(t)*.85],[0,-t+.5,0]); bl.rotation.x=.25; }
+  mesh('pi',pi,CYL(.15,.4,10),'brass',[.75,py+.55,1.3]); mesh('pi',pi,CYL(.15,.4,10),'brass',[-3.2,py+.55,-1.6]);
+
+  /* 5 Sensor hub (RP2040) */
+  const hub=part('hub',[4.5,0.6,5],[0,8,0],[0,1.3,0]);
+  [[-2.2,-.8],[2.2,-.8],[-2.2,.8],[2.2,.8]].forEach(([x,z])=>mesh('hub',hub,CYL(.15,.7,6),'brass',[x,.35,z]));
+  mesh('hub',hub,slabGeo(5.1,2.1,.16,.12,[[-2.2,-.8],[2.2,-.8],[-2.2,.8],[2.2,.8]].map(([x,z])=>circlePath(x,-z,.1))),'pcbBlue',[0,.7,0]);
+  for(let i=0;i<20;i++){ mesh('hub',hub,CYL(.07,.18,10),'gold',[-2.41+i*.254,.78,-1.05]); mesh('hub',hub,CYL(.07,.18,10),'gold',[-2.41+i*.254,.78,1.05]); }
+  mesh('hub',hub,BOX(.7,.1,.7),'chip',[.2,.91,0]); mesh('hub',hub,BOX(.45,.1,.35),'chip',[-.9,.91,.3]);
+  mesh('hub',hub,BOX(.8,.3,.75),'steel',[-2.3,1.0,0]); mesh('hub',hub,BOX(.3,.15,.3),'white',[1.5,.94,.5]);
+  mesh('hub',hub,BOX(.3,.2,.2),'steel',[1.2,.95,-.4]);
+
+  /* 8 IMU isolated sub-plate */
+  const ip=part('imuplate',[8,0.6,-4],[0,3.5,0],[2.7,.9,-2.7]);
+  [[-2.2,-2.2],[2.2,-2.2],[-2.2,2.2],[2.2,2.2]].forEach(([x,z])=>{ mesh('imuplate',ip,new THREE.TorusGeometry(.36,.14,10,24),'rubber',[x,.5,z],[Math.PI/2,0,0]); mesh('imuplate',ip,CYL(.12,.9,12),'steel',[x,.45,z]); });
+  mesh('imuplate',ip,slabGeo(5.6,5.6,.35,.45,[[-2.2,-2.2],[2.2,-2.2],[-2.2,2.2],[2.2,2.2]].map(([x,z])=>circlePath(x,-z,.16))),'alu',[0,.68,0]);
+
+  /* 7 Industrial IMU */
+  const imu=part('imu',[8,1.63,-4],[0,8.5,0],[0,1.1,0]);
+  mesh('imu',imu,slabGeo(2.24,2.24,.92,.12,null,0),'alu');
+  [-1,1].forEach(s=>{ mesh('imu',imu,slabGeo(.55,2.24,.22,.08,[circlePath(0,.7,.1),circlePath(0,-.7,.1)]),'alu',[s*1.38,0,0]); mesh('imu',imu,CYL(.15,.12,6),'steel',[s*1.38,.28,.7]); mesh('imu',imu,CYL(.15,.12,6),'steel',[s*1.38,.28,-.7]); });
+  mesh('imu',imu,BOX(1.5,.04,1.5),'aluDark',[0,.94,0]);
+  mesh('imu',imu,BOX(.9,.26,.32),'chip',[0,1.05,1.0]);
+
+  /* 9 Vibration accelerometer (hard-mounted) */
+  const vib=part('vib',[11,0.6,5],[0,3.2,0],[0,.6,0]);
+  mesh('vib',vib,CYL(.4,.25,6),'steel',[0,.12,0]);
+  mesh('vib',vib,slabGeo(2.2,2.2,.16,.12,[circlePath(-.85,.85,.1),circlePath(.85,-.85,.1)]),'pcbBlue',[0,.25,0]);
+  mesh('vib',vib,BOX(.5,.14,.5),'chip',[0,.48,0]);
+  mesh('vib',vib,CYL(.2,.6,20),'gold',[1.25,.5,.5],[0,0,Math.PI/2]);
+  mesh('vib',vib,CYL(.25,.25,6),'gold',[1.05,.5,.5],[0,0,Math.PI/2]);
+
+  /* 10 Fast barometer (vented, on -z wall) */
+  const baro=part('baro',[12,5.2,-8.25],[0,0,-10.5],[0,1.2,0]);
+  mesh('baro',baro,BOX(2.2,.12,.9),'alu',[0,-1.2,.35]);
+  mesh('baro',baro,BOX(2.2,1.0,.12),'alu',[0,-.75,-.06]);
+  mesh('baro',baro,BOX(1.9,1.9,.16),'pcb',[0,0,.15],null);
+  mesh('baro',baro,BOX(.36,.36,.22),'steel',[0,.2,.33]); mesh('baro',baro,CYL(.06,.05,10),'chip',[0,.2,.45],[Math.PI/2,0,0]);
+  mesh('baro',baro,BOX(.5,.3,.2),'white',[-.6,-.6,.33]); mesh('baro',baro,BOX(.5,.3,.2),'white',[.6,-.6,.33]);
+  mesh('baro',baro,CYL(.28,1.3,20),'plastic',[0,.2,-.6],[Math.PI/2,0,0]);
+  mesh('baro',baro,new THREE.TorusGeometry(.38,.1,10,24),'rubber',[0,.2,-.9]);
+
+  /* 11 mmWave radar (faces +z window) */
+  const radar=part('radar',[1,5.4,8.25],[0,0,11.5],[0,2.5,0]);
+  mesh('radar',radar,BOX(6.4,4.6,.16),'pcbBlack',[0,0,0]);
+  for(let i=0;i<3;i++) mesh('radar',radar,BOX(.42,.34,.04),'copper',[-2.4,1.3-i*.65,.1]);
+  for(let i=0;i<4;i++) mesh('radar',radar,BOX(.42,.34,.04),'copper',[-1.2+i*.55,1.3,.1]);
+  for(let i=0;i<3;i++) mesh('radar',radar,BOX(.9,.04,.03),'copper',[-1.85,1.3-i*.65,.1]);
+  for(let i=0;i<4;i++) mesh('radar',radar,BOX(.04,.8,.03),'copper',[-1.2+i*.55,.75,.1]);
+  mesh('radar',radar,BOX(1.3,1.3,.24),'steel',[1.3,-.6,-.2]);
+  mesh('radar',radar,BOX(2.5,.35,.6),'chip',[.6,-1.95,-.35]);
+  mesh('radar',radar,BOX(.6,.6,.2),'chip',[-1.0,-.9,-.18]);
+  [[-2.9,-2.0],[2.9,-2.0],[-2.9,2.0],[2.9,2.0]].forEach(([x,y])=>mesh('radar',radar,CYL(.16,.55,6),'brass',[x,y,.36],[Math.PI/2,0,0]));
+  mesh('radar',radar,CYL(.12,.08,12),'glass',[2.6,1.8,.1],[Math.PI/2,0,0]);
+
+  /* 12 Light sensor */
+  const light=part('light',[-6,6.6,8.4],[0,0,9.5],[0,1,0]);
+  mesh('light',light,BOX(1.6,1.6,.14),'pcbBlue',[0,0,0]);
+  const dome=new THREE.SphereGeometry(.55,28,14,0,Math.PI*2,0,Math.PI/2); dome.rotateX(Math.PI/2);
+  mesh('light',light,dome,'glass',[0,0,.1]);
+  mesh('light',light,BOX(.35,.35,.1),'chip',[0,0,.12]);
+
+  /* Boom: clamp, tube, pods */
+  const clamp=part('clamp',[15.7,5,0],[3,0,0],[0,1.6,0]);
+  mesh('clamp',clamp,BOX(1.8,3.2,3.2),'alu',[.9,0,0]);
+  mesh('clamp',clamp,CYL(.66,1.9,24),'aluDark',[.9,0,0],[0,0,Math.PI/2]);
+  [[1.0],[-1.0]].forEach(([y])=>{ mesh('clamp',clamp,CYL(.18,3.6,12),'steel',[.9,y,0],[Math.PI/2,0,0]); mesh('clamp',clamp,CYL(.3,.2,6),'steel',[.9,y,1.7],[Math.PI/2,0,0]); });
+  meshes.boom=[];
+  const boom=part('boom',[17.5,5,0],[6,0,0],[22,.7,0]);
+  mesh('boom',boom,CYL(.6,44,32),'carbon',[22,0,0],[0,0,Math.PI/2]);
+  mesh('boom',boom,CYL(.66,.4,32),'aluDark',[44.2,0,0],[0,0,Math.PI/2]);
+  meshes.pods=[];
+  [12.5,26.5,40.5].forEach((x,i)=>{
+    const g=new THREE.Group(); g.position.set(x,0,0); g.userData={base:new THREE.Vector3(x,0,0),off:new THREE.Vector3(2*i+1,4,0)}; boom.add(g); pods.push(g);
+    const put=(geo,key,pos,rot)=>{ const m=new THREE.Mesh(geo,mats[key]); m.userData.key=key; m.userData.part='pods'; if(pos) m.position.set(...pos); if(rot) m.rotation.set(...rot); return m; };
+    const add=(parent,m)=>{ parent.add(m); meshes.pods.push(m); return m; };
+    [-.85,.85].forEach(dx=>{ add(g,put(new THREE.TorusGeometry(.66,.09,10,28,Math.PI),'steel',[dx,0,0],[0,Math.PI/2,0])); });
+    add(g,put(BOX(2.6,.35,2.0),'alu',[0,.78,0]));
+    add(g,put(slabGeo(2.6,2.6,1.0,.35,null,0),'white',[0,.96,0]));
+    add(g,put(CYL(.3,.5,6),'steel',[-1.45,1.4,0],[0,0,Math.PI/2]));
+    add(g,put(BOX(1.5,.1,1.5),'pcbBlue',[0,1.75,0]));
+    add(g,put(BOX(.25,.22,.7),'copper',[-.35,1.92,0])); add(g,put(BOX(.7,.22,.25),'copper',[.25,1.92,-.3])); add(g,put(CYL(.15,.4,16),'copper',[.3,2.0,.35]));
+    const cap=new THREE.Group(); cap.position.set(0,1.96,0); cap.userData={base:new THREE.Vector3(0,1.96,0),off:new THREE.Vector3(0,2.6,0)}; g.add(cap); caps.push(cap);
+    add(cap,put(slabGeo(2.6,2.6,.32,.35,null,0),'white',[0,0,0]));
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>add(cap,put(CYL(.14,.1,6),'steel',[a,.37,b])));
+  });
+
+  /* Internal cables (assembled only) */
+  const cab=(pts,key)=>{ const c=new THREE.CatmullRomCurve3(pts.map(p=>new THREE.Vector3(...p))); const m=new THREE.Mesh(new THREE.TubeGeometry(c,48,.07,8,false),mats[key]); m.userData.key=key; root.add(m); cables.push(m); return m; };
+  cab([[2.2,1.6,5],[1,1.8,3],[0,2.2,1.2],[-1.4,1.9,0.2]],'cableBlue');
+  cab([[6.6,1.6,4.6],[7.5,2.0,1.5],[8,2.8,-2.8]],'cableRed');
+  cab([[6.8,1.6,5.4],[11,2.2,2],[12,4.0,-7.6]],'cable');
+  cab([[6.9,1.5,5.2],[9.5,1.4,5.2],[10.8,1.2,5]],'cable');
+  cab([[2.0,1.5,5.5],[-1,1.6,6.2],[-3.4,1.6,5.4]],'cable');
+  cab([[6.5,1.7,5.8],[5,3.6,7.6],[3,4.2,8.1]],'cableRed');
+  cab([[2.2,1.7,5.8],[-2,4.5,7.8],[-5.8,6.0,8.3]],'cable');
+  cab([[6.9,1.8,4.8],[12,3,2],[14.6,5,0]],'cableBlue');
+
+  return {root,parts,meshes,cables,pods,caps,lineObjs};
+}
+
+/* ---------------- Outline pipeline ---------------- */
+const QUAD_VS=`varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.,1.); }`;
+const QUAD_FS=`#include <packing>
+varying vec2 vUv; uniform sampler2D tColor; uniform sampler2D tNormal; uniform sampler2D tDepth;
+uniform vec2 texel; uniform float near; uniform float far; uniform vec3 ink; uniform float strength; uniform float step; uniform float grade; uniform float exposure;
+vec3 aces(vec3 x){ return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.); }
+float vz(vec2 uv){ float d=texture2D(tDepth,uv).x; return d>=0.9999 ? -far : orthographicDepthToViewZ(d,near,far); }
+void main(){
+  vec4 c=texture2D(tColor,vUv);
+  if(grade>.5 && c.a>0.){ vec3 col=aces(c.rgb/c.a*exposure); c.rgb=pow(col,vec3(1./2.2))*c.a; }
+  vec2 o=texel*step;
+  float z0=vz(vUv); vec3 n0=texture2D(tNormal,vUv).xyz*2.-1.;
+  float dz=0.; float dn=0.;
+  vec2 offs[4]; offs[0]=vec2(o.x,0.); offs[1]=vec2(-o.x,0.); offs[2]=vec2(0.,o.y); offs[3]=vec2(0.,-o.y);
+  for(int i=0;i<4;i++){ vec2 uv=vUv+offs[i]; dz=max(dz,abs(vz(uv)-z0)); vec3 n=texture2D(tNormal,uv).xyz*2.-1.; dn=max(dn,1.-dot(n,n0)); }
+  float e=max(smoothstep(.18,.55,dz), smoothstep(.22,.5,dn))*strength;
+  vec3 rgb=c.rgb*(1.-e)+ink*e; float a=c.a*(1.-e)+e;
+  gl_FragColor=vec4(rgb,a);
+}`;
+class View{
+  constructor(canvas,opts){
+    this.canvas=canvas; opts=opts||{};
+    this.r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,premultipliedAlpha:true,preserveDrawingBuffer:true});
+    this.r.setPixelRatio(DPR); this.r.setClearColor(0x000000,0);
+    const isGL2=this.r.capabilities.isWebGL2;
+    const hdr = opts.hdr && isGL2 && !!this.r.extensions.get('EXT_color_buffer_float');
+    const rtOpts={format:THREE.RGBAFormat, type: hdr? THREE.HalfFloatType : THREE.UnsignedByteType};
+    this.hdr=hdr;
+    this.rtC=isGL2&&THREE.WebGLMultisampleRenderTarget ? new THREE.WebGLMultisampleRenderTarget(4,4,rtOpts) : new THREE.WebGLRenderTarget(4,4,rtOpts);
+    this.r.shadowMap.type=THREE.PCFSoftShadowMap; this.r.shadowMap.autoUpdate=false;
+    if(this.rtC.samples!==undefined) this.rtC.samples=4;
+    this.rtN=new THREE.WebGLRenderTarget(4,4,{format:THREE.RGBAFormat}); this.rtN.depthTexture=new THREE.DepthTexture(4,4);
+    this.qMat=new THREE.ShaderMaterial({vertexShader:QUAD_VS,fragmentShader:QUAD_FS,transparent:false,depthTest:false,depthWrite:false,
+      uniforms:{tColor:{value:this.rtC.texture},tNormal:{value:this.rtN.texture},tDepth:{value:this.rtN.depthTexture},texel:{value:new THREE.Vector2()},near:{value:1},far:{value:1000},ink:{value:new THREE.Color()},strength:{value:1},step:{value:1},grade:{value:0},exposure:{value:1}}});
+    this.qScene=new THREE.Scene(); this.qCam=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+    this.qScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.qMat));
+    this.nMat=new THREE.MeshNormalMaterial();
+    this.w=4; this.h=4;
+  }
+  size(){ const w=this.canvas.clientWidth, h=this.canvas.clientHeight; if(!w||!h) return false; if(w!==this.w||h!==this.h){ this.w=w; this.h=h; this.r.setSize(w,h,false); const W=Math.round(w*DPR),H=Math.round(h*DPR); this.rtC.setSize(W,H); this.rtN.setSize(W,H); this.qMat.uniforms.texel.value.set(1/W,1/H); } return true; }
+  render(scene,cam,ink,strength,grade){
+    const r=this.r; if(r.shadowMap.enabled) r.shadowMap.needsUpdate=true;
+    cam.layers.enableAll(); r.setRenderTarget(this.rtC); r.setClearColor(0x000000,0); r.clear(); r.render(scene,cam);
+    cam.layers.set(0); scene.overrideMaterial=this.nMat; const bg=scene.background; scene.background=null;
+    r.setRenderTarget(this.rtN); r.setClearColor(0x8080ff,1); r.clear(); r.render(scene,cam);
+    scene.overrideMaterial=null; scene.background=bg; cam.layers.enableAll();
+    const u=this.qMat.uniforms; u.near.value=cam.near; u.far.value=cam.far; u.ink.value.set(ink); u.strength.value=strength; u.step.value=Math.max(1,DPR*0.85); u.grade.value=grade?1:0; u.exposure.value=1.05;
+    r.setRenderTarget(null); r.setClearColor(0x000000,0); r.clear(); r.render(this.qScene,this.qCam);
+  }
+}
+
+function lights(scene,style){
+  scene.children.filter(o=>o.isLight).forEach(l=>scene.remove(l));
+  if(style==='bp'){
+    scene.add(new THREE.AmbientLight(0xffffff,.62));
+    const d=new THREE.DirectionalLight(0xffffff,.48); d.position.set(10,30,18); scene.add(d);
+    const d2=new THREE.DirectionalLight(0xffffff,.12); d2.position.set(-20,8,-10); scene.add(d2);
+  } else {
+    scene.add(new THREE.HemisphereLight(0xffffff,0x30343a,.25));
+    const k=new THREE.DirectionalLight(0xfff4e8,2.2); k.position.set(30,80,12); k.target.position.set(20,0,0); scene.add(k); scene.add(k.target);
+    k.castShadow=true; k.shadow.mapSize.set(1024,1024); const sc=k.shadow.camera; sc.left=-48; sc.right=48; sc.top=48; sc.bottom=-48; sc.near=1; sc.far=200; k.shadow.bias=-.0004; k.shadow.normalBias=.03;
+    const rim=new THREE.DirectionalLight(0xcfe0ff,.8); rim.position.set(-40,25,-30); scene.add(rim);
+  }
+}
+
+/* ---------------- Main view ---------------- */
+let style='bp';
+let matsMain=makeMats('bp');
+const main=new View(document.getElementById('cvMain'),{hdr:true});
+function studioEnv(renderer){
+  const env=new THREE.Scene();
+  const room=new THREE.Mesh(new THREE.BoxGeometry(100,60,100),new THREE.MeshBasicMaterial({color:new THREE.Color(.16,.17,.19),side:THREE.BackSide})); room.position.y=20; env.add(room);
+  const floor=new THREE.Mesh(new THREE.PlaneGeometry(100,100),new THREE.MeshBasicMaterial({color:new THREE.Color(.05,.05,.06)})); floor.rotation.x=-Math.PI/2; floor.position.y=-9.9; env.add(floor);
+  const box=(w,h,pos,rot,i)=>{ const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color(i,i,i*.98),side:THREE.DoubleSide})); m.position.set(...pos); m.rotation.set(...rot); env.add(m); };
+  box(60,28,[0,49,0],[Math.PI/2,0,0],5.5);          // overhead softbox
+  box(26,40,[-49,20,8],[0,Math.PI/2,0],3.2);        // left strip
+  box(18,40,[49,18,-14],[0,-Math.PI/2,0],2.2);      // right strip
+  box(40,10,[10,10,-49],[0,0,0],1.6);               // back kicker
+  const pm=new THREE.PMREMGenerator(renderer); const t=pm.fromScene(env,.03).texture; pm.dispose(); return t;
+}
+let envTex=null;
+const sceneM=new THREE.Scene();
+const M=buildModel(matsMain); sceneM.add(M.root); lights(sceneM,'bp');
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(400,400),new THREE.ShadowMaterial({opacity:.2})); ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; ground.layers.set(3); ground.visible=false; ground.userData.skipFit=true; sceneM.add(ground);
+M.root.traverse(o=>{ if(o.isMesh){ const k=o.userData.key; o.castShadow = k!=='shell' && k!=='glass'; o.receiveShadow = k!=='shell' && k!=='glass'; } });
+const camM=new THREE.OrthographicCamera(-1,1,1,-1,-500,500);
+const DIR=new THREE.Vector3(1.0,1.2,1.3).normalize();
+const target=new THREE.Vector3(18,9,0);
+camM.position.copy(target).addScaledVector(DIR,200); camM.lookAt(target);
+const controls=new THREE.OrbitControls(camM,main.canvas); controls.target.copy(target); controls.enableDamping=true; controls.dampingFactor=.08; controls.minZoom=.5; controls.maxZoom=4; controls.autoRotateSpeed=.6; controls.enablePan=true;
+
+/* guides: dashed lines from seat to exploded position */
+const guideMat=new THREE.LineDashedMaterial({color:0x000000,dashSize:.5,gapSize:.35});
+const guides=[];
+Object.entries(M.parts).forEach(([id,g])=>{ if(g.userData.off.lengthSq()<1e-6) return; const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(),new THREE.Vector3()]); const l=new THREE.Line(geo,guideMat); l.layers.set(2); l.userData.part=g; sceneM.add(l); guides.push(l); });
+M.pods.forEach(p=>{ const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(),new THREE.Vector3()]); const l=new THREE.Line(geo,guideMat); l.layers.set(2); l.userData.pod=p; sceneM.add(l); guides.push(l); });
+
+let tE=1, targetE=1;
+const ease=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+const tmpA=new THREE.Vector3(), tmpB=new THREE.Vector3();
+function layout(model,k,withGuides){
+  const e=ease(k);
+  Object.values(model.parts).forEach(g=>g.position.copy(g.userData.base).addScaledVector(g.userData.off,e));
+  model.pods.forEach(p=>p.position.copy(p.userData.base).addScaledVector(p.userData.off,e));
+  model.caps.forEach(c=>c.position.copy(c.userData.base).addScaledVector(c.userData.off,e));
+  model.cables.forEach(c=>c.visible=e<.02);
+  if(!withGuides) return;
+  guides.forEach(l=>{
+    const pos=l.geometry.attributes.position;
+    if(l.userData.part){ const g=l.userData.part; tmpA.copy(g.userData.base).add(g.userData.anchor); tmpB.copy(g.position).add(g.userData.anchor); }
+    else { const p=l.userData.pod; const boom=model.parts.boom; tmpA.copy(p.userData.base).add(boom.userData.base).add(new THREE.Vector3(0,1,0)); p.getWorldPosition(tmpB); tmpB.y+=1; tmpA.add(model.parts.boom.userData.off.clone().multiplyScalar(e)); }
+    pos.setXYZ(0,tmpA.x,tmpA.y,tmpA.z); pos.setXYZ(1,tmpB.x,tmpB.y,tmpB.z); pos.needsUpdate=true; l.computeLineDistances(); l.visible=e>.04;
+  });
+}
+
+/* fit the orthographic frustum to the model, leaving room for labels */
+function camBounds(model,cam,states){
+  cam.updateMatrixWorld(); const inv=cam.matrixWorldInverse; const v=new THREE.Vector3();
+  const b={minX:1e9,maxX:-1e9,minY:1e9,maxY:-1e9};
+  states.forEach(k=>{
+    layout(model,k,false); model.root.updateMatrixWorld(true);
+    model.root.traverse(o=>{
+      if(!o.isMesh||!o.visible||o.userData.skipFit) return; const g=o.geometry; if(!g.boundingBox) g.computeBoundingBox(); const bb=g.boundingBox;
+      for(let i=0;i<8;i++){ v.set(i&1?bb.max.x:bb.min.x,i&2?bb.max.y:bb.min.y,i&4?bb.max.z:bb.min.z).applyMatrix4(o.matrixWorld).applyMatrix4(inv);
+        if(v.x<b.minX)b.minX=v.x; if(v.x>b.maxX)b.maxX=v.x; if(v.y<b.minY)b.minY=v.y; if(v.y>b.maxY)b.maxY=v.y; }
+    });
+  });
+  return b;
+}
+function fit(view,cam,b,pad,margin){
+  const w=view.w,h=view.h;
+  const bw=b.maxX-b.minX, bh=b.maxY-b.minY;
+  const availW=Math.max(40,w-pad.l-pad.r), availH=Math.max(40,h-pad.t-pad.b);
+  const s=Math.max(bw/availW, bh/availH)*margin;
+  // centre of the model sits at the centre of the available area
+  const cx=(b.minX+b.maxX)/2 - ((pad.l-pad.r)/2)*s, cy=(b.minY+b.maxY)/2 + ((pad.t-pad.b)/2)*s;
+  cam.left=cx-w/2*s; cam.right=cx+w/2*s; cam.top=cy+h/2*s; cam.bottom=cy-h/2*s; cam.updateProjectionMatrix();
+}
+
+/* ---------------- Callouts ---------------- */
+const svg=document.getElementById('callouts'); const NS='http://www.w3.org/2000/svg';
+const order=Object.keys(INFO);
+const co={};
+order.forEach(id=>{
+  const g=document.createElementNS(NS,'g'); g.setAttribute('class','co'); g.setAttribute('tabindex','0'); g.setAttribute('role','button'); g.setAttribute('aria-label',`${INFO[id].n}. ${INFO[id].name}: ${INFO[id].part}`);
+  const ld=document.createElementNS(NS,'polyline'); ld.setAttribute('class','ld');
+  const dot=document.createElementNS(NS,'circle'); dot.setAttribute('class','dot'); dot.setAttribute('r','2.6');
+  const badge=document.createElementNS(NS,'circle'); badge.setAttribute('class','badge'); badge.setAttribute('r','8');
+  const num=document.createElementNS(NS,'text'); num.setAttribute('class','num'); num.setAttribute('text-anchor','middle'); num.setAttribute('dy','3.5'); num.textContent=INFO[id].n;
+  const nm=document.createElementNS(NS,'text'); nm.setAttribute('class','nm'); nm.textContent=INFO[id].name.toUpperCase();
+  const pt=document.createElementNS(NS,'text'); pt.setAttribute('class','pt'); pt.textContent=INFO[id].part;
+  g.append(ld,dot,badge,num,nm,pt); svg.appendChild(g);
+  g.addEventListener('mouseenter',()=>select(id)); g.addEventListener('focus',()=>select(id)); g.addEventListener('click',()=>select(id));
+  co[id]={g,ld,dot,badge,num,nm,pt,y:null};
+});
+const legend=document.getElementById('legend');
+order.forEach(id=>{ const li=document.createElement('li'); const b=document.createElement('button'); b.type='button'; b.innerHTML=`<span class="n">${INFO[id].n}</span><span>${INFO[id].name}</span>`; b.addEventListener('click',()=>select(id)); li.appendChild(b); legend.appendChild(li); });
+
+const anchorPart={pods:null,boom:'boom'};
+function anchorWorld(model,id){
+  if(id==='pods'){ const v=new THREE.Vector3(); model.pods[1].getWorldPosition(v); v.y+=2.4; return v; }
+  const g=model.parts[id]; return g.userData.anchor.clone().add(g.position);
+}
+function project(v,cam,w,h){ const p=v.clone().project(cam); return {x:(p.x+1)/2*w, y:(1-p.y)/2*h}; }
+let compact=false;
+function placeCallouts(){
+  const w=main.w,h=main.h; compact = w<820; document.getElementById('sheet').classList.toggle('compact',compact);
+  if(compact && card.parentNode===stage){ legend.parentNode.insertBefore(card,legend); card.classList.add('out'); }
+  else if(!compact && card.parentNode!==stage){ stage.appendChild(card); card.classList.remove('out'); }
+  const pts={}; order.forEach(id=>pts[id]=project(anchorWorld(M,id),camM,w,h));
+  const byX=order.slice().sort((a,b)=>pts[a].x-pts[b].x); const half=Math.ceil(byX.length/2); const sideOf={L:byX.slice(0,half),R:byX.slice(half)};
+  const colW=Math.min(230,w*.2); const gap=compact?0:30; const topPad=60, botPad=compact?60:74;
+  ['L','R'].forEach(side=>{
+    const ids=sideOf[side].slice().sort((a,b)=>pts[a].y-pts[b].y);
+    let ys=ids.map(id=>pts[id].y);
+    for(let i=0;i<ys.length;i++){ ys[i]=Math.max(ys[i], i?ys[i-1]+gap:topPad); }
+    if(ys.length){ ys[ys.length-1]=Math.min(ys[ys.length-1],h-botPad); for(let i=ys.length-1;i>0;i--) ys[i-1]=Math.min(ys[i-1],ys[i]-gap); }
+    ids.forEach((id,i)=>{
+      const c=co[id]; const a=pts[id];
+      if(compact){
+        c.ld.setAttribute('points',''); c.nm.setAttribute('display','none'); c.pt.setAttribute('display','none');
+        c.badge.setAttribute('cx',a.x); c.badge.setAttribute('cy',a.y); c.num.setAttribute('x',a.x); c.num.setAttribute('y',a.y); c.dot.setAttribute('display','none'); return;
+      }
+      c.nm.removeAttribute('display'); c.pt.removeAttribute('display'); c.dot.removeAttribute('display');
+      c.y = ys[i];
+      const y=c.y; const xCol = side==='L' ? 18+colW : w-18-colW;
+      const bx = side==='L' ? 18 : w-18;
+      c.badge.setAttribute('cx', side==='L'? bx+8 : bx-8); c.badge.setAttribute('cy', y-4); c.num.setAttribute('x', side==='L'? bx+8 : bx-8); c.num.setAttribute('y', y-4);
+      const tx = side==='L' ? bx+22 : bx-22;
+      c.nm.setAttribute('x',tx); c.nm.setAttribute('y',y-1); c.pt.setAttribute('x',tx); c.pt.setAttribute('y',y+12);
+      c.nm.setAttribute('text-anchor', side==='L'?'start':'end'); c.pt.setAttribute('text-anchor', side==='L'?'start':'end');
+      const elbow = side==='L' ? xCol+18 : xCol-18;
+      c.ld.setAttribute('points',`${xCol},${y-4} ${elbow},${y-4} ${a.x},${a.y}`);
+      c.dot.setAttribute('cx',a.x); c.dot.setAttribute('cy',a.y);
+    });
+  });
+}
+
+/* ---------------- Selection ---------------- */
+let selected=null; const card=document.getElementById('card');
+function setHighlight(model,mats,id,on){
+  const list=(model.meshes[id]||[]); if(id==='boom') list.push(...(model.meshes.clamp||[]));
+  list.forEach(m=>{ if(on){ if(!m.userData.orig) m.userData.orig=m.material; m.material=HI_MAT; } else if(m.userData.orig){ m.material=mats[m.userData.key]; m.userData.orig=null; } });
+}
+function makeHi(){ if(HI_MAT) HI_MAT.dispose(); const c=new THREE.Color(tok('--hi'));
+  HI_MAT = (typeof style!=='undefined' && style==='rd')
+    ? new THREE.MeshPhysicalMaterial({color:c.clone().convertSRGBToLinear(),emissive:c.clone().convertSRGBToLinear().multiplyScalar(.18),metalness:0,roughness:.35,clearcoat:.6,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1})
+    : new THREE.MeshLambertMaterial({color:c,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1}); }
+makeHi();
+function select(id){
+  if(selected) setHighlight(M,matsMain,selected,false);
+  selected=id; setHighlight(M,matsMain,id,true);
+  Object.entries(co).forEach(([k,c])=>c.g.classList.toggle('on',k===id));
+  const i=INFO[id];
+  card.innerHTML=`<div class="k">Item ${String(i.n).padStart(2,'0')} · ${i.part}</div><h3>${i.name}</h3><p>${i.role}</p><p class="fix">${i.fix}</p>`;
+}
+
+/* ---------------- Style + theme ---------------- */
+function applyStyle(s){
+  style=s; const old=matsMain; matsMain=makeMats(s);
+  M.root.traverse(o=>{ if(o.isMesh && o.userData.key){ o.material = (o.userData.orig? HI_MAT : matsMain[o.userData.key]); } });
+  Object.values(old).forEach(m=>m.dispose());
+  lights(sceneM,s);
+  const rd=s==='rd';
+  if(rd && !envTex) envTex=studioEnv(main.r);
+  sceneM.environment = rd? envTex : null; main.r.shadowMap.enabled=rd; ground.visible=rd;
+  document.getElementById('stage').classList.toggle('rd',rd);
+  M.lineObjs.forEach(l=>{ l.material.color.set(rd? tok('--studio-edge') : tok('--ink')); l.material.transparent=rd; l.material.opacity= rd? .55 : 1; });
+  makeHi(); if(selected){ setHighlight(M,matsMain,selected,false); setHighlight(M,matsMain,selected,true); }
+  document.getElementById('bBp').setAttribute('aria-pressed',String(s==='bp')); document.getElementById('bRd').setAttribute('aria-pressed',String(s==='rd'));
+}
+function applyTheme(){
+  const ink=tok('--ink'); guideMat.color.set(ink);
+  applyStyle(style);
+  renderInsets();
+}
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);
+new MutationObserver(applyTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* ---------------- Insets: orthographic views with dimensions ---------------- */
+const insetDefs=[
+  {id:'Top',dir:[0,1,0],up:[0,0,-1]},
+  {id:'Front',dir:[0,0,1],up:[0,1,0]},
+  {id:'End',dir:[1,0,0],up:[0,1,0]}
+];
+const insets=insetDefs.map(d=>{
+  const view=new View(document.getElementById('cv'+d.id));
+  const sc=new THREE.Scene(); const mats=makeMats('bp'); const mdl=buildModel(mats); sc.add(mdl.root); lights(sc,'bp'); layout(mdl,0,false);
+  const cam=new THREE.OrthographicCamera(-1,1,1,-1,-500,500); const c=new THREE.Vector3(22,5,0);
+  cam.position.copy(c).add(new THREE.Vector3(...d.dir).multiplyScalar(200)); cam.up.set(...d.up); cam.lookAt(c);
+  return {d,view,sc,mdl,mats,cam,svg:document.getElementById('d'+d.id)};
+});
+function dimLine(svgEl,a,b,text,offset,vertical){
+  const g=document.createElementNS(NS,'g');
+  const ax=a.x, ay=a.y, bx=b.x, by=b.y;
+  let p1,p2;
+  if(vertical){ const x=Math.min(ax,bx)+offset; p1={x,y:ay}; p2={x,y:by}; }
+  else { const y=Math.max(ay,by)+offset; p1={x:ax,y}; p2={x:bx,y}; }
+  const ext=(x1,y1,x2,y2)=>{ const l=document.createElementNS(NS,'line'); l.setAttribute('x1',x1); l.setAttribute('y1',y1); l.setAttribute('x2',x2); l.setAttribute('y2',y2); l.setAttribute('class','ext'); g.appendChild(l); };
+  ext(ax,ay,p1.x,p1.y); ext(bx,by,p2.x,p2.y);
+  const l=document.createElementNS(NS,'line'); l.setAttribute('x1',p1.x); l.setAttribute('y1',p1.y); l.setAttribute('x2',p2.x); l.setAttribute('y2',p2.y); g.appendChild(l);
+  const arrow=(p,q)=>{ const ang=Math.atan2(q.y-p.y,q.x-p.x); const s=6; const a1={x:p.x+Math.cos(ang+.35)*s,y:p.y+Math.sin(ang+.35)*s}; const a2={x:p.x+Math.cos(ang-.35)*s,y:p.y+Math.sin(ang-.35)*s}; const pa=document.createElementNS(NS,'path'); pa.setAttribute('d',`M${p.x},${p.y} L${a1.x},${a1.y} L${a2.x},${a2.y} z`); pa.setAttribute('class','arr'); g.appendChild(pa); };
+  arrow(p1,p2); arrow(p2,p1);
+  const t=document.createElementNS(NS,'text'); t.textContent=text;
+  if(vertical){ t.setAttribute('x',p1.x-5); t.setAttribute('y',(p1.y+p2.y)/2); t.setAttribute('text-anchor','middle'); t.setAttribute('transform',`rotate(-90 ${p1.x-5} ${(p1.y+p2.y)/2})`); }
+  else { t.setAttribute('x',(p1.x+p2.x)/2); t.setAttribute('y',p1.y-4); t.setAttribute('text-anchor','middle'); }
+  g.appendChild(t); svgEl.appendChild(g);
+}
+function renderInsets(){
+  const ink=tok('--ink');
+  insets.forEach(I=>{
+    if(!I.view.size()) return;
+    const fresh=makeMats('bp'); I.mdl.root.traverse(o=>{ if(o.isMesh&&o.userData.key) o.material=fresh[o.userData.key]; }); Object.values(I.mats).forEach(m=>m.dispose()); I.mats=fresh;
+    I.mdl.lineObjs.forEach(l=>l.material.color.set(ink));
+    const b=camBounds(I.mdl,I.cam,[0]);
+    fit(I.view,I.cam,b,{l:44,r:24,t:30,b:64},1.0);
+    I.view.render(I.sc,I.cam,ink,1);
+    const s=I.svg; while(s.firstChild) s.removeChild(s.firstChild);
+    const P=(x,y,z)=>project(new THREE.Vector3(x,y,z),I.cam,I.view.w,I.view.h);
+    if(I.d.id==='Top'){
+      dimLine(s,P(-16,10,10),P(61.2,10,10),'772',14,false);
+      dimLine(s,P(-16,10,-10),P(-16,10,10),'200',-16,true);
+      dimLine(s,P(30,10,-1.3),P(44,10,-1.3),'140',-34,false);
+    } else if(I.d.id==='Front'){
+      dimLine(s,P(-15,-.9,10),P(15,-.9,10),'300',16,false);
+      dimLine(s,P(-16,-.9,10),P(-16,10.9,10),'118',-14,true);
+    } else {
+      dimLine(s,P(62,-.9,10),P(62,-.9,-10),'200',16,false);
+      dimLine(s,P(62,-.9,10),P(62,9.6,10),'105',-14,true);
+    }
+  });
+}
+
+/* ---------------- Controls ---------------- */
+const bExp=document.getElementById('bExp'), bAsm=document.getElementById('bAsm'), bRot=document.getElementById('bRot'), bPres=document.getElementById('bPres'), stage=document.getElementById('stage'), tag=document.getElementById('viewTag');
+function setExplode(on){ targetE=on?1:0; if(reduce) tE=targetE; bExp.setAttribute('aria-pressed',String(on)); bAsm.setAttribute('aria-pressed',String(!on)); tag.textContent= on? 'Fig. 1 · Exploded view' : 'Fig. 1 · Assembled view'; }
+bExp.addEventListener('click',()=>setExplode(true)); bAsm.addEventListener('click',()=>setExplode(false));
+document.getElementById('bBp').addEventListener('click',()=>applyStyle('bp'));
+document.getElementById('bRd').addEventListener('click',()=>applyStyle('rd'));
+bRot.addEventListener('click',()=>{ controls.autoRotate=!controls.autoRotate; bRot.setAttribute('aria-pressed',String(controls.autoRotate)); });
+function exitPresent(){ stage.classList.remove('present'); bPres.textContent='Present'; refit=true; }
+bPres.addEventListener('click',()=>{
+  if(document.fullscreenElement){ document.exitFullscreen().catch(()=>{}); return; }
+  if(stage.classList.contains('present')){ exitPresent(); return; }
+  const p = stage.requestFullscreen ? stage.requestFullscreen() : Promise.reject();
+  Promise.resolve(p).then(()=>{ bPres.textContent='Exit'; refit=true; }).catch(()=>{ stage.classList.add('present'); bPres.textContent='Exit'; refit=true; });
+});
+document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement){ bPres.textContent='Present'; } refit=true; });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&stage.classList.contains('present')) exitPresent(); });
+
+/* ---------------- Fix table ---------------- */
+const fixRows=document.getElementById('fixRows');
+order.forEach(id=>{ const i=INFO[id]; const tr=document.createElement('tr'); tr.innerHTML=`<td>${String(i.n).padStart(2,'0')} · ${i.name}</td><td class="ex">${i.part}</td><td>${i.fix}</td>`; fixRows.appendChild(tr); });
+
+/* ---------------- Loop ---------------- */
+let refit=true, userMoved=false; controls.addEventListener('start',()=>{userMoved=true;});
+const ro=new ResizeObserver(()=>{ refit=true; renderInsets(); }); ro.observe(stage); insets.forEach(I=>ro.observe(I.view.canvas));
+let frA=null, frE=null;
+function frameMain(){ const cw=Math.min(230,main.w*.2)+34;
+  const pad = compact ? {l:14,r:14,t:44,b:120} : {l:cw,r:cw,t:40,b:main.h>700?110:70};
+  const grab=()=>({l:camM.left,r:camM.right,t:camM.top,b:camM.bottom});
+  fit(main,camM,camBounds(M,camM,[0]),pad,1.1); frA=grab();
+  fit(main,camM,camBounds(M,camM,[1]),pad,1.04); frE=grab();
+  layout(M,tE,false); applyFrame(); }
+function applyFrame(){ if(!frA) return; const e=ease(tE), L=(a,b)=>a+(b-a)*e;
+  camM.left=L(frA.l,frE.l); camM.right=L(frA.r,frE.r); camM.top=L(frA.t,frE.t); camM.bottom=L(frA.b,frE.b); camM.updateProjectionMatrix(); }
+function loop(){
+  if(main.size()){
+    if(refit){ compact=main.w<820; frameMain(); refit=false; }
+    tE += (targetE-tE)*(reduce?1:.07); if(Math.abs(targetE-tE)<.0005) tE=targetE;
+    layout(M,tE,true); applyFrame(); controls.update();
+    if(style==='rd'){ ground.position.y = -0.95 - 8.0*ease(tE) - .02; }
+    if(style==='bp') main.render(sceneM,camM,tok('--ink'),1,false);
+    else main.render(sceneM,camM,tok('--studio-ink'),.42,true);
+    placeCallouts();
+  }
+  requestAnimationFrame(loop);
+}
+applyTheme(); select('pods'); loop();
+window.__rb = {setExplode:(on,snap)=>{ setExplode(on); if(snap) tE=targetE; }, applyStyle, select};
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,3486 @@
+{
+ "ts": "2026-10-25T05:05:50+00:00",
+ "post_hoc": true,
+ "protocol": "outputs_posthoc/model_comparison.md (top section; stated to be written before the runs, not verifiable, see protocol_freeze)",
+ "task": "agent.investigator fresh run, thinking_level medium, MAX_ROUNDS 2, --no-atlas (CACHED retrieval)",
+ "order": [
+  "01_argon",
+  "02_flash",
+  "03_flash",
+  "04_argon",
+  "05_argon",
+  "06_flash",
+  "07_flash",
+  "08_argon",
+  "09_argon",
+  "10_flash",
+  "11_flash",
+  "12_argon"
+ ],
+ "integrity_distinct_values": {
+  "verifier_sha": [
+   "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69"
+  ],
+  "corpus_hash": [
+   "c8b8d65b7a24335c"
+  ],
+  "stats_hash": [
+   "c4bdc8d00fd19aea"
+  ],
+  "retrieval_source": [
+   "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)"
+  ],
+  "retrieval_hash": [
+   "998558ebf1892319"
+  ]
+ },
+ "all_reverify_match": true,
+ "protocol_freeze": {
+  "file": "outputs_posthoc/compare/protocol_frozen.md",
+  "frozen_sha256": "5f1c90239c3fbee47f93454e20c4466129114c3b8621720c21d4f2c19049bf04",
+  "md_protocol_sha256": "5f1c90239c3fbee47f93454e20c4466129114c3b8621720c21d4f2c19049bf04",
+  "md_matches_frozen": true,
+  "note": "the copy was taken after the results existed: the hash guards against later edits only, it cannot show the protocol was unedited before the runs"
+ },
+ "summary": {
+  "gemini-4-argon": {
+   "runs": 6,
+   "ok": 6,
+   "parse_failures": 0,
+   "r0_claims": {
+    "median": 14.0,
+    "min": 13,
+    "max": 15,
+    "n": 6
+   },
+   "r0_rejected": {
+    "median": 4.0,
+    "min": 3,
+    "max": 7,
+    "n": 6
+   },
+   "r0_rate": {
+    "median": 0.308,
+    "min": 0.214,
+    "max": 0.467,
+    "n": 6
+   },
+   "converged": 6,
+   "rounds_used": {
+    "median": 2.0,
+    "min": 2,
+    "max": 2,
+    "n": 6
+   },
+   "final_verified": {
+    "median": 14.0,
+    "min": 13,
+    "max": 15,
+    "n": 6
+   },
+   "final_dropped": {
+    "median": 0.0,
+    "min": 0,
+    "max": 0,
+    "n": 6
+   },
+   "asks": {
+    "median": 3.5,
+    "min": 3,
+    "max": 4,
+    "n": 6
+   },
+   "seconds_total": {
+    "median": 107.44999999999999,
+    "min": 83.2,
+    "max": 176.1,
+    "n": 6
+   },
+   "seconds_round0": {
+    "median": 56.85,
+    "min": 41.8,
+    "max": 69.0,
+    "n": 6
+   },
+   "r0_reasons_total": {
+    "quote not found": 12,
+    "unsupported number": 27
+   },
+   "prompt_tokens_r0": {
+    "median": 49387.0,
+    "min": 49387,
+    "max": 49387,
+    "n": 6
+   },
+   "output_tokens": {
+    "median": 4978.0,
+    "min": 4215,
+    "max": 5872,
+    "n": 12
+   },
+   "thought_tokens": {
+    "median": 547.0,
+    "min": 536,
+    "max": 558,
+    "n": 2
+   },
+   "framing_major": {
+    "median": 3.0,
+    "min": 1,
+    "max": 4,
+    "n": 6
+   },
+   "framing_minor": {
+    "median": 10.0,
+    "min": 7,
+    "max": 14,
+    "n": 6
+   },
+   "framing_per_claim": {
+    "median": 1.0,
+    "min": 0.7692307692307693,
+    "max": 1.1333333333333333,
+    "n": 6
+   },
+   "framing_runs_with_rule": {
+    "M": 5,
+    "D": 6,
+    "E": 4,
+    "O": 2,
+    "K": 6,
+    "F": 6,
+    "C": 5,
+    "A": 6,
+    "G": 5,
+    "I": 6,
+    "B": 5,
+    "J": 4,
+    "L": 1,
+    "N": 1,
+    "X": 1,
+    "H": 2
+   },
+   "framing_issues_by_rule": {
+    "A": 6,
+    "B": 5,
+    "M": 9,
+    "C": 7,
+    "D": 6,
+    "E": 5,
+    "O": 2,
+    "F": 6,
+    "I": 7,
+    "G": 6,
+    "K": 7,
+    "J": 9,
+    "L": 1,
+    "N": 1,
+    "H": 2,
+    "X": 1
+   },
+   "content": {
+    "words_per_claim": {
+     "median": 51.25,
+     "min": 44.9,
+     "max": 54.5,
+     "n": 6
+    },
+    "numbers_per_claim": {
+     "median": 3.885,
+     "min": 3.13,
+     "max": 4.07,
+     "n": 6
+    },
+    "citations_per_claim": {
+     "median": 2.1,
+     "min": 1.71,
+     "max": 2.67,
+     "n": 6
+    },
+    "distinct_chunks": {
+     "median": 13.0,
+     "min": 10,
+     "max": 17,
+     "n": 6
+    },
+    "distinct_documents": {
+     "median": 9.0,
+     "min": 7,
+     "max": 10,
+     "n": 6
+    },
+    "multi_document_claims": {
+     "median": 2.0,
+     "min": 0,
+     "max": 4,
+     "n": 6
+    },
+    "issues_per_100_words": {
+     "median": 1.865,
+     "min": 1.55,
+     "max": 2.23,
+     "n": 6
+    }
+   },
+   "sources_runs": {
+    "BrixtonBuzz-2026-01-27": 6,
+    "CSOPP-2022-12-tube-noise": 6,
+    "FOI-1231-2425": 6,
+    "FOI-1730-1819": 6,
+    "FOI-2986-2324": 2,
+    "MQ-2022-1791": 6,
+    "MQT-2026-2156": 6,
+    "MQT-2026-2156#001": 6,
+    "MQT-2026-2156#002": 5,
+    "TfL-noise-update-2024-08": 5,
+    "Weir-letter-2022-12": 6,
+    "loudness.verdict": 6,
+    "niosh.WB.MLE-LST": 6,
+    "FOI-3780-2324": 2,
+    "MQ-2022-2799": 1,
+    "TfL-noise-update-2025-08": 1
+   }
+  },
+  "gemini-3.8-flash": {
+   "runs": 6,
+   "ok": 6,
+   "parse_failures": 0,
+   "r0_claims": {
+    "median": 14.0,
+    "min": 13,
+    "max": 15,
+    "n": 6
+   },
+   "r0_rejected": {
+    "median": 4.0,
+    "min": 1,
+    "max": 5,
+    "n": 6
+   },
+   "r0_rate": {
+    "median": 0.27649999999999997,
+    "min": 0.071,
+    "max": 0.333,
+    "n": 6
+   },
+   "converged": 6,
+   "rounds_used": {
+    "median": 2.0,
+    "min": 2,
+    "max": 2,
+    "n": 6
+   },
+   "final_verified": {
+    "median": 14.0,
+    "min": 13,
+    "max": 15,
+    "n": 6
+   },
+   "final_dropped": {
+    "median": 0.0,
+    "min": 0,
+    "max": 0,
+    "n": 6
+   },
+   "asks": {
+    "median": 3.0,
+    "min": 3,
+    "max": 4,
+    "n": 6
+   },
+   "seconds_total": {
+    "median": 110.1,
+    "min": 80.6,
+    "max": 129.3,
+    "n": 6
+   },
+   "seconds_round0": {
+    "median": 65.75,
+    "min": 23.2,
+    "max": 84.6,
+    "n": 6
+   },
+   "r0_reasons_total": {
+    "unsupported number": 21,
+    "quote not found": 2
+   },
+   "prompt_tokens_r0": {
+    "median": 48435.0,
+    "min": 48435,
+    "max": 48435,
+    "n": 6
+   },
+   "output_tokens": {
+    "median": 2852.0,
+    "min": 2744,
+    "max": 3089,
+    "n": 12
+   },
+   "thought_tokens": {
+    "median": 6395,
+    "min": 1581,
+    "max": 11428,
+    "n": 11
+   },
+   "framing_major": {
+    "median": 0.0,
+    "min": 0,
+    "max": 1,
+    "n": 6
+   },
+   "framing_minor": {
+    "median": 6.5,
+    "min": 4,
+    "max": 8,
+    "n": 6
+   },
+   "framing_per_claim": {
+    "median": 0.48333333333333334,
+    "min": 0.2857142857142857,
+    "max": 0.5714285714285714,
+    "n": 6
+   },
+   "framing_runs_with_rule": {
+    "D": 6,
+    "M": 1,
+    "O": 4,
+    "Y": 1,
+    "J": 6,
+    "F": 6,
+    "C": 1,
+    "N": 2,
+    "K": 3,
+    "I": 2,
+    "G": 3,
+    "L": 1
+   },
+   "framing_issues_by_rule": {
+    "N": 2,
+    "C": 1,
+    "D": 6,
+    "F": 6,
+    "O": 5,
+    "J": 9,
+    "Y": 1,
+    "M": 1,
+    "K": 3,
+    "I": 2,
+    "G": 3,
+    "L": 1
+   },
+   "content": {
+    "words_per_claim": {
+     "median": 26.1,
+     "min": 24.2,
+     "max": 28.4,
+     "n": 6
+    },
+    "numbers_per_claim": {
+     "median": 1.3250000000000002,
+     "min": 1.07,
+     "max": 1.79,
+     "n": 6
+    },
+    "citations_per_claim": {
+     "median": 1.065,
+     "min": 0.77,
+     "max": 1.21,
+     "n": 6
+    },
+    "distinct_chunks": {
+     "median": 6.0,
+     "min": 6,
+     "max": 7,
+     "n": 6
+    },
+    "distinct_documents": {
+     "median": 6.0,
+     "min": 5,
+     "max": 7,
+     "n": 6
+    },
+    "multi_document_claims": {
+     "median": 0.0,
+     "min": 0,
+     "max": 0,
+     "n": 6
+    },
+    "issues_per_100_words": {
+     "median": 1.94,
+     "min": 1.07,
+     "max": 2.01,
+     "n": 6
+    }
+   },
+   "sources_runs": {
+    "BrixtonBuzz-2026-01-27": 6,
+    "FOI-1231-2425": 6,
+    "MQ-2022-1791": 6,
+    "MQ-2022-2799": 2,
+    "MQT-2026-2156": 4,
+    "MQT-2026-2156#001": 4,
+    "Weir-letter-2022-12": 6,
+    "niosh.WB.MLE-LST": 6,
+    "CSOPP-2022-12-tube-noise": 4,
+    "FOI-1730-1819": 2,
+    "loudness.verdict": 1
+   }
+  }
+ },
+ "runs": [
+  {
+   "slot": "01_argon",
+   "model": "gemini-4-argon",
+   "ts": "2026-10-25T04:11:01+00:00",
+   "model_version": [
+    "gemini-4-argon"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    55.6,
+    41.2
+   ],
+   "seconds_total": 96.8,
+   "tokens": [
+    {
+     "prompt": 49387,
+     "output": 5147,
+     "thoughts": null
+    },
+    {
+     "prompt": 54928,
+     "output": 5182,
+     "thoughts": null
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 15,
+     "rejected": 5,
+     "rejected_ids": [
+      "C3",
+      "C4",
+      "C8",
+      "C11",
+      "C14"
+     ],
+     "reasons": {
+      "quote not found": 2,
+      "unsupported number": 5
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 9,
+      "derived": 2,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 15,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 9,
+      "derived": 2,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 15,
+   "r0_rejected": 5,
+   "r0_rate": 0.333,
+   "r0_reasons": {
+    "quote not found": 2,
+    "unsupported number": 5
+   },
+   "converged": true,
+   "final_verified": 15,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 9,
+    "derived": 2,
+    "measured": 3,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 3,
+    "context": 2,
+    "our_measurements": 4,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 5
+   },
+   "dropped": [],
+   "content": {
+    "words": 704,
+    "words_per_claim": 46.9,
+    "numbers_per_claim": 3.13,
+    "citations_per_claim": 2.2,
+    "distinct_chunks": 14,
+    "distinct_documents": 9,
+    "multi_document_claims": 2,
+    "issues_per_100_words": 1.7,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "FOI-2986-2324",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "MQT-2026-2156#002",
+     "TfL-noise-update-2024-08",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 9,
+     "derived": 2,
+     "measured": 3,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P6",
+    "claims_reviewed": 15,
+    "major": 3,
+    "minor": 9,
+    "by_category": {
+     "out-of-context quote": 4,
+     "overgeneralised scope": 3,
+     "other misleading framing": 5
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 2,
+     "C": 1,
+     "D": 1,
+     "E": 1,
+     "O": 1,
+     "F": 1,
+     "I": 1,
+     "G": 1,
+     "K": 1
+    }
+   }
+  },
+  {
+   "slot": "02_flash",
+   "model": "gemini-3.8-flash",
+   "ts": "2026-10-25T04:13:10+00:00",
+   "model_version": [
+    "gemini-3.8-flash"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    84.4,
+    40.8
+   ],
+   "seconds_total": 125.3,
+   "tokens": [
+    {
+     "prompt": 48435,
+     "output": 2915,
+     "thoughts": 11428
+    },
+    {
+     "prompt": 63048,
+     "output": 2890,
+     "thoughts": 4021
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 15,
+     "rejected": 4,
+     "rejected_ids": [
+      "reconditioning-planned-lst-bth",
+      "tfl-cab-difference-eb",
+      "limits-grinding-direction-gaps",
+      "transparency-refusal-context"
+     ],
+     "reasons": {
+      "unsupported number": 4
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 15,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 15,
+   "r0_rejected": 4,
+   "r0_rate": 0.267,
+   "r0_reasons": {
+    "unsupported number": 4
+   },
+   "converged": true,
+   "final_verified": 15,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 8,
+    "derived": 1,
+    "measured": 4,
+    "inference": 2
+   },
+   "verified_sections": {
+    "grinding": 3,
+    "tfl_data": 4,
+    "our_measurements": 4,
+    "limits": 3,
+    "context": 1
+   },
+   "r0_rejected_fate": {
+    "fixed": 4
+   },
+   "dropped": [],
+   "content": {
+    "words": 411,
+    "words_per_claim": 27.4,
+    "numbers_per_claim": 1.2,
+    "citations_per_claim": 1.0,
+    "distinct_chunks": 6,
+    "distinct_documents": 6,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 1.95,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "FOI-1231-2425",
+     "MQ-2022-1791",
+     "MQ-2022-2799",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "Weir-letter-2022-12",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 8,
+     "derived": 1,
+     "measured": 4,
+     "inference": 2
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P10",
+    "claims_reviewed": 15,
+    "major": 1,
+    "minor": 7,
+    "by_category": {
+     "out-of-context quote": 3,
+     "other misleading framing": 3,
+     "overgeneralised scope": 1,
+     "overstated commitment": 1
+    },
+    "by_rule": {
+     "N": 1,
+     "C": 1,
+     "D": 1,
+     "F": 1,
+     "O": 1,
+     "J": 1,
+     "Y": 1,
+     "M": 1
+    }
+   }
+  },
+  {
+   "slot": "03_flash",
+   "model": "gemini-3.8-flash",
+   "ts": "2026-10-25T04:14:58+00:00",
+   "model_version": [
+    "gemini-3.8-flash"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    53.1,
+    52.3
+   ],
+   "seconds_total": 105.4,
+   "tokens": [
+    {
+     "prompt": 48435,
+     "output": 2796,
+     "thoughts": 5811
+    },
+    {
+     "prompt": 57294,
+     "output": 2814,
+     "thoughts": 5577
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 14,
+     "rejected": 3,
+     "rejected_ids": [
+      "c3",
+      "c4",
+      "c13"
+     ],
+     "reasons": {
+      "quote not found": 1,
+      "unsupported number": 3
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 14,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 14,
+   "r0_rejected": 3,
+   "r0_rate": 0.214,
+   "r0_reasons": {
+    "quote not found": 1,
+    "unsupported number": 3
+   },
+   "converged": true,
+   "final_verified": 14,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 7,
+    "derived": 1,
+    "measured": 4,
+    "inference": 2
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 3,
+    "our_measurements": 5,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 3
+   },
+   "dropped": [],
+   "content": {
+    "words": 354,
+    "words_per_claim": 25.3,
+    "numbers_per_claim": 1.36,
+    "citations_per_claim": 1.14,
+    "distinct_chunks": 6,
+    "distinct_documents": 6,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 1.98,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "MQ-2022-1791",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 7,
+     "derived": 1,
+     "measured": 4,
+     "inference": 2
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P3",
+    "claims_reviewed": 14,
+    "major": 1,
+    "minor": 6,
+    "by_category": {
+     "other misleading framing": 4,
+     "overgeneralised scope": 3
+    },
+    "by_rule": {
+     "F": 1,
+     "O": 1,
+     "J": 2,
+     "D": 1,
+     "K": 1,
+     "I": 1
+    }
+   }
+  },
+  {
+   "slot": "04_argon",
+   "model": "gemini-4-argon",
+   "ts": "2026-10-25T04:16:56+00:00",
+   "model_version": [
+    "gemini-4-argon"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    69.0,
+    45.2
+   ],
+   "seconds_total": 114.3,
+   "tokens": [
+    {
+     "prompt": 49387,
+     "output": 4803,
+     "thoughts": null
+    },
+    {
+     "prompt": 54450,
+     "output": 4809,
+     "thoughts": null
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 14,
+     "rejected": 3,
+     "rejected_ids": [
+      "C03",
+      "C04",
+      "C14"
+     ],
+     "reasons": {
+      "unsupported number": 3,
+      "quote not found": 1
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 2,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    },
+    {
+     "claims": 14,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 2,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 14,
+   "r0_rejected": 3,
+   "r0_rate": 0.214,
+   "r0_reasons": {
+    "unsupported number": 3,
+    "quote not found": 1
+   },
+   "converged": true,
+   "final_verified": 14,
+   "final_dropped": 0,
+   "asks": 4,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 8,
+    "derived": 2,
+    "measured": 3,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 2,
+    "context": 2,
+    "our_measurements": 4,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 3
+   },
+   "dropped": [],
+   "content": {
+    "words": 629,
+    "words_per_claim": 44.9,
+    "numbers_per_claim": 3.14,
+    "citations_per_claim": 2.0,
+    "distinct_chunks": 10,
+    "distinct_documents": 7,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 2.23,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "MQT-2026-2156#002",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 8,
+     "derived": 2,
+     "measured": 3,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P1",
+    "claims_reviewed": 14,
+    "major": 1,
+    "minor": 13,
+    "by_category": {
+     "out-of-context quote": 2,
+     "overgeneralised scope": 5,
+     "other misleading framing": 7
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "D": 1,
+     "E": 1,
+     "O": 1,
+     "F": 1,
+     "G": 1,
+     "I": 2,
+     "J": 2,
+     "C": 1,
+     "K": 1,
+     "L": 1
+    }
+   }
+  },
+  {
+   "slot": "05_argon",
+   "model": "gemini-4-argon",
+   "ts": "2026-10-25T04:18:23+00:00",
+   "model_version": [
+    "gemini-4-argon"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    41.8,
+    41.4
+   ],
+   "seconds_total": 83.2,
+   "tokens": [
+    {
+     "prompt": 49387,
+     "output": 4215,
+     "thoughts": 536
+    },
+    {
+     "prompt": 54486,
+     "output": 4332,
+     "thoughts": 558
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 13,
+     "rejected": 4,
+     "rejected_ids": [
+      "C3",
+      "C4",
+      "C10",
+      "C13"
+     ],
+     "reasons": {
+      "quote not found": 2,
+      "unsupported number": 4
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 13,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 13,
+   "r0_rejected": 4,
+   "r0_rate": 0.308,
+   "r0_reasons": {
+    "quote not found": 2,
+    "unsupported number": 4
+   },
+   "converged": true,
+   "final_verified": 13,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 8,
+    "derived": 1,
+    "measured": 3,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 2,
+    "our_measurements": 3,
+    "context": 2,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 4
+   },
+   "dropped": [],
+   "content": {
+    "words": 685,
+    "words_per_claim": 52.7,
+    "numbers_per_claim": 3.77,
+    "citations_per_claim": 2.0,
+    "distinct_chunks": 12,
+    "distinct_documents": 10,
+    "multi_document_claims": 3,
+    "issues_per_100_words": 1.9,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "FOI-3780-2324",
+     "MQ-2022-1791",
+     "MQ-2022-2799",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "MQT-2026-2156#002",
+     "TfL-noise-update-2024-08",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 8,
+     "derived": 1,
+     "measured": 3,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P4",
+    "claims_reviewed": 13,
+    "major": 3,
+    "minor": 10,
+    "by_category": {
+     "out-of-context quote": 5,
+     "overgeneralised scope": 5,
+     "other misleading framing": 3
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 2,
+     "N": 1,
+     "D": 1,
+     "F": 1,
+     "G": 1,
+     "J": 2,
+     "C": 1,
+     "I": 1,
+     "K": 1
+    }
+   }
+  },
+  {
+   "slot": "06_flash",
+   "model": "gemini-3.8-flash",
+   "ts": "2026-10-25T04:20:22+00:00",
+   "model_version": [
+    "gemini-3.8-flash"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    84.6,
+    30.1
+   ],
+   "seconds_total": 114.8,
+   "tokens": [
+    {
+     "prompt": 48435,
+     "output": 2790,
+     "thoughts": 10798
+    },
+    {
+     "prompt": 62326,
+     "output": 2754,
+     "thoughts": 2280
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 15,
+     "rejected": 5,
+     "rejected_ids": [
+      "claim_2",
+      "claim_5",
+      "claim_6",
+      "claim_7",
+      "claim_15"
+     ],
+     "reasons": {
+      "unsupported number": 5
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 15,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 15,
+   "r0_rejected": 5,
+   "r0_rate": 0.333,
+   "r0_reasons": {
+    "unsupported number": 5
+   },
+   "converged": true,
+   "final_verified": 15,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 8,
+    "derived": 1,
+    "measured": 4,
+    "inference": 2
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 3,
+    "our_measurements": 4,
+    "limits": 3,
+    "context": 1
+   },
+   "r0_rejected_fate": {
+    "fixed": 5
+   },
+   "dropped": [],
+   "content": {
+    "words": 363,
+    "words_per_claim": 24.2,
+    "numbers_per_claim": 1.07,
+    "citations_per_claim": 1.13,
+    "distinct_chunks": 7,
+    "distinct_documents": 7,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 1.93,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "MQ-2022-1791",
+     "MQ-2022-2799",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "Weir-letter-2022-12",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 8,
+     "derived": 1,
+     "measured": 4,
+     "inference": 2
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P7",
+    "claims_reviewed": 15,
+    "major": 0,
+    "minor": 7,
+    "by_category": {
+     "out-of-context quote": 1,
+     "other misleading framing": 4,
+     "overgeneralised scope": 2
+    },
+    "by_rule": {
+     "N": 1,
+     "D": 1,
+     "F": 1,
+     "O": 2,
+     "J": 1,
+     "G": 1
+    }
+   }
+  },
+  {
+   "slot": "07_flash",
+   "model": "gemini-3.8-flash",
+   "ts": "2026-10-25T04:21:46+00:00",
+   "model_version": [
+    "gemini-3.8-flash"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    23.2,
+    57.4
+   ],
+   "seconds_total": 80.6,
+   "tokens": [
+    {
+     "prompt": 48435,
+     "output": 3060,
+     "thoughts": null
+    },
+    {
+     "prompt": 51749,
+     "output": 3016,
+     "thoughts": 6395
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 13,
+     "rejected": 4,
+     "rejected_ids": [
+      "claim-02",
+      "claim-05",
+      "claim-11",
+      "claim-13"
+     ],
+     "reasons": {
+      "unsupported number": 4
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 13,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 13,
+   "r0_rejected": 4,
+   "r0_rate": 0.308,
+   "r0_reasons": {
+    "unsupported number": 4
+   },
+   "converged": true,
+   "final_verified": 13,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 7,
+    "derived": 1,
+    "measured": 4,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 2,
+    "tfl_data": 3,
+    "our_measurements": 4,
+    "limits": 2,
+    "context": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 4
+   },
+   "dropped": [],
+   "content": {
+    "words": 332,
+    "words_per_claim": 25.5,
+    "numbers_per_claim": 1.38,
+    "citations_per_claim": 0.77,
+    "distinct_chunks": 6,
+    "distinct_documents": 6,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 1.81,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "Weir-letter-2022-12",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 7,
+     "derived": 1,
+     "measured": 4,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P2",
+    "claims_reviewed": 13,
+    "major": 0,
+    "minor": 6,
+    "by_category": {
+     "other misleading framing": 3,
+     "overgeneralised scope": 3
+    },
+    "by_rule": {
+     "D": 1,
+     "F": 1,
+     "G": 1,
+     "J": 1,
+     "K": 1,
+     "L": 1
+    }
+   }
+  },
+  {
+   "slot": "08_argon",
+   "model": "gemini-4-argon",
+   "ts": "2026-10-25T04:24:01+00:00",
+   "model_version": [
+    "gemini-4-argon"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    65.4,
+    65.6
+   ],
+   "seconds_total": 131.0,
+   "tokens": [
+    {
+     "prompt": 49387,
+     "output": 5505,
+     "thoughts": null
+    },
+    {
+     "prompt": 55474,
+     "output": 5872,
+     "thoughts": null
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 15,
+     "rejected": 7,
+     "rejected_ids": [
+      "C2",
+      "C3",
+      "C4",
+      "C7",
+      "C12",
+      "C13",
+      "C15"
+     ],
+     "reasons": {
+      "unsupported number": 7,
+      "quote not found": 3
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 9,
+      "derived": 1,
+      "measured": 4,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    },
+    {
+     "claims": 15,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 9,
+      "derived": 1,
+      "measured": 4,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 15,
+   "r0_rejected": 7,
+   "r0_rate": 0.467,
+   "r0_reasons": {
+    "unsupported number": 7,
+    "quote not found": 3
+   },
+   "converged": true,
+   "final_verified": 15,
+   "final_dropped": 0,
+   "asks": 4,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 9,
+    "derived": 1,
+    "measured": 4,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 3,
+    "our_measurements": 4,
+    "context": 2,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 7
+   },
+   "dropped": [],
+   "content": {
+    "words": 800,
+    "words_per_claim": 53.3,
+    "numbers_per_claim": 4.0,
+    "citations_per_claim": 2.67,
+    "distinct_chunks": 17,
+    "distinct_documents": 10,
+    "multi_document_claims": 2,
+    "issues_per_100_words": 2.12,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "FOI-3780-2324",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "TfL-noise-update-2024-08",
+     "TfL-noise-update-2025-08",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 9,
+     "derived": 1,
+     "measured": 4,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P9",
+    "claims_reviewed": 15,
+    "major": 3,
+    "minor": 14,
+    "by_category": {
+     "out-of-context quote": 5,
+     "overgeneralised scope": 7,
+     "other misleading framing": 5
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 2,
+     "C": 2,
+     "E": 2,
+     "D": 1,
+     "F": 1,
+     "G": 2,
+     "J": 2,
+     "K": 2,
+     "I": 1
+    }
+   }
+  },
+  {
+   "slot": "09_argon",
+   "model": "gemini-4-argon",
+   "ts": "2026-10-25T04:27:29+00:00",
+   "model_version": [
+    "gemini-4-argon"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    47.6,
+    128.5
+   ],
+   "seconds_total": 176.1,
+   "tokens": [
+    {
+     "prompt": 49387,
+     "output": 5203,
+     "thoughts": null
+    },
+    {
+     "prompt": 54880,
+     "output": 5205,
+     "thoughts": null
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 14,
+     "rejected": 4,
+     "rejected_ids": [
+      "C2",
+      "C3",
+      "C10",
+      "C13"
+     ],
+     "reasons": {
+      "unsupported number": 4,
+      "quote not found": 1
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 2,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    },
+    {
+     "claims": 14,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 2,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 14,
+   "r0_rejected": 4,
+   "r0_rate": 0.286,
+   "r0_reasons": {
+    "unsupported number": 4,
+    "quote not found": 1
+   },
+   "converged": true,
+   "final_verified": 14,
+   "final_dropped": 0,
+   "asks": 4,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 8,
+    "derived": 2,
+    "measured": 3,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 3,
+    "tfl_data": 3,
+    "context": 2,
+    "our_measurements": 4,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 4
+   },
+   "dropped": [],
+   "content": {
+    "words": 763,
+    "words_per_claim": 54.5,
+    "numbers_per_claim": 4.07,
+    "citations_per_claim": 1.71,
+    "distinct_chunks": 15,
+    "distinct_documents": 9,
+    "multi_document_claims": 4,
+    "issues_per_100_words": 1.83,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "FOI-2986-2324",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "MQT-2026-2156#002",
+     "TfL-noise-update-2024-08",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 8,
+     "derived": 2,
+     "measured": 3,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P5",
+    "claims_reviewed": 14,
+    "major": 4,
+    "minor": 10,
+    "by_category": {
+     "out-of-context quote": 4,
+     "other misleading framing": 4,
+     "overgeneralised scope": 5,
+     "overstated commitment": 1
+    },
+    "by_rule": {
+     "A": 1,
+     "M": 2,
+     "D": 1,
+     "E": 1,
+     "F": 1,
+     "I": 1,
+     "J": 3,
+     "H": 1,
+     "G": 1,
+     "K": 1,
+     "X": 1
+    }
+   }
+  },
+  {
+   "slot": "10_flash",
+   "model": "gemini-3.8-flash",
+   "ts": "2026-10-25T04:29:07+00:00",
+   "model_version": [
+    "gemini-3.8-flash"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    68.3,
+    26.6
+   ],
+   "seconds_total": 95.0,
+   "tokens": [
+    {
+     "prompt": 48435,
+     "output": 2766,
+     "thoughts": 8323
+    },
+    {
+     "prompt": 59627,
+     "output": 2744,
+     "thoughts": 1581
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 14,
+     "rejected": 1,
+     "rejected_ids": [
+      "claim_limits_history"
+     ],
+     "reasons": {
+      "unsupported number": 1
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    },
+    {
+     "claims": 14,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 4
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 14,
+   "r0_rejected": 1,
+   "r0_rate": 0.071,
+   "r0_reasons": {
+    "unsupported number": 1
+   },
+   "converged": true,
+   "final_verified": 14,
+   "final_dropped": 0,
+   "asks": 4,
+   "headline_kept": 4,
+   "headline_asked": 4,
+   "verified_types": {
+    "sourced": 7,
+    "derived": 1,
+    "measured": 4,
+    "inference": 2
+   },
+   "verified_sections": {
+    "grinding": 3,
+    "tfl_data": 3,
+    "our_measurements": 4,
+    "limits": 3,
+    "context": 1
+   },
+   "r0_rejected_fate": {
+    "fixed": 1
+   },
+   "dropped": [],
+   "content": {
+    "words": 374,
+    "words_per_claim": 26.7,
+    "numbers_per_claim": 1.29,
+    "citations_per_claim": 0.93,
+    "distinct_chunks": 6,
+    "distinct_documents": 6,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 1.07,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "Weir-letter-2022-12",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 7,
+     "derived": 1,
+     "measured": 4,
+     "inference": 2
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P12",
+    "claims_reviewed": 14,
+    "major": 0,
+    "minor": 4,
+    "by_category": {
+     "other misleading framing": 3,
+     "overgeneralised scope": 1
+    },
+    "by_rule": {
+     "D": 1,
+     "F": 1,
+     "J": 1,
+     "I": 1
+    }
+   }
+  },
+  {
+   "slot": "11_flash",
+   "model": "gemini-3.8-flash",
+   "ts": "2026-10-25T04:31:20+00:00",
+   "model_version": [
+    "gemini-3.8-flash"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    63.2,
+    66.2
+   ],
+   "seconds_total": 129.3,
+   "tokens": [
+    {
+     "prompt": 48435,
+     "output": 3089,
+     "thoughts": 6879
+    },
+    {
+     "prompt": 58734,
+     "output": 3077,
+     "thoughts": 7271
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 14,
+     "rejected": 4,
+     "rejected_ids": [
+      "claim_planned_reconditioning_2023",
+      "claim_grinding_repetition_needed",
+      "claim_worker_exposure_standards",
+      "claim_limits_grinding_gaps"
+     ],
+     "reasons": {
+      "unsupported number": 4,
+      "quote not found": 1
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 14,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 7,
+      "derived": 1,
+      "measured": 4,
+      "inference": 2
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 14,
+   "r0_rejected": 4,
+   "r0_rate": 0.286,
+   "r0_reasons": {
+    "unsupported number": 4,
+    "quote not found": 1
+   },
+   "converged": true,
+   "final_verified": 14,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 4,
+   "headline_asked": 4,
+   "verified_types": {
+    "sourced": 7,
+    "derived": 1,
+    "measured": 4,
+    "inference": 2
+   },
+   "verified_sections": {
+    "grinding": 3,
+    "tfl_data": 3,
+    "our_measurements": 4,
+    "context": 1,
+    "limits": 3
+   },
+   "r0_rejected_fate": {
+    "fixed": 4
+   },
+   "dropped": [],
+   "content": {
+    "words": 398,
+    "words_per_claim": 28.4,
+    "numbers_per_claim": 1.79,
+    "citations_per_claim": 1.21,
+    "distinct_chunks": 6,
+    "distinct_documents": 5,
+    "multi_document_claims": 0,
+    "issues_per_100_words": 2.01,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "MQ-2022-1791",
+     "Weir-letter-2022-12",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 7,
+     "derived": 1,
+     "measured": 4,
+     "inference": 2
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P11",
+    "claims_reviewed": 14,
+    "major": 0,
+    "minor": 8,
+    "by_category": {
+     "other misleading framing": 3,
+     "overgeneralised scope": 5
+    },
+    "by_rule": {
+     "D": 1,
+     "F": 1,
+     "O": 1,
+     "J": 3,
+     "K": 1,
+     "G": 1
+    }
+   }
+  },
+  {
+   "slot": "12_argon",
+   "model": "gemini-4-argon",
+   "ts": "2026-10-25T04:33:04+00:00",
+   "model_version": [
+    "gemini-4-argon"
+   ],
+   "status": "ok",
+   "error": null,
+   "rounds_used": 2,
+   "seconds_per_round": [
+    58.1,
+    42.5
+   ],
+   "seconds_total": 100.6,
+   "tokens": [
+    {
+     "prompt": 49387,
+     "output": 4681,
+     "thoughts": null
+    },
+    {
+     "prompt": 54456,
+     "output": 4742,
+     "thoughts": null
+    }
+   ],
+   "per_round": [
+    {
+     "claims": 13,
+     "rejected": 4,
+     "rejected_ids": [
+      "C2",
+      "C3",
+      "C4",
+      "C12"
+     ],
+     "reasons": {
+      "unsupported number": 4,
+      "quote not found": 3
+     },
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    },
+    {
+     "claims": 13,
+     "rejected": 0,
+     "rejected_ids": [],
+     "reasons": {},
+     "formula_reasons": [],
+     "types": {
+      "sourced": 8,
+      "derived": 1,
+      "measured": 3,
+      "inference": 1
+     },
+     "duplicate_ids": 0,
+     "asks": 3
+    }
+   ],
+   "reverify_match": true,
+   "r0_claims": 13,
+   "r0_rejected": 4,
+   "r0_rate": 0.308,
+   "r0_reasons": {
+    "unsupported number": 4,
+    "quote not found": 3
+   },
+   "converged": true,
+   "final_verified": 13,
+   "final_dropped": 0,
+   "asks": 3,
+   "headline_kept": 5,
+   "headline_asked": 5,
+   "verified_types": {
+    "sourced": 8,
+    "derived": 1,
+    "measured": 3,
+    "inference": 1
+   },
+   "verified_sections": {
+    "grinding": 4,
+    "tfl_data": 2,
+    "context": 2,
+    "our_measurements": 3,
+    "limits": 2
+   },
+   "r0_rejected_fate": {
+    "fixed": 4
+   },
+   "dropped": [],
+   "content": {
+    "words": 647,
+    "words_per_claim": 49.8,
+    "numbers_per_claim": 4.0,
+    "citations_per_claim": 2.46,
+    "distinct_chunks": 12,
+    "distinct_documents": 8,
+    "multi_document_claims": 1,
+    "issues_per_100_words": 1.55,
+    "sources": [
+     "BrixtonBuzz-2026-01-27",
+     "CSOPP-2022-12-tube-noise",
+     "FOI-1231-2425",
+     "FOI-1730-1819",
+     "MQ-2022-1791",
+     "MQT-2026-2156",
+     "MQT-2026-2156#001",
+     "MQT-2026-2156#002",
+     "TfL-noise-update-2024-08",
+     "Weir-letter-2022-12",
+     "loudness.verdict",
+     "niosh.WB.MLE-LST"
+    ],
+    "claims_by_type": {
+     "sourced": 8,
+     "derived": 1,
+     "measured": 3,
+     "inference": 1
+    }
+   },
+   "integrity": {
+    "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+    "corpus_hash": "c8b8d65b7a24335c",
+    "stats_hash": "c4bdc8d00fd19aea",
+    "retrieval_source": "CACHED from investigation.json (Atlas $rankFusion hits recorded 2026-10-25T03:20:20+00:00)",
+    "retrieval_hash": "998558ebf1892319"
+   },
+   "framing": {
+    "label": "P8",
+    "claims_reviewed": 13,
+    "major": 3,
+    "minor": 7,
+    "by_category": {
+     "out-of-context quote": 4,
+     "overgeneralised scope": 2,
+     "other misleading framing": 3,
+     "overstated commitment": 1
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 1,
+     "C": 2,
+     "D": 1,
+     "F": 1,
+     "H": 1,
+     "K": 1,
+     "I": 1
+    }
+   }
+  }
+ ],
+ "framing_check": {
+  "judge": "Claude (the comparison agent), single judge",
+  "written": "2026-10-25T04:38:12+00:00",
+  "method": "labels P1-P12 (blinding failed, see blinding_assessment); every verified claim and ask read against the full cited chunks and the section stats; a fixed checklist derived from the 24 findings in pack_review.json / pack_review2.json applied to every run; one issue per distinct problem per item; an error carried into an ask is counted again. Not ground truth.",
+  "blinding_assessment": "Blinding failed. The export kept the models' claim ids: all six Argon runs use the uppercase C1/C01 style of the production Argon pack that the judge had read, and the judge built the checklist from pack_review.json (which cites claim ids such as C03); the Flash runs use slugs (claim_1, c1, grind-records-2022). Rule M is also a known Argon signature. The key was written to the same folder as the export, so 'key unopened' rests on trust only. Treat all framing judgements as an unblinded single judge. Later runs of `compare_models.py blind` renumber claim ids and accept --key to write the key elsewhere.",
+  "rescored_after_review": {
+   "when": "2026-10-25",
+   "by": "the fixing agent after a review finding; unblinded (the key was known)",
+   "finding": "rule M was scored inconsistently on asks",
+   "original_rule_M": "Pandrol Vanguard / Delkor attached to the LST-BTH reconditioning entry (R01) = major, also when carried into an ask",
+   "changed": [
+    {
+     "label": "P10",
+     "slot": "02_flash",
+     "item": "ASK-3",
+     "was": "Y minor only (committed to)",
+     "now": "Y minor kept, plus M major added"
+    }
+   ],
+   "examined_not_counted": [
+    {
+     "label": "P8",
+     "slot": "12_argon",
+     "item": "ASK-2",
+     "why": "asks which fastenings (e.g. Pandrol Vanguard, Delkor, resilient baseplates) are installed on both directions; it does not state or presuppose that the LST-BTH reconditioning was PV conversion"
+    }
+   ],
+   "asks_scored_under_M_before": [
+    "01_argon ASK-2",
+    "05_argon ASK-3",
+    "08_argon ASK-2",
+    "09_argon ASK-3"
+   ]
+  },
+  "rules_clarified_after_review": {
+   "when": "2026-10-25",
+   "by": "the fixing agent after a review finding; unblinded (the key was known)",
+   "finding": "rule D named the '< 1 dB' reason only, but 05_argon C8 (scored major) gave 'within limiter compression'",
+   "changed": "rule D text widened from 'the wrong reason (size < 1 dB instead of a reversed trip)' to 'any reason other than the reversed trip'",
+   "scores_changed": "none: 05_argon C8 stays major, which the widened text now covers; no other item is affected"
+  },
+  "rules": {
+   "A": "FOI-1730-1819 Feb 2019 grinding tied to the 720-880 m roughness or to noise without TfL's purpose/caveats (pack_review R02/R24)",
+   "B": "720-880 m roughness stated without eastbound / Jan 2018 scope (R03)",
+   "C": "TfL's 'bi-monthly' readings stated as in-cab readings (R06)",
+   "D": "loudness check: NO-GO given any reason other than the reversed trip (e.g. size < 1 dB, limiter compression) = major (R07); contrast reported with no verdict anywhere in the run = minor",
+   "E": "phone-level comparison against a cross-line or single-run comparator without line/n caveats (R08/R21)",
+   "F": "NIOSH readings without the ~85 dB(A) validation limit, or EB vs WB set side by side without 'different trains' (R12)",
+   "G": "Baker's refused requests (residents' casework data) generalised to noise data / section data, or refusal asserted beyond the source (R11)",
+   "H": "Mayor's 'cannot see a reason why' on the eight-week programme presented as a commitment (R09/R15) = major",
+   "I": "92.8 dB: a TfL dataset presumed in the pack's voice or in an ask (R13/R20)",
+   "J": "absence in a 14-document corpus stated as absence from the public record / TfL's publications (R10/R19/R22)",
+   "K": "'usually 6 months - a year' hardened into a required/recommended cycle, or lapse/decay presupposed (R18/R16)",
+   "L": "ask cites a claim id that does not support the statement (R17)",
+   "M": "Pandrol Vanguard / Delkor attached to the LST-BTH reconditioning entry (R01) = major, also when carried into an ask. After review (2026-10-25): an ask counts if it states or presupposes PV conversion/replacement as (one of) the content of that entry, hedged alternatives included; a neutral question about which fastenings are installed does not.",
+   "N": "Mayor's written answer (MQ 2022/2799) presented as a TfL statement and cut before 'noise grinding is planned once defects are scheduled' (R04)",
+   "O": "source mischaracterised or factual slip the verifier cannot see (e.g. press report said to attribute 92.8 to JRPass 'rather than TfL' when it says 'According to the TfL data'; Circle line at Aldgate East)",
+   "X": "other out-of-context quote",
+   "Y": "other overstated commitment"
+  },
+  "runs": {
+   "04_argon": {
+    "label": "P1",
+    "claims_reviewed": 14,
+    "asks_reviewed": 4,
+    "major": 1,
+    "minor": 13,
+    "by_category": {
+     "out-of-context quote": 2,
+     "overgeneralised scope": 5,
+     "other misleading framing": 7
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "D": 1,
+     "E": 1,
+     "O": 1,
+     "F": 1,
+     "G": 1,
+     "I": 2,
+     "J": 2,
+     "C": 1,
+     "K": 1,
+     "L": 1
+    },
+    "issues": [
+     {
+      "item": "C02",
+      "rule": "A",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "grinding 'at that location' after the 720-880 m finding; caveats dropped"
+     },
+     {
+      "item": "C02",
+      "rule": "B",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "no eastbound/2018 scope"
+     },
+     {
+      "item": "C09",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because the difference is below 1 dB'"
+     },
+     {
+      "item": "C10",
+      "rule": "E",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "H&C comparator, n=2"
+     },
+     {
+      "item": "C10",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'Hammersmith & City and Circle' at Aldgate East-Whitechapel; the Circle does not serve it"
+     },
+     {
+      "item": "C11",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "EB 91.9 vs WB 87.3 without 'different trains'"
+     },
+     {
+      "item": "C12",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'her requests for Tube noise data'"
+     },
+     {
+      "item": "C13",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'the underlying TfL dataset'"
+     },
+     {
+      "item": "C14",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'the public record cannot establish'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'TfL confirmed ... in-cab readings are carried out bi-monthly'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'only the single snapshot ... is available in the public record'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'despite TfL noting grinding usually needs repeating'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "asks TfL to identify 'the specific TfL disclosure or dataset'"
+     },
+     {
+      "item": "ASK-4",
+      "rule": "L",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "C12 cited for the data-led approach"
+     }
+    ]
+   },
+   "07_flash": {
+    "label": "P2",
+    "claims_reviewed": 13,
+    "asks_reviewed": 3,
+    "major": 0,
+    "minor": 6,
+    "by_category": {
+     "other misleading framing": 3,
+     "overgeneralised scope": 3
+    },
+    "by_rule": {
+     "D": 1,
+     "F": 1,
+     "G": 1,
+     "J": 1,
+     "K": 1,
+     "L": 1
+    },
+    "issues": [
+     {
+      "item": "claim-08",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'0.54 dB higher' with no verdict in the run"
+     },
+     {
+      "item": "claim-09",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no ~85 dB(A) limit here or in claim-10"
+     },
+     {
+      "item": "claim-13",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'requests for specific noise data'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'the public record lacks verification'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'recommended 6 to 12 month interval'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "L",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "claim-13 cited for 'current official levels remain undisclosed to Assembly Members'"
+     }
+    ]
+   },
+   "03_flash": {
+    "label": "P3",
+    "claims_reviewed": 14,
+    "asks_reviewed": 3,
+    "major": 1,
+    "minor": 6,
+    "by_category": {
+     "other misleading framing": 4,
+     "overgeneralised scope": 3
+    },
+    "by_rule": {
+     "F": 1,
+     "O": 1,
+     "J": 2,
+     "D": 1,
+     "K": 1,
+     "I": 1
+    },
+    "issues": [
+     {
+      "item": "c11",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no validation limit, no like-for-like caveat, EB vs WB"
+     },
+     {
+      "item": "c12",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "says the report attributed 92.8 to JRPass 'rather than primary TfL documentation'"
+     },
+     {
+      "item": "c13",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'Publicly disclosed records do not establish'"
+     },
+     {
+      "item": "c14",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because ... smaller than one decibel and failed across all evaluation variants'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'TfL has not published whether works were completed'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'required 6-12 month intervals'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'the primary dataset ... behind the 92.8 dB figure'"
+     }
+    ]
+   },
+   "05_argon": {
+    "label": "P4",
+    "claims_reviewed": 13,
+    "asks_reviewed": 3,
+    "major": 3,
+    "minor": 10,
+    "by_category": {
+     "out-of-context quote": 5,
+     "overgeneralised scope": 5,
+     "other misleading framing": 3
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 2,
+     "N": 1,
+     "D": 1,
+     "F": 1,
+     "G": 1,
+     "J": 2,
+     "C": 1,
+     "I": 1,
+     "K": 1
+    },
+    "issues": [
+     {
+      "item": "C2",
+      "rule": "A",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "grinding 'there' after the 720-880 m finding"
+     },
+     {
+      "item": "C2",
+      "rule": "B",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "no eastbound/2018 scope"
+     },
+     {
+      "item": "C3",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'a programme that converts Pandrol Vanguard ... to Delkor'"
+     },
+     {
+      "item": "C4",
+      "rule": "N",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "MQ 2022/2799 as 'TfL states', priority caveat cut"
+     },
+     {
+      "item": "C8",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because the difference is within limiter compression'"
+     },
+     {
+      "item": "C9",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "EB vs WB without 'different trains'"
+     },
+     {
+      "item": "C11",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'her requests for noise data'"
+     },
+     {
+      "item": "C12",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'cannot be verified from the public record'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'in-cab readings are carried out on a bi-monthly period'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "time series said to identify the source of 92.8"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'must be repeated every 6 to 12 months ... kept pace'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'(to replace Pandrol Vanguard with Delkor)'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'subsequent Assembly updates did not state'"
+     }
+    ]
+   },
+   "09_argon": {
+    "label": "P5",
+    "claims_reviewed": 14,
+    "asks_reviewed": 4,
+    "major": 4,
+    "minor": 10,
+    "by_category": {
+     "out-of-context quote": 4,
+     "other misleading framing": 4,
+     "overgeneralised scope": 5,
+     "overstated commitment": 1
+    },
+    "by_rule": {
+     "A": 1,
+     "M": 2,
+     "D": 1,
+     "E": 1,
+     "F": 1,
+     "I": 1,
+     "J": 3,
+     "H": 1,
+     "G": 1,
+     "K": 1,
+     "X": 1
+    },
+    "issues": [
+     {
+      "item": "C1",
+      "rule": "A",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "Feb 2019 grinding folded into the noise-grinding narrative without caveats"
+     },
+     {
+      "item": "C3",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'a programme that includes Pandrol Vanguard conversion to Delkor'"
+     },
+     {
+      "item": "C9",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because the difference is below 1 dB'"
+     },
+     {
+      "item": "C10",
+      "rule": "E",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "quietest single-run section (n=1) as comparator"
+     },
+     {
+      "item": "C11",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "EB vs WB without 'different trains'"
+     },
+     {
+      "item": "C12",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'underlying TfL source dataset'"
+     },
+     {
+      "item": "C13",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'the public record does not show'"
+     },
+     {
+      "item": "C14",
+      "rule": "H",
+      "category": "overstated commitment",
+      "severity": "major",
+      "note": "'committed to ... the eight-week forward programme'"
+     },
+     {
+      "item": "C14",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'requests for Tube noise data'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'despite TfL stating that grinding usually needs repeating'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'no post-May 2022 grinding records ... have been published'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'only a single snapshot ... is public'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "X",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "FOI-2986 'no study' sentence (answer to a research-opportunity question) used as 'no study on in-carriage saloon noise' (R05)"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'(replacing Pandrol Vanguard with Delkor fastenings)'"
+     }
+    ]
+   },
+   "01_argon": {
+    "label": "P6",
+    "claims_reviewed": 15,
+    "asks_reviewed": 3,
+    "major": 3,
+    "minor": 9,
+    "by_category": {
+     "out-of-context quote": 4,
+     "overgeneralised scope": 3,
+     "other misleading framing": 5
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 2,
+     "C": 1,
+     "D": 1,
+     "E": 1,
+     "O": 1,
+     "F": 1,
+     "I": 1,
+     "G": 1,
+     "K": 1
+    },
+    "issues": [
+     {
+      "item": "C2",
+      "rule": "A",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "grinding 'after measurements confirmed' 720-880 m"
+     },
+     {
+      "item": "C2",
+      "rule": "B",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "no eastbound/2018 scope"
+     },
+     {
+      "item": "C4",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'a programme that involves Pandrol Vanguard conversion to Delkor'"
+     },
+     {
+      "item": "C7",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'in-cab noise readings ... bi-monthly'"
+     },
+     {
+      "item": "C10",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because the contrast is under 1 dB'"
+     },
+     {
+      "item": "C11",
+      "rule": "E",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "H&C comparator n=2 and single-run HOL-CYL"
+     },
+     {
+      "item": "C11",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'Hammersmith & City and Circle' for Liverpool Street-Aldgate East"
+     },
+     {
+      "item": "C12",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "EB vs WB without 'different trains'"
+     },
+     {
+      "item": "C13",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'its underlying TfL source'"
+     },
+     {
+      "item": "C15",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'requests for Tube noise data'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'the 6-12 month interval TfL says is needed'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'(Pandrol Vanguard conversion to Delkor)'"
+     }
+    ]
+   },
+   "06_flash": {
+    "label": "P7",
+    "claims_reviewed": 15,
+    "asks_reviewed": 3,
+    "major": 0,
+    "minor": 7,
+    "by_category": {
+     "out-of-context quote": 1,
+     "other misleading framing": 4,
+     "overgeneralised scope": 2
+    },
+    "by_rule": {
+     "N": 1,
+     "D": 1,
+     "F": 1,
+     "O": 2,
+     "J": 1,
+     "G": 1
+    },
+    "issues": [
+     {
+      "item": "claim_4",
+      "rule": "N",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "MQ 2022/2799 as 'TfL states', caveat cut"
+     },
+     {
+      "item": "claim_9",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'louder ... by 0.54 dB' with no verdict in the run"
+     },
+     {
+      "item": "claim_10/11",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no ~85 dB(A) limit (claim_14 only says 'limitations'); EB/WB without 'different trains'"
+     },
+     {
+      "item": "claim_12",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "report said to attribute 92.8 to JRPass 'rather than TfL directly'"
+     },
+     {
+      "item": "claim_13",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'Public records do not show'"
+     },
+     {
+      "item": "claim_15",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'requests for specific Tube noise data'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'stems from a third-party product head rather than TfL's official disclosures'; 'widely reported'"
+     }
+    ]
+   },
+   "12_argon": {
+    "label": "P8",
+    "claims_reviewed": 13,
+    "asks_reviewed": 3,
+    "major": 3,
+    "minor": 7,
+    "by_category": {
+     "out-of-context quote": 4,
+     "overgeneralised scope": 2,
+     "other misleading framing": 3,
+     "overstated commitment": 1
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 1,
+     "C": 2,
+     "D": 1,
+     "F": 1,
+     "H": 1,
+     "K": 1,
+     "I": 1
+    },
+    "issues": [
+     {
+      "item": "C2",
+      "rule": "A",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "grinding 'after identifying' 720-880 m; purpose dropped"
+     },
+     {
+      "item": "C2",
+      "rule": "B",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "no eastbound/2018 scope"
+     },
+     {
+      "item": "C4",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'where deep Tube reconditioning replaces Pandrol Vanguard with Delkor'"
+     },
+     {
+      "item": "C5",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'TfL disclosed bi-monthly noise levels recorded on 24 June 2024 from within the cab'"
+     },
+     {
+      "item": "C9",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because the difference was below 1 dB'"
+     },
+     {
+      "item": "C10",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "EB vs WB without 'different trains'"
+     },
+     {
+      "item": "C13",
+      "rule": "H",
+      "category": "overstated commitment",
+      "severity": "major",
+      "note": "'committed to ensuring TfL provides ... the eight weeks grinding programme'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'TfL's stated 6-to-12-month repeat cycle'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'confirms TfL takes bi-monthly Central line cab readings'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "time series said to resolve the 92.8 provenance"
+     }
+    ]
+   },
+   "08_argon": {
+    "label": "P9",
+    "claims_reviewed": 15,
+    "asks_reviewed": 4,
+    "major": 3,
+    "minor": 14,
+    "by_category": {
+     "out-of-context quote": 5,
+     "overgeneralised scope": 7,
+     "other misleading framing": 5
+    },
+    "by_rule": {
+     "A": 1,
+     "B": 1,
+     "M": 2,
+     "C": 2,
+     "E": 2,
+     "D": 1,
+     "F": 1,
+     "G": 2,
+     "J": 2,
+     "K": 2,
+     "I": 1
+    },
+    "issues": [
+     {
+      "item": "C2",
+      "rule": "A",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "grinding 'at this location' after the 720-880 m finding"
+     },
+     {
+      "item": "C2",
+      "rule": "B",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "no eastbound/Jan 2018 scope"
+     },
+     {
+      "item": "C3",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'where PV conversion to Delkor is carried out as part of Deep Tube Reconditioning'"
+     },
+     {
+      "item": "C5",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'disclosed bi-monthly noise levels recorded on 24 June 2024'"
+     },
+     {
+      "item": "C7",
+      "rule": "E",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "H&C 2020 S7-stock cab levels set 'by comparison' against Central 2024"
+     },
+     {
+      "item": "C9",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "major",
+      "note": "NO-GO 'because the contrast is below 1 dB'"
+     },
+     {
+      "item": "C10",
+      "rule": "E",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'substantially higher than' H&C sections n=1-2 and single-run HOL-CYL"
+     },
+     {
+      "item": "C11",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "EB vs WB without 'different trains'"
+     },
+     {
+      "item": "C13",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'her requests for noise data'"
+     },
+     {
+      "item": "C13",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'despite TfL holding bi-monthly cab measurements'"
+     },
+     {
+      "item": "C14",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'appears only in a secondary press article'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'TfL states grinding must be repeated every 6 to 12 months'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'the public record does not state'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'(converting Pandrol Vanguard to Delkor fastenings)'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'the specific dataset or FOI response underlying the 92.8 dB figure'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'decay rate of grinding'"
+     },
+     {
+      "item": "ASK-4",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'yet refuses to share section-level data with Assembly Members'"
+     }
+    ]
+   },
+   "02_flash": {
+    "label": "P10",
+    "claims_reviewed": 15,
+    "asks_reviewed": 3,
+    "major": 1,
+    "minor": 7,
+    "by_category": {
+     "out-of-context quote": 3,
+     "other misleading framing": 3,
+     "overgeneralised scope": 1,
+     "overstated commitment": 1
+    },
+    "by_rule": {
+     "N": 1,
+     "C": 1,
+     "D": 1,
+     "F": 1,
+     "O": 1,
+     "J": 1,
+     "Y": 1,
+     "M": 1
+    },
+    "issues": [
+     {
+      "item": "grind-interval-leadtime",
+      "rule": "N",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "MQ 2022/2799 as 'TfL confirmed'"
+     },
+     {
+      "item": "tfl-monitoring-frequency",
+      "rule": "C",
+      "category": "out-of-context quote",
+      "severity": "minor",
+      "note": "'in-cab noise readings ... bi-monthly'"
+     },
+     {
+      "item": "our-relative-contrast",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no verdict in the run"
+     },
+     {
+      "item": "our-indicative-niosh-saloon",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no ~85 dB(A) limit anywhere; EB vs WB"
+     },
+     {
+      "item": "limits-brixton-buzz-origin",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'originates from ... JRPass rather than TfL primary data'; 'widely reported'"
+     },
+     {
+      "item": "limits-grinding-direction-gaps",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'Public TfL disclosures do not establish'"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "Y",
+      "category": "overstated commitment",
+      "severity": "minor",
+      "note": "'the engineering intervention committed to' for a planned item"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "M",
+      "category": "out-of-context quote",
+      "severity": "major",
+      "note": "'confirming whether track replacement or Pandrol Vanguard conversion was executed' (hedged alternative attached to the LST-BTH reconditioning entry); added after review",
+      "added_after_review": true
+     }
+    ]
+   },
+   "11_flash": {
+    "label": "P11",
+    "claims_reviewed": 14,
+    "asks_reviewed": 3,
+    "major": 0,
+    "minor": 8,
+    "by_category": {
+     "other misleading framing": 3,
+     "overgeneralised scope": 5
+    },
+    "by_rule": {
+     "D": 1,
+     "F": 1,
+     "O": 1,
+     "J": 3,
+     "K": 1,
+     "G": 1
+    },
+    "issues": [
+     {
+      "item": "claim_measured_within_trip_contrast",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no verdict in the run"
+     },
+     {
+      "item": "claim_measured_indicative_niosh",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no ~85 dB(A) limit anywhere; EB vs WB"
+     },
+     {
+      "item": "claim_press_secondary_source_92db",
+      "rule": "O",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'citing analysis by JRPass rather than TfL primary data'"
+     },
+     {
+      "item": "claim_limits_grinding_gaps",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'TfL's published records do not clarify'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "K",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'TfL's recommended regular cycle'"
+     },
+     {
+      "item": "ASK-1",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'subsequent updates do not record'"
+     },
+     {
+      "item": "ASK-2",
+      "rule": "G",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'more recent official data has been withheld from Assembly inquiries' (no claim supports it)"
+     },
+     {
+      "item": "ASK-3",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'TfL's official disclosures only report in-cab measurements'"
+     }
+    ]
+   },
+   "10_flash": {
+    "label": "P12",
+    "claims_reviewed": 14,
+    "asks_reviewed": 4,
+    "major": 0,
+    "minor": 4,
+    "by_category": {
+     "other misleading framing": 3,
+     "overgeneralised scope": 1
+    },
+    "by_rule": {
+     "D": 1,
+     "F": 1,
+     "J": 1,
+     "I": 1
+    },
+    "issues": [
+     {
+      "item": "claim_our_contrast",
+      "rule": "D",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no verdict in the run"
+     },
+     {
+      "item": "claim_our_niosh",
+      "rule": "F",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "no ~85 dB(A) limit anywhere; EB vs WB"
+     },
+     {
+      "item": "claim_limits_history",
+      "rule": "J",
+      "category": "overgeneralised scope",
+      "severity": "minor",
+      "note": "'Public records do not confirm'"
+     },
+     {
+      "item": "ASK-4",
+      "rule": "I",
+      "category": "other misleading framing",
+      "severity": "minor",
+      "note": "'the primary dataset ... underpinning the 92.8 dB figure'"
+     }
+    ]
+   }
+  }
+ }
+}

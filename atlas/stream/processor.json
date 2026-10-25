@@ -1,0 +1,50 @@
+{
+  "name": "live_windows",
+  "tier": "SP2",
+  "options": {"dlq": {"connectionName": "tsCluster", "db": "tubesense", "coll": "sp_dlq"}},
+  "pipeline": [
+    {"$source": {
+      "connectionName": "tsCluster",
+      "db": "tubesense",
+      "coll": "ingest_live",
+      "timeField": {"$toDate": "$fullDocument.ts"},
+      "config": {"pipeline": [{"$match": {"operationType": "insert"}}]}
+    }},
+    {"$tumblingWindow": {
+      "interval": {"size": 10, "unit": "second"},
+      "idleTimeout": {"size": 5, "unit": "second"},
+      "allowedLateness": 0,
+      "pipeline": [
+        {"$group": {
+          "_id": "$fullDocument.ride_id",
+          "n": {"$sum": 1},
+          "mean_dbA": {"$avg": "$fullDocument.level_rel_dbA"},
+          "max_dbA": {"$max": "$fullDocument.level_rel_dbA"},
+          "s_min": {"$min": "$fullDocument.s_m"},
+          "s_max": {"$max": "$fullDocument.s_m"},
+          "sections": {"$addToSet": "$fullDocument.section"},
+          "n_confident": {"$sum": {"$cond": ["$fullDocument.confident", 1, 0]}},
+          "n_stopped": {"$sum": {"$cond": ["$fullDocument.stopped", 1, 0]}},
+          "replay": {"$max": "$fullDocument.replay"}
+        }}
+      ]
+    }},
+    {"$addFields": {
+      "window_start": {"$meta": "stream.window.start"},
+      "window_end": {"$meta": "stream.window.end"}
+    }},
+    {"$project": {
+      "_id": {"$concat": ["$_id", "|", {"$toString": "$window_start"}]},
+      "ride_id": "$_id",
+      "n": 1, "mean_dbA": 1, "max_dbA": 1, "s_min": 1, "s_max": 1, "sections": 1,
+      "n_confident": 1, "n_stopped": 1, "replay": 1, "window_start": 1, "window_end": 1,
+      "processor": {"$literal": "live_windows"}
+    }},
+    {"$merge": {
+      "into": {"connectionName": "tsCluster", "db": "tubesense", "coll": "live_view"},
+      "on": "_id",
+      "whenMatched": "replace",
+      "whenNotMatched": "insert"
+    }}
+  ]
+}

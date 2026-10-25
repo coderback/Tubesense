@@ -11,7 +11,13 @@ to resolve the findings of an independent review against the full sources (frami
 check: a quote out of context, a commitment overstated, a scope overgeneralised); the revision goes
 through the same verifier loop, and the record keeps the review file and the draft it revised.
 Writes outputs_posthoc/investigation.json and upserts the claims into Atlas `claims`.
+Comparison mode (agent.compare_models): --out DIR writes DIR/investigation.json instead of the production
+record and implies --no-atlas (no Atlas reads or writes; the retrieval block is the CACHED hybrid-search hits
+recorded in outputs_posthoc/investigation.json). --model picks another Gemini model and needs --out, as does
+--no-atlas, so a comparison run can never overwrite the production pack or write to Atlas. With --out the
+record also keeps thinking tokens, the stats hash, the retrieval source and, if a round fails, the error.
 Run: PYTHONPATH=. .venv/Scripts/python -m agent.investigator [--thinking medium] [--review FILE]
+     [--model gemini-3.8-flash --out outputs_posthoc/compare/x [--no-atlas]]
 """
 import argparse
 import hashlib
@@ -121,6 +127,18 @@ def corpus_block(chunks: dict) -> str:
     return "\n\n".join(out)
 
 
+def cached_retrieval() -> tuple[dict, str]:
+    """The hybrid-search hits recorded by the last Atlas-connected run, and where they came from."""
+    rec = OUT if OUT.exists() else V.ROOT / "outputs_posthoc" / "investigation.json"
+    d = json.loads(rec.read_text(encoding="utf-8"))
+    if "error" in d["retrieval"]:
+        raise SystemExit(f"{rec.name}: its retrieval block is an Atlas error, there are no recorded hits to reuse")
+    src = d.get("retrieval_source") or ""
+    if src.startswith("CACHED"):  # recorded by a run that itself reused hits: keep the original label
+        return d["retrieval"], src
+    return d["retrieval"], f"CACHED from {rec.name} (Atlas $rankFusion hits recorded {d['ts']})"
+
+
 def retrieval() -> dict:
     """Atlas hybrid search ($rankFusion over Atlas Search + autoEmbed) top hits per sub-question."""
     try:
@@ -142,16 +160,26 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--thinking", default="medium", choices=("low", "medium", "high"))
     ap.add_argument("--review", default=None, help="JSON list of review findings: revise the previous draft")
+    ap.add_argument("--model", default=MODEL, help="Gemini model id (comparison runs)")
+    ap.add_argument("--out", default=None, help="write DIR/investigation.json instead of the default record (implies --no-atlas)")
+    ap.add_argument("--no-atlas", action="store_true", help="no Atlas reads/writes; reuse the recorded retrieval hits (needs --out)")
     a = ap.parse_args()
+    if (a.model != MODEL or a.no_atlas) and not a.out:
+        ap.error("comparison runs (--model, --no-atlas) need --out DIR, so they cannot overwrite the production record")
+    a.no_atlas = a.no_atlas or a.out is not None
+    cmp = a.out is not None
+    out = Path(a.out) / "investigation.json" if a.out else OUT
+    if a.out and out.resolve() == OUT.resolve():
+        ap.error("--out must not be the production folder (it would overwrite the pack the approval page serves)")
     load_env()
     chunks, stats = V.load_chunks(), V.load_stats()
-    hits = retrieval()
+    hits, hits_src = cached_retrieval() if a.no_atlas else (retrieval(), "Atlas hybrid search (live)")
     prompt = (f"HYBRID SEARCH TOP HITS (Atlas $rankFusion, start here):\n{json.dumps(hits, indent=1)}\n\n"
               f"SECTION STATS (our measurements; cite by key):\n{json.dumps(stats, indent=1, default=float)}\n\n"
               f"CORPUS ({len(chunks)} chunks):\n{corpus_block(chunks)}\n\n")
     revision = None
     if a.review:
-        prev = json.loads(OUT.read_text(encoding="utf-8"))
+        prev = json.loads(out.read_text(encoding="utf-8"))
         findings = json.loads(Path(a.review).read_text(encoding="utf-8"))
         revision = {"of": prev["ts"], "review_file": Path(a.review).name, "n_findings": len(findings)}
         prompt += ("PREVIOUS DRAFT (it passed the verifier):\n" + json.dumps(prev["rounds"][-1]["investigation"], indent=1) +
@@ -167,17 +195,31 @@ def main():
     cfg = types.GenerateContentConfig(system_instruction=SYSTEM, response_mime_type="application/json",
                                       response_schema=Investigation,
                                       thinking_config=types.ThinkingConfig(thinking_level=a.thinking))
-    chat = client.chats.create(model=MODEL, config=cfg)
+    chat = client.chats.create(model=a.model, config=cfg)
     rounds, t0 = [], time.time()
     msg = prompt
     for rnd in range(MAX_ROUNDS + 1):
-        t = time.time()
-        r = chat.send_message(msg)
-        inv = Investigation.model_validate_json(r.text).model_dump()
+        t, r = time.time(), None
+        try:
+            r = chat.send_message(msg)
+            inv = Investigation.model_validate_json(r.text).model_dump()
+        except Exception as e:  # noqa: BLE001  (comparison mode keeps the failed run on record)
+            if cmp:
+                out.parent.mkdir(parents=True, exist_ok=True)
+                fr = r.candidates[0].finish_reason if r is not None and r.candidates else None
+                out.write_text(json.dumps({
+                    "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "model": a.model,
+                    "thinking": a.thinking, "rounds": rounds, "seconds_total": round(time.time() - t0, 1),
+                    "error": {"round": rnd, "seconds": round(time.time() - t, 1), "type": type(e).__name__,
+                              "message": str(e)[:600], "finish_reason": str(fr) if fr else None}},
+                    indent=1, default=float), encoding="utf-8")
+            raise
         checks = V.verify_all([as_verifier(c) for c in inv["claims"]])
+        usage = {"prompt": r.usage_metadata.prompt_token_count, "output": r.usage_metadata.candidates_token_count}
+        if cmp:
+            usage |= {"thoughts": r.usage_metadata.thoughts_token_count, "model_version": r.model_version}
         rounds.append({"round": rnd, "seconds": round(time.time() - t, 1), "investigation": inv, "verification": checks,
-                       "usage": {"prompt": r.usage_metadata.prompt_token_count,
-                                 "output": r.usage_metadata.candidates_token_count}})
+                       "usage": usage})
         bad = [c for c in checks if not c["ok"]]
         print(f"round {rnd}: {len(inv['claims'])} claims, {len(bad)} rejected ({rounds[-1]['seconds']} s)", flush=True)
         for b in bad:
@@ -192,24 +234,32 @@ def main():
     verified = [c for c in final["investigation"]["claims"] if c["id"] in ok_ids]
     dropped = [{"claim": c, "reasons": next(v["reasons"] for v in final["verification"] if v["id"] == c["id"])}
                for c in final["investigation"]["claims"] if c["id"] not in ok_ids]
-    res = {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "model": MODEL, "thinking": a.thinking,
+    res = {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "model": a.model, "thinking": a.thinking,
            "verifier_sha": V.VERIFIER_SHA, "corpus_chunks": len(chunks),
            "corpus_hash": hashlib.sha256("".join(c["hash"] for c in chunks.values()).encode()).hexdigest()[:16],
            "stats_keys": len(stats), "retrieval": hits, "rounds": rounds, "verified_claims": verified,
            "dropped_claims": dropped, "asks": final["investigation"]["asks"],
            "headline_claim_ids": [i for i in final["investigation"]["headline_claim_ids"] if i in ok_ids],
            "seconds_total": round(time.time() - t0, 1), "revision": revision}
-    OUT.write_text(json.dumps(res, indent=1, default=float), encoding="utf-8")
+    if cmp:
+        res |= {"retrieval_source": hits_src, "stats_hash": hashlib.sha256(
+            json.dumps(stats, sort_keys=True, default=float).encode()).hexdigest()[:16]}
+        out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(res, indent=1, default=float), encoding="utf-8")
+    if a.no_atlas:
+        print(f"verified {len(verified)}, dropped {len(dropped)}, asks {len(res['asks'])}, "
+              f"{res['seconds_total']} s -> {out} (atlas: no-atlas, nothing written)")
+        return
     try:
         from atlas.db import db
         from pymongo import ReplaceOne
         run = res["ts"]
         db().claims.bulk_write([ReplaceOne({"_id": f"{run}:{c['id']}"}, {"_id": f"{run}:{c['id']}", "run": run,
-                                           "verified": c in verified, **c}, upsert=True)
+                                           "model": a.model, "verified": c in verified, **c}, upsert=True)
                                 for c in final["investigation"]["claims"]])
     except Exception as e:  # noqa: BLE001
         print(f"(atlas skipped: {type(e).__name__})")
-    print(f"verified {len(verified)}, dropped {len(dropped)}, asks {len(res['asks'])}, {res['seconds_total']} s -> {OUT}")
+    print(f"verified {len(verified)}, dropped {len(dropped)}, asks {len(res['asks'])}, {res['seconds_total']} s -> {out}")
 
 
 if __name__ == "__main__":

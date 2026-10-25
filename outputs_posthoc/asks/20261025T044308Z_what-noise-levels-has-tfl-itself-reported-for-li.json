@@ -1,0 +1,335 @@
+{
+ "question": "What noise levels has TfL itself reported for Liverpool Street to Bethnal Green?",
+ "norm_question": "what noise levels has tfl itself reported for liverpool street to bethnal green",
+ "ts": "2026-10-25T04:43:08+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 18.0,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "In FOI-1231-2425 (published 8 August 2024), a TfL FOI case officer reported Central line train operator's cab readings from 24 June 2024 of 87 dB LAeq eastbound for Liverpool Street to Bethnal Green and 86 dB LAeq westbound for Bethnal Green to Liverpool Street.",
+  "claim_ids": [
+   "A1",
+   "A2"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In FOI-1231-2425 (published 8 August 2024), a TfL FOI case officer reported that Central line noise measurements taken on 24 June 2024 from within the train operator's cab recorded 87 dB LAeq eastbound on Liverpool Street to Bethnal Green.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Date published: 08 August 2024"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Central line Eastbound | dB LAeq"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Liverpool Street to Bethnal Green | 87"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In the same 24 June 2024 in-cab dataset in FOI-1231-2425, the TfL FOI case officer reported 86 dB LAeq westbound on Bethnal Green to Liverpool Street, and stated that Central line readings are carried out on a bi-monthly period.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Central line Westbound | dB LAeq"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Bethnal Green to Liverpool Street | 86"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Readings are carried out on a bi-monthly period."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "context",
+   "type": "sourced",
+   "text": "Separately from TfL's own primary disclosures, a secondary press article in Brixton Buzz (27 January 2026, citing information from JRPass) reported a figure of 92.8 decibels for Liverpool Street to Bethnal Green on the Central line.",
+   "citations": [
+    {
+     "chunk_id": "BrixtonBuzz-2026-01-27#000",
+     "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+    },
+    {
+     "chunk_id": "BrixtonBuzz-2026-01-27#000",
+     "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In FOI-1231-2425 (published 8 August 2024), a TfL FOI case officer reported that Central line noise measurements taken on 24 June 2024 from within the train operator's cab recorded 87 dB LAeq eastbound on Liverpool Street to Bethnal Green.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Date published: 08 August 2024"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Central line Eastbound | dB LAeq"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In the same 24 June 2024 in-cab dataset in FOI-1231-2425, the TfL FOI case officer reported 86 dB LAeq westbound on Bethnal Green to Liverpool Street, and stated that Central line readings are carried out on a bi-monthly period.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Central line Westbound | dB LAeq"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Readings are carried out on a bi-monthly period."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "context",
+     "type": "sourced",
+     "text": "Separately from TfL's own primary disclosures, a secondary press article in Brixton Buzz (27 January 2026, citing information from JRPass) reported a figure of 92.8 decibels for Liverpool Street to Bethnal Green on the Central line.",
+     "citations": [
+      {
+       "chunk_id": "BrixtonBuzz-2026-01-27#000",
+       "quote": "Liverpool Street to Bethnal Green (Central line) \u2013 92.8 decibels"
+      },
+      {
+       "chunk_id": "BrixtonBuzz-2026-01-27#000",
+       "quote": "Daniel de Nieuwe, Head of Product from JRPass said:"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 12.9,
+   "usage": {
+    "prompt": 14108,
+    "output": 997,
+    "retries": 0
+   },
+   "answer": "In FOI-1231-2425 (published 8 August 2024), a TfL FOI case officer reported Central line train operator's cab readings from 24 June 2024 of 87 dB LAeq eastbound for Liverpool Street to Bethnal Green and 86 dB LAeq westbound for Bethnal Green to Liverpool Street.",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 2.9,
+  "usage": {
+   "prompt": 3485,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 0
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.032,
+    "ranks": {
+     "semantic": 3,
+     "text": 2
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.03078,
+    "ranks": {
+     "semantic": 4,
+     "text": 6
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-3780-2324#002",
+    "score": 0.03028,
+    "ranks": {
+     "semantic": 1,
+     "text": 12
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.02996,
+    "ranks": {
+     "semantic": 11,
+     "text": 3
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.02914,
+    "ranks": {
+     "semantic": 14,
+     "text": 4
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#001",
+    "score": 0.02905,
+    "ranks": {
+     "semantic": 19,
+     "text": 1
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 2
+   },
+   {
+    "chunk_id": "FOI-3780-2324#000",
+    "score": 0.02899,
+    "ranks": {
+     "semantic": 10,
+     "text": 8
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-3780-2324#006",
+    "score": 0.02863,
+    "ranks": {
+     "semantic": 2,
+     "text": 20
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": 9
+   }
+  ],
+  "stats": [
+   "level.EB.LST-BTH",
+   "level.WB.BTH-LST",
+   "duration.EB.LST-BTH",
+   "duration.WB.BTH-LST",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 0.87
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T044308Z_what-noise-levels-has-tfl-itself-reported-for-li.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T044308Z_what-noise-levels-has-tfl-itself-reported-for-li"
+ }
+}

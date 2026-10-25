@@ -80,7 +80,7 @@ In Git Bash, use `PYTHONPATH=. .venv/Scripts/python ...` instead.
 
 | | |
 |---|---|
-| **Say** | "This is for Elly Baker AM, who leads on transport for Labour at the London Assembly. On 16 July she said TfL had turned down most of her requests for noise data. She needs an independent, checkable section ranking and a precise data request. The people most exposed are drivers, and TfL's own figures are measured in the cab." |
+| **Say** | "This is for Elly Baker AM, who leads on transport for Labour at the London Assembly. On 16 July she said TfL had turned down most of her requests for noise data. She needs evidence she can check line by line, and a precise data request. The people most exposed are drivers, and TfL's own figures are measured in the cab." |
 | **Run** | Nothing. |
 | **Label** | PRECOMPUTED (public record: MQT 2026/2156) |
 | **Fallback** | None needed. |
@@ -153,10 +153,10 @@ audio never leaves the laptop."
 
 ## Honest one-liners (say these, not stronger versions)
 
-- **Levels:** "Relative levels from an uncalibrated phone, in dBFS(A). They rank sections; they are not certified dB." Liverpool Street→Bethnal Green is louder than Bethnal Green→Mile End on 5 of 5 trips, **by only +0.6 dB**. Verdict **WEAK**.
+- **Levels:** "Relative levels from an uncalibrated phone, in dBFS(A). They are not certified dB, and they did not reliably rank the two sections." Liverpool Street→Bethnal Green read louder on 10 of 11 trips (mean +0.54 dB), but the pre-registered rule needs every trip, and R10 westbound reversed (−0.13 dB). Verdict **NO-GO** (23 Oct alone: WEAK, 5 of 5, +0.6 dB).
 - **Positioning:** "Errors are agreement with a yaw curve-edge proxy. There is no GPS truth in a tunnel." Between curves the tracker is no better than the timetable (11 vs 16 m). Say so if asked.
 - **92.8 dB:** "Reported in the press, citing TfL data. We couldn't find the primary source. TfL's own published in-cab figure is 87."
-- **Stop gate:** "That stop is synthetic. We haven't logged a real tunnel stop yet."
+- **Stop gate:** "That stop is synthetic. On the one real tunnel stop we logged (R10, about 6 s) the gate never engaged."
 - **Argon:** "This is a replay of a session recorded this morning. The model isn't called live: our key hit its cap, and each call takes 30–60 s anyway."
 - **v2:** "Post-hoc, tuned on 23 Oct only. Its single 24 Oct score matched v1 (1.8 m) and did not beat it; the stop gate never engaged on real rides."
 - **Magnetometer:** "It doesn't help positioning. It's NO-GO as a fingerprint."

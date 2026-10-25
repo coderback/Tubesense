@@ -1,0 +1,331 @@
+{
+ "question": "How loud is Liverpool Street to Bethnal Green by TfL's own measurement, and what do our phone measurements add?",
+ "norm_question": "how loud is liverpool street to bethnal green by tfls own measurement and what do our phone measurements add",
+ "ts": "2026-10-25T04:41:46+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 25.1,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "In FOI-1231-2425, TfL recorded in-cab levels of 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, while our phone measurements add uncalibrated relative levels (-18.66 and -18.8 dBFS(A)), a NO-GO within-trip contrast, and indicative whole-tripLiverpool Street to Mile End readings.",
+  "claim_ids": [
+   "A1",
+   "A2",
+   "A3",
+   "A4"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In FOI-1231-2425, a TfL case officer provided Central line measurements from within the train operator's cab on 24 June 2024 showing 87 dB LAeq eastbound on Liverpool Street to Bethnal Green and 86 dB LAeq westbound on Bethnal Green to Liverpool Street.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Liverpool Street to Bethnal Green | 87"
+    },
+    {
+     "chunk_id": "FOI-1231-2425#000",
+     "quote": "Bethnal Green to Liverpool Street | 86"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "Our uncalibrated relative phone-audio measurements between Liverpool Street and Bethnal Green average -18.66 dBFS(A) eastbound across 6 runs and -18.8 dBFS(A) westbound across 5 placement-ok runs, which cannot be compared with TfL's dB figures.",
+   "citations": [],
+   "stat_keys": [
+    "level.EB.LST-BTH",
+    "level.WB.BTH-LST",
+    "loudness.verdict"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A3",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "Across 11 placement-ok trips, Liverpool Street to Bethnal Green had a mean within-trip difference of 0.54 dB compared with Bethnal Green to Mile End ( louder in 10 of 11 trips), yielding a NO-GO verdict because one trip (R10_WB_MLE-LST at -0.13 dB) went the other way, while the conditions of a mean of at least 1 dB and every level variant agreeing were also unmet.",
+   "citations": [],
+   "stat_keys": [
+    "contrast.LST-BTH_minus_BTH-MLE",
+    "loudness.verdict"
+   ],
+   "formula": null
+  },
+  {
+   "id": "A4",
+   "section": "our_measurements",
+   "type": "measured",
+   "text": "Our phone sound level meter app recorded indicative whole-trip passenger-saloon levels of 91.9 dB(A) LAeq eastbound and 87.3 dB(A) LAeq westbound for Liverpool Street to Mile End (1 trip per direction, including platform waits and the Bethnal Green dwell), using a microphone validated only up to about 85 dB(A).",
+   "citations": [],
+   "stat_keys": [
+    "niosh.EB.LST-MLE",
+    "niosh.WB.MLE-LST"
+   ],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed",
+  "A3": "reviewed",
+  "A4": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In FOI-1231-2425, a TfL case officer provided Central line measurements from within the train operator's cab on 24 June 2024 showing 87 dB LAeq eastbound on Liverpool Street to Bethnal Green and 86 dB LAeq westbound on Bethnal Green to Liverpool Street.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Please see below the noise levels recorded on the Monday 24\nJune 2024, these measurements were taken from within the train operator's cab."
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Liverpool Street to Bethnal Green | 87"
+      },
+      {
+       "chunk_id": "FOI-1231-2425#000",
+       "quote": "Bethnal Green to Liverpool Street | 86"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Our uncalibrated relative phone-audio measurements between Liverpool Street and Bethnal Green average -18.66 dBFS(A) eastbound across 6 runs and -18.8 dBFS(A) westbound across 5 placement-ok runs, which cannot be compared with TfL's dB figures.",
+     "citations": [],
+     "stat_keys": [
+      "level.EB.LST-BTH",
+      "level.WB.BTH-LST",
+      "loudness.verdict"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A3",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Across 11 placement-ok trips, Liverpool Street to Bethnal Green had a mean within-trip difference of 0.54 dB compared with Bethnal Green to Mile End ( louder in 10 of 11 trips), yielding a NO-GO verdict because one trip (R10_WB_MLE-LST at -0.13 dB) went the other way, while the conditions of a mean of at least 1 dB and every level variant agreeing were also unmet.",
+     "citations": [],
+     "stat_keys": [
+      "contrast.LST-BTH_minus_BTH-MLE",
+      "loudness.verdict"
+     ],
+     "formula": null
+    },
+    {
+     "id": "A4",
+     "section": "our_measurements",
+     "type": "measured",
+     "text": "Our phone sound level meter app recorded indicative whole-trip passenger-saloon levels of 91.9 dB(A) LAeq eastbound and 87.3 dB(A) LAeq westbound for Liverpool Street to Mile End (1 trip per direction, including platform waits and the Bethnal Green dwell), using a microphone validated only up to about 85 dB(A).",
+     "citations": [],
+     "stat_keys": [
+      "niosh.EB.LST-MLE",
+      "niosh.WB.MLE-LST"
+     ],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A4",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 10.7,
+   "usage": {
+    "prompt": 11118,
+    "output": 955,
+    "retries": 0
+   },
+   "answer": "In FOI-1231-2425, TfL recorded in-cab levels of 87 dB LAeq eastbound and 86 dB LAeq westbound between Liverpool Street and Bethnal Green, while our phone measurements add uncalibrated relative levels (-18.66 and -18.8 dBFS(A)), a NO-GO within-trip contrast, and indicative whole-tripLiverpool Street to Mile End readings.",
+   "answer_claim_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "A4"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 11.7,
+  "usage": {
+   "prompt": 4347,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 0
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "BrixtonBuzz-2026-01-27#000",
+    "score": 0.032,
+    "ranks": {
+     "semantic": 3,
+     "text": 2
+    },
+    "title": "The Victoria tube line is officially the loudest in London (Brixton Buzz, 27 Jan 2026)",
+    "publisher": "Brixton Buzz",
+    "doc_date": "2026-01-27",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.03178,
+    "ranks": {
+     "semantic": 5,
+     "text": 1
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.02939,
+    "ranks": {
+     "semantic": 14,
+     "text": 3
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-3780-2324#000",
+    "score": 0.02901,
+    "ranks": {
+     "semantic": 11,
+     "text": 7
+    },
+    "title": "Noise at work assessment for Hammersmith & City line train operators (TfL report RP-R2839, 2 Oct 2020), disclosed under FOI-3780-2324",
+    "publisher": "TfL",
+    "doc_date": "2020-10-02",
+    "page": null
+   },
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.02845,
+    "ranks": {
+     "semantic": 18,
+     "text": 4
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#002",
+    "score": 0.02765,
+    "ranks": {
+     "semantic": 20,
+     "text": 6
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 6
+   },
+   {
+    "chunk_id": "FOI-2986-2324#000",
+    "score": 0.02724,
+    "ranks": {
+     "semantic": 16,
+     "text": 11
+    },
+    "title": "Central line noise: Central line cab recordings (September 2023)",
+    "publisher": "TfL",
+    "doc_date": "2023-12-12",
+    "page": null
+   },
+   {
+    "chunk_id": "MQT-2026-2156#001",
+    "score": 0.02532,
+    "ranks": {
+     "semantic": 19,
+     "text": 19
+    },
+    "title": "Mayor's Question Time 16 July 2026, Question 2026/2156 Tube Noise (Elly Baker AM), transcript",
+    "publisher": "GLA",
+    "doc_date": "2026-07-16",
+    "page": 1
+   }
+  ],
+  "stats": [
+   "level.EB.LST-BTH",
+   "level.WB.BTH-LST",
+   "duration.EB.LST-BTH",
+   "duration.WB.BTH-LST",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 1.37
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T044146Z_how-loud-is-liverpool-street-to-bethnal-green-by.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T044146Z_how-loud-is-liverpool-street-to-bethnal-green-by"
+ }
+}

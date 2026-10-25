@@ -1,0 +1,27 @@
+{
+ "reader": "Claude (lead's agent), independent visual read, not ground truth",
+ "recorded": "2026-10-25, before any Gemini call and before the pixel digitizer was written",
+ "source": "data/corpus/files/FOI-1730-1819__1.pdf (TfL FOI-1730-1819, 'Rail Roughness Plots BEG-MIE January 2018'); embedded figure images 1600x598 px viewed natively and as 2x zoomed crops",
+ "method": "by eye against the printed gridlines and tick labels; pixel row/column positions of gridlines read off the zoomed crops to interpolate between ticks. Header strings transcribed from the text printed inside each figure image.",
+ "header_text": {
+  "1": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+  "2": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+  "3": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+  "4": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm"
+ },
+ "points": [
+  {"id": "P1", "figure": 1, "page": 1, "panel": "position", "what": "global maximum of the 30-100 mm MA Pk-Pk trace (LHR)", "x": 865, "x_units": "m", "y": 135, "y_units": "µm"},
+  {"id": "P2", "figure": 4, "page": 2, "panel": "position", "what": "global maximum of the 100-300 mm MA Pk-Pk trace (RHR)", "x": 887, "x_units": "m", "y": 381, "y_units": "µm"},
+  {"id": "P3", "figure": 1, "page": 1, "panel": "spectrum", "what": "LHR roughness spectrum at the 125 mm band (local peak)", "x": 125, "x_units": "mm", "y": 23.1, "y_units": "dB rel 1 µm RMS"},
+  {"id": "P4", "figure": 1, "page": 1, "panel": "spectrum", "what": "LHR roughness spectrum at the 200 mm band (local dip before the 125 mm peak)", "x": 200, "x_units": "mm", "y": 18.9, "y_units": "dB rel 1 µm RMS"},
+  {"id": "P5", "figure": 3, "page": 2, "panel": "spectrum", "what": "RHR roughness spectrum at the 200 mm band (local peak)", "x": 200, "x_units": "mm", "y": 24.4, "y_units": "dB rel 1 µm RMS"},
+  {"id": "P6", "figure": 3, "page": 2, "panel": "spectrum", "what": "RHR roughness spectrum at the 250 mm band (local dip before the 200 mm peak)", "x": 250, "x_units": "mm", "y": 22.6, "y_units": "dB rel 1 µm RMS"}
+ ],
+ "observations_not_scored": [
+  "Each figure has two panels: (top) moving-average peak-to-peak roughness in the caption's wavelength band vs Position (m); (bottom) a roughness spectrum, dB rel 1 µm RMS vs third-octave wavelength band 2000 mm to 3.15 mm.",
+  "The bottom spectrum looks the same in Figures 1 and 2 (LHR) and in Figures 3 and 4 (RHR): one spectrum per rail, repeated.",
+  "The roughest stretch on both rails starts abruptly near 720-725 m and is highest to about 890-900 m; the LHR stays above the 10 µm line in the 30-100 mm band to about 1,230 m.",
+  "Three unlabelled straight lines (grey, magenta, olive) on each spectrum and pink vertical lines on each position panel have no legend in the PDF; not identified.",
+  "LHR and RHR are not expanded in the PDF (conventionally left-hand / right-hand rail)."
+ ]
+}

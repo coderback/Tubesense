@@ -1,0 +1,1370 @@
+{
+ "run": 2,
+ "mode": "pdf",
+ "ts": "2026-10-25T04:19:42+00:00",
+ "model": "gemini-4-argon",
+ "model_version": "gemini-4-argon",
+ "thinking": "medium",
+ "media_resolution": "high",
+ "seconds": 102.9,
+ "usage": {
+  "prompt": 5375,
+  "output": 12919,
+  "thoughts": null
+ },
+ "extraction": {
+  "document_title": "Central line Rail Roughness Plots — Eastbound Bethnal Green to Mile End",
+  "n_pages": 2,
+  "n_figures": 4,
+  "figures": [
+   {
+    "figure_no": 1,
+    "page": 1,
+    "figure_caption": "Figure 1 – LHR 30-100mm",
+    "header_text": "Main Av P-P: 16.5µm Exceedence: 41% (0.626km) >10µm",
+    "header_values": {
+     "main_av_pp_um": 16.5,
+     "exceedance_pct": 41.0,
+     "exceedance_km": 0.626,
+     "threshold_um": 10.0
+    },
+    "rail_label": "LHR",
+    "band_label": "30-100mm",
+    "direction": "Eastbound Bethnal Green to Mile End",
+    "position_panel": {
+     "x_axis": {
+      "label": "Position (m)",
+      "units": "m",
+      "min": -4.6276,
+      "max": 1534.0,
+      "tick_labels": [
+       "-4.6276",
+       "100.0000",
+       "200.0000",
+       "300.0000",
+       "400.0000",
+       "500.0000",
+       "600.0000",
+       "700.0000",
+       "800.0000",
+       "900.0000",
+       "1000.0000",
+       "1100.0000",
+       "1200.0000",
+       "1300.0000",
+       "1400.0000",
+       "1534.0000"
+      ]
+     },
+     "y_axis": {
+      "label": "30-100mm MA Pk-Pk (µm)",
+      "units": "µm",
+      "min": 0.0,
+      "max": 143.0,
+      "tick_labels": [
+       "143",
+       "120",
+       "100",
+       "80",
+       "60",
+       "40",
+       "20",
+       "0"
+      ]
+     },
+     "threshold_value": 10.0,
+     "readings": [
+      {
+       "kind": "threshold_line",
+       "x": 0.0,
+       "y": 10.0,
+       "note": "dashed horizontal line across the position panel at 10 µm, matching '>10µm' in the header"
+      },
+      {
+       "kind": "global_max",
+       "x": 883.0,
+       "y": 135.0,
+       "note": "tallest spike on the 30-100mm MA Pk-Pk trace, near the end of the 735-905 m rough zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 816.0,
+       "y": 106.0,
+       "note": "peak within the 735-905 m rough zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 800.0,
+       "y": 101.0,
+       "note": "peak at the 800 m gridline within the 735-905 m rough zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 1423.0,
+       "y": 75.0,
+       "note": "isolated spike past 1400 m"
+      },
+      {
+       "kind": "local_max",
+       "x": 1148.0,
+       "y": 69.0,
+       "note": "tallest peak in the 905-1220 m rough zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 1007.0,
+       "y": 54.0,
+       "note": "peak just above 1000 m"
+      }
+     ],
+     "rough_zones": [
+      {
+       "start": 165.0,
+       "end": 285.0,
+       "note": "elevated cluster between ~165 m and ~285 m with peaks up to ~44 µm at ~272 m"
+      },
+      {
+       "start": 735.0,
+       "end": 905.0,
+       "note": "sustained high-amplitude zone, mostly 35-105 µm, reaching the global maximum of ~135 µm at ~883 m"
+      },
+      {
+       "start": 905.0,
+       "end": 1220.0,
+       "note": "continuation above the 10 µm dashed line from ~905 m to ~1220 m, mostly 15-70 µm"
+      }
+     ]
+    },
+    "spectrum_panel": {
+     "x_axis": {
+      "label": "Wavelength (mm)",
+      "units": "mm",
+      "min": 3.15,
+      "max": 2000.0,
+      "tick_labels": [
+       "2000",
+       "1600",
+       "1250",
+       "1000",
+       "800",
+       "630",
+       "500",
+       "400",
+       "315",
+       "250",
+       "200",
+       "160",
+       "125",
+       "100",
+       "80.0",
+       "63.0",
+       "50.0",
+       "40.0",
+       "31.5",
+       "25.0",
+       "20.0",
+       "16.0",
+       "12.5",
+       "10.0",
+       "8.0",
+       "6.3",
+       "5.0",
+       "4.0",
+       "3.15"
+      ]
+     },
+     "y_axis": {
+      "label": "dB rel 1µmRMS",
+      "units": "dB rel 1µmRMS",
+      "min": -31.0,
+      "max": 47.0,
+      "tick_labels": [
+       "47",
+       "40",
+       "30",
+       "20",
+       "10",
+       "0",
+       "-10",
+       "-20",
+       "-31"
+      ]
+     },
+     "series": [
+      "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+      "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+      "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+      "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+     ],
+     "band_levels": [
+      {
+       "band_mm": "2000",
+       "db": 44.3
+      },
+      {
+       "band_mm": "1600",
+       "db": 41.2
+      },
+      {
+       "band_mm": "1250",
+       "db": 39.0
+      },
+      {
+       "band_mm": "1000",
+       "db": 35.8
+      },
+      {
+       "band_mm": "800",
+       "db": 33.4
+      },
+      {
+       "band_mm": "630",
+       "db": 30.2
+      },
+      {
+       "band_mm": "500",
+       "db": 27.6
+      },
+      {
+       "band_mm": "400",
+       "db": 25.4
+      },
+      {
+       "band_mm": "315",
+       "db": 23.6
+      },
+      {
+       "band_mm": "250",
+       "db": 19.8
+      },
+      {
+       "band_mm": "200",
+       "db": 19.6
+      },
+      {
+       "band_mm": "160",
+       "db": 21.6
+      },
+      {
+       "band_mm": "125",
+       "db": 23.0
+      },
+      {
+       "band_mm": "100",
+       "db": 19.2
+      },
+      {
+       "band_mm": "80.0",
+       "db": 15.8
+      },
+      {
+       "band_mm": "63.0",
+       "db": 15.0
+      },
+      {
+       "band_mm": "50.0",
+       "db": 11.4
+      },
+      {
+       "band_mm": "40.0",
+       "db": 8.0
+      },
+      {
+       "band_mm": "31.5",
+       "db": 2.9
+      },
+      {
+       "band_mm": "25.0",
+       "db": 3.8
+      },
+      {
+       "band_mm": "20.0",
+       "db": -2.4
+      },
+      {
+       "band_mm": "16.0",
+       "db": -5.6
+      },
+      {
+       "band_mm": "12.5",
+       "db": 1.3
+      },
+      {
+       "band_mm": "10.0",
+       "db": -2.9
+      },
+      {
+       "band_mm": "8.0",
+       "db": -0.2
+      },
+      {
+       "band_mm": "6.3",
+       "db": 0.6
+      },
+      {
+       "band_mm": "5.0",
+       "db": 1.4
+      },
+      {
+       "band_mm": "4.0",
+       "db": 0.4
+      },
+      {
+       "band_mm": "3.15",
+       "db": -5.6
+      }
+     ],
+     "readings": [
+      {
+       "kind": "global_max",
+       "x": 2000.0,
+       "y": 44.3,
+       "note": "highest level on the dark-red spectrum curve, at the 2000 mm end"
+      },
+      {
+       "kind": "local_max",
+       "x": 125.0,
+       "y": 23.0,
+       "note": "local peak at the 125 mm band (hump across 200-100 mm)"
+      },
+      {
+       "kind": "local_max",
+       "x": 25.0,
+       "y": 3.8,
+       "note": "small local peak at the 25.0 mm band"
+      },
+      {
+       "kind": "local_max",
+       "x": 12.5,
+       "y": 1.3,
+       "note": "sharp local peak at the 12.5 mm band"
+      },
+      {
+       "kind": "local_max",
+       "x": 5.0,
+       "y": 1.4,
+       "note": "broad local peak around the 5.0 mm band"
+      }
+     ]
+    }
+   },
+   {
+    "figure_no": 2,
+    "page": 1,
+    "figure_caption": "Figure 2 – LHR 100-300mm",
+    "header_text": "Main Av P-P: 39.2µm Exceedence: 41% (0.626km) >30µm",
+    "header_values": {
+     "main_av_pp_um": 39.2,
+     "exceedance_pct": 41.0,
+     "exceedance_km": 0.626,
+     "threshold_um": 30.0
+    },
+    "rail_label": "LHR",
+    "band_label": "100-300mm",
+    "direction": "Eastbound Bethnal Green to Mile End",
+    "position_panel": {
+     "x_axis": {
+      "label": "Position (m)",
+      "units": "m",
+      "min": -4.6276,
+      "max": 1534.0,
+      "tick_labels": [
+       "-4.6276",
+       "100.0000",
+       "200.0000",
+       "300.0000",
+       "400.0000",
+       "500.0000",
+       "600.0000",
+       "700.0000",
+       "800.0000",
+       "900.0000",
+       "1000.0000",
+       "1100.0000",
+       "1200.0000",
+       "1300.0000",
+       "1400.0000",
+       "1534.0000"
+      ]
+     },
+     "y_axis": {
+      "label": "100-300mm MA Pk-Pk (µm)",
+      "units": "µm",
+      "min": 0.0,
+      "max": 343.0,
+      "tick_labels": [
+       "343",
+       "300",
+       "250",
+       "200",
+       "150",
+       "100",
+       "50",
+       "0"
+      ]
+     },
+     "threshold_value": 30.0,
+     "readings": [
+      {
+       "kind": "threshold_line",
+       "x": 0.0,
+       "y": 30.0,
+       "note": "dashed horizontal line across the position panel at 30 µm, matching '>30µm' in the header"
+      },
+      {
+       "kind": "global_max",
+       "x": 168.0,
+       "y": 324.0,
+       "note": "tallest spike on the 100-300mm MA Pk-Pk trace"
+      },
+      {
+       "kind": "local_max",
+       "x": 215.0,
+       "y": 292.0,
+       "note": "second tall spike in the 160-260 m cluster"
+      },
+      {
+       "kind": "local_max",
+       "x": 883.0,
+       "y": 284.0,
+       "note": "tallest spike in the 735-905 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 182.0,
+       "y": 272.0,
+       "note": "spike between the 168 m and 215 m spikes"
+      },
+      {
+       "kind": "local_max",
+       "x": 968.0,
+       "y": 250.0,
+       "note": "spike at ~968 m reaching the 250 µm gridline"
+      },
+      {
+       "kind": "local_max",
+       "x": 826.0,
+       "y": 232.0,
+       "note": "peak within the 735-905 m rough zone"
+      }
+     ],
+     "rough_zones": [
+      {
+       "start": 160.0,
+       "end": 260.0,
+       "note": "cluster of large spikes between ~160 m and ~260 m reaching 324 µm at ~168 m and 292 µm at ~215 m"
+      },
+      {
+       "start": 605.0,
+       "end": 645.0,
+       "note": "elevated group around 605-645 m with peaks up to ~160 µm"
+      },
+      {
+       "start": 735.0,
+       "end": 905.0,
+       "note": "sustained high-amplitude zone, mostly 70-235 µm with a spike to ~284 µm at ~883 m"
+      },
+      {
+       "start": 905.0,
+       "end": 1200.0,
+       "note": "continued exceedances above 30 µm from ~905 m to ~1200 m, mostly 35-150 µm with a 250 µm spike at ~968 m"
+      }
+     ]
+    },
+    "spectrum_panel": {
+     "x_axis": {
+      "label": "Wavelength (mm)",
+      "units": "mm",
+      "min": 3.15,
+      "max": 2000.0,
+      "tick_labels": [
+       "2000",
+       "1600",
+       "1250",
+       "1000",
+       "800",
+       "630",
+       "500",
+       "400",
+       "315",
+       "250",
+       "200",
+       "160",
+       "125",
+       "100",
+       "80.0",
+       "63.0",
+       "50.0",
+       "40.0",
+       "31.5",
+       "25.0",
+       "20.0",
+       "16.0",
+       "12.5",
+       "10.0",
+       "8.0",
+       "6.3",
+       "5.0",
+       "4.0",
+       "3.15"
+      ]
+     },
+     "y_axis": {
+      "label": "dB rel 1µmRMS",
+      "units": "dB rel 1µmRMS",
+      "min": -31.0,
+      "max": 47.0,
+      "tick_labels": [
+       "47",
+       "40",
+       "30",
+       "20",
+       "10",
+       "0",
+       "-10",
+       "-20",
+       "-31"
+      ]
+     },
+     "series": [
+      "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+      "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+      "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+      "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+     ],
+     "band_levels": [
+      {
+       "band_mm": "2000",
+       "db": 44.3
+      },
+      {
+       "band_mm": "1600",
+       "db": 41.2
+      },
+      {
+       "band_mm": "1250",
+       "db": 39.0
+      },
+      {
+       "band_mm": "1000",
+       "db": 35.8
+      },
+      {
+       "band_mm": "800",
+       "db": 33.4
+      },
+      {
+       "band_mm": "630",
+       "db": 30.2
+      },
+      {
+       "band_mm": "500",
+       "db": 27.6
+      },
+      {
+       "band_mm": "400",
+       "db": 25.4
+      },
+      {
+       "band_mm": "315",
+       "db": 23.6
+      },
+      {
+       "band_mm": "250",
+       "db": 19.8
+      },
+      {
+       "band_mm": "200",
+       "db": 19.6
+      },
+      {
+       "band_mm": "160",
+       "db": 21.6
+      },
+      {
+       "band_mm": "125",
+       "db": 23.0
+      },
+      {
+       "band_mm": "100",
+       "db": 19.2
+      },
+      {
+       "band_mm": "80.0",
+       "db": 15.8
+      },
+      {
+       "band_mm": "63.0",
+       "db": 15.0
+      },
+      {
+       "band_mm": "50.0",
+       "db": 11.4
+      },
+      {
+       "band_mm": "40.0",
+       "db": 8.0
+      },
+      {
+       "band_mm": "31.5",
+       "db": 2.9
+      },
+      {
+       "band_mm": "25.0",
+       "db": 3.8
+      },
+      {
+       "band_mm": "20.0",
+       "db": -2.4
+      },
+      {
+       "band_mm": "16.0",
+       "db": -5.6
+      },
+      {
+       "band_mm": "12.5",
+       "db": 1.3
+      },
+      {
+       "band_mm": "10.0",
+       "db": -2.9
+      },
+      {
+       "band_mm": "8.0",
+       "db": -0.2
+      },
+      {
+       "band_mm": "6.3",
+       "db": 0.6
+      },
+      {
+       "band_mm": "5.0",
+       "db": 1.4
+      },
+      {
+       "band_mm": "4.0",
+       "db": 0.4
+      },
+      {
+       "band_mm": "3.15",
+       "db": -5.6
+      }
+     ],
+     "readings": [
+      {
+       "kind": "global_max",
+       "x": 2000.0,
+       "y": 44.3,
+       "note": "highest level on the dark-red spectrum curve, identical to Figure 1"
+      },
+      {
+       "kind": "local_max",
+       "x": 125.0,
+       "y": 23.0,
+       "note": "local peak at the 125 mm band, identical to Figure 1"
+      },
+      {
+       "kind": "local_max",
+       "x": 25.0,
+       "y": 3.8,
+       "note": "small local peak at the 25.0 mm band, identical to Figure 1"
+      },
+      {
+       "kind": "local_max",
+       "x": 12.5,
+       "y": 1.3,
+       "note": "sharp local peak at the 12.5 mm band, identical to Figure 1"
+      },
+      {
+       "kind": "local_max",
+       "x": 5.0,
+       "y": 1.4,
+       "note": "broad local peak around the 5.0 mm band, identical to Figure 1"
+      }
+     ]
+    }
+   },
+   {
+    "figure_no": 3,
+    "page": 2,
+    "figure_caption": "Figure 3 – RHR 30-100mm",
+    "header_text": "Main Av P-P: 10.9µm Exceedence: 33% (0.504km) >10µm",
+    "header_values": {
+     "main_av_pp_um": 10.9,
+     "exceedance_pct": 33.0,
+     "exceedance_km": 0.504,
+     "threshold_um": 10.0
+    },
+    "rail_label": "RHR",
+    "band_label": "30-100mm",
+    "direction": "Eastbound Bethnal Green to Mile End",
+    "position_panel": {
+     "x_axis": {
+      "label": "Position (m)",
+      "units": "m",
+      "min": 0.0,
+      "max": 1544.5434,
+      "tick_labels": [
+       "0.0000",
+       "100.0000",
+       "200.0000",
+       "300.0000",
+       "400.0000",
+       "500.0000",
+       "600.0000",
+       "700.0000",
+       "800.0000",
+       "900.0000",
+       "1000.0000",
+       "1100.0000",
+       "1200.0000",
+       "1300.0000",
+       "1400.0000",
+       "1544.5434"
+      ]
+     },
+     "y_axis": {
+      "label": "30-100mm MA Pk-Pk (µm)",
+      "units": "µm",
+      "min": 0.0,
+      "max": 117.0,
+      "tick_labels": [
+       "117",
+       "100",
+       "80",
+       "60",
+       "40",
+       "20",
+       "0"
+      ]
+     },
+     "threshold_value": 10.0,
+     "readings": [
+      {
+       "kind": "threshold_line",
+       "x": 0.0,
+       "y": 10.0,
+       "note": "dashed horizontal line across the position panel at 10 µm, matching '>10µm' in the header"
+      },
+      {
+       "kind": "global_max",
+       "x": 265.0,
+       "y": 111.0,
+       "note": "tallest spike on the RHR 30-100mm trace"
+      },
+      {
+       "kind": "local_max",
+       "x": 168.0,
+       "y": 110.0,
+       "note": "nearly equal tallest spike in the 95-275 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 244.0,
+       "y": 87.0,
+       "note": "spike in the 235-270 m cluster"
+      },
+      {
+       "kind": "local_max",
+       "x": 1451.0,
+       "y": 87.0,
+       "note": "tallest spike in the 1295-1505 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 1308.0,
+       "y": 81.0,
+       "note": "spike near the start of the 1295-1505 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 1365.0,
+       "y": 79.0,
+       "note": "spike near the red vertical line at ~1365 m"
+      }
+     ],
+     "rough_zones": [
+      {
+       "start": 95.0,
+       "end": 275.0,
+       "note": "active zone with multiple tall spikes, including ~110 µm at ~168 m and ~111 µm at ~265 m"
+      },
+      {
+       "start": 725.0,
+       "end": 905.0,
+       "note": "sustained zone above 10 µm, mostly 15-65 µm (peak ~66 µm at ~752 m)"
+      },
+      {
+       "start": 1295.0,
+       "end": 1505.0,
+       "note": "sustained zone near the end of the section, mostly 15-87 µm"
+      }
+     ]
+    },
+    "spectrum_panel": {
+     "x_axis": {
+      "label": "Wavelength (mm)",
+      "units": "mm",
+      "min": 3.15,
+      "max": 2000.0,
+      "tick_labels": [
+       "2000",
+       "1600",
+       "1250",
+       "1000",
+       "800",
+       "630",
+       "500",
+       "400",
+       "315",
+       "250",
+       "200",
+       "160",
+       "125",
+       "100",
+       "80.0",
+       "63.0",
+       "50.0",
+       "40.0",
+       "31.5",
+       "25.0",
+       "20.0",
+       "16.0",
+       "12.5",
+       "10.0",
+       "8.0",
+       "6.3",
+       "5.0",
+       "4.0",
+       "3.15"
+      ]
+     },
+     "y_axis": {
+      "label": "dB rel 1µmRMS",
+      "units": "dB rel 1µmRMS",
+      "min": -31.0,
+      "max": 48.0,
+      "tick_labels": [
+       "48",
+       "40",
+       "30",
+       "20",
+       "10",
+       "0",
+       "-10",
+       "-20",
+       "-31"
+      ]
+     },
+     "series": [
+      "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+      "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+      "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+      "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+     ],
+     "band_levels": [
+      {
+       "band_mm": "2000",
+       "db": 45.2
+      },
+      {
+       "band_mm": "1600",
+       "db": 43.2
+      },
+      {
+       "band_mm": "1250",
+       "db": 40.2
+      },
+      {
+       "band_mm": "1000",
+       "db": 37.8
+      },
+      {
+       "band_mm": "800",
+       "db": 34.4
+      },
+      {
+       "band_mm": "630",
+       "db": 31.6
+      },
+      {
+       "band_mm": "500",
+       "db": 29.0
+      },
+      {
+       "band_mm": "400",
+       "db": 26.2
+      },
+      {
+       "band_mm": "315",
+       "db": 23.6
+      },
+      {
+       "band_mm": "250",
+       "db": 22.8
+      },
+      {
+       "band_mm": "200",
+       "db": 24.4
+      },
+      {
+       "band_mm": "160",
+       "db": 20.6
+      },
+      {
+       "band_mm": "125",
+       "db": 18.6
+      },
+      {
+       "band_mm": "100",
+       "db": 15.8
+      },
+      {
+       "band_mm": "80.0",
+       "db": 12.6
+      },
+      {
+       "band_mm": "63.0",
+       "db": 11.4
+      },
+      {
+       "band_mm": "50.0",
+       "db": 9.4
+      },
+      {
+       "band_mm": "40.0",
+       "db": 4.4
+      },
+      {
+       "band_mm": "31.5",
+       "db": -0.2
+      },
+      {
+       "band_mm": "25.0",
+       "db": 1.0
+      },
+      {
+       "band_mm": "20.0",
+       "db": -3.8
+      },
+      {
+       "band_mm": "16.0",
+       "db": -6.8
+      },
+      {
+       "band_mm": "12.5",
+       "db": -4.6
+      },
+      {
+       "band_mm": "10.0",
+       "db": -6.0
+      },
+      {
+       "band_mm": "8.0",
+       "db": -5.0
+      },
+      {
+       "band_mm": "6.3",
+       "db": -4.6
+      },
+      {
+       "band_mm": "5.0",
+       "db": -5.2
+      },
+      {
+       "band_mm": "4.0",
+       "db": -7.6
+      },
+      {
+       "band_mm": "3.15",
+       "db": -8.6
+      }
+     ],
+     "readings": [
+      {
+       "kind": "global_max",
+       "x": 2000.0,
+       "y": 45.2,
+       "note": "highest level on the dark-red spectrum curve, at the 2000 mm end"
+      },
+      {
+       "kind": "local_max",
+       "x": 200.0,
+       "y": 24.4,
+       "note": "local peak at the 200 mm band"
+      },
+      {
+       "kind": "local_max",
+       "x": 25.0,
+       "y": 1.0,
+       "note": "local peak at the 25.0 mm band"
+      },
+      {
+       "kind": "local_max",
+       "x": 12.5,
+       "y": -4.6,
+       "note": "small local peak at the 12.5 mm band"
+      },
+      {
+       "kind": "local_max",
+       "x": 6.3,
+       "y": -4.6,
+       "note": "broad local peak around the 6.3 mm band"
+      }
+     ]
+    }
+   },
+   {
+    "figure_no": 4,
+    "page": 2,
+    "figure_caption": "Figure 4 – RHR 100-300mm",
+    "header_text": "Main Av P-P: 35.7µm Exceedence: 34% (0.519km) >30µm",
+    "header_values": {
+     "main_av_pp_um": 35.7,
+     "exceedance_pct": 34.0,
+     "exceedance_km": 0.519,
+     "threshold_um": 30.0
+    },
+    "rail_label": "RHR",
+    "band_label": "100-300mm",
+    "direction": "Eastbound Bethnal Green to Mile End",
+    "position_panel": {
+     "x_axis": {
+      "label": "Position (m)",
+      "units": "m",
+      "min": 0.0,
+      "max": 1544.5434,
+      "tick_labels": [
+       "0.0000",
+       "100.0000",
+       "200.0000",
+       "300.0000",
+       "400.0000",
+       "500.0000",
+       "600.0000",
+       "700.0000",
+       "800.0000",
+       "900.0000",
+       "1000.0000",
+       "1100.0000",
+       "1200.0000",
+       "1300.0000",
+       "1400.0000",
+       "1544.5434"
+      ]
+     },
+     "y_axis": {
+      "label": "100-300mm MA Pk-Pk (µm)",
+      "units": "µm",
+      "min": 0.0,
+      "max": 400.0,
+      "tick_labels": [
+       "400",
+       "350",
+       "300",
+       "250",
+       "200",
+       "150",
+       "100",
+       "50",
+       "0"
+      ]
+     },
+     "threshold_value": 30.0,
+     "readings": [
+      {
+       "kind": "threshold_line",
+       "x": 0.0,
+       "y": 30.0,
+       "note": "dashed horizontal line across the position panel at 30 µm, matching '>30µm' in the header"
+      },
+      {
+       "kind": "global_max",
+       "x": 884.0,
+       "y": 385.0,
+       "note": "tallest spike on the RHR 100-300mm trace, near the end of the 725-905 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 763.0,
+       "y": 343.0,
+       "note": "spike in the first half of the 725-905 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 891.0,
+       "y": 341.0,
+       "note": "spike adjacent to the 884 m global maximum"
+      },
+      {
+       "kind": "local_max",
+       "x": 855.0,
+       "y": 329.0,
+       "note": "spike within the 725-905 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 730.0,
+       "y": 324.0,
+       "note": "spike near the start of the 725-905 m zone"
+      },
+      {
+       "kind": "local_max",
+       "x": 197.0,
+       "y": 324.0,
+       "note": "tallest spike in the 125-285 m zone"
+      }
+     ],
+     "rough_zones": [
+      {
+       "start": 125.0,
+       "end": 285.0,
+       "note": "cluster of spikes above 30 µm, with peaks of ~225 µm at ~131 m, ~324 µm at ~197 m, ~285 µm at ~215 m and ~232 µm at ~244 m"
+      },
+      {
+       "start": 725.0,
+       "end": 905.0,
+       "note": "dense high-amplitude zone, regularly reaching 200-385 µm"
+      },
+      {
+       "start": 945.0,
+       "end": 1240.0,
+       "note": "zone of frequent exceedances above 30 µm, mostly 35-155 µm with a spike to ~246 µm at ~1020 m and ~204 µm at ~1156 m"
+      },
+      {
+       "start": 1295.0,
+       "end": 1520.0,
+       "note": "zone of exceedances near the end of the section, mostly 35-160 µm with spikes up to ~195 µm at ~1494 m and ~190 µm at ~1516 m"
+      }
+     ]
+    },
+    "spectrum_panel": {
+     "x_axis": {
+      "label": "Wavelength (mm)",
+      "units": "mm",
+      "min": 3.15,
+      "max": 2000.0,
+      "tick_labels": [
+       "2000",
+       "1600",
+       "1250",
+       "1000",
+       "800",
+       "630",
+       "500",
+       "400",
+       "315",
+       "250",
+       "200",
+       "160",
+       "125",
+       "100",
+       "80.0",
+       "63.0",
+       "50.0",
+       "40.0",
+       "31.5",
+       "25.0",
+       "20.0",
+       "16.0",
+       "12.5",
+       "10.0",
+       "8.0",
+       "6.3",
+       "5.0",
+       "4.0",
+       "3.15"
+      ]
+     },
+     "y_axis": {
+      "label": "dB rel 1µmRMS",
+      "units": "dB rel 1µmRMS",
+      "min": -31.0,
+      "max": 48.0,
+      "tick_labels": [
+       "48",
+       "40",
+       "30",
+       "20",
+       "10",
+       "0",
+       "-10",
+       "-20",
+       "-31"
+      ]
+     },
+     "series": [
+      "dark-red solid line with square data markers at each wavelength band from 2000 mm to 3.15 mm (unlabelled)",
+      "upper green/olive smooth line without markers from 630 mm to 3.15 mm (unlabelled)",
+      "magenta/pink smooth line without markers from 315 mm to 3.15 mm (unlabelled)",
+      "lower green/olive smooth line without markers from 200 mm to 5.0 mm (unlabelled)"
+     ],
+     "band_levels": [
+      {
+       "band_mm": "2000",
+       "db": 45.2
+      },
+      {
+       "band_mm": "1600",
+       "db": 43.2
+      },
+      {
+       "band_mm": "1250",
+       "db": 40.2
+      },
+      {
+       "band_mm": "1000",
+       "db": 37.8
+      },
+      {
+       "band_mm": "800",
+       "db": 34.4
+      },
+      {
+       "band_mm": "630",
+       "db": 31.6
+      },
+      {
+       "band_mm": "500",
+       "db": 29.0
+      },
+      {
+       "band_mm": "400",
+       "db": 26.2
+      },
+      {
+       "band_mm": "315",
+       "db": 23.6
+      },
+      {
+       "band_mm": "250",
+       "db": 22.8
+      },
+      {
+       "band_mm": "200",
+       "db": 24.4
+      },
+      {
+       "band_mm": "160",
+       "db": 20.6
+      },
+      {
+       "band_mm": "125",
+       "db": 18.6
+      },
+      {
+       "band_mm": "100",
+       "db": 15.8
+      },
+      {
+       "band_mm": "80.0",
+       "db": 12.6
+      },
+      {
+       "band_mm": "63.0",
+       "db": 11.4
+      },
+      {
+       "band_mm": "50.0",
+       "db": 9.4
+      },
+      {
+       "band_mm": "40.0",
+       "db": 4.4
+      },
+      {
+       "band_mm": "31.5",
+       "db": -0.2
+      },
+      {
+       "band_mm": "25.0",
+       "db": 1.0
+      },
+      {
+       "band_mm": "20.0",
+       "db": -3.8
+      },
+      {
+       "band_mm": "16.0",
+       "db": -6.8
+      },
+      {
+       "band_mm": "12.5",
+       "db": -4.6
+      },
+      {
+       "band_mm": "10.0",
+       "db": -6.0
+      },
+      {
+       "band_mm": "8.0",
+       "db": -5.0
+      },
+      {
+       "band_mm": "6.3",
+       "db": -4.6
+      },
+      {
+       "band_mm": "5.0",
+       "db": -5.2
+      },
+      {
+       "band_mm": "4.0",
+       "db": -7.6
+      },
+      {
+       "band_mm": "3.15",
+       "db": -8.6
+      }
+     ],
+     "readings": [
+      {
+       "kind": "global_max",
+       "x": 2000.0,
+       "y": 45.2,
+       "note": "highest level on the dark-red spectrum curve, identical to Figure 3"
+      },
+      {
+       "kind": "local_max",
+       "x": 200.0,
+       "y": 24.4,
+       "note": "local peak at the 200 mm band, identical to Figure 3"
+      },
+      {
+       "kind": "local_max",
+       "x": 25.0,
+       "y": 1.0,
+       "note": "local peak at the 25.0 mm band, identical to Figure 3"
+      },
+      {
+       "kind": "local_max",
+       "x": 12.5,
+       "y": -4.6,
+       "note": "small local peak at the 12.5 mm band, identical to Figure 3"
+      },
+      {
+       "kind": "local_max",
+       "x": 6.3,
+       "y": -4.6,
+       "note": "broad local peak around the 6.3 mm band, identical to Figure 3"
+      }
+     ]
+    }
+   }
+  ],
+  "unlabelled_elements": [
+   "Three smooth coloured curves without data markers in every spectrum panel: an upper green/olive curve (630 mm to 3.15 mm), a middle magenta/pink curve (315 mm to 3.15 mm), and a lower green/olive curve (200 mm to 5.0 mm); no legend or text in the PDF names them.",
+   "The dark-red spectrum curve with square markers in every lower panel has no legend entry (it is the only curve with data markers).",
+   "Thin vertical coloured lines across the upper position panels: on Figures 1 and 2 (LHR) a green line near 1230 m and a red line near 1295 m; on Figures 3 and 4 (RHR) green and red vertical lines near 125 m, 225 m, 715 m, 1280 m, 1365 m and 1544 m; no legend or label in the PDF explains them.",
+   "A dashed horizontal line across each upper position panel at 10 µm (Figures 1 and 3) or 30 µm (Figures 2 and 4); it matches the '>10µm' and '>30µm' exceedance text in the figure headers but is not separately labelled on the axis."
+  ],
+  "summary": [
+   "The four figures show rail roughness along ~1.54 km of the Eastbound Central line from Bethnal Green to Mile End for two rails (LHR on page 1, RHR on page 2) and two moving-average peak-to-peak wavelength bands (30-100mm and 100-300mm).",
+   "On the LHR, the 30-100mm trace (Figure 1) has a main average P-P of 16.5 µm with 41% (0.626 km) exceeding 10 µm and a global peak of ~135 µm at ~883 m, while the 100-300mm trace (Figure 2) has a main average P-P of 39.2 µm with 41% (0.626 km) exceeding 30 µm and peaks up to ~324 µm at ~168 m and ~284 µm at ~883 m.",
+   "On the RHR, the 30-100mm trace (Figure 3) has a lower main average P-P of 10.9 µm with 33% (0.504 km) exceeding 10 µm and peaks of ~110-111 µm at ~168 m and ~265 m, while the 100-300mm trace (Figure 4) has a main average P-P of 35.7 µm with 34% (0.519 km) exceeding 30 µm and a global peak of ~385 µm at ~884 m.",
+   "Both rails show sustained rough activity between roughly 725 m and 905 m (continuing above threshold to ~1200 m on LHR and in shorter stretches on RHR), plus a rough cluster around 100-285 m and, on RHR, an additional rough zone between ~1295 m and ~1510 m.",
+   "Within each rail, the lower spectrum panel is identical between the 30-100mm and 100-300mm figures (Figure 1 matches Figure 2; Figure 3 matches Figure 4), falling from ~44-45 dB rel 1 µmRMS at 2000 mm to below 0 dB at short wavelengths.",
+   "Comparing the two spectra, RHR is 1-5 dB higher than LHR at wavelengths from 2000 mm down to 200 mm (with a local peak of 24.4 dB at 200 mm), whereas LHR is higher than RHR across 160 mm to 3.15 mm (with local peaks of 23.0 dB at 125 mm, 3.8 dB at 25 mm, 1.3 dB at 12.5 mm and 1.4 dB at 5 mm)."
+  ]
+ }
+}

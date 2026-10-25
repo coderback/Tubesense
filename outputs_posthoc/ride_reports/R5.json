@@ -1,0 +1,1021 @@
+{
+ "run": "R5",
+ "ts": "2026-10-25T08:35:14+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "post_hoc": "added 25 Oct 2026 after prereg-24oct; inputs are precomputed outputs",
+ "schema": "claims with facts/comparisons/qualifiers, bound by code (ride_report v2)",
+ "stats_file": "outputs_posthoc/ride_stats/R5.json",
+ "stats_sha": "1ecb18a15fe10cbc",
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "ride_checks_sha": "339f3f0c5dc0f10f3eb7a753fe4b676282b846a4dc48ed6dc17503af1588d958",
+ "rounds": [
+  {
+   "round": 0,
+   "seconds": 51.6,
+   "claims": [
+    {
+     "id": "C1",
+     "text": "Recording R5 captured 2 sections on the eastbound Central line from LST to MLE, logging 298.6 s of phyphox sensor data with 0 pauses and 350.8 s of audio.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "ride.route",
+       "field": "n_sections",
+       "value_as_written": "2",
+       "role": "sections"
+      },
+      {
+       "stat_key": "ride.sensor_duration_s",
+       "field": "value",
+       "value_as_written": "298.6",
+       "role": "phyphox sensor data"
+      },
+      {
+       "stat_key": "ride.phyphox_pauses",
+       "field": "value",
+       "value_as_written": "0",
+       "role": "pauses"
+      },
+      {
+       "stat_key": "ride.audio_duration_s",
+       "field": "value",
+       "value_as_written": "350.8",
+       "role": "of audio"
+      }
+     ],
+     "comparisons": [],
+     "cites": [
+      "ride.id",
+      "ride.route"
+     ]
+    },
+    {
+     "id": "C2",
+     "text": "Quality control logged 1 flag for a handled interval lasting 2.5 s from 9.01 s to 11.51 s, followed by 1 resting placement of 276.0 s from 15.01 s to 290.5 s.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "qc.flag_counts",
+       "field": "value",
+       "value_as_written": "1",
+       "role": "flag"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "value",
+       "value_as_written": "2.5",
+       "role": "lasting"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "t0_s",
+       "value_as_written": "9.01",
+       "role": "from"
+      },
+      {
+       "stat_key": "qc.handled_mid_ride.1",
+       "field": "t1_s",
+       "value_as_written": "11.51",
+       "role": "to"
+      },
+      {
+       "stat_key": "qc.placement_epochs",
+       "field": "value",
+       "value_as_written": "1",
+       "role": "resting placement"
+      },
+      {
+       "stat_key": "qc.placement_epoch.1",
+       "field": "value",
+       "value_as_written": "276.0",
+       "role": "placement of"
+      },
+      {
+       "stat_key": "qc.placement_epoch.1",
+       "field": "t0_s",
+       "value_as_written": "15.01",
+       "role": "from"
+      },
+      {
+       "stat_key": "qc.placement_epoch.1",
+       "field": "t1_s",
+       "value_as_written": "290.5",
+       "role": "to"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    },
+    {
+     "id": "C3",
+     "text": "Without tap markers, coarse cross-correlation aligned the clocks with an audio-sensor offset of 1.6 s and a sync uncertainty of 5.0 s, as 4 agreeing band combinations out of 9 total combinations tried had a correlation peak z-score of 3.6.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "value",
+       "value_as_written": "1.6",
+       "role": "offset of"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "5.0",
+       "role": "sync uncertainty of"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "band_combos_agreeing",
+       "value_as_written": "4",
+       "role": "agreeing"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "band_combos_total",
+       "value_as_written": "9",
+       "role": "total combinations tried"
+      },
+      {
+       "stat_key": "sync.offset_s",
+       "field": "xcorr_z",
+       "value_as_written": "3.6",
+       "role": "correlation peak z-score of"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    },
+    {
+     "id": "C4",
+     "text": "The LST-BTH travel time (141.0 s) was shorter than the LST-BTH timetable expectation (159.8 s), and the BTH-MLE travel time (105.0 s) with 0.8 segmentation confidence was shorter than the BTH-MLE timetable expectation (118.5 s).",
+     "type": "measured",
+     "qualifiers": [
+      "approximate"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.LST-BTH.duration_s",
+       "field": "value",
+       "value_as_written": "141.0",
+       "role": "LST-BTH travel time"
+      },
+      {
+       "stat_key": "section.LST-BTH.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "159.8",
+       "role": "LST-BTH timetable expectation"
+      },
+      {
+       "stat_key": "section.BTH-MLE.duration_s",
+       "field": "value",
+       "value_as_written": "105.0",
+       "role": "BTH-MLE travel time"
+      },
+      {
+       "stat_key": "section.BTH-MLE.duration_s",
+       "field": "segmentation_confidence",
+       "value_as_written": "0.8",
+       "role": "segmentation confidence"
+      },
+      {
+       "stat_key": "section.BTH-MLE.duration_s",
+       "field": "timetable_expected_s",
+       "value_as_written": "118.5",
+       "role": "BTH-MLE timetable expectation"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.LST-BTH.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.LST-BTH.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "less",
+       "relation_word": "shorter",
+       "a_text": "LST-BTH travel time",
+       "b_text": "the LST-BTH timetable expectation",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "section.BTH-MLE.duration_s",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.BTH-MLE.duration_s",
+        "field": "timetable_expected_s"
+       },
+       "relation": "less",
+       "relation_word": "shorter",
+       "a_text": "BTH-MLE travel time",
+       "b_text": "the BTH-MLE timetable expectation",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C5",
+     "text": "On LST-BTH, the tracker median error (1.8 m) was lower than the timetable baseline median error (5.7 m) with 100.0 % band coverage, and on BTH-MLE, the tracker median error (2.4 m) was lower than the timetable baseline median error (49.7 m) with 80.8 % band coverage and a tracker p90 error of 49.9 m.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "value",
+       "value_as_written": "1.8",
+       "role": "tracker median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "timetable_baseline_median_m",
+       "value_as_written": "5.7",
+       "role": "timetable baseline median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "100.0",
+       "role": "band coverage"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "value",
+       "value_as_written": "2.4",
+       "role": "tracker median error"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "timetable_baseline_median_m",
+       "value_as_written": "49.7",
+       "role": "timetable baseline median error"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "80.8",
+       "role": "band coverage"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "p90_m",
+       "value_as_written": "49.9",
+       "role": "tracker p90 error of"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "timetable_baseline_median_m"
+       },
+       "relation": "less",
+       "relation_word": "lower",
+       "a_text": "the tracker median error",
+       "b_text": "the timetable baseline median error",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "positioning.BTH-MLE.loo_median_m",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "positioning.BTH-MLE.loo_median_m",
+        "field": "timetable_baseline_median_m"
+       },
+       "relation": "less",
+       "relation_word": "lower",
+       "a_text": "the tracker median error",
+       "b_text": "the timetable baseline median error",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    },
+    {
+     "id": "C6",
+     "text": "In relative phone levels, LST-BTH (-19.11 dBFS) was louder than BTH-MLE (-19.62 dBFS) by 0.51 dB, while the moving level (-19.3 dBFS) was louder than the platform dwell level (-29.1 dBFS) by 9.8 dB.",
+     "type": "measured",
+     "qualifiers": [
+      "relative_level"
+     ],
+     "facts": [
+      {
+       "stat_key": "section.LST-BTH.level",
+       "field": "value",
+       "value_as_written": "-19.11",
+       "role": "LST-BTH"
+      },
+      {
+       "stat_key": "section.BTH-MLE.level",
+       "field": "value",
+       "value_as_written": "-19.62",
+       "role": "BTH-MLE"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "moving_level",
+       "value_as_written": "-19.3",
+       "role": "moving level"
+      },
+      {
+       "stat_key": "noise.moving_minus_dwell_db",
+       "field": "dwell_level",
+       "value_as_written": "-29.1",
+       "role": "platform dwell level"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "section.LST-BTH.level",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "section.BTH-MLE.level",
+        "field": "value"
+       },
+       "relation": "greater",
+       "relation_word": "louder",
+       "a_text": "LST-BTH",
+       "b_text": "BTH-MLE",
+       "difference_as_written": "0.51"
+      },
+      {
+       "a": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "moving_level"
+       },
+       "b": {
+        "stat_key": "noise.moving_minus_dwell_db",
+        "field": "dwell_level"
+       },
+       "relation": "greater",
+       "relation_word": "louder",
+       "a_text": "the moving level",
+       "b_text": "the platform dwell level",
+       "difference_as_written": "9.8"
+      }
+     ],
+     "cites": [
+      "trip.contrast_db"
+     ]
+    },
+    {
+     "id": "C7",
+     "text": "Section-level relative comparisons on this ride are usable, though analysis should account for the 5.0 s sync uncertainty, the 80.8 % band coverage on BTH-MLE against a 90 % nominal band, the 32.6 % overall limiter share, and the 9.1 % speech share.",
+     "type": "inference",
+     "qualifiers": [
+      "single_ride"
+     ],
+     "facts": [
+      {
+       "stat_key": "sync.offset_s",
+       "field": "uncertainty_s",
+       "value_as_written": "5.0",
+       "role": "sync uncertainty"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "80.8",
+       "role": "band coverage on BTH-MLE"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "band_level_pct",
+       "value_as_written": "90",
+       "role": "nominal band"
+      },
+      {
+       "stat_key": "noise.limiter_fraction",
+       "field": "limiter_pct",
+       "value_as_written": "32.6",
+       "role": "overall limiter"
+      },
+      {
+       "stat_key": "noise.speech_fraction",
+       "field": "speech_pct",
+       "value_as_written": "9.1",
+       "role": "speech"
+      }
+     ],
+     "comparisons": [],
+     "cites": []
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "C1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C2",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C3",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C4",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C5",
+     "ok": false,
+     "reasons": [
+      "5.7 is positioning.LST-BTH.loo_median_m.timetable_baseline_median_m of LST-BTH, but the section named nearest to it is BTH-MLE",
+      "100.0 is positioning.LST-BTH.loo_median_m.band90_coverage_pct of LST-BTH, but the section named nearest to it is BTH-MLE"
+     ]
+    },
+    {
+     "id": "C6",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "C7",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "usage": {
+    "prompt": 18523,
+    "output": 4037,
+    "thoughts": 281
+   },
+   "usage_raw": {
+    "candidates_token_count": 4037,
+    "candidates_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 4037
+     }
+    ],
+    "prompt_token_count": 18523,
+    "prompt_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 18523
+     }
+    ],
+    "thoughts_token_count": 281,
+    "total_token_count": 22841
+   },
+   "thinking_note": "thoughts_token_count returned by the API"
+  },
+  {
+   "round": 1,
+   "seconds": 16.7,
+   "claims": [
+    {
+     "id": "C5",
+     "text": "The LST-BTH tracker median error (1.8 m) was lower than the LST-BTH timetable baseline median error (5.7 m) with 100.0 % LST-BTH band coverage, and the BTH-MLE tracker median error (2.4 m) was lower than the BTH-MLE timetable baseline median error (49.7 m) with 80.8 % BTH-MLE band coverage and a BTH-MLE tracker p90 error of 49.9 m.",
+     "type": "measured",
+     "qualifiers": [],
+     "facts": [
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "value",
+       "value_as_written": "1.8",
+       "role": "LST-BTH tracker median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "timetable_baseline_median_m",
+       "value_as_written": "5.7",
+       "role": "timetable baseline median error"
+      },
+      {
+       "stat_key": "positioning.LST-BTH.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "100.0",
+       "role": "LST-BTH band coverage"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "value",
+       "value_as_written": "2.4",
+       "role": "BTH-MLE tracker median error"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "timetable_baseline_median_m",
+       "value_as_written": "49.7",
+       "role": "timetable baseline median error"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "band90_coverage_pct",
+       "value_as_written": "80.8",
+       "role": "BTH-MLE band coverage"
+      },
+      {
+       "stat_key": "positioning.BTH-MLE.loo_median_m",
+       "field": "p90_m",
+       "value_as_written": "49.9",
+       "role": "tracker p90 error of"
+      }
+     ],
+     "comparisons": [
+      {
+       "a": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "positioning.LST-BTH.loo_median_m",
+        "field": "timetable_baseline_median_m"
+       },
+       "relation": "less",
+       "relation_word": "lower",
+       "a_text": "The LST-BTH tracker median error",
+       "b_text": "the LST-BTH timetable baseline median error",
+       "difference_as_written": ""
+      },
+      {
+       "a": {
+        "stat_key": "positioning.BTH-MLE.loo_median_m",
+        "field": "value"
+       },
+       "b": {
+        "stat_key": "positioning.BTH-MLE.loo_median_m",
+        "field": "timetable_baseline_median_m"
+       },
+       "relation": "less",
+       "relation_word": "lower",
+       "a_text": "the BTH-MLE tracker median error",
+       "b_text": "the BTH-MLE timetable baseline median error",
+       "difference_as_written": ""
+      }
+     ],
+     "cites": []
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "C5",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "usage": {
+    "prompt": 23902,
+    "output": 969,
+    "thoughts": 458
+   },
+   "usage_raw": {
+    "candidates_token_count": 969,
+    "candidates_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 969
+     }
+    ],
+    "prompt_token_count": 23902,
+    "prompt_tokens_details": [
+     {
+      "modality": "TEXT",
+      "token_count": 23902
+     }
+    ],
+    "thoughts_token_count": 458,
+    "total_token_count": 25329
+   },
+   "thinking_note": "thoughts_token_count returned by the API"
+  }
+ ],
+ "verified_claims": [
+  {
+   "id": "C1",
+   "text": "Recording R5 captured 2 sections on the eastbound Central line from LST to MLE, logging 298.6 s of phyphox sensor data with 0 pauses and 350.8 s of audio.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "ride.route",
+     "field": "n_sections",
+     "value_as_written": "2",
+     "role": "sections"
+    },
+    {
+     "stat_key": "ride.sensor_duration_s",
+     "field": "value",
+     "value_as_written": "298.6",
+     "role": "phyphox sensor data"
+    },
+    {
+     "stat_key": "ride.phyphox_pauses",
+     "field": "value",
+     "value_as_written": "0",
+     "role": "pauses"
+    },
+    {
+     "stat_key": "ride.audio_duration_s",
+     "field": "value",
+     "value_as_written": "350.8",
+     "role": "of audio"
+    }
+   ],
+   "comparisons": [],
+   "cites": [
+    "ride.id",
+    "ride.route"
+   ]
+  },
+  {
+   "id": "C2",
+   "text": "Quality control logged 1 flag for a handled interval lasting 2.5 s from 9.01 s to 11.51 s, followed by 1 resting placement of 276.0 s from 15.01 s to 290.5 s.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "qc.flag_counts",
+     "field": "value",
+     "value_as_written": "1",
+     "role": "flag"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "value",
+     "value_as_written": "2.5",
+     "role": "lasting"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "t0_s",
+     "value_as_written": "9.01",
+     "role": "from"
+    },
+    {
+     "stat_key": "qc.handled_mid_ride.1",
+     "field": "t1_s",
+     "value_as_written": "11.51",
+     "role": "to"
+    },
+    {
+     "stat_key": "qc.placement_epochs",
+     "field": "value",
+     "value_as_written": "1",
+     "role": "resting placement"
+    },
+    {
+     "stat_key": "qc.placement_epoch.1",
+     "field": "value",
+     "value_as_written": "276.0",
+     "role": "placement of"
+    },
+    {
+     "stat_key": "qc.placement_epoch.1",
+     "field": "t0_s",
+     "value_as_written": "15.01",
+     "role": "from"
+    },
+    {
+     "stat_key": "qc.placement_epoch.1",
+     "field": "t1_s",
+     "value_as_written": "290.5",
+     "role": "to"
+    }
+   ],
+   "comparisons": [],
+   "cites": []
+  },
+  {
+   "id": "C3",
+   "text": "Without tap markers, coarse cross-correlation aligned the clocks with an audio-sensor offset of 1.6 s and a sync uncertainty of 5.0 s, as 4 agreeing band combinations out of 9 total combinations tried had a correlation peak z-score of 3.6.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "sync.offset_s",
+     "field": "value",
+     "value_as_written": "1.6",
+     "role": "offset of"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "uncertainty_s",
+     "value_as_written": "5.0",
+     "role": "sync uncertainty of"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "band_combos_agreeing",
+     "value_as_written": "4",
+     "role": "agreeing"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "band_combos_total",
+     "value_as_written": "9",
+     "role": "total combinations tried"
+    },
+    {
+     "stat_key": "sync.offset_s",
+     "field": "xcorr_z",
+     "value_as_written": "3.6",
+     "role": "correlation peak z-score of"
+    }
+   ],
+   "comparisons": [],
+   "cites": []
+  },
+  {
+   "id": "C4",
+   "text": "The LST-BTH travel time (141.0 s) was shorter than the LST-BTH timetable expectation (159.8 s), and the BTH-MLE travel time (105.0 s) with 0.8 segmentation confidence was shorter than the BTH-MLE timetable expectation (118.5 s).",
+   "type": "measured",
+   "qualifiers": [
+    "approximate"
+   ],
+   "facts": [
+    {
+     "stat_key": "section.LST-BTH.duration_s",
+     "field": "value",
+     "value_as_written": "141.0",
+     "role": "LST-BTH travel time"
+    },
+    {
+     "stat_key": "section.LST-BTH.duration_s",
+     "field": "timetable_expected_s",
+     "value_as_written": "159.8",
+     "role": "LST-BTH timetable expectation"
+    },
+    {
+     "stat_key": "section.BTH-MLE.duration_s",
+     "field": "value",
+     "value_as_written": "105.0",
+     "role": "BTH-MLE travel time"
+    },
+    {
+     "stat_key": "section.BTH-MLE.duration_s",
+     "field": "segmentation_confidence",
+     "value_as_written": "0.8",
+     "role": "segmentation confidence"
+    },
+    {
+     "stat_key": "section.BTH-MLE.duration_s",
+     "field": "timetable_expected_s",
+     "value_as_written": "118.5",
+     "role": "BTH-MLE timetable expectation"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "section.LST-BTH.duration_s",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.LST-BTH.duration_s",
+      "field": "timetable_expected_s"
+     },
+     "relation": "less",
+     "relation_word": "shorter",
+     "a_text": "LST-BTH travel time",
+     "b_text": "the LST-BTH timetable expectation",
+     "difference_as_written": ""
+    },
+    {
+     "a": {
+      "stat_key": "section.BTH-MLE.duration_s",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.BTH-MLE.duration_s",
+      "field": "timetable_expected_s"
+     },
+     "relation": "less",
+     "relation_word": "shorter",
+     "a_text": "BTH-MLE travel time",
+     "b_text": "the BTH-MLE timetable expectation",
+     "difference_as_written": ""
+    }
+   ],
+   "cites": []
+  },
+  {
+   "id": "C5",
+   "text": "The LST-BTH tracker median error (1.8 m) was lower than the LST-BTH timetable baseline median error (5.7 m) with 100.0 % LST-BTH band coverage, and the BTH-MLE tracker median error (2.4 m) was lower than the BTH-MLE timetable baseline median error (49.7 m) with 80.8 % BTH-MLE band coverage and a BTH-MLE tracker p90 error of 49.9 m.",
+   "type": "measured",
+   "qualifiers": [],
+   "facts": [
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "value",
+     "value_as_written": "1.8",
+     "role": "LST-BTH tracker median error"
+    },
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "timetable_baseline_median_m",
+     "value_as_written": "5.7",
+     "role": "timetable baseline median error"
+    },
+    {
+     "stat_key": "positioning.LST-BTH.loo_median_m",
+     "field": "band90_coverage_pct",
+     "value_as_written": "100.0",
+     "role": "LST-BTH band coverage"
+    },
+    {
+     "stat_key": "positioning.BTH-MLE.loo_median_m",
+     "field": "value",
+     "value_as_written": "2.4",
+     "role": "BTH-MLE tracker median error"
+    },
+    {
+     "stat_key": "positioning.BTH-MLE.loo_median_m",
+     "field": "timetable_baseline_median_m",
+     "value_as_written": "49.7",
+     "role": "timetable baseline median error"
+    },
+    {
+     "stat_key": "positioning.BTH-MLE.loo_median_m",
+     "field": "band90_coverage_pct",
+     "value_as_written": "80.8",
+     "role": "BTH-MLE band coverage"
+    },
+    {
+     "stat_key": "positioning.BTH-MLE.loo_median_m",
+     "field": "p90_m",
+     "value_as_written": "49.9",
+     "role": "tracker p90 error of"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "positioning.LST-BTH.loo_median_m",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "positioning.LST-BTH.loo_median_m",
+      "field": "timetable_baseline_median_m"
+     },
+     "relation": "less",
+     "relation_word": "lower",
+     "a_text": "The LST-BTH tracker median error",
+     "b_text": "the LST-BTH timetable baseline median error",
+     "difference_as_written": ""
+    },
+    {
+     "a": {
+      "stat_key": "positioning.BTH-MLE.loo_median_m",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "positioning.BTH-MLE.loo_median_m",
+      "field": "timetable_baseline_median_m"
+     },
+     "relation": "less",
+     "relation_word": "lower",
+     "a_text": "the BTH-MLE tracker median error",
+     "b_text": "the BTH-MLE timetable baseline median error",
+     "difference_as_written": ""
+    }
+   ],
+   "cites": []
+  },
+  {
+   "id": "C6",
+   "text": "In relative phone levels, LST-BTH (-19.11 dBFS) was louder than BTH-MLE (-19.62 dBFS) by 0.51 dB, while the moving level (-19.3 dBFS) was louder than the platform dwell level (-29.1 dBFS) by 9.8 dB.",
+   "type": "measured",
+   "qualifiers": [
+    "relative_level"
+   ],
+   "facts": [
+    {
+     "stat_key": "section.LST-BTH.level",
+     "field": "value",
+     "value_as_written": "-19.11",
+     "role": "LST-BTH"
+    },
+    {
+     "stat_key": "section.BTH-MLE.level",
+     "field": "value",
+     "value_as_written": "-19.62",
+     "role": "BTH-MLE"
+    },
+    {
+     "stat_key": "noise.moving_minus_dwell_db",
+     "field": "moving_level",
+     "value_as_written": "-19.3",
+     "role": "moving level"
+    },
+    {
+     "stat_key": "noise.moving_minus_dwell_db",
+     "field": "dwell_level",
+     "value_as_written": "-29.1",
+     "role": "platform dwell level"
+    }
+   ],
+   "comparisons": [
+    {
+     "a": {
+      "stat_key": "section.LST-BTH.level",
+      "field": "value"
+     },
+     "b": {
+      "stat_key": "section.BTH-MLE.level",
+      "field": "value"
+     },
+     "relation": "greater",
+     "relation_word": "louder",
+     "a_text": "LST-BTH",
+     "b_text": "BTH-MLE",
+     "difference_as_written": "0.51"
+    },
+    {
+     "a": {
+      "stat_key": "noise.moving_minus_dwell_db",
+      "field": "moving_level"
+     },
+     "b": {
+      "stat_key": "noise.moving_minus_dwell_db",
+      "field": "dwell_level"
+     },
+     "relation": "greater",
+     "relation_word": "louder",
+     "a_text": "the moving level",
+     "b_text": "the platform dwell level",
+     "difference_as_written": "9.8"
+    }
+   ],
+   "cites": [
+    "trip.contrast_db"
+   ]
+  },
+  {
+   "id": "C7",
+   "text": "Section-level relative comparisons on this ride are usable, though analysis should account for the 5.0 s sync uncertainty, the 80.8 % band coverage on BTH-MLE against a 90 % nominal band, the 32.6 % overall limiter share, and the 9.1 % speech share.",
+   "type": "inference",
+   "qualifiers": [
+    "single_ride"
+   ],
+   "facts": [
+    {
+     "stat_key": "sync.offset_s",
+     "field": "uncertainty_s",
+     "value_as_written": "5.0",
+     "role": "sync uncertainty"
+    },
+    {
+     "stat_key": "positioning.BTH-MLE.loo_median_m",
+     "field": "band90_coverage_pct",
+     "value_as_written": "80.8",
+     "role": "band coverage on BTH-MLE"
+    },
+    {
+     "stat_key": "positioning.BTH-MLE.loo_median_m",
+     "field": "band_level_pct",
+     "value_as_written": "90",
+     "role": "nominal band"
+    },
+    {
+     "stat_key": "noise.limiter_fraction",
+     "field": "limiter_pct",
+     "value_as_written": "32.6",
+     "role": "overall limiter"
+    },
+    {
+     "stat_key": "noise.speech_fraction",
+     "field": "speech_pct",
+     "value_as_written": "9.1",
+     "role": "speech"
+    }
+   ],
+   "comparisons": [],
+   "cites": []
+  }
+ ],
+ "claims_sha": "fb283dd7fc8f28d4",
+ "dropped_claims": [],
+ "n_claims_ok_range": true,
+ "claims_total": 7,
+ "seeded_canary": false,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "ts": null
+ },
+ "seconds_total": 70.6
+}

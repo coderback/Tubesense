@@ -1,0 +1,6 @@
+{
+  "name": "tsCluster",
+  "type": "Cluster",
+  "clusterName": "<CLUSTER>",
+  "dbRoleToExecute": {"role": "readWriteAnyDatabase", "type": "BUILT_IN"}
+}

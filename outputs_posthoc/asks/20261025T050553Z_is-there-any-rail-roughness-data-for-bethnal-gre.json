@@ -1,0 +1,277 @@
+{
+ "question": "Is there any rail roughness data for Bethnal Green to Mile End?",
+ "norm_question": "is there any rail roughness data for bethnal green to mile end",
+ "ts": "2026-10-25T05:05:53+00:00",
+ "model": "gemini-4-argon",
+ "thinking": "medium",
+ "elapsed_s": 19.9,
+ "cached": false,
+ "kind": "post-hoc live ask",
+ "incomplete": null,
+ "answer": {
+  "text": "In FOI-1730-1819 (published 22 October 2018), a TfL FOI case officer reported elevated rail roughness levels between 720 and 880m on Bethnal Green to Mile End, and the attached plots for eastbound Bethnal Green to Mile End are held here as figure captions only.",
+  "claim_ids": [
+   "A1",
+   "A2"
+  ],
+  "source": "argon, checked against verified claims",
+  "rejected_line": null,
+  "review": "reviewed"
+ },
+ "verified_claims": [
+  {
+   "id": "A1",
+   "section": "tfl_data",
+   "type": "sourced",
+   "text": "In FOI-1730-1819 (published 22 October 2018), a TfL FOI case officer stated that rail roughness measurements between Bethnal Green and Mile End showed elevated rail roughness levels between 720 and 880m as the likely cause of noise at the site.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1730-1819#000",
+     "quote": "Date published: 22 October 2018"
+    },
+    {
+     "chunk_id": "FOI-1730-1819#000",
+     "quote": "Please provide information regarding monitoring of noise and vibration on the Central Line between Bethnal Green and Mile End."
+    },
+    {
+     "chunk_id": "FOI-1730-1819#000",
+     "quote": "elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  },
+  {
+   "id": "A2",
+   "section": "limits",
+   "type": "sourced",
+   "text": "The rail roughness plots attached to FOI-1730-1819 (published 22 October 2018) cover Eastbound Bethnal Green to Mile End across 30-100mm and 100-300mm bands for LHR and RHR (Figures 1 to 4), and the text held in our corpus is figure captions only; no roughness data is held for the westbound direction.",
+   "citations": [
+    {
+     "chunk_id": "FOI-1730-1819#001",
+     "quote": "Central line Rail Roughness Plots\nEastbound Bethnal Green to Mile End\nFigure 1 \u2013 LHR 30-100mm\nFigure 2 \u2013 LHR 100-300mm"
+    },
+    {
+     "chunk_id": "FOI-1730-1819#001",
+     "quote": "Figure 3 \u2013 RHR 30-100mm\nFigure 4 \u2013 RHR 100-300mm"
+    }
+   ],
+   "stat_keys": [],
+   "formula": null
+  }
+ ],
+ "review_status": {
+  "A1": "reviewed",
+  "A2": "reviewed"
+ },
+ "dropped_claims": [],
+ "rounds": [
+  {
+   "round": 0,
+   "trigger": "initial",
+   "claims": [
+    {
+     "id": "A1",
+     "section": "tfl_data",
+     "type": "sourced",
+     "text": "In FOI-1730-1819 (published 22 October 2018), a TfL FOI case officer stated that rail roughness measurements between Bethnal Green and Mile End showed elevated rail roughness levels between 720 and 880m as the likely cause of noise at the site.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1730-1819#000",
+       "quote": "Date published: 22 October 2018"
+      },
+      {
+       "chunk_id": "FOI-1730-1819#000",
+       "quote": "Please provide information regarding monitoring of noise and vibration on the Central Line between Bethnal Green and Mile End."
+      },
+      {
+       "chunk_id": "FOI-1730-1819#000",
+       "quote": "elevated rail roughness levels between 720 and 880m which are the likely cause of the noise at this site."
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    },
+    {
+     "id": "A2",
+     "section": "limits",
+     "type": "sourced",
+     "text": "The rail roughness plots attached to FOI-1730-1819 (published 22 October 2018) cover Eastbound Bethnal Green to Mile End across 30-100mm and 100-300mm bands for LHR and RHR (Figures 1 to 4), and the text held in our corpus is figure captions only; no roughness data is held for the westbound direction.",
+     "citations": [
+      {
+       "chunk_id": "FOI-1730-1819#001",
+       "quote": "Central line Rail Roughness Plots\nEastbound Bethnal Green to Mile End\nFigure 1 \u2013 LHR 30-100mm\nFigure 2 \u2013 LHR 100-300mm"
+      },
+      {
+       "chunk_id": "FOI-1730-1819#001",
+       "quote": "Figure 3 \u2013 RHR 30-100mm\nFigure 4 \u2013 RHR 100-300mm"
+      }
+     ],
+     "stat_keys": [],
+     "formula": null
+    }
+   ],
+   "verdicts": [
+    {
+     "id": "A1",
+     "ok": true,
+     "reasons": []
+    },
+    {
+     "id": "A2",
+     "ok": true,
+     "reasons": []
+    }
+   ],
+   "seconds": 14.6,
+   "usage": {
+    "prompt": 11145,
+    "output": 749,
+    "retries": 0
+   },
+   "answer": "In FOI-1730-1819 (published 22 October 2018), a TfL FOI case officer reported elevated rail roughness levels between 720 and 880m on Bethnal Green to Mile End, and the attached plots for eastbound Bethnal Green to Mile End are held here as figure captions only.",
+   "answer_claim_ids": [
+    "A1",
+    "A2"
+   ],
+   "answer_check": {
+    "ok": true,
+    "reasons": []
+   }
+  }
+ ],
+ "review": {
+  "ok": true,
+  "findings": [],
+  "seconds": 2.6,
+  "usage": {
+   "prompt": 2476,
+   "output": 20,
+   "retries": 0
+  },
+  "reviewed_round": 0
+ },
+ "final_review": null,
+ "retrieval": {
+  "source": "atlas hybrid ($rankFusion)",
+  "reason": null,
+  "hits": [
+   {
+    "chunk_id": "FOI-1730-1819#000",
+    "score": 0.03252,
+    "ranks": {
+     "semantic": 2,
+     "text": 1
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-1730-1819#001",
+    "score": 0.03252,
+    "ranks": {
+     "semantic": 1,
+     "text": 2
+    },
+    "title": "Cleaning of Central line to stop vibration noise; Rail Roughness Plots BEG-MIE January 2018",
+    "publisher": "TfL",
+    "doc_date": "2018-10-22",
+    "page": 1
+   },
+   {
+    "chunk_id": "MQ-2022-1791#001",
+    "score": 0.03126,
+    "ranks": {
+     "semantic": 5,
+     "text": 3
+    },
+    "title": "Mayor's Question 2022/1791 Tube Noise (2): sections ground for noise Dec 2021-May 2022 and planned grinding",
+    "publisher": "GLA",
+    "doc_date": "2022-06-28",
+    "page": 1
+   },
+   {
+    "chunk_id": "TfL-noise-update-2025-08#002",
+    "score": 0.02986,
+    "ranks": {
+     "semantic": 8,
+     "text": 6
+    },
+    "title": "TfL Tube Noise Update: January to July 2025 to London Assembly Members (Claire Mann, 20 Aug 2025)",
+    "publisher": "TfL",
+    "doc_date": "2025-08-20",
+    "page": 3
+   },
+   {
+    "chunk_id": "FOI-1231-2425#000",
+    "score": 0.0289,
+    "ranks": {
+     "semantic": 14,
+     "text": 5
+    },
+    "title": "Excessive Noise - Central Line (in-cab LAeq by section, 24 June 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-08",
+    "page": null
+   },
+   {
+    "chunk_id": "FOI-3481-2425#003",
+    "score": 0.02881,
+    "ranks": {
+     "semantic": 12,
+     "text": 7
+    },
+    "title": "Central line Working Timetable Notice TTN 37/25: distances between stations",
+    "publisher": "TfL",
+    "doc_date": "2025-01-27",
+    "page": 3
+   },
+   {
+    "chunk_id": "TfL-noise-update-2024-08#002",
+    "score": 0.02881,
+    "ranks": {
+     "semantic": 7,
+     "text": 12
+    },
+    "title": "TfL Tube Noise: January to June 2024 update to London Assembly Members (Claire Mann, 9 Aug 2024)",
+    "publisher": "TfL",
+    "doc_date": "2024-08-09",
+    "page": 3
+   },
+   {
+    "chunk_id": "Weir-letter-2022-12#001",
+    "score": 0.02804,
+    "ranks": {
+     "semantic": 15,
+     "text": 8
+    },
+    "title": "Duncan Weir (TfL Head of Track) letter to the Environment Committee, Tube noise commitments, 9 Dec 2022",
+    "publisher": "TfL",
+    "doc_date": "2022-12-09",
+    "page": 2
+   }
+  ],
+  "stats": [
+   "level.EB.BTH-MLE",
+   "level.WB.MLE-BTH",
+   "duration.EB.BTH-MLE",
+   "duration.WB.MLE-BTH",
+   "contrast.LST-BTH_minus_BTH-MLE",
+   "loudness.verdict",
+   "niosh.EB.LST-MLE",
+   "niosh.WB.MLE-LST"
+  ],
+  "seconds": 1.21
+ },
+ "verifier_sha": "e2baa052cdd51b762f171cd116a67a649ea501132bba1fdac3585de9fdcedd69",
+ "corpus_hash": "c8b8d65b7a24335c",
+ "stats_keys": 48,
+ "file": "outputs_posthoc/asks/20261025T050553Z_is-there-any-rail-roughness-data-for-bethnal-gre.json",
+ "atlas": {
+  "ok": true,
+  "collection": "asks",
+  "_id": "20261025T050553Z_is-there-any-rail-roughness-data-for-bethnal-gre"
+ }
+}

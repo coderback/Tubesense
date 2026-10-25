@@ -15,6 +15,7 @@ import json
 import os
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 
 from google import genai
 from google.genai import types
@@ -55,15 +56,29 @@ KICKOFF = ("Start by calling list_experiments and get_baseline, then plan and ru
 
 
 class Session:
-    def __init__(self, max_exp: int):
-        self.max_exp, self.n_exp, self.events = max_exp, 0, []
+    def __init__(self, max_exp: int, path: Path = SESSION, echo: bool = True):
+        self.max_exp, self.n_exp, self.events, self.path, self.echo = max_exp, 0, [], path, echo
 
     def log(self, kind: str, **kw):
         ev = {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "kind": kind, **kw}
         self.events.append(ev)
-        with open(SESSION, "a", encoding="utf-8") as fh:
+        with open(self.path, "a", encoding="utf-8") as fh:
             fh.write(json.dumps(ev, default=float) + "\n")
-        print(f"[{ev['ts']}] {kind}: {json.dumps(kw, default=float)[:300]}", flush=True)
+        if self.echo:
+            print(f"[{ev['ts']}] {kind}: {json.dumps(kw, default=float)[:300]}", flush=True)
+
+    def _score(self, cfg: dict, rationale: str, when_spent: str = "submit_final now") -> dict:
+        """Budget check, one harness dev run (cached runs are free), per-run detail trimmed; errors as {"error"}."""
+        if self.n_exp >= self.max_exp:
+            return {"error": f"experiment budget of {self.max_exp} used; {when_spent}"}
+        try:
+            r = H.run_experiment(cfg, rationale=rationale)
+            if not r.get("cached"):
+                self.n_exp += 1
+            return {k: v for k, v in r.items() if k != "metrics"} | {"metrics": {k: v for k, v in r["metrics"].items()
+                                                                                if k != "per_run"}}
+        except (ValueError, RuntimeError) as e:
+            return {"error": str(e)}
 
     # ---- tools exposed to Argon (typed signatures: the SDK builds the function declarations from them)
     def list_experiments(self) -> dict:
@@ -90,17 +105,7 @@ class Session:
             rationale: the hypothesis this experiment tests and what result would support it.
         """
         cfg = {"GAMMA": GAMMA, "YAW_SD_FLOOR": YAW_SD_FLOOR, "P_SPEED": P_SPEED, "stop_gate": stop_gate}
-        if self.n_exp >= self.max_exp:
-            r = {"error": f"experiment budget of {self.max_exp} used; submit_final now"}
-        else:
-            try:
-                r = H.run_experiment(cfg, rationale=rationale)
-                if not r.get("cached"):
-                    self.n_exp += 1
-                r = {k: v for k, v in r.items() if k != "metrics"} | {"metrics": {k: v for k, v in r["metrics"].items()
-                                                                                 if k != "per_run"}}
-            except (ValueError, RuntimeError) as e:
-                r = {"error": str(e)}
+        r = self._score(cfg, rationale)
         self.log("tool", name="run_experiment", args=cfg, rationale=rationale, result=r)
         return r
 
