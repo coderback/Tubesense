@@ -83,7 +83,7 @@
      "t0": null,
      "t1": null,
      "severity": "medium",
-     "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |164.6| uT, median |B| 176.0 uT (Earth ~49 uT); mean vector 23 uT from the raw-group centre [-111.0, 37.0, -133.0] (group spread 23 uT): a fixed hard-iron bias repeating across rides",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |164.6| uT, median |B| 176.0 uT (Earth ~49 uT); mean vector 52 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
      "confidence": 0.9,
      "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
     },
@@ -167,7 +167,7 @@
     "steps": [],
     "mode": "raw",
     "confidence": 0.9,
-    "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |164.6| uT, median |B| 176.0 uT (Earth ~49 uT); mean vector 23 uT from the raw-group centre [-111.0, 37.0, -133.0] (group spread 23 uT): a fixed hard-iron bias repeating across rides"
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |164.6| uT, median |B| 176.0 uT (Earth ~49 uT); mean vector 52 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
    }
   },
   "R1_EB_LST-BTH": {
@@ -177,7 +177,7 @@
      "t0": null,
      "t1": null,
      "severity": "medium",
-     "evidence": "mag timestamps != gyro timestamps; mag rate 98.853 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |192.3| uT, median |B| 171.0 uT (Earth ~49 uT); mean vector 23 uT from the raw-group centre [-111.0, 37.0, -133.0] (group spread 23 uT): a fixed hard-iron bias repeating across rides",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.853 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |192.3| uT, median |B| 171.0 uT (Earth ~49 uT); mean vector 11 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
      "confidence": 0.9,
      "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
     },
@@ -217,7 +217,7 @@
      "n_chunks_vs_peers": 31,
      "rattle_vs_median": 0.57,
      "floor_like": false,
-     "hf_vs_peers": 0.287,
+     "hf_vs_peers": 0.428,
      "coupling": "typical",
      "floor_evidence": {
       "level_<2deg": false,
@@ -241,7 +241,7 @@
     "steps": [],
     "mode": "raw",
     "confidence": 0.9,
-    "evidence": "mag timestamps != gyro timestamps; mag rate 98.853 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |192.3| uT, median |B| 171.0 uT (Earth ~49 uT); mean vector 23 uT from the raw-group centre [-111.0, 37.0, -133.0] (group spread 23 uT): a fixed hard-iron bias repeating across rides"
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.853 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |192.3| uT, median |B| 171.0 uT (Earth ~49 uT); mean vector 11 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
    }
   },
   "R1.5_EB_BTH-MLE": {
@@ -259,7 +259,7 @@
      "t0": 44.03813687499999,
      "t1": 134.038136875,
      "severity": "medium",
-     "evidence": "rattling: 20-50 Hz vertical power x0.27, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x5.60 of median, tilt 6.8 deg",
+     "evidence": "rattling: 20-50 Hz vertical power x0.41, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x5.60 of median, tilt 6.8 deg",
      "recommendation": "normalise vibration per run before comparing; noise OK"
     },
     {
@@ -335,7 +335,7 @@
      "n_chunks_vs_peers": 21,
      "rattle_vs_median": 5.6,
      "floor_like": false,
-     "hf_vs_peers": 0.27,
+     "hf_vs_peers": 0.414,
      "coupling": "rattling",
      "floor_evidence": {
       "level_<2deg": false,
@@ -384,6 +384,14 @@
      "severity": "low",
      "evidence": "MLE->BTH: depart not recorded (recording starts/ends while the train is moving or during the taps)",
      "recommendation": "use for noise; for positioning anchor on the observed end only"
+    },
+    {
+     "type": "atypical_coupling",
+     "t0": 5.500933166666755,
+     "t1": 304.00093316666675,
+     "severity": "medium",
+     "evidence": "isolated (soft/compliant support): 20-50 Hz vertical power x0.11, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x1.15 of median, tilt 5.0 deg",
+     "recommendation": "normalise vibration per run before comparing; noise OK"
     },
     {
      "type": "magnetometer_reset",
@@ -438,14 +446,14 @@
      "n_chunks_vs_peers": 51,
      "rattle_vs_median": 1.15,
      "floor_like": false,
-     "hf_vs_peers": 0.357,
-     "coupling": "typical",
+     "hf_vs_peers": 0.114,
+     "coupling": "isolated (soft/compliant support)",
      "floor_evidence": {
       "level_<2deg": false,
-      "isolated_vs_peers": false,
+      "isolated_vs_peers": true,
       "put_down_mid_ride_after_handheld": false
      },
-     "label": "resting, typical"
+     "label": "resting, isolated (soft/compliant support)"
     }
    ],
    "magnetometer": {
@@ -491,7 +499,7 @@
      "t0": 5.0052832916667285,
      "t1": 288.00528329166673,
      "severity": "medium",
-     "evidence": "hard contact: 20-50 Hz vertical power x3.18, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x1.25 of median, tilt 3.4 deg",
+     "evidence": "hard contact: 20-50 Hz vertical power x3.43, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x1.25 of median, tilt 3.4 deg",
      "recommendation": "normalise vibration per run before comparing; noise OK"
     },
     {
@@ -531,7 +539,7 @@
      "n_chunks_vs_peers": 56,
      "rattle_vs_median": 1.25,
      "floor_like": false,
-     "hf_vs_peers": 3.177,
+     "hf_vs_peers": 3.427,
      "coupling": "hard contact",
      "floor_evidence": {
       "level_<2deg": false,
@@ -624,7 +632,7 @@
      "t0": 58.003657416666556,
      "t1": 80.00365741666656,
      "severity": "high",
-     "evidence": "tilt 0.6 deg (level), coupling isolated (soft/compliant support) (20-50 Hz vertical power x0.021 of same-section peers, rattle x4.14 of median); put down mid-ride after being hand-held: True",
+     "evidence": "tilt 0.6 deg (level), coupling isolated (soft/compliant support) (20-50 Hz vertical power x0.005 of same-section peers, rattle x4.14 of median); put down mid-ride after being hand-held: True",
      "recommendation": "exclude from noise averages and vibration/corrugation features; OK for positioning (yaw-rate signature unaffected)"
     },
     {
@@ -632,7 +640,7 @@
      "t0": 86.50365741666656,
      "t1": 261.00365741666656,
      "severity": "high",
-     "evidence": "tilt 1.0 deg (level), coupling isolated (soft/compliant support) (20-50 Hz vertical power x0.020 of same-section peers, rattle x2.69 of median); put down mid-ride after being hand-held: True",
+     "evidence": "tilt 1.0 deg (level), coupling isolated (soft/compliant support) (20-50 Hz vertical power x0.004 of same-section peers, rattle x2.69 of median); put down mid-ride after being hand-held: True",
      "recommendation": "exclude from noise averages and vibration/corrugation features; OK for positioning (yaw-rate signature unaffected)"
     },
     {
@@ -700,7 +708,7 @@
      "n_chunks_vs_peers": 6,
      "rattle_vs_median": 4.14,
      "floor_like": true,
-     "hf_vs_peers": 0.021,
+     "hf_vs_peers": 0.005,
      "coupling": "isolated (soft/compliant support)",
      "floor_evidence": {
       "level_<2deg": true,
@@ -728,7 +736,7 @@
      "n_chunks_vs_peers": 25,
      "rattle_vs_median": 2.69,
      "floor_like": true,
-     "hf_vs_peers": 0.02,
+     "hf_vs_peers": 0.004,
      "coupling": "isolated (soft/compliant support)",
      "floor_evidence": {
       "level_<2deg": true,
@@ -813,7 +821,7 @@
      "n_chunks_vs_peers": 56,
      "rattle_vs_median": 0.49,
      "floor_like": false,
-     "hf_vs_peers": 0.689,
+     "hf_vs_peers": 1.163,
      "coupling": "typical",
      "floor_evidence": {
       "level_<2deg": false,
@@ -911,7 +919,7 @@
      "n_chunks_vs_peers": 19,
      "rattle_vs_median": 0.85,
      "floor_like": false,
-     "hf_vs_peers": 2.649,
+     "hf_vs_peers": 0.297,
      "coupling": "typical",
      "floor_evidence": {
       "level_<2deg": false,
@@ -939,7 +947,7 @@
      "n_chunks_vs_peers": 31,
      "rattle_vs_median": 0.83,
      "floor_like": false,
-     "hf_vs_peers": 2.423,
+     "hf_vs_peers": 0.233,
      "coupling": "typical",
      "floor_evidence": {
       "level_<2deg": false,
@@ -996,6 +1004,758 @@
     "confidence": 0.65,
     "evidence": "mag timestamps == gyro timestamps; mag rate 99.197 Hz vs gyro 99.197 Hz (same stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |138.1| uT, median |B| 184.0 uT (Earth ~49 uT); |B| far above Earth field despite calibrated stream: train/tunnel fields or an unconverged iOS calibration; level is not an Earth-field reference; 5 one-sample jump(s) with the phone still (t = 41.76, 52.16, 59.95, 88.26, 144.29 s): calibration offset re-estimated mid-ride, so |B| levels are only comparable between jumps"
    }
+  },
+  "R7_EB_LST-MLE": {
+   "flags": [
+    {
+     "type": "pause",
+     "t0": 36.45,
+     "t1": 36.45,
+     "wall0": 1792867458.61,
+     "wall1": 1792867460.37,
+     "severity": "medium",
+     "evidence": "phyphox PAUSE at t=36.45 s for 1.8 s wall-clock; experiment time does not advance, audio keeps running",
+     "recommendation": "sensor gap: no IMU/baro for this interval; audio for it has no position. OK for positioning outside the gap; treat affected section's sensor features as incomplete"
+    },
+    {
+     "type": "handheld",
+     "t0": 0.5051920833357144,
+     "t1": 8.505192083335714,
+     "severity": "low",
+     "evidence": "sustained 0.3-3 Hz rotation > 0.03 rad/s (hand/body motion, not the car)",
+     "recommendation": "exclude from vibration features; noise OK but mic handling noise likely"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 31.005192083335714,
+     "t1": 31.505192083335714,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 33.005192083335714,
+     "t1": 44.505192083335714,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "walking_mid_file",
+     "t0": 33.005192083335714,
+     "t1": 37.505192083335714,
+     "severity": "medium",
+     "evidence": "1.4-2.5 Hz step periodicity in |a|",
+     "recommendation": "exclude interval"
+    },
+    {
+     "type": "reorientation",
+     "t0": 47.005192083335714,
+     "t1": 47.005192083335714,
+     "severity": "low",
+     "evidence": "gravity direction in phone frame changed 54 deg",
+     "recommendation": "treat as a new placement epoch"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.828 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |224.9| uT, median |B| 209.2 uT (Earth ~49 uT); mean vector 40 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.9,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 9.005,
+     "t1": 28.51,
+     "dur": 20.0,
+     "tilt_med_deg": 50.12,
+     "tilt_iqr_deg": 0.4817,
+     "screen": "up",
+     "ride_s": 0.0,
+     "placed_mid_ride": false,
+     "label": "too short to judge"
+    },
+    {
+     "t0": 47.01,
+     "t1": 339.0,
+     "dur": 292.5,
+     "tilt_med_deg": 4.164,
+     "tilt_iqr_deg": 0.8144,
+     "screen": "up",
+     "ride_s": 217.5,
+     "reorient_deg": 54.1,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.003605,
+     "vert_20_50": 0.4529,
+     "hf_ratio": 125.6,
+     "gyro_3_40": 0.000563,
+     "vib_rms": 0.6957,
+     "rattle": 0.001243,
+     "n_chunks_vs_peers": 55,
+     "rattle_vs_median": 0.72,
+     "floor_like": false,
+     "hf_vs_peers": 1.546,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.828,
+    "rate_gyro_hz": 99.216,
+    "mean_vec_uT": [
+     -125.2,
+     62.2,
+     -176.1
+    ],
+    "mean_vec_norm_uT": 224.9,
+    "median_B_uT": 209.2,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.9,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.828 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |224.9| uT, median |B| 209.2 uT (Earth ~49 uT); mean vector 40 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R8_WB_MLE-LST": {
+   "flags": [
+    {
+     "type": "handled_mid_ride",
+     "t0": 9.001020249997964,
+     "t1": 16.501020249997964,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 18.501020249997964,
+     "t1": 18.501020249997964,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.206 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |127.7| uT, median |B| 132.2 uT (Earth ~49 uT); mean vector 80 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.7,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 27.0,
+     "t1": 317.5,
+     "dur": 291.0,
+     "tilt_med_deg": 5.775,
+     "tilt_iqr_deg": 0.865,
+     "screen": "up",
+     "ride_s": 200.0,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.008288,
+     "vert_20_50": 0.3721,
+     "hf_ratio": 44.89,
+     "gyro_3_40": 0.0004083,
+     "vib_rms": 0.6571,
+     "rattle": 0.001097,
+     "n_chunks_vs_peers": 49,
+     "rattle_vs_median": 0.64,
+     "floor_like": false,
+     "hf_vs_peers": 0.709,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.844,
+    "rate_gyro_hz": 99.206,
+    "mean_vec_uT": [
+     -44.5,
+     48.0,
+     -109.7
+    ],
+    "mean_vec_norm_uT": 127.7,
+    "median_B_uT": 132.2,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.7,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.206 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |127.7| uT, median |B| 132.2 uT (Earth ~49 uT); mean vector 80 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R9_EB_LST-MLE": {
+   "flags": [
+    {
+     "type": "section_truncated",
+     "t0": 220.26,
+     "t1": 334.51,
+     "severity": "low",
+     "evidence": "BTH->MLE: arrive not recorded (recording starts/ends while the train is moving or during the taps)",
+     "recommendation": "use for noise; for positioning anchor on the observed end only"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 9.010925333321211,
+     "t1": 12.010925333321211,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.863 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |225.9| uT, median |B| 209.0 uT (Earth ~49 uT); mean vector 64 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.9,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 17.51,
+     "t1": 241.5,
+     "dur": 224.5,
+     "tilt_med_deg": 4.974,
+     "tilt_iqr_deg": 1.222,
+     "screen": "up",
+     "ride_s": 145.0,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.004587,
+     "vert_20_50": 0.1416,
+     "hf_ratio": 30.86,
+     "gyro_3_40": 0.0002879,
+     "vib_rms": 0.4708,
+     "rattle": 0.002034,
+     "n_chunks_vs_peers": 37,
+     "rattle_vs_median": 1.19,
+     "floor_like": false,
+     "hf_vs_peers": 0.391,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    },
+    {
+     "t0": 248.0,
+     "t1": 330.0,
+     "dur": 82.5,
+     "tilt_med_deg": 4.867,
+     "tilt_iqr_deg": 0.9241,
+     "screen": "up",
+     "ride_s": 73.0,
+     "reorient_deg": 0.4861,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.01269,
+     "vert_20_50": 0.1223,
+     "hf_ratio": 9.636,
+     "gyro_3_40": 0.0002904,
+     "vib_rms": 0.454,
+     "rattle": 0.002375,
+     "n_chunks_vs_peers": 19,
+     "rattle_vs_median": 1.38,
+     "floor_like": false,
+     "hf_vs_peers": 0.224,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.863,
+    "rate_gyro_hz": 99.197,
+    "mean_vec_uT": [
+     -96.0,
+     55.9,
+     -196.7
+    ],
+    "mean_vec_norm_uT": 225.9,
+    "median_B_uT": 209.0,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.9,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.863 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |225.9| uT, median |B| 209.0 uT (Earth ~49 uT); mean vector 64 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R10_WB_MLE-LST": {
+   "flags": [
+    {
+     "type": "unplanned_stop",
+     "t0": 275.77815354165796,
+     "t1": 281.27815354165796,
+     "severity": "low",
+     "evidence": "stationary 6 s between BTH and LST",
+     "recommendation": "split section at the stop for positioning (v=0 constraint)"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.834 Hz vs gyro 99.206 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |188.0| uT, median |B| 199.3 uT (Earth ~49 uT); mean vector 35 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.9,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 8.028,
+     "t1": 310.5,
+     "dur": 303.0,
+     "tilt_med_deg": 1.553,
+     "tilt_iqr_deg": 1.328,
+     "screen": "up",
+     "ride_s": 198.0,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.01237,
+     "vert_20_50": 0.5132,
+     "hf_ratio": 41.49,
+     "gyro_3_40": 0.0002648,
+     "vib_rms": 0.8792,
+     "rattle": 0.0005159,
+     "n_chunks_vs_peers": 50,
+     "rattle_vs_median": 0.3,
+     "floor_like": false,
+     "hf_vs_peers": 1.384,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": true,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.834,
+    "rate_gyro_hz": 99.206,
+    "mean_vec_uT": [
+     -92.6,
+     49.8,
+     -155.9
+    ],
+    "mean_vec_norm_uT": 188.0,
+    "median_B_uT": 199.3,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.9,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.834 Hz vs gyro 99.206 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |188.0| uT, median |B| 199.3 uT (Earth ~49 uT); mean vector 35 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R11_EB_LST-MLE": {
+   "flags": [
+    {
+     "type": "section_truncated",
+     "t0": 218.76,
+     "t1": 337.51,
+     "severity": "low",
+     "evidence": "BTH->MLE: arrive not recorded (recording starts/ends while the train is moving or during the taps)",
+     "recommendation": "use for noise; for positioning anchor on the observed end only"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 9.00813008332625,
+     "t1": 10.50813008332625,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "atypical_coupling",
+     "t0": 21.00813008332625,
+     "t1": 332.00813008332625,
+     "severity": "medium",
+     "evidence": "isolated (soft/compliant support): 20-50 Hz vertical power x0.10, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x4.19 of median, tilt 7.9 deg",
+     "recommendation": "normalise vibration per run before comparing; noise OK"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |245.5| uT, median |B| 247.2 uT (Earth ~49 uT); mean vector 97 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.7,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 21.01,
+     "t1": 332.0,
+     "dur": 311.5,
+     "tilt_med_deg": 7.88,
+     "tilt_iqr_deg": 1.147,
+     "screen": "up",
+     "ride_s": 228.5,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.003279,
+     "vert_20_50": 0.0314,
+     "hf_ratio": 9.579,
+     "gyro_3_40": 0.0002259,
+     "vib_rms": 0.2579,
+     "rattle": 0.007194,
+     "n_chunks_vs_peers": 58,
+     "rattle_vs_median": 4.19,
+     "floor_like": false,
+     "hf_vs_peers": 0.095,
+     "coupling": "isolated (soft/compliant support)",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": true,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, isolated (soft/compliant support)"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.844,
+    "rate_gyro_hz": 99.197,
+    "mean_vec_uT": [
+     -109.8,
+     14.3,
+     -219.2
+    ],
+    "mean_vec_norm_uT": 245.5,
+    "median_B_uT": 247.2,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.7,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.844 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |245.5| uT, median |B| 247.2 uT (Earth ~49 uT); mean vector 97 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R12_WB_MLE-LST": {
+   "flags": [
+    {
+     "type": "slow_running",
+     "t0": 6.75,
+     "t1": 113.25,
+     "severity": "low",
+     "evidence": "MLE->BTH took 106 s vs median 98 s for the same section and direction (signals / 'Minor Delays'?)",
+     "recommendation": "positioning must not assume the usual speed profile here"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.853 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |156.9| uT, median |B| 160.2 uT (Earth ~49 uT); mean vector 48 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.9,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 7.003,
+     "t1": 307.0,
+     "dur": 300.5,
+     "tilt_med_deg": 4.411,
+     "tilt_iqr_deg": 1.176,
+     "screen": "up",
+     "ride_s": 204.0,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.01058,
+     "vert_20_50": 0.5946,
+     "hf_ratio": 56.19,
+     "gyro_3_40": 0.001391,
+     "vib_rms": 0.9245,
+     "rattle": 0.00234,
+     "n_chunks_vs_peers": 51,
+     "rattle_vs_median": 1.36,
+     "floor_like": false,
+     "hf_vs_peers": 1.759,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.853,
+    "rate_gyro_hz": 99.197,
+    "mean_vec_uT": [
+     -75.0,
+     73.5,
+     -116.6
+    ],
+    "mean_vec_norm_uT": 156.9,
+    "median_B_uT": 160.2,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.9,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.853 Hz vs gyro 99.197 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |156.9| uT, median |B| 160.2 uT (Earth ~49 uT); mean vector 48 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R13_EB_LST-WCL": {
+   "flags": [
+    {
+     "type": "unplanned_stop",
+     "t0": 96.27635066666699,
+     "t1": 107.77635066666699,
+     "severity": "low",
+     "evidence": "stationary 12 s between LST and ALE",
+     "recommendation": "split section at the stop for positioning (v=0 constraint)"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.834 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |254.5| uT, median |B| 251.6 uT (Earth ~49 uT); mean vector 114 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.7,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 8.026,
+     "t1": 328.0,
+     "dur": 320.5,
+     "tilt_med_deg": 8.542,
+     "tilt_iqr_deg": 1.593,
+     "screen": "up",
+     "ride_s": 211.0,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.001608,
+     "vert_20_50": 0.09063,
+     "hf_ratio": 56.36,
+     "gyro_3_40": 2.082e-05,
+     "vib_rms": 0.2194,
+     "rattle": 0.0002297,
+     "n_chunks_vs_peers": 53,
+     "rattle_vs_median": 0.13,
+     "floor_like": false,
+     "hf_vs_peers": 1.89,
+     "coupling": "typical",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, typical"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.834,
+    "rate_gyro_hz": 99.216,
+    "mean_vec_uT": [
+     -220.9,
+     86.3,
+     -92.5
+    ],
+    "mean_vec_norm_uT": 254.5,
+    "median_B_uT": 251.6,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.7,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.834 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |254.5| uT, median |B| 251.6 uT (Earth ~49 uT); mean vector 114 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R14_WB_WCL-LST": {
+   "flags": [
+    {
+     "type": "pause",
+     "t0": 47.15,
+     "t1": 47.15,
+     "wall0": 1792871131.88,
+     "wall1": 1792871147.05,
+     "severity": "medium",
+     "evidence": "phyphox PAUSE at t=47.15 s for 15.2 s wall-clock; experiment time does not advance, audio keeps running",
+     "recommendation": "sensor gap: no IMU/baro for this interval; audio for it has no position. OK for positioning outside the gap; treat affected section's sensor features as incomplete"
+    },
+    {
+     "type": "section_overlaps_pause",
+     "t0": 31.76,
+     "t1": 135.26,
+     "severity": "medium",
+     "evidence": "WCL->ALE: duration 119 s vs expected ~86 s; 1 brief stop(s) within 15 s of a platform (stop-short / creep); phyphox paused 15.2 s inside section (no sensor data then)",
+     "recommendation": "positioning: bridge gap using wall time; noise: audio has no IMU position during the pause, interpolate or drop those seconds"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 9.008678124999278,
+     "t1": 9.008678124999278,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 10.508678124999278,
+     "t1": 11.508678124999278,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 12.508678124999278,
+     "t1": 13.508678124999278,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.824 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |227.6| uT, median |B| 227.7 uT (Earth ~49 uT); mean vector 131 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.7,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 16.01,
+     "t1": 281.5,
+     "dur": 266.0,
+     "tilt_med_deg": 5.833,
+     "tilt_iqr_deg": 1.677,
+     "screen": "up",
+     "ride_s": 150.5,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.001701,
+     "vert_20_50": 0.1362,
+     "hf_ratio": 80.06,
+     "gyro_3_40": 0.0001771,
+     "vib_rms": 0.272,
+     "rattle": 0.0013,
+     "n_chunks_vs_peers": 0,
+     "rattle_vs_median": 0.76,
+     "floor_like": false,
+     "label": "resting; no same-section peers to compare",
+     "coupling": "unknown"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.824,
+    "rate_gyro_hz": 99.216,
+    "mean_vec_uT": [
+     -169.6,
+     144.6,
+     -45.9
+    ],
+    "mean_vec_norm_uT": 227.6,
+    "median_B_uT": 227.7,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.7,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.824 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |227.6| uT, median |B| 227.7 uT (Earth ~49 uT); mean vector 131 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
+  },
+  "R15_EB_LST-WCL": {
+   "flags": [
+    {
+     "type": "section_truncated",
+     "t0": 169.28,
+     "t1": 305.53,
+     "severity": "low",
+     "evidence": "ALE->WCL: arrive not recorded (recording starts/ends while the train is moving or during the taps)",
+     "recommendation": "use for noise; for positioning anchor on the observed end only"
+    },
+    {
+     "type": "handled_mid_ride",
+     "t0": 9.031186374995741,
+     "t1": 11.531186374995741,
+     "severity": "low",
+     "evidence": "gyro burst > 0.25 rad/s away from the start/end taps (phone touched/moved)",
+     "recommendation": "drop +-2 s around it from vibration features; new placement epoch"
+    },
+    {
+     "type": "atypical_coupling",
+     "t0": 14.031186374995741,
+     "t1": 299.53118637499574,
+     "severity": "medium",
+     "evidence": "rattling: 20-50 Hz vertical power x0.48, of same-section peers, rattle (gyro 3-40 Hz / vertical 20-50 Hz) x3.30 of median, tilt 4.5 deg",
+     "recommendation": "normalise vibration per run before comparing; noise OK"
+    },
+    {
+     "type": "magnetometer_raw",
+     "t0": null,
+     "t1": null,
+     "severity": "medium",
+     "evidence": "mag timestamps != gyro timestamps; mag rate 98.824 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |221.4| uT, median |B| 221.0 uT (Earth ~49 uT); mean vector 54 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides",
+     "confidence": 0.9,
+     "recommendation": "do not pool |B| traces across modes; for raw, subtract the hard-iron bias (mean vector) before comparing"
+    }
+   ],
+   "placement_epochs": [
+    {
+     "t0": 14.03,
+     "t1": 299.5,
+     "dur": 286.0,
+     "tilt_med_deg": 4.538,
+     "tilt_iqr_deg": 1.132,
+     "screen": "up",
+     "ride_s": 217.0,
+     "placed_mid_ride": false,
+     "vert_3_10": 0.001023,
+     "vert_20_50": 0.04045,
+     "hf_ratio": 39.53,
+     "gyro_3_40": 0.0002287,
+     "vib_rms": 0.22,
+     "rattle": 0.005654,
+     "n_chunks_vs_peers": 55,
+     "rattle_vs_median": 3.3,
+     "floor_like": false,
+     "hf_vs_peers": 0.476,
+     "coupling": "rattling",
+     "floor_evidence": {
+      "level_<2deg": false,
+      "isolated_vs_peers": false,
+      "put_down_mid_ride_after_handheld": false
+     },
+     "label": "resting, rattling"
+    }
+   ],
+   "magnetometer": {
+    "ts_shared_with_gyro": 0.0,
+    "rate_mag_hz": 98.824,
+    "rate_gyro_hz": 99.216,
+    "mean_vec_uT": [
+     -137.1,
+     115.6,
+     -129.7
+    ],
+    "mean_vec_norm_uT": 221.4,
+    "median_B_uT": 221.0,
+    "steps": [],
+    "mode": "raw",
+    "confidence": 0.9,
+    "evidence": "mag timestamps != gyro timestamps; mag rate 98.824 Hz vs gyro 99.216 Hz (different stream signature as R0_NB_VIC_OXC, known calibrated); phone-frame mean field |221.4| uT, median |B| 221.0 uT (Earth ~49 uT); mean vector 54 uT from the raw-group centre [-118.0, 66.0, -137.0] (group spread 66 uT): a fixed hard-iron bias repeating across rides"
+   }
   }
  },
  "split_runs": [
@@ -1044,6 +1804,14 @@
    "t1": 136.79,
    "duration_s": 116.5,
    "median_s": 105.0
+  },
+  {
+   "stem": "R12_WB_MLE-LST",
+   "section": "MLE->BTH",
+   "t0": 6.75,
+   "t1": 113.25,
+   "duration_s": 106.5,
+   "median_s": 97.5
   }
  ]
 }

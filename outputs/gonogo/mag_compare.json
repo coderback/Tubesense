@@ -1,11 +1,11 @@
 {
  "lines": {
   "central": {
-   "sections": 18,
-   "median_section_s": 105.0,
+   "sections": 30,
+   "median_section_s": 110.3,
    "clean_by_mode": {
-    "all": 15,
-    "raw": 7,
+    "all": 25,
+    "raw": 17,
     "calibrated": 8
    },
    "anom/all": {
@@ -31,14 +31,44 @@
       "surrogate_p99": 0.613
      },
      {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.753,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.656
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.778,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.705
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.712,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.588
+     },
+     {
       "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
       "modes": [
        "calibrated",
        "calibrated"
       ],
       "r": 0.57,
-      "surrogate_p": 0.08,
-      "surrogate_p99": 0.636
+      "surrogate_p": 0.06,
+      "surrogate_p99": 0.619
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -47,8 +77,18 @@
        "calibrated"
       ],
       "r": 0.522,
-      "surrogate_p": 0.17,
-      "surrogate_p99": 0.662
+      "surrogate_p": 0.165,
+      "surrogate_p99": 0.638
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.756,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.719
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -57,8 +97,38 @@
        "calibrated"
       ],
       "r": 0.68,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.64
+     },
+     {
+      "pair": "R2:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.768,
       "surrogate_p": 0.0,
-      "surrogate_p99": 0.581
+      "surrogate_p99": 0.609
+     },
+     {
+      "pair": "R2:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.689,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.575
+     },
+     {
+      "pair": "R2:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.707,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.563
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -68,7 +138,37 @@
       ],
       "r": 0.721,
       "surrogate_p": 0.0,
-      "surrogate_p99": 0.631
+      "surrogate_p99": 0.651
+     },
+     {
+      "pair": "R3:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.76,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.648
+     },
+     {
+      "pair": "R3:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.733,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.619
+     },
+     {
+      "pair": "R3:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.712,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.597
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -77,28 +177,358 @@
        "calibrated"
       ],
       "r": 0.698,
-      "surrogate_p": 0.015,
+      "surrogate_p": 0.02,
       "surrogate_p99": 0.705
+     },
+     {
+      "pair": "R3:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.699,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.677
+     },
+     {
+      "pair": "R5:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.85,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.698
+     },
+     {
+      "pair": "R5:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.851,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.708
+     },
+     {
+      "pair": "R5:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.81,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.653
+     },
+     {
+      "pair": "R5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.671,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.673
+     },
+     {
+      "pair": "R6:MLE-BTH vs R8:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.737,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.566
+     },
+     {
+      "pair": "R6:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.479,
+      "surrogate_p": 0.085,
+      "surrogate_p99": 0.534
+     },
+     {
+      "pair": "R6:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.501,
+      "surrogate_p": 0.035,
+      "surrogate_p99": 0.583
+     },
+     {
+      "pair": "R6:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.802,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.6
+     },
+     {
+      "pair": "R6:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.815,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.598
+     },
+     {
+      "pair": "R6:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.763,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.517
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.892,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.645
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.832,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.63
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.461,
+      "surrogate_p": 0.18,
+      "surrogate_p99": 0.623
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.444,
+      "surrogate_p": 0.045,
+      "surrogate_p99": 0.514
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.815,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.595
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.806,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.557
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.834,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.635
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.401,
+      "surrogate_p": 0.055,
+      "surrogate_p99": 0.468
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.852,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.517
      }
     ],
-    "same_mean_r": 0.688,
-    "same_min_r": 0.522,
-    "n_significant": 5,
-    "n_pairs": 7,
-    "null_mean_r": 0.388,
-    "null_p95_r": 0.713,
-    "null_n": 98,
-    "excess_r": 0.3,
+    "same_mean_r": 0.716,
+    "same_min_r": 0.401,
+    "n_significant": 32,
+    "n_pairs": 37,
+    "null_mean_r": 0.397,
+    "null_p95_r": 0.686,
+    "null_n": 263,
+    "excess_r": 0.319,
     "ci95": [
-     0.214,
-     0.393
+     0.27,
+     0.366
     ]
    },
    "anom/raw": {
-    "pairs": [],
-    "n_pairs": 0,
-    "null_n": 21,
-    "note": "not enough sections"
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.753,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.655
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.778,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.658
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.712,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.591
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.892,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.657
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.832,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.628
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.461,
+      "surrogate_p": 0.165,
+      "surrogate_p99": 0.544
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.444,
+      "surrogate_p": 0.045,
+      "surrogate_p99": 0.494
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.815,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.575
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.806,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.588
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.834,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.673
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.401,
+      "surrogate_p": 0.05,
+      "surrogate_p99": 0.437
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.852,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.561
+     }
+    ],
+    "same_mean_r": 0.715,
+    "same_min_r": 0.401,
+    "n_significant": 10,
+    "n_pairs": 12,
+    "null_mean_r": 0.372,
+    "null_p95_r": 0.669,
+    "null_n": 124,
+    "excess_r": 0.343,
+    "ci95": [
+     0.24,
+     0.443
+    ]
    },
    "anom/calibrated": {
     "pairs": [
@@ -109,8 +539,8 @@
        "calibrated"
       ],
       "r": 0.57,
-      "surrogate_p": 0.08,
-      "surrogate_p99": 0.646
+      "surrogate_p": 0.065,
+      "surrogate_p99": 0.637
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -119,8 +549,8 @@
        "calibrated"
       ],
       "r": 0.522,
-      "surrogate_p": 0.145,
-      "surrogate_p99": 0.648
+      "surrogate_p": 0.13,
+      "surrogate_p99": 0.621
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -129,8 +559,8 @@
        "calibrated"
       ],
       "r": 0.68,
-      "surrogate_p": 0.005,
-      "surrogate_p99": 0.643
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.59
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -140,7 +570,7 @@
       ],
       "r": 0.721,
       "surrogate_p": 0.0,
-      "surrogate_p99": 0.618
+      "surrogate_p99": 0.609
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -149,8 +579,8 @@
        "calibrated"
       ],
       "r": 0.698,
-      "surrogate_p": 0.01,
-      "surrogate_p99": 0.694
+      "surrogate_p": 0.03,
+      "surrogate_p99": 0.716
      }
     ],
     "same_mean_r": 0.638,
@@ -162,8 +592,8 @@
     "null_n": 23,
     "excess_r": 0.176,
     "ci95": [
-     0.071,
-     0.282
+     0.067,
+     0.287
     ]
    },
    "resid/all": {
@@ -176,7 +606,7 @@
       ],
       "r": 0.633,
       "surrogate_p": 0.0,
-      "surrogate_p99": 0.475
+      "surrogate_p99": 0.473
      },
      {
       "pair": "R1:LST-BTH vs R5:LST-BTH",
@@ -185,6 +615,36 @@
        "calibrated"
       ],
       "r": 0.558,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.43
+     },
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.534,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.434
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.505,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.454
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.433,
       "surrogate_p": 0.0,
       "surrogate_p99": 0.392
      },
@@ -195,8 +655,8 @@
        "calibrated"
       ],
       "r": 0.507,
-      "surrogate_p": 0.05,
-      "surrogate_p99": 0.551
+      "surrogate_p": 0.03,
+      "surrogate_p99": 0.533
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -205,8 +665,18 @@
        "calibrated"
       ],
       "r": 0.587,
-      "surrogate_p": 0.01,
-      "surrogate_p99": 0.575
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.547
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.695,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.627
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -215,8 +685,38 @@
        "calibrated"
       ],
       "r": 0.338,
-      "surrogate_p": 0.055,
-      "surrogate_p99": 0.385
+      "surrogate_p": 0.1,
+      "surrogate_p99": 0.403
+     },
+     {
+      "pair": "R2:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.391,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.34
+     },
+     {
+      "pair": "R2:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.397,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.342
+     },
+     {
+      "pair": "R2:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.427,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.38
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -226,7 +726,37 @@
       ],
       "r": 0.454,
       "surrogate_p": 0.005,
-      "surrogate_p99": 0.42
+      "surrogate_p99": 0.425
+     },
+     {
+      "pair": "R3:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.468,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.436
+     },
+     {
+      "pair": "R3:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.523,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.486
+     },
+     {
+      "pair": "R3:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.411,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.396
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -235,28 +765,358 @@
        "calibrated"
       ],
       "r": 0.657,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.565
+     },
+     {
+      "pair": "R3:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.549,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.534
+     },
+     {
+      "pair": "R5:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.783,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.453
+     },
+     {
+      "pair": "R5:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.77,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.472
+     },
+     {
+      "pair": "R5:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.729,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.443
+     },
+     {
+      "pair": "R5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.654,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.545
+     },
+     {
+      "pair": "R6:MLE-BTH vs R8:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.543,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.339
+     },
+     {
+      "pair": "R6:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.15,
+      "surrogate_p": 0.47,
+      "surrogate_p99": 0.304
+     },
+     {
+      "pair": "R6:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.417,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.423
+     },
+     {
+      "pair": "R6:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.345,
       "surrogate_p": 0.005,
-      "surrogate_p99": 0.623
+      "surrogate_p99": 0.337
+     },
+     {
+      "pair": "R6:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.256,
+      "surrogate_p": 0.09,
+      "surrogate_p99": 0.323
+     },
+     {
+      "pair": "R6:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.346,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.317
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.817,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.493
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.714,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.467
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.298,
+      "surrogate_p": 0.15,
+      "surrogate_p99": 0.378
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.401,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.392
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.432,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.341
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.352,
+      "surrogate_p": 0.015,
+      "surrogate_p99": 0.353
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.719,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.456
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.249,
+      "surrogate_p": 0.395,
+      "surrogate_p99": 0.424
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.632,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.401
      }
     ],
-    "same_mean_r": 0.533,
-    "same_min_r": 0.338,
-    "n_significant": 5,
-    "n_pairs": 7,
+    "same_mean_r": 0.505,
+    "same_min_r": 0.15,
+    "n_significant": 32,
+    "n_pairs": 37,
     "null_mean_r": 0.224,
-    "null_p95_r": 0.427,
-    "null_n": 98,
-    "excess_r": 0.31,
+    "null_p95_r": 0.419,
+    "null_n": 263,
+    "excess_r": 0.28,
     "ci95": [
-     0.231,
-     0.383
+     0.226,
+     0.334
     ]
    },
    "resid/raw": {
-    "pairs": [],
-    "n_pairs": 0,
-    "null_n": 21,
-    "note": "not enough sections"
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.534,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.443
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.505,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.422
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.433,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.413
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.817,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.492
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.714,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.47
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.298,
+      "surrogate_p": 0.125,
+      "surrogate_p99": 0.361
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.401,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.387
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.432,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.33
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.352,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.314
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.719,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.454
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.249,
+      "surrogate_p": 0.39,
+      "surrogate_p99": 0.409
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.632,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.387
+     }
+    ],
+    "same_mean_r": 0.507,
+    "same_min_r": 0.249,
+    "n_significant": 10,
+    "n_pairs": 12,
+    "null_mean_r": 0.224,
+    "null_p95_r": 0.383,
+    "null_n": 124,
+    "excess_r": 0.283,
+    "ci95": [
+     0.184,
+     0.379
+    ]
    },
    "resid/calibrated": {
     "pairs": [
@@ -267,8 +1127,8 @@
        "calibrated"
       ],
       "r": 0.507,
-      "surrogate_p": 0.045,
-      "surrogate_p99": 0.574
+      "surrogate_p": 0.055,
+      "surrogate_p99": 0.55
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -277,8 +1137,8 @@
        "calibrated"
       ],
       "r": 0.587,
-      "surrogate_p": 0.01,
-      "surrogate_p99": 0.569
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.601
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -287,8 +1147,8 @@
        "calibrated"
       ],
       "r": 0.338,
-      "surrogate_p": 0.055,
-      "surrogate_p99": 0.433
+      "surrogate_p": 0.09,
+      "surrogate_p99": 0.405
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -297,8 +1157,8 @@
        "calibrated"
       ],
       "r": 0.454,
-      "surrogate_p": 0.005,
-      "surrogate_p99": 0.42
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.442
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -308,20 +1168,20 @@
       ],
       "r": 0.657,
       "surrogate_p": 0.0,
-      "surrogate_p99": 0.596
+      "surrogate_p99": 0.588
      }
     ],
     "same_mean_r": 0.509,
     "same_min_r": 0.338,
-    "n_significant": 4,
+    "n_significant": 3,
     "n_pairs": 5,
     "null_mean_r": 0.231,
     "null_p95_r": 0.456,
     "null_n": 23,
     "excess_r": 0.278,
     "ci95": [
-     0.167,
-     0.383
+     0.168,
+     0.379
     ]
    },
    "anom_mid/all": {
@@ -333,8 +1193,8 @@
        "calibrated"
       ],
       "r": 0.651,
-      "surrogate_p": 0.075,
-      "surrogate_p99": 0.728
+      "surrogate_p": 0.055,
+      "surrogate_p99": 0.698
      },
      {
       "pair": "R1:LST-BTH vs R5:LST-BTH",
@@ -344,7 +1204,37 @@
       ],
       "r": 0.748,
       "surrogate_p": 0.005,
-      "surrogate_p99": 0.719
+      "surrogate_p99": 0.724
+     },
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.706,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.711
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.669,
+      "surrogate_p": 0.095,
+      "surrogate_p99": 0.76
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.703,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.712
      },
      {
       "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
@@ -353,8 +1243,8 @@
        "calibrated"
       ],
       "r": 0.317,
-      "surrogate_p": 0.325,
-      "surrogate_p99": 0.512
+      "surrogate_p": 0.32,
+      "surrogate_p99": 0.491
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -363,8 +1253,18 @@
        "calibrated"
       ],
       "r": 0.304,
-      "surrogate_p": 0.465,
-      "surrogate_p99": 0.588
+      "surrogate_p": 0.485,
+      "surrogate_p99": 0.543
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.455,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.476
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -373,8 +1273,38 @@
        "calibrated"
       ],
       "r": 0.679,
-      "surrogate_p": 0.075,
+      "surrogate_p": 0.085,
+      "surrogate_p99": 0.749
+     },
+     {
+      "pair": "R2:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.818,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.735
+     },
+     {
+      "pair": "R2:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.637,
+      "surrogate_p": 0.135,
       "surrogate_p99": 0.747
+     },
+     {
+      "pair": "R2:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.544,
+      "surrogate_p": 0.225,
+      "surrogate_p99": 0.745
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -383,8 +1313,38 @@
        "calibrated"
       ],
       "r": 0.709,
-      "surrogate_p": 0.065,
-      "surrogate_p99": 0.76
+      "surrogate_p": 0.125,
+      "surrogate_p99": 0.777
+     },
+     {
+      "pair": "R3:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.69,
+      "surrogate_p": 0.125,
+      "surrogate_p99": 0.771
+     },
+     {
+      "pair": "R3:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.779,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.77
+     },
+     {
+      "pair": "R3:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.569,
+      "surrogate_p": 0.215,
+      "surrogate_p99": 0.749
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -393,28 +1353,358 @@
        "calibrated"
       ],
       "r": 0.239,
-      "surrogate_p": 0.62,
-      "surrogate_p99": 0.667
+      "surrogate_p": 0.495,
+      "surrogate_p99": 0.673
+     },
+     {
+      "pair": "R3:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.638,
+      "surrogate_p": 0.035,
+      "surrogate_p99": 0.661
+     },
+     {
+      "pair": "R5:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.824,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.821
+     },
+     {
+      "pair": "R5:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.765,
+      "surrogate_p": 0.155,
+      "surrogate_p99": 0.851
+     },
+     {
+      "pair": "R5:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.674,
+      "surrogate_p": 0.18,
+      "surrogate_p99": 0.801
+     },
+     {
+      "pair": "R5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.004,
+      "surrogate_p": 0.745,
+      "surrogate_p99": 0.567
+     },
+     {
+      "pair": "R6:MLE-BTH vs R8:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.747,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.574
+     },
+     {
+      "pair": "R6:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.459,
+      "surrogate_p": 0.185,
+      "surrogate_p99": 0.543
+     },
+     {
+      "pair": "R6:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.483,
+      "surrogate_p": 0.04,
+      "surrogate_p99": 0.521
+     },
+     {
+      "pair": "R6:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.722,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.617
+     },
+     {
+      "pair": "R6:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.609,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.608
+     },
+     {
+      "pair": "R6:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.524,
+      "surrogate_p": 0.11,
+      "surrogate_p99": 0.597
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.87,
+      "surrogate_p": 0.04,
+      "surrogate_p99": 0.891
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.769,
+      "surrogate_p": 0.045,
+      "surrogate_p99": 0.814
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.407,
+      "surrogate_p": 0.065,
+      "surrogate_p99": 0.474
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.449,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.466
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.666,
+      "surrogate_p": 0.05,
+      "surrogate_p99": 0.729
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.609,
+      "surrogate_p": 0.07,
+      "surrogate_p99": 0.677
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.774,
+      "surrogate_p": 0.03,
+      "surrogate_p99": 0.789
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.21,
+      "surrogate_p": 0.64,
+      "surrogate_p99": 0.671
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.721,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.671
      }
     ],
-    "same_mean_r": 0.521,
-    "same_min_r": 0.239,
-    "n_significant": 1,
-    "n_pairs": 7,
-    "null_mean_r": 0.333,
-    "null_p95_r": 0.66,
-    "null_n": 98,
-    "excess_r": 0.188,
+    "same_mean_r": 0.598,
+    "same_min_r": 0.004,
+    "n_significant": 17,
+    "n_pairs": 37,
+    "null_mean_r": 0.343,
+    "null_p95_r": 0.685,
+    "null_n": 263,
+    "excess_r": 0.255,
     "ci95": [
-     0.028,
-     0.341
+     0.185,
+     0.32
     ]
    },
    "anom_mid/raw": {
-    "pairs": [],
-    "n_pairs": 0,
-    "null_n": 21,
-    "note": "not enough sections"
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.706,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.745
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.669,
+      "surrogate_p": 0.08,
+      "surrogate_p99": 0.737
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.703,
+      "surrogate_p": 0.035,
+      "surrogate_p99": 0.72
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.87,
+      "surrogate_p": 0.015,
+      "surrogate_p99": 0.879
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.769,
+      "surrogate_p": 0.035,
+      "surrogate_p99": 0.805
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.407,
+      "surrogate_p": 0.07,
+      "surrogate_p99": 0.474
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.449,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.459
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.666,
+      "surrogate_p": 0.05,
+      "surrogate_p99": 0.703
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.609,
+      "surrogate_p": 0.1,
+      "surrogate_p99": 0.692
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.774,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.815
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.21,
+      "surrogate_p": 0.535,
+      "surrogate_p99": 0.683
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.721,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.636
+     }
+    ],
+    "same_mean_r": 0.629,
+    "same_min_r": 0.21,
+    "n_significant": 7,
+    "n_pairs": 12,
+    "null_mean_r": 0.351,
+    "null_p95_r": 0.657,
+    "null_n": 124,
+    "excess_r": 0.278,
+    "ci95": [
+     0.166,
+     0.383
+    ]
    },
    "anom_mid/calibrated": {
     "pairs": [
@@ -426,7 +1716,7 @@
       ],
       "r": 0.317,
       "surrogate_p": 0.32,
-      "surrogate_p99": 0.527
+      "surrogate_p99": 0.483
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -435,8 +1725,8 @@
        "calibrated"
       ],
       "r": 0.304,
-      "surrogate_p": 0.44,
-      "surrogate_p99": 0.588
+      "surrogate_p": 0.475,
+      "surrogate_p99": 0.551
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -445,8 +1735,8 @@
        "calibrated"
       ],
       "r": 0.679,
-      "surrogate_p": 0.065,
-      "surrogate_p99": 0.748
+      "surrogate_p": 0.05,
+      "surrogate_p99": 0.74
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -456,7 +1746,7 @@
       ],
       "r": 0.709,
       "surrogate_p": 0.095,
-      "surrogate_p99": 0.774
+      "surrogate_p99": 0.77
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -465,8 +1755,8 @@
        "calibrated"
       ],
       "r": 0.239,
-      "surrogate_p": 0.565,
-      "surrogate_p99": 0.662
+      "surrogate_p": 0.495,
+      "surrogate_p99": 0.621
      }
     ],
     "same_mean_r": 0.45,
@@ -478,8 +1768,8 @@
     "null_n": 23,
     "excess_r": 0.126,
     "ci95": [
-     -0.07,
-     0.346
+     -0.075,
+     0.33
     ]
    },
    "resid_mid/all": {
@@ -491,8 +1781,8 @@
        "calibrated"
       ],
       "r": 0.613,
-      "surrogate_p": 0.025,
-      "surrogate_p99": 0.629
+      "surrogate_p": 0.03,
+      "surrogate_p99": 0.647
      },
      {
       "pair": "R1:LST-BTH vs R5:LST-BTH",
@@ -501,8 +1791,38 @@
        "calibrated"
       ],
       "r": 0.729,
-      "surrogate_p": 0.01,
-      "surrogate_p99": 0.713
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.702
+     },
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.676,
+      "surrogate_p": 0.06,
+      "surrogate_p99": 0.738
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.629,
+      "surrogate_p": 0.075,
+      "surrogate_p99": 0.685
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.703,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.686
      },
      {
       "pair": "R1.5:BTH-MLE vs R3:BTH-MLE",
@@ -511,8 +1831,8 @@
        "calibrated"
       ],
       "r": 0.558,
-      "surrogate_p": 0.1,
-      "surrogate_p99": 0.635
+      "surrogate_p": 0.095,
+      "surrogate_p99": 0.636
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -521,8 +1841,18 @@
        "calibrated"
       ],
       "r": 0.503,
-      "surrogate_p": 0.17,
-      "surrogate_p99": 0.643
+      "surrogate_p": 0.165,
+      "surrogate_p99": 0.654
+     },
+     {
+      "pair": "R1.5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.655,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.642
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -531,8 +1861,38 @@
        "calibrated"
       ],
       "r": 0.398,
-      "surrogate_p": 0.0,
-      "surrogate_p99": 0.37
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.381
+     },
+     {
+      "pair": "R2:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.408,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.419
+     },
+     {
+      "pair": "R2:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.281,
+      "surrogate_p": 0.18,
+      "surrogate_p99": 0.372
+     },
+     {
+      "pair": "R2:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.245,
+      "surrogate_p": 0.345,
+      "surrogate_p99": 0.365
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -541,8 +1901,38 @@
        "calibrated"
       ],
       "r": 0.7,
-      "surrogate_p": 0.095,
-      "surrogate_p99": 0.782
+      "surrogate_p": 0.085,
+      "surrogate_p99": 0.756
+     },
+     {
+      "pair": "R3:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.674,
+      "surrogate_p": 0.175,
+      "surrogate_p99": 0.771
+     },
+     {
+      "pair": "R3:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.75,
+      "surrogate_p": 0.03,
+      "surrogate_p99": 0.766
+     },
+     {
+      "pair": "R3:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.531,
+      "surrogate_p": 0.22,
+      "surrogate_p99": 0.675
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -551,28 +1941,358 @@
        "calibrated"
       ],
       "r": 0.61,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.618
+     },
+     {
+      "pair": "R3:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.687,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.689
+     },
+     {
+      "pair": "R5:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.826,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.842
+     },
+     {
+      "pair": "R5:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.745,
+      "surrogate_p": 0.135,
+      "surrogate_p99": 0.835
+     },
+     {
+      "pair": "R5:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.7,
+      "surrogate_p": 0.055,
+      "surrogate_p99": 0.756
+     },
+     {
+      "pair": "R5:BTH-MLE vs R7:BTH-MLE",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.679,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.676
+     },
+     {
+      "pair": "R6:MLE-BTH vs R8:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.683,
       "surrogate_p": 0.0,
-      "surrogate_p99": 0.6
+      "surrogate_p99": 0.337
+     },
+     {
+      "pair": "R6:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.157,
+      "surrogate_p": 0.655,
+      "surrogate_p99": 0.352
+     },
+     {
+      "pair": "R6:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.518,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.414
+     },
+     {
+      "pair": "R6:BTH-LST vs R8:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.386,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.354
+     },
+     {
+      "pair": "R6:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.282,
+      "surrogate_p": 0.135,
+      "surrogate_p99": 0.351
+     },
+     {
+      "pair": "R6:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "calibrated",
+       "raw"
+      ],
+      "r": 0.295,
+      "surrogate_p": 0.23,
+      "surrogate_p99": 0.414
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.875,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.867
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.785,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.785
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.428,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.465
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.476,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.433
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.293,
+      "surrogate_p": 0.06,
+      "surrogate_p99": 0.333
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.421,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.362
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.773,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.76
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.303,
+      "surrogate_p": 0.565,
+      "surrogate_p99": 0.606
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.496,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.433
      }
     ],
-    "same_mean_r": 0.587,
-    "same_min_r": 0.398,
-    "n_significant": 4,
-    "n_pairs": 7,
-    "null_mean_r": 0.244,
-    "null_p95_r": 0.584,
-    "null_n": 98,
-    "excess_r": 0.343,
+    "same_mean_r": 0.553,
+    "same_min_r": 0.157,
+    "n_significant": 21,
+    "n_pairs": 37,
+    "null_mean_r": 0.242,
+    "null_p95_r": 0.54,
+    "null_n": 263,
+    "excess_r": 0.311,
     "ci95": [
-     0.252,
-     0.429
+     0.246,
+     0.378
     ]
    },
    "resid_mid/raw": {
-    "pairs": [],
-    "n_pairs": 0,
-    "null_n": 21,
-    "note": "not enough sections"
+    "pairs": [
+     {
+      "pair": "R1:LST-BTH vs R7:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.676,
+      "surrogate_p": 0.08,
+      "surrogate_p99": 0.735
+     },
+     {
+      "pair": "R1:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.629,
+      "surrogate_p": 0.06,
+      "surrogate_p99": 0.677
+     },
+     {
+      "pair": "R1:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.703,
+      "surrogate_p": 0.03,
+      "surrogate_p99": 0.722
+     },
+     {
+      "pair": "R7:LST-BTH vs R9:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.875,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.858
+     },
+     {
+      "pair": "R7:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.785,
+      "surrogate_p": 0.015,
+      "surrogate_p99": 0.799
+     },
+     {
+      "pair": "R8:MLE-BTH vs R10:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.428,
+      "surrogate_p": 0.02,
+      "surrogate_p99": 0.447
+     },
+     {
+      "pair": "R8:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.476,
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.436
+     },
+     {
+      "pair": "R8:BTH-LST vs R10:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.293,
+      "surrogate_p": 0.04,
+      "surrogate_p99": 0.319
+     },
+     {
+      "pair": "R8:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.421,
+      "surrogate_p": 0.01,
+      "surrogate_p99": 0.417
+     },
+     {
+      "pair": "R9:LST-BTH vs R11:LST-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.773,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.806
+     },
+     {
+      "pair": "R10:MLE-BTH vs R12:MLE-BTH",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.303,
+      "surrogate_p": 0.605,
+      "surrogate_p99": 0.614
+     },
+     {
+      "pair": "R10:BTH-LST vs R12:BTH-LST",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.496,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.474
+     }
+    ],
+    "same_mean_r": 0.572,
+    "same_min_r": 0.293,
+    "n_significant": 9,
+    "n_pairs": 12,
+    "null_mean_r": 0.279,
+    "null_p95_r": 0.525,
+    "null_n": 124,
+    "excess_r": 0.293,
+    "ci95": [
+     0.181,
+     0.398
+    ]
    },
    "resid_mid/calibrated": {
     "pairs": [
@@ -583,8 +2303,8 @@
        "calibrated"
       ],
       "r": 0.558,
-      "surrogate_p": 0.12,
-      "surrogate_p99": 0.628
+      "surrogate_p": 0.105,
+      "surrogate_p99": 0.614
      },
      {
       "pair": "R1.5:BTH-MLE vs R5:BTH-MLE",
@@ -593,8 +2313,8 @@
        "calibrated"
       ],
       "r": 0.503,
-      "surrogate_p": 0.175,
-      "surrogate_p99": 0.632
+      "surrogate_p": 0.18,
+      "surrogate_p99": 0.64
      },
      {
       "pair": "R2:BTH-LST vs R6:BTH-LST",
@@ -603,8 +2323,8 @@
        "calibrated"
       ],
       "r": 0.398,
-      "surrogate_p": 0.005,
-      "surrogate_p99": 0.385
+      "surrogate_p": 0.0,
+      "surrogate_p99": 0.38
      },
      {
       "pair": "R3:LST-BTH vs R5:LST-BTH",
@@ -613,8 +2333,8 @@
        "calibrated"
       ],
       "r": 0.7,
-      "surrogate_p": 0.075,
-      "surrogate_p99": 0.764
+      "surrogate_p": 0.145,
+      "surrogate_p99": 0.797
      },
      {
       "pair": "R3:BTH-MLE vs R5:BTH-MLE",
@@ -623,8 +2343,8 @@
        "calibrated"
       ],
       "r": 0.61,
-      "surrogate_p": 0.02,
-      "surrogate_p99": 0.64
+      "surrogate_p": 0.015,
+      "surrogate_p99": 0.612
      }
     ],
     "same_mean_r": 0.554,
@@ -636,15 +2356,314 @@
     "null_n": 23,
     "excess_r": 0.408,
     "ci95": [
-     0.271,
-     0.547
+     0.275,
+     0.541
     ]
+   }
+  },
+  "hammersmith-city": {
+   "sections": 6,
+   "median_section_s": 124.5,
+   "clean_by_mode": {
+    "all": 4,
+    "raw": 4,
+    "calibrated": 0
+   },
+   "anom/all": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.336,
+      "surrogate_p": 0.115,
+      "surrogate_p99": 0.453
+     }
+    ],
+    "same_mean_r": 0.336,
+    "same_min_r": 0.336,
+    "n_significant": 0,
+    "n_pairs": 1,
+    "null_mean_r": 0.245,
+    "null_p95_r": 0.397,
+    "null_n": 5,
+    "excess_r": 0.092,
+    "ci95": [
+     -0.008,
+     0.183
+    ]
+   },
+   "anom/raw": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.336,
+      "surrogate_p": 0.07,
+      "surrogate_p99": 0.432
+     }
+    ],
+    "same_mean_r": 0.336,
+    "same_min_r": 0.336,
+    "n_significant": 0,
+    "n_pairs": 1,
+    "null_mean_r": 0.245,
+    "null_p95_r": 0.397,
+    "null_n": 5,
+    "excess_r": 0.092,
+    "ci95": [
+     -0.007,
+     0.186
+    ]
+   },
+   "anom/calibrated": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 0,
+    "note": "not enough sections"
+   },
+   "resid/all": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.285,
+      "surrogate_p": 0.18,
+      "surrogate_p99": 0.41
+     }
+    ],
+    "same_mean_r": 0.285,
+    "same_min_r": 0.285,
+    "n_significant": 0,
+    "n_pairs": 1,
+    "null_mean_r": 0.288,
+    "null_p95_r": 0.362,
+    "null_n": 5,
+    "excess_r": -0.003,
+    "ci95": [
+     -0.053,
+     0.044
+    ]
+   },
+   "resid/raw": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.285,
+      "surrogate_p": 0.17,
+      "surrogate_p99": 0.404
+     }
+    ],
+    "same_mean_r": 0.285,
+    "same_min_r": 0.285,
+    "n_significant": 0,
+    "n_pairs": 1,
+    "null_mean_r": 0.288,
+    "null_p95_r": 0.362,
+    "null_n": 5,
+    "excess_r": -0.003,
+    "ci95": [
+     -0.053,
+     0.044
+    ]
+   },
+   "resid/calibrated": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 0,
+    "note": "not enough sections"
+   },
+   "anom_mid/all": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.498,
+      "surrogate_p": 0.005,
+      "surrogate_p99": 0.483
+     }
+    ],
+    "same_mean_r": 0.498,
+    "same_min_r": 0.498,
+    "n_significant": 1,
+    "n_pairs": 1,
+    "null_mean_r": 0.331,
+    "null_p95_r": 0.524,
+    "null_n": 5,
+    "excess_r": 0.167,
+    "ci95": [
+     0.047,
+     0.288
+    ]
+   },
+   "anom_mid/raw": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.498,
+      "surrogate_p": 0.025,
+      "surrogate_p99": 0.509
+     }
+    ],
+    "same_mean_r": 0.498,
+    "same_min_r": 0.498,
+    "n_significant": 1,
+    "n_pairs": 1,
+    "null_mean_r": 0.331,
+    "null_p95_r": 0.524,
+    "null_n": 5,
+    "excess_r": 0.167,
+    "ci95": [
+     0.032,
+     0.288
+    ]
+   },
+   "anom_mid/calibrated": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 0,
+    "note": "not enough sections"
+   },
+   "resid_mid/all": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.38,
+      "surrogate_p": 0.065,
+      "surrogate_p99": 0.429
+     }
+    ],
+    "same_mean_r": 0.38,
+    "same_min_r": 0.38,
+    "n_significant": 0,
+    "n_pairs": 1,
+    "null_mean_r": 0.319,
+    "null_p95_r": 0.429,
+    "null_n": 5,
+    "excess_r": 0.061,
+    "ci95": [
+     -0.011,
+     0.132
+    ]
+   },
+   "resid_mid/raw": {
+    "pairs": [
+     {
+      "pair": "R13:LST-ALE vs R15:LST-ALE",
+      "modes": [
+       "raw",
+       "raw"
+      ],
+      "r": 0.38,
+      "surrogate_p": 0.035,
+      "surrogate_p99": 0.406
+     }
+    ],
+    "same_mean_r": 0.38,
+    "same_min_r": 0.38,
+    "n_significant": 1,
+    "n_pairs": 1,
+    "null_mean_r": 0.319,
+    "null_p95_r": 0.429,
+    "null_n": 5,
+    "excess_r": 0.061,
+    "ci95": [
+     -0.014,
+     0.132
+    ]
+   },
+   "resid_mid/calibrated": {
+    "pairs": [],
+    "n_pairs": 0,
+    "null_n": 0,
+    "note": "not enough sections"
    }
   }
  },
  "primary": {
   "feature": "resid_mid",
   "modes": "raw"
+ },
+ "difference": {
+  "anom/all: central - hammersmith-city": {
+   "excess_r_diff": 0.227,
+   "ci95": [
+    0.126,
+    0.34
+   ]
+  },
+  "anom/raw: central - hammersmith-city": {
+   "excess_r_diff": 0.251,
+   "ci95": [
+    0.111,
+    0.392
+   ]
+  },
+  "resid/all: central - hammersmith-city": {
+   "excess_r_diff": 0.283,
+   "ci95": [
+    0.214,
+    0.357
+   ]
+  },
+  "resid/raw: central - hammersmith-city": {
+   "excess_r_diff": 0.286,
+   "ci95": [
+    0.172,
+    0.395
+   ]
+  },
+  "anom_mid/all: central - hammersmith-city": {
+   "excess_r_diff": 0.088,
+   "ci95": [
+    -0.056,
+    0.227
+   ]
+  },
+  "anom_mid/raw: central - hammersmith-city": {
+   "excess_r_diff": 0.111,
+   "ci95": [
+    -0.058,
+    0.282
+   ]
+  },
+  "resid_mid/all: central - hammersmith-city": {
+   "excess_r_diff": 0.25,
+   "ci95": [
+    0.153,
+    0.349
+   ]
+  },
+  "resid_mid/raw: central - hammersmith-city": {
+   "excess_r_diff": 0.232,
+   "ci95": [
+    0.103,
+    0.364
+   ]
+  }
  },
  "hard_iron": {
   "c": null,

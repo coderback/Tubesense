@@ -18,8 +18,9 @@ The repository has three layers:
 The sensing results are in [`outputs/FINDINGS.md`](outputs/FINDINGS.md); the architecture and build
 plan are in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); privacy is in [`docs/PRIVACY.md`](docs/PRIVACY.md).
 
-All levels are relative (dB(A) re digital full scale, from an uncalibrated phone). Tubesense is not
-a sound level meter, a safety system or a hearing-loss claim.
+Phone-audio levels are relative (dB(A) re digital full scale, from an uncalibrated phone). The only
+absolute levels are two indicative readings from the NIOSH Sound Level Meter app (H5 below).
+Tubesense is not a sound level meter, a safety system or a hearing-loss claim.
 
 ## Submission (Encode London Hackathon 2026)
 
@@ -45,7 +46,7 @@ Agents That Ship.
 
 **Demo video:** TODO: add the link to the 3-minute video.
 
-**Built during the hackathon.** Every commit in this repo dates from 23–24 Oct 2026, after kickoff.
+**Built during the hackathon.** Every commit in this repo dates from 23–25 Oct 2026, after kickoff.
 The data is our own rides from 23 Oct, plus the 24 Oct rides analysed under the pre-registered plan.
 
 ### What works today, and the evidence
@@ -55,12 +56,19 @@ The data is our own rides from 23 Oct, plus the 24 Oct rides analysed under the 
 | Phone gyro curve signatures repeat ride to ride | **GO**: same-section r 0.76–0.99 vs different-section 0.20 | `FINDINGS.md` (a), `gonogo/gyro_*.png` |
 | Positioning between stations without GPS (offline) | DTW on yaw places held-out curve edges to a median 6 m, against 24 m for the time-fraction baseline | `FINDINGS.md` (e), `positioning/improvement_log.md` |
 | Live tracker (causal, what the demo runs) | Median 2.2 m on held-out rides against an independent truth, vs 11.2 m for a timetable. Between curves it is no better than the timetable (11 vs 16 m). Its 90 % band covers the truth 92 % of the time | `FINDINGS.md` (f), `online/online_eval.json` |
-| Section loudness from phone audio | **WEAK**: Liverpool Street→Bethnal Green is louder than Bethnal Green→Mile End on 5 of 5 trips, by only +0.6 dB (relative levels) | `FINDINGS.md` (c), `gonogo/loudness_sections.png` |
+| Section loudness from phone audio | **NO-GO** on both days: Liverpool Street→Bethnal Green is louder than Bethnal Green→Mile End on 10 of 11 trips, but only by +0.54 dB, which is inside the Voice Memos limiter's compression and not consistent across level measures (23 Oct alone: WEAK, 5 of 5, +0.6 dB) | `FINDINGS.md` (24 Oct, (c)), `gonogo/loudness.json` |
 | Magnetometer as a position fingerprint | **NO-GO** for \|B\|; the bias-free field anomaly is **WEAK** and adds nothing to positioning | `FINDINGS.md` (b), (e) |
-| Tracker v2: TfL Working Timetable lengths + stop gate (post-hoc, 23 Oct only) | Identical to v1 on the real rides. After a simulated 30 s tunnel stop, median end-of-stop error 338 m → 11 m (idealised stop), 23 m (platform-level quiet), 165 m (a real platform dwell replayed); worse than v1 in 2 of 16 replayed-dwell cases. **Out of sample it failed:** on a single Elizabeth line test ride the gate (tuned on Central data) caught 0 of 3 real platform stops, because the stopped-vs-moving contrast was smaller and its moving reference absorbed the stop. It is left unchanged so the sealed 24 Oct test stays valid | `outputs_posthoc/eval_v2.json`, `outputs_posthoc/s0_elizabeth.md` |
+| Tracker v2: TfL Working Timetable lengths + stop gate (post-hoc, 23 Oct only) | Identical to v1 on the real rides. After a simulated 30 s tunnel stop, median end-of-stop error 338 m → 11 m (idealised stop), 23 m (platform-level quiet), 165 m (a real platform dwell replayed); worse than v1 in 2 of 16 replayed-dwell cases. **Out of sample it failed:** on a single Elizabeth line test ride the gate (tuned on Central data) caught 0 of 3 real platform stops, because the stopped-vs-moving contrast was smaller and its moving reference absorbed the stop. It was left unchanged so the sealed 24 Oct test stayed valid. **In that test the gate never engaged** on 10 real sections, including one with a real 6 s stop between stations | `outputs_posthoc/eval_v2.json`, `outputs_posthoc/s0_elizabeth.md`, `FINDINGS.md` (24 Oct) |
 | Elizabeth line test ride (exploratory, n = 1, outside the pre-registration) | A knock on the phone was visible to both microphone and accelerometer and synced them to 4.838 ± 0.021 s, agreeing with whole-ride sync to 0.04 s; finger snaps and a figure-8 wave each showed in only one stream. The phone ranks the Elizabeth line 3.5–5.6 dB quieter than the Central line sections (relative levels, ranking direction only) | `outputs_posthoc/s0_elizabeth.md` |
-| Argon analyst tuning the tracker against a fixed harness (post-hoc, 23 Oct only) | 6 experiments; 1 accepted by the pre-declared rule: band 15.9 % narrower, mean per-run error −0.81 m (95 % CI −1.94 to −0.05), Bethnal Green→Mile End 8.8 → 5.9 m. To be scored once on the 24 Oct rides (pending) | `outputs_posthoc/analyst_session.md`, `attempts.jsonl` |
+| Argon analyst tuning the tracker against a fixed harness (post-hoc, 23 Oct only) | 6 experiments; 1 accepted by the pre-declared rule: band 15.9 % narrower, mean per-run error −0.81 m (95 % CI −1.94 to −0.05), Bethnal Green→Mile End 8.8 → 5.9 m. **Scored once on the 24 Oct rides, it matched v1 and did not beat it:** median 1.8 m vs 1.8 m, 90 % coverage 0.94 vs 0.95 on 10 sections. The dev gain did not carry over | `outputs_posthoc/analyst_session.md`, `attempts.jsonl` |
+| **24 Oct, pre-registered H2b:** the frozen 23 Oct maps on new Central rides | **GO**: median 1.95 m on Liverpool Street⇄Bethnal Green vs 8.2 m for a timetable; 90 % band coverage 0.96 (6 sections; threshold ≤ 5 m and ≥ 0.80) | `FINDINGS.md` (24 Oct), `online/forward_test.json` |
+| **24 Oct, pre-registered H1/H2a:** a second line, Hammersmith & City | **NO-GO**: only one usable pair. Its gyro signature (r 0.72) did not beat the 0.84 different-section maximum, and the tracker (52 m) did no better than a timetable (47 m). The online departure detector fired late on both runs | `FINDINGS.md` (24 Oct), `gonogo/repeatability.json`, `online/online_eval.json` |
+| **24 Oct, pre-registered H3:** magnetism, deep tube vs sub-surface | The pre-registered test says the lines differ (excess r +0.23, CI 0.10–0.36), but the Hammersmith & City side is a single pair, so we do not claim it | `FINDINGS.md` (24 Oct), `gonogo/mag_compare.json` |
+| **24 Oct, pre-registered H5:** absolute level, NIOSH SLM app (indicative) | LAeq 91.9 dB(A) Liverpool Street→Mile End and 87.3 dB(A) back, one trip each, iPhone built-in microphone (validated only up to about 85 dB(A)). The phone's Voice Memos levels do not track this difference, so they cannot be turned into dB(A) with one offset | `outputs_posthoc/h5_niosh.md` |
 | Investigator corpus and search in Atlas | 14 public documents, 44 chunks. Hybrid search ranks the expected document first on 12/12 test questions (questions written by us, not blind) | `atlas/search.py` |
+
+The 23 Oct numbers in this table are from the outputs as they were at git tag `prereg-24oct`. Since the
+24 Oct run, `outputs/` holds both days, so some of those files now give pooled numbers.
 
 ### Verification loop
 
@@ -83,7 +91,8 @@ The data is our own rides from 23 Oct, plus the 24 Oct rides analysed under the 
   the 23 Oct rides only, decides acceptance with a rule fixed before the session (every section's
   calibration must hold, not just the average), and logs every call to an append-only, hash-chained
   log mirrored to Atlas. One configuration was submitted and tagged (`v2-posthoc`) before any 24 Oct
-  ride existed, and the harness allows exactly one scoring on the 24 Oct rides.
+  ride existed, and the harness allows exactly one scoring on the 24 Oct rides. That scoring ran on
+  25 Oct (attempt 8 in the log): v2 matched v1 and did not beat it.
 - **Every claim in the evidence pack is checked by code.** `agent/verify.py` requires each quote to
   match the stored source verbatim and each number to trace to a quote, our statistics or a
   recomputed formula, and rejects known overclaims (e.g. 92.8 dB as "TfL's own data"). Rejected

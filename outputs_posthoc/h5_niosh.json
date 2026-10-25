@@ -1,0 +1,80 @@
+{
+ "status": "pre-registered H5 with deviations: per-trip not per-section; offset across rides, not same ride",
+ "hse_upper_action_dBA": 85.0,
+ "reported_lst_bth_dB": 92.8,
+ "trips": [
+  {
+   "run_id": "N1",
+   "line": "central",
+   "direction": "EB",
+   "from": "LST",
+   "to": "MLE",
+   "LAeq_dBA": 91.9,
+   "max_level_dBA": 109.7,
+   "LCpeak_dB": 124.4,
+   "above_hse_upper_db": 6.9,
+   "foi_in_cab_sections": {
+    "LST-BTH": 87,
+    "BTH-MLE": 83
+   },
+   "vm_same_evening_dbfs": {
+    "R7_EB_LST-MLE": -19.61,
+    "R9_EB_LST-MLE": -20.38,
+    "R11_EB_LST-MLE": -19.99
+   },
+   "offset_db": {
+    "median": 111.89,
+    "min": 111.51,
+    "max": 112.28,
+    "n_vm_rides": 3
+   }
+  },
+  {
+   "run_id": "N2",
+   "line": "central",
+   "direction": "WB",
+   "from": "MLE",
+   "to": "LST",
+   "LAeq_dBA": 87.3,
+   "max_level_dBA": 105.3,
+   "LCpeak_dB": 120.2,
+   "above_hse_upper_db": 2.3,
+   "foi_in_cab_sections": {
+    "MLE-BTH": 82,
+    "BTH-LST": 86
+   },
+   "vm_same_evening_dbfs": {
+    "R8_WB_MLE-LST": -20.21,
+    "R10_WB_MLE-LST": -19.11,
+    "R12_WB_MLE-LST": -19.35
+   },
+   "offset_db": {
+    "median": 106.65,
+    "min": 106.41,
+    "max": 107.51,
+    "n_vm_rides": 3
+   }
+  }
+ ],
+ "part3": "not possible: NIOSH exported one reading per trip",
+ "posthoc_direction_gap": {
+  "niosh_eb_minus_wb_db": 4.6,
+  "vm_limited_frac": [
+   0.34,
+   0.55
+  ],
+  "vm_limited_frac_top10pct": [
+   0.94,
+   1.0
+  ],
+  "vm_eb_minus_wb_db": -0.5,
+  "note": "one NIOSH trip per direction on different trains; Voice Memos trip levels are limiter-bound"
+ },
+ "limits": [
+  "iPhone built-in mic validated to ~0.5 dB(A) only up to ~85 dB (Huyan et al. 2023); these trips are above that, so readings may be low",
+  "not a certified meter: indicative",
+  "n = 1 trip per direction; different trains",
+  "NIOSH trip span includes platform waits and the Bethnal Green dwell",
+  "our phone was on a seat in the 2nd car (passenger saloon); TfL's figures are in-cab"
+ ]
+}

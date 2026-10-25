@@ -1,11 +1,263 @@
 {
  "frozen_maps": "outputs/prereg/maps_23Oct.json",
  "overall": {
-  "n_sections": 0,
-  "tracker_median_of_runs_m": null,
-  "timetable_median_of_runs_m": null,
-  "band90_coverage_mean": null
+  "n_sections": 10,
+  "tracker_median_of_runs_m": 1.8,
+  "timetable_median_of_runs_m": 11.2,
+  "band90_coverage_mean": 0.951
  },
- "runs": [],
+ "runs": [
+  {
+   "held_out": "R7:LST-BTH",
+   "track": "EB LST->BTH",
+   "map_runs": [
+    "R1:LST-BTH",
+    "R3:LST-BTH",
+    "R5:LST-BTH"
+   ],
+   "n_curve_edges": 10,
+   "departure_missed_online": true,
+   "map_vs_independent_m": {
+    "n": 568,
+    "median": 1.7,
+    "mean": 2.0,
+    "p90": 4.0,
+    "max": 10.3
+   },
+   "timetable_vs_independent_m": {
+    "n": 568,
+    "median": 23.3,
+    "mean": 21.4,
+    "p90": 29.0,
+    "max": 31.5
+   },
+   "band90_coverage_independent": 0.988
+  },
+  {
+   "held_out": "R9:LST-BTH",
+   "track": "EB LST->BTH",
+   "map_runs": [
+    "R1:LST-BTH",
+    "R3:LST-BTH",
+    "R5:LST-BTH"
+   ],
+   "n_curve_edges": 10,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 574,
+    "median": 1.8,
+    "mean": 2.2,
+    "p90": 4.4,
+    "max": 23.3
+   },
+   "timetable_vs_independent_m": {
+    "n": 574,
+    "median": 9.6,
+    "mean": 9.9,
+    "p90": 17.6,
+    "max": 20.8
+   },
+   "band90_coverage_independent": 1.0
+  },
+  {
+   "held_out": "R11:LST-BTH",
+   "track": "EB LST->BTH",
+   "map_runs": [
+    "R1:LST-BTH",
+    "R3:LST-BTH",
+    "R5:LST-BTH"
+   ],
+   "n_curve_edges": 10,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 576,
+    "median": 1.6,
+    "mean": 1.9,
+    "p90": 3.8,
+    "max": 14.5
+   },
+   "timetable_vs_independent_m": {
+    "n": 576,
+    "median": 6.8,
+    "mean": 7.5,
+    "p90": 14.3,
+    "max": 17.6
+   },
+   "band90_coverage_independent": 0.998
+  },
+  {
+   "held_out": "R7:BTH-MLE",
+   "track": "EB BTH->MLE",
+   "map_runs": [
+    "R1.5:BTH-MLE",
+    "R3:BTH-MLE",
+    "R5:BTH-MLE"
+   ],
+   "n_curve_edges": 6,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 417,
+    "median": 7.9,
+    "mean": 21.9,
+    "p90": 53.8,
+    "max": 134.1
+   },
+   "timetable_vs_independent_m": {
+    "n": 417,
+    "median": 22.2,
+    "mean": 30.1,
+    "p90": 83.6,
+    "max": 125.3
+   },
+   "band90_coverage_independent": 0.765
+  },
+  {
+   "held_out": "R8:BTH-LST",
+   "track": "WB BTH->LST",
+   "map_runs": [
+    "R2:BTH-LST",
+    "R6:BTH-LST"
+   ],
+   "n_curve_edges": 10,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 598,
+    "median": 2.1,
+    "mean": 3.4,
+    "p90": 6.4,
+    "max": 38.1
+   },
+   "timetable_vs_independent_m": {
+    "n": 598,
+    "median": 6.3,
+    "mean": 7.7,
+    "p90": 14.7,
+    "max": 37.1
+   },
+   "band90_coverage_independent": 0.972
+  },
+  {
+   "held_out": "R10:BTH-LST",
+   "track": "WB BTH->LST",
+   "map_runs": [
+    "R2:BTH-LST",
+    "R6:BTH-LST"
+   ],
+   "n_curve_edges": 12,
+   "departure_missed_online": true,
+   "map_vs_independent_m": {
+    "n": 614,
+    "median": 4.8,
+    "mean": 36.2,
+    "p90": 149.5,
+    "max": 244.1
+   },
+   "timetable_vs_independent_m": {
+    "n": 614,
+    "median": 111.9,
+    "mean": 83.7,
+    "p90": 125.2,
+    "max": 126.5
+   },
+   "band90_coverage_independent": 0.865
+  },
+  {
+   "held_out": "R12:BTH-LST",
+   "track": "WB BTH->LST",
+   "map_runs": [
+    "R2:BTH-LST",
+    "R6:BTH-LST"
+   ],
+   "n_curve_edges": 12,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 642,
+    "median": 3.0,
+    "mean": 6.6,
+    "p90": 20.7,
+    "max": 64.7
+   },
+   "timetable_vs_independent_m": {
+    "n": 642,
+    "median": 5.0,
+    "mean": 15.7,
+    "p90": 48.5,
+    "max": 56.4
+   },
+   "band90_coverage_independent": 0.955
+  },
+  {
+   "held_out": "R8:MLE-BTH",
+   "track": "WB MLE->BTH",
+   "map_runs": [
+    "R6:MLE-BTH"
+   ],
+   "n_curve_edges": 6,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 411,
+    "median": 1.3,
+    "mean": 2.6,
+    "p90": 6.7,
+    "max": 26.9
+   },
+   "timetable_vs_independent_m": {
+    "n": 411,
+    "median": 34.4,
+    "mean": 33.2,
+    "p90": 47.4,
+    "max": 52.8
+   },
+   "band90_coverage_independent": 0.998
+  },
+  {
+   "held_out": "R10:MLE-BTH",
+   "track": "WB MLE->BTH",
+   "map_runs": [
+    "R6:MLE-BTH"
+   ],
+   "n_curve_edges": 6,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 413,
+    "median": 1.7,
+    "mean": 3.1,
+    "p90": 5.4,
+    "max": 44.4
+   },
+   "timetable_vs_independent_m": {
+    "n": 413,
+    "median": 12.8,
+    "mean": 12.6,
+    "p90": 16.1,
+    "max": 33.3
+   },
+   "band90_coverage_independent": 0.966
+  },
+  {
+   "held_out": "R12:MLE-BTH",
+   "track": "WB MLE->BTH",
+   "map_runs": [
+    "R6:MLE-BTH"
+   ],
+   "n_curve_edges": 6,
+   "departure_missed_online": false,
+   "map_vs_independent_m": {
+    "n": 412,
+    "median": 1.3,
+    "mean": 2.3,
+    "p90": 3.3,
+    "max": 38.5
+   },
+   "timetable_vs_independent_m": {
+    "n": 412,
+    "median": 3.6,
+    "mean": 3.6,
+    "p90": 6.0,
+    "max": 6.6
+   },
+   "band90_coverage_independent": 1.0
+  }
+ ],
  "doc": "Forward-in-time test: track new rides with the maps frozen before they were recorded.\n\nThe maps in outputs/prereg/maps_23Oct.json were built from the 23 Oct rides only and frozen (git tag\nprereg-24oct) before the 24 Oct rides. Every clean section of a later ride on a mapped track is tracked\nwith the frozen map (online.track, frozen settings) and scored like scripts/online_eval.py: MAP vs the\nindependent truth (the ride's curve edges matched to the map's base run, interpolated, no DTW), the\ntimetable baseline, and 90 % band coverage. Pre-registered criteria: outputs/PLAN_24Oct.md (H2b).\nWrites outputs/online/forward_test.json. Run: .venv/Scripts/python scripts/forward_test.py\n"
 }

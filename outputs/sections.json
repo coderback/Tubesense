@@ -425,6 +425,399 @@
    "overlaps_pause": false,
    "confidence": 0.8,
    "evidence": "duration 150 s vs expected ~160 s; boundary falls in a handled period (taps/phone in hand); timing from barometer only"
+  },
+  {
+   "stem": "R7_EB_LST-MLE",
+   "run_id": "R7",
+   "line": "central",
+   "direction": "EB",
+   "from": "LST",
+   "to": "BTH",
+   "depart_t": 57.76,
+   "arrive_t": 199.76,
+   "depart_wall": 1792867481.68,
+   "arrive_wall": 1792867623.68,
+   "duration_s": 142.0,
+   "expected_s": 159.8,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 142 s vs expected ~160 s"
+  },
+  {
+   "stem": "R7_EB_LST-MLE",
+   "run_id": "R7",
+   "line": "central",
+   "direction": "EB",
+   "from": "BTH",
+   "to": "MLE",
+   "depart_t": 231.26,
+   "arrive_t": 331.26,
+   "depart_wall": 1792867655.18,
+   "arrive_wall": 1792867755.18,
+   "duration_s": 100.0,
+   "expected_s": 118.5,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 100 s vs expected ~119 s"
+  },
+  {
+   "stem": "R8_WB_MLE-LST",
+   "run_id": "R8",
+   "line": "central",
+   "direction": "WB",
+   "from": "MLE",
+   "to": "BTH",
+   "depart_t": 32.25,
+   "arrive_t": 127.25,
+   "depart_wall": 1792867954.83,
+   "arrive_wall": 1792868049.83,
+   "duration_s": 95.0,
+   "expected_s": 118.5,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 95 s vs expected ~119 s"
+  },
+  {
+   "stem": "R8_WB_MLE-LST",
+   "run_id": "R8",
+   "line": "central",
+   "direction": "WB",
+   "from": "BTH",
+   "to": "LST",
+   "depart_t": 164.75,
+   "arrive_t": 306.25,
+   "depart_wall": 1792868087.33,
+   "arrive_wall": 1792868228.83,
+   "duration_s": 141.5,
+   "expected_s": 159.8,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 142 s vs expected ~160 s"
+  },
+  {
+   "stem": "R9_EB_LST-MLE",
+   "run_id": "R9",
+   "line": "central",
+   "direction": "EB",
+   "from": "LST",
+   "to": "BTH",
+   "depart_t": 33.26,
+   "arrive_t": 175.26,
+   "depart_wall": 1792868374.7,
+   "arrive_wall": 1792868516.7,
+   "duration_s": 142.0,
+   "expected_s": 159.8,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 142 s vs expected ~160 s"
+  },
+  {
+   "stem": "R9_EB_LST-MLE",
+   "run_id": "R9",
+   "line": "central",
+   "direction": "EB",
+   "from": "BTH",
+   "to": "MLE",
+   "depart_t": 220.26,
+   "arrive_t": 334.51,
+   "depart_wall": 1792868561.7,
+   "arrive_wall": 1792868675.95,
+   "duration_s": 114.2,
+   "expected_s": 118.5,
+   "depart_observed": true,
+   "arrive_observed": false,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.4,
+   "evidence": "duration 114 s vs expected ~119 s; one end not observed (recording starts/ends while moving); boundary falls in a handled period (taps/phone in hand); timing from barometer only"
+  },
+  {
+   "stem": "R10_WB_MLE-LST",
+   "run_id": "R10",
+   "line": "central",
+   "direction": "WB",
+   "from": "MLE",
+   "to": "BTH",
+   "depart_t": 18.78,
+   "arrive_t": 116.28,
+   "depart_wall": 1792868975.95,
+   "arrive_wall": 1792869073.45,
+   "duration_s": 97.5,
+   "expected_s": 118.5,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 98 s vs expected ~119 s"
+  },
+  {
+   "stem": "R10_WB_MLE-LST",
+   "run_id": "R10",
+   "line": "central",
+   "direction": "WB",
+   "from": "BTH",
+   "to": "LST",
+   "depart_t": 152.28,
+   "arrive_t": 305.78,
+   "depart_wall": 1792869109.45,
+   "arrive_wall": 1792869262.95,
+   "duration_s": 153.5,
+   "expected_s": 159.8,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [
+    [
+     275.77815354165796,
+     281.27815354165796
+    ]
+   ],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 154 s vs expected ~160 s; 1 unplanned stop(s) in tunnel"
+  },
+  {
+   "stem": "R11_EB_LST-MLE",
+   "run_id": "R11",
+   "line": "central",
+   "direction": "EB",
+   "from": "LST",
+   "to": "BTH",
+   "depart_t": 38.26,
+   "arrive_t": 181.26,
+   "depart_wall": 1792869568.2,
+   "arrive_wall": 1792869711.2,
+   "duration_s": 143.0,
+   "expected_s": 159.8,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 143 s vs expected ~160 s"
+  },
+  {
+   "stem": "R11_EB_LST-MLE",
+   "run_id": "R11",
+   "line": "central",
+   "direction": "EB",
+   "from": "BTH",
+   "to": "MLE",
+   "depart_t": 218.76,
+   "arrive_t": 337.51,
+   "depart_wall": 1792869748.7,
+   "arrive_wall": 1792869867.45,
+   "duration_s": 118.8,
+   "expected_s": 118.5,
+   "depart_observed": true,
+   "arrive_observed": false,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.4,
+   "evidence": "duration 119 s vs expected ~119 s; one end not observed (recording starts/ends while moving); boundary falls in a handled period (taps/phone in hand); timing from barometer only"
+  },
+  {
+   "stem": "R12_WB_MLE-LST",
+   "run_id": "R12",
+   "line": "central",
+   "direction": "WB",
+   "from": "MLE",
+   "to": "BTH",
+   "depart_t": 6.75,
+   "arrive_t": 113.25,
+   "depart_wall": 1792869960.95,
+   "arrive_wall": 1792870067.45,
+   "duration_s": 106.5,
+   "expected_s": 118.5,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.8,
+   "evidence": "duration 106 s vs expected ~119 s; boundary falls in a handled period (taps/phone in hand); timing from barometer only"
+  },
+  {
+   "stem": "R12_WB_MLE-LST",
+   "run_id": "R12",
+   "line": "central",
+   "direction": "WB",
+   "from": "BTH",
+   "to": "LST",
+   "depart_t": 148.25,
+   "arrive_t": 302.75,
+   "depart_wall": 1792870102.45,
+   "arrive_wall": 1792870256.95,
+   "duration_s": 154.5,
+   "expected_s": 159.8,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 154 s vs expected ~160 s"
+  },
+  {
+   "stem": "R13_EB_LST-WCL",
+   "run_id": "R13",
+   "line": "hammersmith-city",
+   "direction": "EB",
+   "from": "LST",
+   "to": "ALE",
+   "depart_t": 18.78,
+   "arrive_t": 164.78,
+   "depart_wall": 1792870532.81,
+   "arrive_wall": 1792870678.81,
+   "duration_s": 146.0,
+   "expected_s": 73.3,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [
+    [
+     96.27635066666699,
+     107.77635066666699
+    ]
+   ],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.6,
+   "evidence": "duration 146 s vs expected ~73 s; duration far from expected; 1 unplanned stop(s) in tunnel"
+  },
+  {
+   "stem": "R13_EB_LST-WCL",
+   "run_id": "R13",
+   "line": "hammersmith-city",
+   "direction": "EB",
+   "from": "ALE",
+   "to": "WCL",
+   "depart_t": 200.28,
+   "arrive_t": 329.28,
+   "depart_wall": 1792870714.31,
+   "arrive_wall": 1792870843.31,
+   "duration_s": 129.0,
+   "expected_s": 85.7,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.8,
+   "evidence": "duration 129 s vs expected ~86 s; boundary falls in a handled period (taps/phone in hand); timing from barometer only"
+  },
+  {
+   "stem": "R14_WB_WCL-LST",
+   "run_id": "R14",
+   "line": "hammersmith-city",
+   "direction": "WB",
+   "from": "WCL",
+   "to": "ALE",
+   "depart_t": 31.76,
+   "arrive_t": 135.26,
+   "depart_wall": 1792871116.49,
+   "arrive_wall": 1792871235.15,
+   "duration_s": 118.7,
+   "expected_s": 85.7,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [
+    [
+     118.75867812499928,
+     130.75867812499928
+    ]
+   ],
+   "overlaps_pause": true,
+   "confidence": 0.8,
+   "evidence": "duration 119 s vs expected ~86 s; 1 brief stop(s) within 15 s of a platform (stop-short / creep); phyphox paused 15.2 s inside section (no sensor data then)"
+  },
+  {
+   "stem": "R14_WB_WCL-LST",
+   "run_id": "R14",
+   "line": "hammersmith-city",
+   "direction": "WB",
+   "from": "ALE",
+   "to": "LST",
+   "depart_t": 163.26,
+   "arrive_t": 234.26,
+   "depart_wall": 1792871263.15,
+   "arrive_wall": 1792871334.15,
+   "duration_s": 71.0,
+   "expected_s": 73.3,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.9,
+   "evidence": "duration 71 s vs expected ~73 s"
+  },
+  {
+   "stem": "R15_EB_LST-WCL",
+   "run_id": "R15",
+   "line": "hammersmith-city",
+   "direction": "EB",
+   "from": "LST",
+   "to": "ALE",
+   "depart_t": 13.78,
+   "arrive_t": 133.78,
+   "depart_wall": 1792871710.77,
+   "arrive_wall": 1792871830.77,
+   "duration_s": 120.0,
+   "expected_s": 73.3,
+   "depart_observed": true,
+   "arrive_observed": true,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.5,
+   "evidence": "duration 120 s vs expected ~73 s; duration far from expected; boundary falls in a handled period (taps/phone in hand); timing from barometer only"
+  },
+  {
+   "stem": "R15_EB_LST-WCL",
+   "run_id": "R15",
+   "line": "hammersmith-city",
+   "direction": "EB",
+   "from": "ALE",
+   "to": "WCL",
+   "depart_t": 169.28,
+   "arrive_t": 305.53,
+   "depart_wall": 1792871866.27,
+   "arrive_wall": 1792872002.52,
+   "duration_s": 136.2,
+   "expected_s": 85.7,
+   "depart_observed": true,
+   "arrive_observed": false,
+   "tunnel_stops": [],
+   "approach_stops": [],
+   "overlaps_pause": false,
+   "confidence": 0.4,
+   "evidence": "duration 136 s vs expected ~86 s; one end not observed (recording starts/ends while moving); boundary falls in a handled period (taps/phone in hand); timing from barometer only"
   }
  ],
  "runs": [
@@ -1005,6 +1398,575 @@
      "truncated": true,
      "edge_inferred": true,
      "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": null,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": []
+  },
+  {
+   "stem": "R7_EB_LST-MLE",
+   "run_id": "R7",
+   "line": "central",
+   "direction": "EB",
+   "stations": [
+    "LST",
+    "BTH",
+    "MLE"
+   ],
+   "assign_cost": 1.07,
+   "usable": [
+    0.5051920833357144,
+    339.0051920833357
+   ],
+   "dwells": [
+    {
+     "station": "LST",
+     "t0": 9.255192083335714,
+     "t1": 57.755192083335714,
+     "wall0": 1792867431.421312,
+     "wall1": 1792867481.6808052,
+     "duration_s": 48.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.045,
+     "yaw_trimmed_s": 4.5
+    },
+    {
+     "station": "BTH",
+     "t0": 199.75519208333571,
+     "t1": 231.25519208333571,
+     "wall0": 1792867623.6808052,
+     "wall1": 1792867655.1808052,
+     "duration_s": 31.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.619,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "MLE",
+     "t0": 331.2551920833357,
+     "t1": 342.7551920833357,
+     "wall0": 1792867755.1808052,
+     "wall1": 1792867766.6808052,
+     "duration_s": 11.5,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.02,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": []
+  },
+  {
+   "stem": "R8_WB_MLE-LST",
+   "run_id": "R8",
+   "line": "central",
+   "direction": "WB",
+   "stations": [
+    "MLE",
+    "BTH",
+    "LST"
+   ],
+   "assign_cost": 2.65,
+   "usable": [
+    0.5010202499979641,
+    319.50102024999796
+   ],
+   "dwells": [
+    {
+     "station": "MLE",
+     "t0": 28.251020249997964,
+     "t1": 32.251020249997964,
+     "wall0": 1792867950.8252962,
+     "wall1": 1792867954.8252962,
+     "duration_s": 4.0,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": null,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "BTH",
+     "t0": 127.25102024999796,
+     "t1": 164.75102024999796,
+     "wall0": 1792868049.8252962,
+     "wall1": 1792868087.3252962,
+     "duration_s": 37.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.192,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "LST",
+     "t0": 306.25102024999796,
+     "t1": 313.75102024999796,
+     "wall0": 1792868228.8252962,
+     "wall1": 1792868236.3252962,
+     "duration_s": 7.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.041,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": [
+    [
+     319.75102024999796,
+     323.75102024999796
+    ]
+   ]
+  },
+  {
+   "stem": "R9_EB_LST-MLE",
+   "run_id": "R9",
+   "line": "central",
+   "direction": "EB",
+   "stations": [
+    "LST",
+    "BTH",
+    "MLE"
+   ],
+   "assign_cost": 2.18,
+   "usable": [
+    14.510925333321211,
+    330.5109253333212
+   ],
+   "dwells": [
+    {
+     "station": "LST",
+     "t0": 0.26092533332121093,
+     "t1": 33.26092533332121,
+     "wall0": 1792868341.7035332,
+     "wall1": 1792868374.7035332,
+     "duration_s": 33.0,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.003,
+     "yaw_trimmed_s": 4.0
+    },
+    {
+     "station": "BTH",
+     "t0": 175.2609253333212,
+     "t1": 220.2609253333212,
+     "wall0": 1792868516.7035332,
+     "wall1": 1792868561.7035332,
+     "duration_s": 45.0,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.12,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "MLE",
+     "t0": 334.5109253333212,
+     "t1": 334.5109253333212,
+     "wall0": 1792868675.9535332,
+     "wall1": 1792868675.9535332,
+     "duration_s": 0.0,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": true,
+     "pressure_flat": true,
+     "door_dp_hpa": null,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": []
+  },
+  {
+   "stem": "R10_WB_MLE-LST",
+   "run_id": "R10",
+   "line": "central",
+   "direction": "WB",
+   "stations": [
+    "MLE",
+    "BTH",
+    "LST"
+   ],
+   "assign_cost": 0.36,
+   "usable": [
+    8.028153541657957,
+    310.52815354165796
+   ],
+   "dwells": [
+    {
+     "station": "MLE",
+     "t0": 0.27815354165795725,
+     "t1": 18.778153541657957,
+     "wall0": 1792868957.4514258,
+     "wall1": 1792868975.9514258,
+     "duration_s": 18.5,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.308,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "BTH",
+     "t0": 116.27815354165796,
+     "t1": 152.27815354165796,
+     "wall0": 1792869073.4514258,
+     "wall1": 1792869109.4514258,
+     "duration_s": 36.0,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.372,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "LST",
+     "t0": 305.77815354165796,
+     "t1": 313.77815354165796,
+     "wall0": 1792869262.9514258,
+     "wall1": 1792869270.9514258,
+     "duration_s": 8.0,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.024,
+     "yaw_trimmed_s": 5.0
+    }
+   ],
+   "other_stops": [
+    [
+     275.77815354165796,
+     281.27815354165796
+    ]
+   ]
+  },
+  {
+   "stem": "R11_EB_LST-MLE",
+   "run_id": "R11",
+   "line": "central",
+   "direction": "EB",
+   "stations": [
+    "LST",
+    "BTH",
+    "MLE"
+   ],
+   "assign_cost": 2.16,
+   "usable": [
+    13.00813008332625,
+    332.50813008332625
+   ],
+   "dwells": [
+    {
+     "station": "LST",
+     "t0": 0.2581300833262503,
+     "t1": 38.25813008332625,
+     "wall0": 1792869530.195475,
+     "wall1": 1792869568.195475,
+     "duration_s": 38.0,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.16,
+     "yaw_trimmed_s": 4.0
+    },
+    {
+     "station": "BTH",
+     "t0": 181.25813008332625,
+     "t1": 218.75813008332625,
+     "wall0": 1792869711.195475,
+     "wall1": 1792869748.695475,
+     "duration_s": 37.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.294,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "MLE",
+     "t0": 337.50813008332625,
+     "t1": 337.50813008332625,
+     "wall0": 1792869867.445475,
+     "wall1": 1792869867.445475,
+     "duration_s": 0.0,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": true,
+     "pressure_flat": true,
+     "door_dp_hpa": null,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": []
+  },
+  {
+   "stem": "R12_WB_MLE-LST",
+   "run_id": "R12",
+   "line": "central",
+   "direction": "WB",
+   "stations": [
+    "MLE",
+    "BTH",
+    "LST"
+   ],
+   "assign_cost": 0.49,
+   "usable": [
+    7.0032662083394825,
+    307.0032662083395
+   ],
+   "dwells": [
+    {
+     "station": "MLE",
+     "t0": 0.25326620833948255,
+     "t1": 6.7532662083394825,
+     "wall0": 1792869954.454582,
+     "wall1": 1792869960.954582,
+     "duration_s": 6.5,
+     "truncated": true,
+     "edge_inferred": true,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.034,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "BTH",
+     "t0": 113.25326620833948,
+     "t1": 148.25326620833948,
+     "wall0": 1792870067.454582,
+     "wall1": 1792870102.454582,
+     "duration_s": 35.0,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.18,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "LST",
+     "t0": 302.7532662083395,
+     "t1": 316.2532662083395,
+     "wall0": 1792870256.954582,
+     "wall1": 1792870270.454582,
+     "duration_s": 13.5,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.181,
+     "yaw_trimmed_s": 3.5
+    }
+   ],
+   "other_stops": []
+  },
+  {
+   "stem": "R13_EB_LST-WCL",
+   "run_id": "R13",
+   "line": "hammersmith-city",
+   "direction": "EB",
+   "stations": [
+    "LST",
+    "ALE",
+    "WCL"
+   ],
+   "assign_cost": 6.97,
+   "usable": [
+    7.5263506666669855,
+    329.026350666667
+   ],
+   "dwells": [
+    {
+     "station": "LST",
+     "t0": 0.2763506666669855,
+     "t1": 18.776350666666985,
+     "wall0": 1792870514.30558,
+     "wall1": 1792870532.80558,
+     "duration_s": 18.5,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.441,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "ALE",
+     "t0": 164.77635066666699,
+     "t1": 200.27635066666699,
+     "wall0": 1792870678.80558,
+     "wall1": 1792870714.30558,
+     "duration_s": 35.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.449,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "WCL",
+     "t0": 329.276350666667,
+     "t1": 333.776350666667,
+     "wall0": 1792870843.30558,
+     "wall1": 1792870847.80558,
+     "duration_s": 4.5,
+     "truncated": true,
+     "edge_inferred": true,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": null,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": [
+    [
+     96.27635066666699,
+     107.77635066666699
+    ]
+   ]
+  },
+  {
+   "stem": "R14_WB_WCL-LST",
+   "run_id": "R14",
+   "line": "hammersmith-city",
+   "direction": "WB",
+   "stations": [
+    "WCL",
+    "ALE",
+    "LST"
+   ],
+   "assign_cost": 3.75,
+   "usable": [
+    16.00867812499928,
+    282.5086781249993
+   ],
+   "dwells": [
+    {
+     "station": "WCL",
+     "t0": 0.2586781249992782,
+     "t1": 31.75867812499928,
+     "wall0": 1792871084.9897282,
+     "wall1": 1792871116.4897282,
+     "duration_s": 31.5,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.005,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "ALE",
+     "t0": 135.25867812499928,
+     "t1": 163.25867812499928,
+     "wall0": 1792871235.1537879,
+     "wall1": 1792871263.1537879,
+     "duration_s": 28.0,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.026,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "LST",
+     "t0": 234.25867812499928,
+     "t1": 240.25867812499928,
+     "wall0": 1792871334.1537879,
+     "wall1": 1792871340.1537879,
+     "duration_s": 6.0,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": -0.005,
+     "yaw_trimmed_s": 0.0
+    }
+   ],
+   "other_stops": [
+    [
+     118.75867812499928,
+     130.75867812499928
+    ]
+   ]
+  },
+  {
+   "stem": "R15_EB_LST-WCL",
+   "run_id": "R15",
+   "line": "hammersmith-city",
+   "direction": "EB",
+   "stations": [
+    "LST",
+    "ALE",
+    "WCL"
+   ],
+   "assign_cost": 4.58,
+   "usable": [
+    14.031186374995741,
+    300.03118637499574
+   ],
+   "dwells": [
+    {
+     "station": "LST",
+     "t0": 0.28118637499574106,
+     "t1": 13.781186374995741,
+     "wall0": 1792871697.2696164,
+     "wall1": 1792871710.7696164,
+     "duration_s": 13.5,
+     "truncated": true,
+     "edge_inferred": true,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.261,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "ALE",
+     "t0": 133.78118637499574,
+     "t1": 169.28118637499574,
+     "wall0": 1792871830.7696164,
+     "wall1": 1792871866.2696164,
+     "duration_s": 35.5,
+     "truncated": false,
+     "edge_inferred": false,
+     "virtual": false,
+     "pressure_flat": true,
+     "door_dp_hpa": 0.229,
+     "yaw_trimmed_s": 0.0
+    },
+    {
+     "station": "WCL",
+     "t0": 305.53118637499574,
+     "t1": 305.53118637499574,
+     "wall0": 1792872002.5196164,
+     "wall1": 1792872002.5196164,
+     "duration_s": 0.0,
+     "truncated": true,
+     "edge_inferred": false,
+     "virtual": true,
      "pressure_flat": true,
      "door_dp_hpa": null,
      "yaw_trimmed_s": 0.0

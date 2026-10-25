@@ -27,7 +27,7 @@ In Git Bash, use `PYTHONPATH=. .venv/Scripts/python ...` instead.
 |---|---|---|
 | Atlas cluster, indexes, corpus | MongoDB 8.0.34. `docs_text`, `docs_auto` (autoEmbed voyage-4) and `yaw_vec` are all READY. 44 chunks. | 1:50 beat runs live (`demo/atlas_show.py`, tested) |
 | Analyst session (Argon) | Recorded on 24 Oct 07:58–08:05 UTC (07:53 was the baseline plus a failed first session): 6 experiments, 1 accepted, 1 submitted. Hash chain intact. The Atlas `attempts` head matches the local head. | 1:15 beat is a REPLAY |
-| Sealed 24 Oct test score | **Not scored yet.** `attempts.jsonl` has no `test` line, and `outputs/online/forward_test.json` has 0 sections. | Say "pending". Don't show a number. |
+| Sealed 24 Oct test score | **Scored once** (attempt 8, 25 Oct 00:52 UTC): v2 median 1.8 m, coverage 0.936, n = 10. v1 pre-registered forward test: 1.8 m, 0.951. `replay_analyst.py` prints both. | Say it plainly: v2 matched v1 and did not beat it; the stop gate never engaged. |
 | Investigator output (`outputs_posthoc/investigation.json`) | **Missing.** The investigator is built but needs Gemini, and the key is capped. | Say "pending the API cap" at 1:50 |
 | Approval page `agent/approve.py` | `/canary` works. **`GET /` drops the connection while `investigation.json` is missing** (FileNotFoundError; tested on a spare port). | The 2:30 beat needs the investigator run first. Fallback below. |
 | Raw audio | Never played, never written to disk (privacy rule) | **No roar clip at 0:00.** Open on the number instead. |
@@ -99,10 +99,10 @@ In Git Bash, use `PYTHONPATH=. .venv/Scripts/python ...` instead.
 
 | | |
 |---|---|
-| **Say** | "Argon tuned the tracker, but it can't mark its own homework. It proposes settings from an allow-list, and a fixed harness scores them on the 23 Oct rides with a rule written before the session. Here it is: six experiments, five rejected, including one with lower error that broke calibration on one section. One is accepted, and every call is hash-chained. The one allowed score on the 24 Oct rides is still pending." |
+| **Say** | "Argon tuned the tracker, but it can't mark its own homework. It proposes settings from an allow-list, and a fixed harness scores them on the 23 Oct rides with a rule written before the session. Here it is: six experiments, five rejected, including one with lower error that broke calibration on one section. One is accepted, and every call is hash-chained. Then the one allowed score on rides recorded after it chose: 1.8 metres, the same as the old tracker. The improvement didn't carry over, and the log proves we didn't get a second try." |
 | **Run** | `.venv\Scripts\python demo\replay_analyst.py` (default speed fits the 375 s session into ~30 s, about 32 s wall time with the Atlas check). Add `--no-atlas` if the network is slow (the Atlas check waits up to 4 s); use `--speed 20` (~19 s) if the beat is running short. **Never `--speed 4`: that takes ~94 s.** `--step` advances by keypress; `--summary` prints the one-screen table. |
 | **Label** | **REPLAY of recorded session** (24 Oct 07:58–08:05 UTC, `outputs_posthoc/attempts.jsonl`). No model is called. |
-| **Fallback** | `.venv\Scripts\python demo\replay_analyst.py --summary`. If that fails, `.venv\Scripts\python -m agent.harness --verify` (prints `{'lines': 8, 'broken': []}`) and scroll `outputs_posthoc\analyst_session.md`. |
+| **Fallback** | `.venv\Scripts\python demo\replay_analyst.py --summary`. If that fails, `.venv\Scripts\python -m agent.harness --verify` (prints `{'lines': 9, 'broken': []}`) and scroll `outputs_posthoc\analyst_session.md`. |
 | **Honest numbers** | The accepted config has a band 15.9 % narrower, and its mean per-run error changes by −0.81 m (95 % CI −1.94 to −0.05). These are 23 Oct dev numbers. Ablation: "gyro carries the position; the magnetometer adds nothing" (`outputs/positioning/ablation.json`). |
 
 ### 1:50–2:30 Investigator and MongoDB Atlas
@@ -142,7 +142,7 @@ audio never leaves the laptop."
 | 0:35 | Tunnel stop | **SYNTHETIC** | `--synthetic-stop` |
 | 0:35 | Tracker settings | **post-hoc v2** | `posthoc/tracker_v2.py`, `outputs_posthoc/final_config.json` |
 | 1:15 | Argon proposals, harness verdicts, hashes | **REPLAY of recorded session** | `outputs_posthoc/attempts.jsonl`, `analyst_session.md` |
-| 1:15 | Sealed 24 Oct score | **PENDING** (not scored) | none |
+| 1:15 | Sealed 24 Oct score | **REAL, scored once** (v2 1.8 m = v1 1.8 m) | `outputs_posthoc/attempts.jsonl` (attempt 8) |
 | 1:50 | Cluster, indexes, three searches, `$rankFusion` JSON, attempts mirror | LIVE Atlas (read-only); CACHED FALLBACK if offline | `demo/atlas_show.py` |
 | 1:50 | Verifier rejecting the canary | LIVE verifier, **SEEDED** claim | `agent/verify.py`, `/canary` |
 | 1:50 | Investigator claims | **PENDING the API cap** (or PRECOMPUTED once run) | `outputs_posthoc/investigation.json` |
@@ -157,7 +157,7 @@ audio never leaves the laptop."
 - **92.8 dB:** "Reported in the press, citing TfL data. We couldn't find the primary source. TfL's own published in-cab figure is 87."
 - **Stop gate:** "That stop is synthetic. We haven't logged a real tunnel stop yet."
 - **Argon:** "This is a replay of a session recorded this morning. The model isn't called live: our key hit its cap, and each call takes 30–60 s anyway."
-- **v2:** "Post-hoc, tuned on 23 Oct only. Its single 24 Oct score is pending."
+- **v2:** "Post-hoc, tuned on 23 Oct only. Its single 24 Oct score matched v1 (1.8 m) and did not beat it; the stop gate never engaged on real rides."
 - **Magnetometer:** "It doesn't help positioning. It's NO-GO as a fingerprint."
 - **Corrugation:** "An open hypothesis, not a measurement."
 - **Privacy:** "Recording conversations is 'highly intrusive' (ICO). So we keep no audio at all: 1-second levels and bands only, raw audio deleted on 1 Nov. Gemini sees public documents and summary statistics, nothing else."

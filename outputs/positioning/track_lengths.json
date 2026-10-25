@@ -1,9 +1,16 @@
 {
  "straight_line_m": {
+  "LST-ALE": 791.0,
   "LST-BTH": 2205.9,
-  "BTH-MLE": 1530.6
+  "BTH-MLE": 1530.6,
+  "ALE-WCL": 993.0
  },
  "tfl": {
+  "LST-ALE": {
+   "direction": "outbound",
+   "intermediate_vertices": 0,
+   "polyline_m": 791.0
+  },
   "LST-BTH": {
    "direction": "outbound",
    "intermediate_vertices": 0,
@@ -13,21 +20,32 @@
    "direction": "outbound",
    "intermediate_vertices": 0,
    "polyline_m": 1530.6
+  },
+  "ALE-WCL": {
+   "direction": "outbound",
+   "intermediate_vertices": 0,
+   "polyline_m": 993.0
   }
  },
- "fetched_utc": "2026-10-23T21:41:47Z",
+ "fetched_utc": "2026-10-25T00:36:57Z",
  "used_m": {
+  "LST-ALE": 791.0,
   "LST-BTH": 2205.9,
-  "BTH-MLE": 1530.6
+  "BTH-MLE": 1530.6,
+  "ALE-WCL": 993.0
  },
  "source": {
+  "LST-ALE": "straight line between station coords",
   "LST-BTH": "straight line between station coords",
-  "BTH-MLE": "straight line between station coords"
+  "BTH-MLE": "straight line between station coords",
+  "ALE-WCL": "straight line between station coords"
  },
- "warning": "TfL lineStrings join consecutive stations with single straight segments for ['BTH-MLE', 'LST-BTH'] (< 3 intermediate vertices), so they give the chord, not the along-track length. FALLING BACK to straight-line lengths there. True track is longer by the arc/chord ratio (see yaw_arc_chord); errors in metres scale with it.",
+ "warning": "TfL lineStrings join consecutive stations with single straight segments for ['ALE-WCL', 'BTH-MLE', 'LST-ALE', 'LST-BTH'] (< 3 intermediate vertices), so they give the chord, not the along-track length. FALLING BACK to straight-line lengths there. True track is longer by the arc/chord ratio (see yaw_arc_chord); errors in metres scale with it.",
  "urls": [
   "https://api.tfl.gov.uk/Line/central/Route/Sequence/outbound",
-  "https://api.tfl.gov.uk/Line/central/Route/Sequence/inbound"
+  "https://api.tfl.gov.uk/Line/central/Route/Sequence/inbound",
+  "https://api.tfl.gov.uk/Line/hammersmith-city/Route/Sequence/outbound",
+  "https://api.tfl.gov.uk/Line/hammersmith-city/Route/Sequence/inbound"
  ],
  "yaw_arc_chord": {
   "R1:LST-BTH": {
@@ -42,6 +60,18 @@
    "L0": 1.061,
    "L1": 1.0523
   },
+  "R7:LST-BTH": {
+   "L0": 1.0613,
+   "L1": 1.0516
+  },
+  "R9:LST-BTH": {
+   "L0": 1.058,
+   "L1": 1.0491
+  },
+  "R11:LST-BTH": {
+   "L0": 1.0618,
+   "L1": 1.0522
+  },
   "R1.5:BTH-MLE": {
    "L0": 1.1414,
    "L1": 1.1366
@@ -54,6 +84,10 @@
    "L0": 1.1271,
    "L1": 1.1399
   },
+  "R7:BTH-MLE": {
+   "L0": 1.1275,
+   "L1": 1.1336
+  },
   "R2:BTH-LST": {
    "L0": 1.0617,
    "L1": 1.0553
@@ -61,6 +95,42 @@
   "R6:BTH-LST": {
    "L0": 1.0595,
    "L1": 1.053
+  },
+  "R8:BTH-LST": {
+   "L0": 1.0603,
+   "L1": 1.055
+  },
+  "R10:BTH-LST": {
+   "L0": 1.0594,
+   "L1": 1.0527
+  },
+  "R12:BTH-LST": {
+   "L0": 1.0614,
+   "L1": 1.0544
+  },
+  "R6:MLE-BTH": {
+   "L0": 1.1241,
+   "L1": 1.1238
+  },
+  "R8:MLE-BTH": {
+   "L0": 1.1276,
+   "L1": 1.1301
+  },
+  "R10:MLE-BTH": {
+   "L0": 1.1239,
+   "L1": 1.126
+  },
+  "R12:MLE-BTH": {
+   "L0": 1.1248,
+   "L1": 1.1325
+  },
+  "R13:LST-ALE": {
+   "L0": 1.105,
+   "L1": 1.0969
+  },
+  "R15:LST-ALE": {
+   "L0": 1.1212,
+   "L1": 1.1003
   }
  }
 }

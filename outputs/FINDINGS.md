@@ -1,3 +1,152 @@
+# Pre-registered results: rides of Sat 24 Oct 2026
+
+Plan: `outputs/PLAN_24Oct.md`, frozen at git tag `prereg-24oct` on 23 Oct before these rides. Run on
+25 Oct with the frozen code (`git diff prereg-24oct -- tubesense scripts` is empty), step by step as in
+`scripts/run_gonogo.py`. **Every `outputs/*.json` now covers both days.** The 23 Oct sections further
+down quote the outputs as they were at the tag (`git show prereg-24oct:outputs/<file>`).
+
+## Rides and automatic exclusions
+
+All rides were in the 2nd car with the phone on a seat (`data/raw/notes.csv`, not published).
+
+- **Central LST⇄MLE:** R7, R9 and R11 eastbound; R8, R10 and R12 westbound. QC excluded R9 and R11
+  BTH→MLE (`section_truncated`: the recording ended before the train stopped at Mile End). That leaves
+  10 clean sections.
+- **Hammersmith & City LST⇄WCL:** R13 and R15 eastbound, R14 westbound.
+  - R16 (westbound) was not recorded: the train was held over 15 min at Whitechapel and the battery
+    was at 4 %.
+  - QC excluded R15 ALE→WCL (`section_truncated`) and R14 WCL→ALE (a 15.2 s phyphox pause inside the
+    section, from a battery alert).
+  - Left: EB LST→ALE ×2, EB ALE→WCL ×1, WB ALE→LST ×1.
+- **NIOSH-only rides:** N1 (EB) and N2 (WB) on the Central line. No audio was kept; the levels are in
+  `data/raw/niosh.csv`.
+- **Deviations from the collection protocol:**
+  - fewer than 3 H&C runs each way;
+  - no `CAL_*` magnetometer recording;
+  - NIOSH reports one reading per trip, not per section;
+  - the NIOSH rides came before the Voice Memos rides, not after.
+
+## Verdicts
+
+| hypothesis | pre-registered criterion | result | verdict |
+|---|---|---|---|
+| H1 gyro signatures repeat on the H&C | every clean same-section pair: best r above the different-section null max (0.84) **and** surrogate p < 0.05 | Only EB LST→ALE has 2 clean runs: 1 pair, r 0.72, surrogate p 0.06. The other H&C groups have fewer than 2 clean runs | **NO-GO** (one pair) |
+| H2a tracker generalises to the H&C | median-of-runs error below the timetable's **and** mean 90 % coverage ≥ 0.80 | EB LST→ALE, 2 held-out runs: 52.3 m vs timetable 46.6 m; coverage 0.35 | **NO-GO** |
+| H2b forward in time, Central | LST⇄BTH median-of-runs ≤ 5 m **and** coverage ≥ 0.80 | 1.95 m (timetable 8.2 m), coverage 0.96, 6 sections | **GO** |
+| H3 magnetism, deep tube vs sub-surface | Central − H&C excess r (`resid_mid`, raw–raw); a CI excluding 0 means "the lines differ" | +0.23 [0.10, 0.36]. Central 0.29 [0.18, 0.40] from 12 pairs; H&C 0.06 [−0.01, 0.13] from **1 pair** | **criterion met, not claimed** |
+| H4 platform signatures | only if a `CAL_*` recording passes validation | no `CAL_*` recording | **not run** |
+| H5 NIOSH absolute levels | descriptive | N1 EB 91.9 dB(A), N2 WB 87.3 dB(A), per trip | **indicative; deviations** |
+
+### H1 and H2a: the method did not transfer to the H&C on this data
+
+- **H1:**
+  - R13 vs R15 LST→ALE: best r 0.72 on the distance grid, against a pooled different-section maximum
+    of 0.84, with surrogate p 0.06 (`gonogo/repeatability.json`).
+  - Both runs show the same left curve: total heading +44.5° and +43.4°.
+  - The pooled null maximum (0.84) is higher than on 23 Oct alone (0.67), as the plan specified
+    (pooled over both lines). Against 0.67 the pair's r would pass, but its surrogate p (0.06) still
+    fails, so the verdict is the same either way.
+- **H2a** (`online/online_eval.json`, H&C rows):
+
+  | held out | tracker median | timetable | 90 % coverage |
+  |---|---|---|---|
+  | R13 | 10.6 m | 26.1 m | 0.55 |
+  | R15 | 94.0 m | 67.1 m | 0.16 |
+
+- **Post-hoc reading (not tested):**
+  - The online departure detector fired 59 s and 108 s late on the two H&C runs.
+  - QC found a 12 s unplanned stop between LST and ALE on R13.
+  - At curve edges with the gyro visible, R13 is within 0.7 m (median), but R15 trails by 164 m.
+  - So the failure looks like departure detection and stop handling rather than curve matching. Two
+    runs cannot show it.
+
+### H2b: the frozen 23 Oct maps still place the 24 Oct Central rides
+
+| track | runs | tracker median-of-runs | timetable | 90 % coverage |
+|---|---|---|---|---|
+| EB LST→BTH | 3 | 1.7 m | 9.6 m | 0.995 |
+| WB BTH→LST | 3 | 3.0 m | 6.3 m | 0.931 |
+| EB BTH→MLE (no threshold) | 1 | 7.9 m | 22.2 m | 0.765 |
+| WB MLE→BTH (no threshold; 1-run map) | 3 | 1.3 m | 12.8 m | 0.988 |
+
+- Source: `online/forward_test.json`.
+- The online departure detector missed 2 of these 10 departures (R7 LST→BTH, R10 BTH→LST).
+- R10 BTH→LST also had a real 6 s stop between stations (QC `unplanned_stop`). Its median is 4.8 m,
+  but its p90 is 150 m.
+- **Caveats:** the "independent" truth interpolates between curve edges matched to the map's base run,
+  so it shares the gyro with the tracker. Metres are dead-reckoned and scaled to straight-line section
+  lengths.
+
+### Sealed test of tracker v2 (configuration chosen post-hoc, scored once)
+
+- **How it was chosen:** the Argon analyst chose the configuration on the 23 Oct rides only: YAW_SD_FLOOR
+  0.35→0.2, P_SPEED 0.03→0.1, stop gate on, TfL Working Timetable lengths. It was tagged `v2-posthoc`
+  (147c35e) before the 24 Oct rides.
+- **How it was scored:** `agent/harness.py score_test` ran it once on the same 10 clean Central
+  sections. That is attempt 8 in `outputs_posthoc/attempts.jsonl`, 25 Oct 00:52:56 UTC; the hash chain
+  of 9 lines is intact.
+
+| | median-of-runs error | timetable | mean 90 % coverage | stop-gate steps |
+|---|---|---|---|---|
+| v1, frozen (H2b; chord metres) | 1.8 m | 11.2 m | 0.951 | n/a |
+| v2, sealed (WTT metres) | 1.8 m | 11.85 m | 0.936 | **0 in all 10 sections** |
+
+- **v2 matched v1; it did not improve on it.** On the 23 Oct dev rides the same change had cut the mean
+  per-run error by 0.81 m (CI −1.94 to −0.05) and narrowed the band by 16 %. On the test rides the
+  median error is unchanged and coverage is 0.015 lower. `forward_test.json` does not store v1's band
+  width, so the band-width gain cannot be checked here.
+- **The stop gate never engaged.** That includes R10 BTH→LST, which had a real 6 s stop between
+  stations. With the Elizabeth line result (0 of 3 real platform stops caught), this is the second
+  real-data failure of the gate. Its benefit is shown only on simulated stops.
+- **Per-section tails moved both ways:**
+  - R10 BTH→LST: p90 150 m → 27 m;
+  - R10 MLE→BTH: p90 5 m → 52 m;
+  - R7 BTH→MLE: p90 54 m → 121 m.
+- `demo/replay_analyst.py --summary` prints the comparison.
+
+### H5: NIOSH Sound Level Meter levels (`outputs_posthoc/h5_niosh.md`)
+
+- **Levels:**
+  - N1 LST→MLE: LAeq 91.9 dB(A), max 109.7, LCpeak 124.4.
+  - N2 MLE→LST: LAeq 87.3 dB(A), max 105.3, LCpeak 120.2.
+  - Both trips are above the HSE 85 dB(A) upper action level. That compares a trip average, platform
+    and dwell time included, with a level the HSE defines over a working day: context, not an exposure
+    finding.
+  - The trip average cannot be compared directly with TfL's per-section in-cab FOI figures (87 / 83 EB,
+    86 / 82 WB).
+- **Why these are indicative only:**
+  - The app on an iPhone's built-in microphone is validated only up to about 85 dB(A), so these
+    readings may be low.
+  - It is not a certified meter.
+  - There is one trip per direction, on different trains.
+  - The phone was on a seat in the passenger saloon; TfL's figures are measured in the cab.
+- **Not possible:**
+  - the same-ride offset to Voice Memos (one phone);
+  - LST→BTH minus BTH→MLE from NIOSH (no per-section readings).
+
+### Loudness check (c), rerun on both days
+
+The frozen rule now says **NO-GO**; on 23 Oct alone it said WEAK. Liverpool Street–Bethnal Green is
+louder than Bethnal Green–Mile End on 10 of 11 trips, by a mean +0.54 dB (range −0.13 to +1.21;
+one-sided sign test p = 0.006). That is under 1 dB and is not consistent across the level variants
+(`gonogo/loudness.json`).
+
+## Post-hoc observations (not in the plan)
+
+1. **The Voice Memos offset to NIOSH is not one constant.**
+   - Eastbound minus westbound trip level is +4.6 dB on NIOSH but −0.5 dB on Voice Memos (same-evening
+     rides).
+   - The Voice Memos limiter was engaged in 94–100 % of the loudest 10 % of seconds.
+   - So phone-recorded levels can't be turned into dB(A) with one offset. Section differences may be
+     compressed, which fits the sub-1 dB loudness result above.
+   - One NIOSH trip per direction, on different trains, cannot separate a train effect from a direction
+     effect.
+2. **The Central field anomaly partly repeats across days.** Raw–raw `resid_mid` pairs:
+   - 23 Oct vs 24 Oct (R1 vs R7, R9, R11, LST→BTH): r 0.63–0.70, 1 of 3 at surrogate p < 0.05;
+   - within 24 Oct on LST→BTH: r 0.77–0.88.
+3. **Online departure detection is the weak link.** It missed 4 of the 12 clean sections scored
+   (2/10 Central, 2/2 H&C). The cause of each miss has not been checked.
+
 # Tubesense go/no-go: rides of Fri 23 Oct 2026
 
 Regenerate with `.venv/Scripts/python scripts/run_gonogo.py --clean` (~11.5 min). Numbers come from
