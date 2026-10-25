@@ -50,6 +50,7 @@ import atexit
 import ipaddress
 import json
 import mimetypes
+import os
 import re
 import socket
 import sys
@@ -69,7 +70,11 @@ LOOPBACK = ("127.0.0.1", "localhost", "::1")
 MIME = {".webmanifest": "application/manifest+json", ".js": "text/javascript", ".mjs": "text/javascript",
         ".jsonl": "application/x-ndjson", ".json": "application/json", ".svg": "image/svg+xml", ".css": "text/css",
         ".html": "text/html; charset=utf-8", ".webp": "image/webp", ".woff2": "font/woff2"}
-STATE = {"port": 8770, "lan": False, "lan_approve": False, "verbose": False}
+STATE = {"port": 8770, "lan": False, "lan_approve": False, "verbose": False, "public": False}
+# --public (hosted demo): any Host is accepted (a public server behind the platform's proxy), and these are refused: the
+# human approval (it stays on the presenter's laptop) and every live-sensor route (they would let visitors probe the host's
+# private network or post rows)
+PUBLIC_BLOCKED = re.compile(r"/api/(pack/(approve|reject)|live/.*)/?$")
 JM = JobManager()
 
 
@@ -81,6 +86,8 @@ def host_ok(netloc: str) -> bool:
         name, port = u.hostname, u.port
     except ValueError:
         return False
+    if STATE["public"]:
+        return bool(name)
     if not name or (port is not None and port != STATE["port"]):
         return False
     if name in LOOPBACK:
@@ -482,6 +489,9 @@ class Handler(BaseHTTPRequestHandler):
         return body
 
     def _api(self, method: str, path: str, query: dict, head: bool):
+        if STATE["public"] and PUBLIC_BLOCKED.match(path):
+            raise ApiError(403, "disabled_on_public_demo", "disabled on the public demo: human approval and live phone "
+                           "sensors run on the presenter's laptop")
         allowed = []
         for m, rx, fn in ROUTES:
             mt = rx.match(path)
@@ -632,12 +642,18 @@ def main() -> None:
     ap.add_argument("--lan", action="store_true", help="listen on all interfaces (anyone on the network can use the app)")
     ap.add_argument("--lan-approve", action="store_true", help="also allow evidence-pack approval from non-loopback clients")
     ap.add_argument("--verbose", action="store_true", help="log one line per request (path only)")
+    ap.add_argument("--public", action="store_true", help="hosted demo: listen on all interfaces on $PORT, accept any Host, "
+                    "refuse approval and live-sensor routes")
     a = ap.parse_args()
-    STATE.update(port=a.port, lan=a.lan, lan_approve=a.lan_approve, verbose=a.verbose)
+    if a.public:
+        a.port, a.lan, a.lan_approve = int(os.environ.get("PORT", a.port)), True, False
+    STATE.update(port=a.port, lan=a.lan, lan_approve=a.lan_approve, verbose=a.verbose, public=a.public)
     warm()
     srv = Server(("0.0.0.0" if a.lan else "127.0.0.1", a.port), Handler)
     atexit.register(JM.shutdown)
-    if a.lan:
+    if a.public:
+        print(f"Tubesense web app (PUBLIC DEMO) on 0.0.0.0:{a.port}; approval and live sensors disabled", flush=True)
+    elif a.lan:
         print(f"Tubesense web app: http://{lan_ip()}:{a.port}/  (LAN: anyone on this network can start Gemini and Atlas jobs; "
               "use a phone hotspot, not venue Wi-Fi)", flush=True)
         print(f"  approval from other devices: {'ALLOWED (--lan-approve)' if a.lan_approve else 'laptop only'}", flush=True)
