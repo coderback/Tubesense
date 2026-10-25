@@ -46,8 +46,11 @@ because grinding is planned only eight weeks ahead. Tubesense gives her two thin
   quote and number is checked by code, the framing is reviewed against the full sources, and a human
   approves the pack before use. It also drafts the specific information requests to make next.
 
-The people it ultimately protects are those exposed longest: train drivers, whose cab noise TfL itself
-measures, and their unions (RMT, ASLEF).
+It is built for Elly Baker AM's office, but the people it serves are everyone who lives with that noise:
+train drivers in the cab every shift (TfL's own figures are cab measurements; their unions are RMT and
+ASLEF), passengers riding through the same sections, and residents above the line, whose noise complaints
+were among the data she asked TfL for. Tubesense measures inside the train only; it does not measure noise
+or vibration in homes, and it makes no hearing-damage claim.
 
 **Tracks entered:** Google DeepMind (Build with Gemini 4 Argon), MongoDB Atlas, The Real World, and
 Agents That Ship.
