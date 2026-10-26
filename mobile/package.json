@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
+    "@expo-google-fonts/plus-jakarta-sans": "0.4.2",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~58.0.19",
+    "expo-audio": "~58.0.10",
+    "expo-font": "~58.0.10",
     "expo-keep-awake": "~58.0.3",
     "expo-sensors": "~58.0.4",
     "expo-status-bar": "~58.0.4",
@@ -21,7 +24,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/metrics.test.mts && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/route.test.mts",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/metrics.test.mts && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/route.test.mts && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/iso.test.mts && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON test/sound.test.mts",
     "typecheck": "tsc --noEmit"
   },
   "private": true

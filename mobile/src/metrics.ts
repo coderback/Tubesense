@@ -148,6 +148,7 @@ export type SecondSummary = {
   acc_h_rms: number;
   vib_rms: number;
   handled: boolean;
+  h_mean: Vec3; // mean over the second of the 0.3 Hz low-passed horizontal acceleration vector (phone frame), m/s^2
   n: number;
 };
 
@@ -172,6 +173,7 @@ export function summariseMotion(
   }
   let vib2 = 0;
   let h2 = 0;
+  const hSum: Vec3 = [0, 0, 0];
   for (const s of samples) {
     vib2 += dot(sub(s.acc, mean), sub(s.acc, mean));
     const dt = hState.t === null ? 0 : Math.max(0, s.t - hState.t);
@@ -180,12 +182,14 @@ export function summariseMotion(
     hState.h = [0, 1, 2].map((i) => hState.h[i] + k * (h[i] - hState.h[i])) as Vec3;
     hState.t = s.t;
     h2 += dot(hState.h, hState.h);
+    for (let i = 0; i < 3; i++) hSum[i] += hState.h[i];
   }
   return {
     yaw_rate_dps: yawN ? yawSum / yawN : 0,
     acc_h_rms: Math.sqrt(h2 / samples.length),
     vib_rms: Math.sqrt(vib2 / samples.length),
     handled: gyrSum / samples.length > GYR_HANDLED_DPS,
+    h_mean: scale(hSum, 1 / samples.length),
     n: samples.length,
   };
 }
@@ -232,4 +236,150 @@ export function ingestUrl(host: string): string | null {
   const h = host.trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
   if (!/^[A-Za-z0-9.-]+(:\d{1,5})?$/.test(h)) return null;
   return `http://${h.includes(':') ? h : `${h}:8770`}/api/live/ingest`;
+}
+
+// ---------------------------------------------------------------------------------------------- 25 Oct additions
+/**
+ * Running-vibration band, as tubesense/stops.py `vib`: acceleration band-passed 3-40 Hz (Butterworth, order 3), squared
+ * and summed over the axes, RMS over the second. Differences from the pipeline: causal (sosfilt, not sosfiltfilt), a
+ * 3 Hz high-pass cascaded with a 40 Hz low-pass instead of scipy's band design (within 0.1 dB in the pass band for a band
+ * this wide), and 1 s instead of 2 s windows. Sent for parity with the pipeline only; the stop gate stays on vib_rms,
+ * which separated dwells from running slightly better on the phyphox rides (AUC 0.936 vs 0.918, 15 runs, 25 Oct).
+ */
+type Sec = { b0: number; b1: number; b2: number; a1: number; a2: number };
+
+function butter3(fc: number, fs: number, high: boolean): Sec[] {
+  const K = Math.tan((Math.PI * Math.min(fc, 0.49 * fs)) / fs);
+  const n2 = 1 / (1 + K + K * K); // second-order section, Q = 1
+  const s2: Sec = high
+    ? { b0: n2, b1: -2 * n2, b2: n2, a1: 2 * (K * K - 1) * n2, a2: (1 - K + K * K) * n2 }
+    : { b0: K * K * n2, b1: 2 * K * K * n2, b2: K * K * n2, a1: 2 * (K * K - 1) * n2, a2: (1 - K + K * K) * n2 };
+  const s1: Sec = high
+    ? { b0: 1 / (K + 1), b1: -1 / (K + 1), b2: 0, a1: (K - 1) / (K + 1), a2: 0 }
+    : { b0: K / (K + 1), b1: K / (K + 1), b2: 0, a1: (K - 1) / (K + 1), a2: 0 };
+  return [s2, s1];
+}
+
+/** Magnitude of a section cascade at f Hz (for tests). */
+export function secGain(secs: Sec[], fs: number, f: number): number {
+  const w = (2 * Math.PI * f) / fs;
+  let g = 1;
+  for (const s of secs) {
+    const nr = s.b0 + s.b1 * Math.cos(w) + s.b2 * Math.cos(2 * w), ni = -(s.b1 * Math.sin(w) + s.b2 * Math.sin(2 * w));
+    const dr = 1 + s.a1 * Math.cos(w) + s.a2 * Math.cos(2 * w), di = -(s.a1 * Math.sin(w) + s.a2 * Math.sin(2 * w));
+    g *= Math.hypot(nr, ni) / Math.hypot(dr, di);
+  }
+  return g;
+}
+
+export function vibBandSections(fs: number): Sec[] {
+  return [...butter3(3, fs, true), ...butter3(40, fs, false)];
+}
+
+export class VibBand {
+  private fs = 0;
+  private secs: Sec[] = [];
+  private z: Float64Array[] = []; // per axis: two states per section
+  private sum = 0;
+  private n = 0;
+
+  /** Feed one second of gravity-free acceleration; fs is the nominal sample rate (DeviceMotion asks for 100 Hz). */
+  push(acc: Vec3[], fs: number) {
+    if (!(fs > 0)) return;
+    if (Math.abs(fs - this.fs) > 0.1 * fs) {
+      this.fs = fs;
+      this.secs = vibBandSections(fs);
+      this.z = [0, 1, 2].map(() => new Float64Array(this.secs.length * 2));
+    }
+    for (const a of acc) {
+      let e = 0;
+      for (let ax = 0; ax < 3; ax++) {
+        const z = this.z[ax];
+        let y = a[ax];
+        for (let k = 0; k < this.secs.length; k++) {
+          const s = this.secs[k];
+          const out = s.b0 * y + z[2 * k];
+          z[2 * k] = s.b1 * y - s.a1 * out + z[2 * k + 1];
+          z[2 * k + 1] = s.b2 * y - s.a2 * out;
+          y = out;
+        }
+        e += y * y;
+      }
+      this.sum += e;
+      this.n++;
+    }
+  }
+
+  /** RMS since the last take(), m/s^2, or null with no samples. */
+  take(): number | null {
+    if (!this.n) return null;
+    const r = Math.sqrt(this.sum / this.n);
+    this.sum = 0;
+    this.n = 0;
+    return r;
+  }
+}
+
+/** Mean gravity direction over the second as a unit vector in the phone frame (pointing down), or null. */
+export function gravityDirection(samples: MotionSample[]): Vec3 | null {
+  const m: Vec3 = [0, 0, 0];
+  for (const s of samples) {
+    const u = unit(s.down);
+    if (u) for (let i = 0; i < 3; i++) m[i] += u[i];
+  }
+  return unit(m);
+}
+
+/** Angle between two directions, degrees. A large change means the phone was moved (hand -> seat, pocket, floor). */
+export function angleDeg(a: Vec3, b: Vec3): number {
+  const ua = unit(a), ub = unit(b);
+  if (!ua || !ub) return 0;
+  return (Math.acos(Math.max(-1, Math.min(1, dot(ua, ub)))) * 180) / Math.PI;
+}
+
+/**
+ * Departure gate: the ride starts only when the phone feels a train pull away, not when it vibrates.
+ * Vibration alone (vib_rms) cannot tell a hand, a desk or a walk from a running train. A departing train pushes the
+ * phone the same way for many seconds; a hand cannot (0.45 m/s^2 held for 5 s would carry the phone 5.6 m).
+ * push = |mean of the last PUSH_S per-second mean horizontal acceleration vectors| (0.3 Hz low-pass, phone frame).
+ * On the 23-24 Oct phyphox rides (29 departures, Central + H&C; gravity from the end of each dwell, then gyro only)
+ * every departure reached push >= 0.62 m/s^2 (median 1.21), most within 0-6 s of the doors closing. Starting to walk
+ * (0 -> 1.4 m/s) gives at most 0.28. Handled seconds (mean |gyro| > 0.25 rad/s) clear the window, because the phone
+ * frame turns. Every second in the window must also push the same way (component along the mean >= DEPART_EACH):
+ * traction pulls steadily, a shaken phone swings both ways. Departed after DEPART_N consecutive seconds that pass.
+ */
+export const PUSH_S = 5;
+export const DEPART_PUSH = 0.45; // m/s^2
+export const DEPART_N = 2;
+export const DEPART_EACH = 0.2; // m/s^2, each second's push along the window's direction
+
+export class DepartureGate {
+  private win: Vec3[] = [];
+  private above = 0;
+  departed = false;
+  push = 0;
+
+  step(hMean: Vec3 | null, handled: boolean): boolean {
+    if (this.departed) return true;
+    if (!hMean || handled) {
+      this.win = [];
+      this.above = 0;
+      this.push = 0;
+      return false;
+    }
+    this.win = [...this.win, hMean].slice(-PUSH_S);
+    const m: Vec3 = [0, 0, 0];
+    for (const v of this.win) for (let i = 0; i < 3; i++) m[i] += v[i] / this.win.length;
+    this.push = this.win.length === PUSH_S ? norm(m) : 0;
+    const dir = unit(m);
+    const steady = !!dir && this.win.every((v) => dot(v, dir) >= DEPART_EACH);
+    this.above = this.push >= DEPART_PUSH && steady ? this.above + 1 : 0;
+    if (this.above >= DEPART_N) this.departed = true;
+    return this.departed;
+  }
+
+  /** The rider says the train has left (fallback when the push was missed, or for a demo off the train). */
+  force() {
+    this.departed = true;
+  }
 }

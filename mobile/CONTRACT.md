@@ -43,7 +43,24 @@ Content-Type: application/json
 | `knock` | boolean | true in the second a **double knock** group closed: two \|a\| spikes > 10 m/s^2 (gravity-free; `KNOCK_MIN` in `live/detect.py`), spikes < 0.12 s apart merged, gap 0.12-1.0 s. The group closes 1 s after its last spike, so `knock` arrives ~1-2 s after the knocks |
 | `rates` | object | samples received in that second per sensor (Hz): `motion` (DeviceMotion, requested 100 Hz), `mag` (requested 20 Hz), `baro` |
 
-Numbers are rounded (yaw 3 dp, acc/vib 4 dp, \|B\| 2 dp, pressure 3 dp). There is no audio field: the app never uses the microphone.
+Numbers are rounded (yaw 3 dp, acc/vib 4 dp, \|B\| 2 dp, pressure 3 dp).
+
+### Optional fields (25 Oct, local build)
+
+| field | type | meaning |
+|---|---|---|
+| `la_dbfs` | number \| null | A-weighted equivalent level of the second, dB re RMS 1.0 (full scale), from microphone samples filtered in memory and dropped |
+| `lafmax_dbfs` | number \| null | loudest 125 ms A-weighted level in the second, dBFS |
+| `la_db` | number \| null | `la_dbfs` + the phone's calibration offset against a reference meter, dB(A); null until calibrated |
+| `b_raw_abs_ut` | number \| null | mean \|B\| from the uncalibrated magnetometer (hard-iron bias left in), uT |
+| `oct_dbfs` | (number \| null)[8] \| null | octave band levels, centres 63, 125, 250, 500, 1k, 2k, 4k, 8k Hz (base-10), unweighted, dBFS; Hann power spectrum, 8192-sample frames |
+| `peak_hz` | number \| null | dominant frequency in 100-2000 Hz (5-bin smoothed spectrum, as `tubesense/noise.py`), Hz |
+| `peak_prom_db` | number \| null | that peak over the median of the 100-2000 Hz spectrum, dB |
+| `vib_band_rms` | number \| null | 3-40 Hz band RMS of acceleration (Butterworth order 3, causal), m/s^2: the pipeline's `vib`, 1 s window. The stop gate still uses `vib_rms` |
+| `g_dir` | number[3] \| null | mean unit gravity vector (down) in the phone frame over the second |
+| `g_turn_10s_deg` | number \| null | angle between `g_dir` now and 10 s ago, degrees; > 30 = the phone was moved (placement change) |
+
+The server accepts rows with or without them. There is no audio field: no samples, no file, no recording ever leaves the phone.
 
 ## Reply (optional position for the phone map)
 

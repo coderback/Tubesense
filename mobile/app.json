@@ -28,6 +28,12 @@
         {
           "motionPermission": "Tubesense reads motion, magnetometer and barometer data to summarise your ride each second. No microphone is used."
         }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Tubesense measures the sound level each second. Audio is processed in memory and never recorded, stored or sent."
+        }
       ]
     ]
   }

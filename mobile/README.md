@@ -4,7 +4,13 @@ A one-screen Expo app that reads the iPhone's motion, magnetometer and barometer
 **1-second summaries on the phone**, and POSTs each summary to the Tubesense web app on the laptop.
 phyphox stays the main live input; this is a bonus.
 
-**No microphone.** The app does not import or request any audio API. Raw samples never leave the phone.
+**Microphone: sound level only (added 25 Oct, local).** The app streams microphone PCM into memory, A-weights it
+(`src/sound.ts`), keeps one level per second and drops the samples. Audio is never written to a file or sent.
+Levels are dBFS until you calibrate against a reference meter in the app's Sensor details (offset = reference dB(A)
+minus our dBFS(A) in the same steady sound); then the app also shows dB(A). Raw samples never leave the phone.
+The magnetometer is sent both calibrated (`b_abs_ut`, iOS CoreMotion) and raw (`b_raw_abs_ut`, as in the phyphox runs).
+Also per second: octave bands and the dominant frequency (for the corrugation question), the pipeline's 3-40 Hz
+vibration band, and the gravity direction with a 'phone moved' flag (placement change). See CONTRACT.md.
 
 ## Run it on the iPhone (Expo Go, no account needed)
 
@@ -42,7 +48,9 @@ Up to 60 rows are buffered while the laptop is unreachable.
 - `App.tsx`: sensors, the per-second tick, sending, UI (design v2: a full-screen map of the section, a bottom sheet,
   sensor values in a details sheet, day and tunnel looks).
 - `src/route.ts`: sections (TfL WTT lengths), the time-based position guess, the optional tracker position from the reply,
-  and the generated map drawing. `src/RideMap.tsx`: the map. The buildings are generated, not real; the line is schematic.
+  and the generated map drawing. `src/iso.ts`: the isometric 3D projection (same camera as the web app's three.js map),
+  generated city blocks and the noise colour scale. `src/RideMap.tsx`: the map, drawn with react-native-svg. The buildings
+  are generated, not real; the line is schematic.
 - `test/route.test.mts`: the time guess, reply parsing and map drawing helpers.
 - `test/metrics.test.mts`: synthetic checks (rotation about gravity with the phone flat, tilted and face down;
   a double knock; a still period). Run `npm test`. Type check: `npx tsc --noEmit`.
@@ -51,5 +59,7 @@ Up to 60 rows are buffered while the laptop is unreachable.
 
 - `vib_rms` is RMS of acceleration minus its 1 s mean, not the pipeline's 3-40 Hz band; the 0.17 m/s^2 stop
   threshold was read off phyphox runs R5/R11/R12, not tuned on this app. MOVING/STOPPED is indicative.
-- iOS magnetometer values are the calibrated CoreMotion field, unlike the raw phyphox Central runs.
+- `b_abs_ut` is the calibrated CoreMotion field; `b_raw_abs_ut` is the uncalibrated one (bias left in), comparable to phyphox raw.
+- Sound: A-weighting within 0.05 dB of IEC up to 4 kHz at 48 kHz, -0.5 dB at 8 kHz. iOS may apply its own input
+  processing; an uncalibrated level is relative only. Not a certified sound level meter.
 - DeviceMotion on iOS tops out near 100 Hz; the knock threshold (10 m/s^2) was measured on phyphox data.

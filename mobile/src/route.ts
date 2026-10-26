@@ -41,6 +41,12 @@ export class TimeGuess {
   constructor(section: Section) {
     this.section = section;
   }
+  /** The departure gate fired: the train has been moving for `creditS` seconds already. */
+  depart(creditS: number): void {
+    if (this.departed) return;
+    this.departed = true;
+    this.movingS += creditS;
+  }
   step(state: 'moving' | 'stopped' | null): void {
     if (this.arrived || state === null) return;
     if (state === 'moving') {

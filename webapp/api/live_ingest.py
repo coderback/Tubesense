@@ -8,6 +8,13 @@ What:
   Schema: {source: "tubesense-mobile", session: [A-Za-z0-9_-]{1,64}, t: number s (0..172800), ts: ISO 8601 string,
   yaw_rate_dps: number, acc_h_rms: number, vib_rms: number, b_abs_ut: number|null, pressure_hpa: number|null,
   d_pressure_10s: number|null, state: "moving"|"stopped", knock: bool, rates: {motion, mag, baro: number|null}}.
+  Optional (local only, 25 Oct): la_dbfs, lafmax_dbfs (A-weighted level of the second, dB re full scale, computed on the
+  phone from microphone samples it never stores or sends), la_db (la_dbfs + the phone's calibration offset against a
+  reference meter; null until calibrated) and b_raw_abs_ut (|B| from the uncalibrated magnetometer). Also optional:
+  oct_dbfs (8 octave band levels 63 Hz-8 kHz, dBFS), peak_hz / peak_prom_db (dominant frequency 100-2000 Hz and its
+  prominence), vib_band_rms (3-40 Hz, as the pipeline's vib), g_dir (unit gravity vector, phone frame) and
+  g_turn_10s_deg (its change over 10 s: the phone was moved), push_5s (the departure gate's 5 s mean horizontal push,
+  m/s^2) and departed (bool: the phone felt the train pull away, or the rider tapped "Train left"). Absent = null.
 - The last 300 rows per session are kept (at most 12 sessions; the least recently seen is dropped). Nothing is written to
   disk. GET /api/live/app lists the sessions; GET /api/live/app/rows?session=S&after=N returns that session's rows with
   seq > N (the page polls it once a second).
@@ -45,6 +52,13 @@ _NUM = {  # key -> (min, max, nullable)
     "vib_rms": (0.0, 500.0, False), "b_abs_ut": (0.0, 10000.0, True), "pressure_hpa": (200.0, 1200.0, True),
     "d_pressure_10s": (-100.0, 100.0, True),
 }
+_OPT = {  # optional keys, same (min, max, nullable) form; a missing key is stored as null
+    "la_dbfs": (-200.0, 10.0, True), "lafmax_dbfs": (-200.0, 10.0, True), "la_db": (0.0, 200.0, True),
+    "b_raw_abs_ut": (0.0, 10000.0, True), "peak_hz": (0.0, 24000.0, True), "peak_prom_db": (0.0, 400.0, True),
+    "vib_band_rms": (0.0, 500.0, True), "g_turn_10s_deg": (0.0, 180.0, True), "push_5s": (0.0, 500.0, True),
+}
+_OPT_BOOLS = ("departed",)
+_OPT_LISTS = {"oct_dbfs": (8, -400.0, 10.0), "g_dir": (3, -1.01, 1.01)}  # key -> (length, min, max); items may be null
 _RATES = ("motion", "mag", "baro")
 KEYS = {"source", "session", "ts", "state", "knock", "rates", *_NUM}
 
@@ -65,8 +79,8 @@ def client_ok(ip: str) -> bool:
 
 
 def _num(body: dict, k: str) -> float | None:
-    lo, hi, nullable = _NUM[k]
-    v = body[k]
+    lo, hi, nullable = _NUM[k] if k in _NUM else _OPT[k]
+    v = body.get(k)
     if v is None and nullable:
         return None
     if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or not lo <= v <= hi:
@@ -75,8 +89,9 @@ def _num(body: dict, k: str) -> float | None:
 
 
 def validate(body: dict) -> dict:
-    if set(body) != KEYS:
-        missing, extra = sorted(KEYS - set(body)), sorted(set(body) - KEYS)
+    allowed = KEYS | set(_OPT) | set(_OPT_LISTS) | set(_OPT_BOOLS)
+    if not KEYS <= set(body) <= allowed:
+        missing, extra = sorted(KEYS - set(body)), sorted(set(body) - allowed)
         raise ApiError(400, "bad_request", "row does not match the schema" + (f"; missing {missing}" if missing else "")
                        + (f"; not allowed {extra[:5]}" if extra else ""))
     if body["source"] != SOURCE:
@@ -105,7 +120,22 @@ def validate(body: dict) -> dict:
         if v is not None and (isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or not 0 <= v <= 2000):
             raise ApiError(400, "bad_request", f"rates.{k} must be a number from 0 to 2000 or null")
         rates[k] = None if v is None else round(float(v), 1)
-    row = {k: _num(body, k) for k in _NUM}
+    row = {k: _num(body, k) for k in (*_NUM, *_OPT)}
+    for k in _OPT_BOOLS:
+        v = body.get(k)
+        if v is not None and not isinstance(v, bool):
+            raise ApiError(400, "bad_request", f"{k} must be true, false or null")
+        row[k] = v
+    for k, (n, lo, hi) in _OPT_LISTS.items():
+        v = body.get(k)
+        if v is None:
+            row[k] = None
+            continue
+        if not isinstance(v, list) or len(v) != n or not all(
+                x is None or (not isinstance(x, bool) and isinstance(x, (int, float)) and math.isfinite(x) and lo <= x <= hi)
+                for x in v):
+            raise ApiError(400, "bad_request", f"{k} must be a list of {n} numbers from {lo:g} to {hi:g} (or null items)")
+        row[k] = [None if x is None else float(x) for x in v]
     row.update(session=body["session"], ts=when.astimezone(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
                state=body["state"], knock=body["knock"], rates=rates)
     return row
@@ -129,7 +159,7 @@ class _Writer(threading.Thread):
                 with _lock:
                     _atlas["inserted"] += 1
                 egress.add_throttled("MongoDB Atlas `ingest_live`", "Tubesense mobile app rows: one document per second of "
-                                     "derived motion values (yaw rate, vibration, stopped/moving, knock, pressure, |B|); "
+                                     "derived values (yaw rate, vibration, stopped/moving, knock, pressure, |B|, A-weighted level); "
                                      "random ride_id per session; no audio, no device name", "/api/live/ingest", every=60)
             except BaseException as e:  # noqa: BLE001  (SystemExit from atlas.db when MONGODB_URI is missing)
                 self.coll = None
@@ -148,7 +178,9 @@ def _forward(sess: dict, row: dict) -> None:
            "yaw_rate_dps": row["yaw_rate_dps"], "vib_rms": row["vib_rms"], "acc_h_rms": row["acc_h_rms"],
            "state": row["state"], "stopped": row["state"] == "stopped", "handled": None, "knock": row["knock"],
            "pressure_hpa": row["pressure_hpa"], "b_abs_ut": row["b_abs_ut"], "section": "live capture", "s_m": None,
-           "level_rel_dbA": None, "confident": False}
+           "level_rel_dbA": None, "la_dbfs": row["la_dbfs"], "la_db": row["la_db"], "b_raw_abs_ut": row["b_raw_abs_ut"],
+           "oct_dbfs": row["oct_dbfs"], "peak_hz": row["peak_hz"], "vib_band_rms": row["vib_band_rms"],
+           "g_turn_10s_deg": row["g_turn_10s_deg"], "departed": row["departed"], "confident": False}
     try:
         w.q.put_nowait(doc)
     except queue.Full:

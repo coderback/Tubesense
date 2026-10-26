@@ -1,7 +1,13 @@
 // Synthetic checks for src/metrics.ts. Run: npm test  (node >= 22.18 strips the types).
 import {
+  DepartureGate,
   KnockDetector,
   StopDetector,
+  VibBand,
+  angleDeg,
+  gravityDirection,
+  secGain,
+  vibBandSections,
   enqueue,
   ingestUrl,
   magnitudeMean,
@@ -122,6 +128,88 @@ check('|B| null when zeros', magnitudeMean([[0, 0, 0]]) === null);
 check('ingest URL from IP', ingestUrl(' 172.20.10.3 ') === 'http://172.20.10.3:8770/api/live/ingest');
 check('ingest URL keeps port', ingestUrl('http://172.20.10.3:9000/') === 'http://172.20.10.3:9000/api/live/ingest');
 check('ingest URL rejects junk', ingestUrl('not a host!') === null);
+
+// 3-40 Hz vibration band: -3 dB at both edges, flat in the middle, gravity (DC) and slow sway removed
+{
+  const secs = vibBandSections(100);
+  const dB = (f: number) => 20 * Math.log10(secGain(secs, 100, f));
+  check('vib band -3 dB at 3 Hz', Math.abs(dB(3) + 3.01) < 0.1, dB(3).toFixed(2));
+  check('vib band -3 dB at 40 Hz', Math.abs(dB(40) + 3.01) < 0.1, dB(40).toFixed(2));
+  check('vib band flat at 12 Hz', Math.abs(dB(12)) < 0.1, dB(12).toFixed(3));
+  check('vib band rejects 0.5 Hz sway by > 40 dB', dB(0.5) < -40, dB(0.5).toFixed(1));
+  const vb = new VibBand();
+  const sec = (f: number, amp: number, off: number): Vec3[] =>
+    Array.from({ length: 100 }, (_, i) => [amp * Math.sin(2 * Math.PI * f * (off + i / 100)), 0, 0] as Vec3);
+  for (let s = 0; s < 3; s++) vb.push(sec(15, 1, s), 100); // settle
+  vb.take();
+  vb.push(sec(15, 1, 3), 100);
+  const r = vb.take();
+  check('15 Hz sine of amplitude 1 -> band RMS 0.707', r !== null && Math.abs(r - Math.SQRT1_2) < 0.01, `${r?.toFixed(3)}`);
+  const v2 = new VibBand();
+  for (let s = 0; s < 5; s++) v2.push(Array.from({ length: 100 }, () => [0, 0, 9.81] as Vec3), 100);
+  v2.take();
+  v2.push(Array.from({ length: 100 }, () => [0, 0, 9.81] as Vec3), 100);
+  check('constant gravity -> ~0 band RMS', (v2.take() ?? 1) < 1e-3);
+  check('no samples -> null', new VibBand().take() === null);
+}
+
+// gravity direction and placement change
+{
+  const mk = (down: Vec3): MotionSample => ({ t: 0, acc: [0, 0, 0], down, omega: [0, 0, 0] });
+  const flat = gravityDirection([mk([0, 0, -9.8]), mk([0, 0, -9.81])]);
+  check('flat phone: gravity along -z', !!flat && near(flat[2], -1, 1e-9));
+  const upright = gravityDirection([mk([0, -9.8, 0])]);
+  check('flat -> upright is a 90 deg change', !!flat && !!upright && near(angleDeg(flat, upright), 90, 1e-9));
+  check('same direction is 0 deg', !!flat && angleDeg(flat, flat) < 1e-6);
+  check('no samples -> null', gravityDirection([]) === null);
+}
+
+
+// departure gate: a sustained push departs; shaking, a still desk and starting to walk do not
+{
+  const g1 = new DepartureGate();
+  let t = 0;
+  for (; t < 30 && !g1.step([0.8, 0, 0], false); t++);
+  check('train push 0.8 m/s^2 departs within 6 s', g1.departed && t <= 6, `${t + 1} s`);
+  const g2 = new DepartureGate();
+  let maxPush = 0;
+  for (let i = 0; i < 600; i++) {
+    g2.step([i % 2 ? 1.5 : -1.5, i % 3 ? 0.8 : -0.8, 0], false);
+    maxPush = Math.max(maxPush, g2.push);
+  }
+  check('shaking back and forth (±1.5 m/s^2) never departs', !g2.departed, `5 s mean push reached ${maxPush.toFixed(2)}`);
+  const g2b = new DepartureGate();
+  let seed = 7;
+  const rnd = () => ((seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648) * 2 - 1;
+  // fidgeting: per-second horizontal force ±0.5 m/s^2, smoothed like the 0.3 Hz low-pass (hand-held rows 25 Oct:
+  // acc_h_rms median 0.08, 90th pct 0.33 when not handled). Vigorous waving at ±0.8 without turning the phone does
+  // trigger (~20 per hour in this model); in practice it turns the phone, which clears the window.
+  let hh: Vec3 = [0, 0, 0];
+  for (let i = 0; i < 3600; i++) {
+    const x = [rnd() * 0.5, rnd() * 0.5, 0];
+    hh = hh.map((v, j) => v + 0.85 * (x[j] - v)) as Vec3;
+    g2b.step(hh, false);
+  }
+  check('an hour of fidgeting (±0.5 m/s^2) never departs', !g2b.departed);
+  const g2c = new DepartureGate();
+  let k = 0;
+  for (; k < 30 && !g2c.step([0.7 + 0.25 * Math.sin(k), 0.15 * Math.cos(k), 0], false); k++);
+  check('a wobbly but steady 0.7 m/s^2 pull still departs', g2c.departed, `${k + 1} s`);
+  const g3 = new DepartureGate();
+  for (let i = 0; i < 120; i++) g3.step([0.01, -0.01, 0], false);
+  check('a still desk never departs', !g3.departed);
+  const g4 = new DepartureGate();
+  // start walking: 0 -> 1.4 m/s in 1 s, then steady with step jiggle
+  g4.step([1.4, 0, 0], false);
+  for (let i = 0; i < 60; i++) g4.step([i % 2 ? 0.3 : -0.3, 0, 0], false);
+  check('starting to walk never departs', !g4.departed, `push ${g4.push.toFixed(2)}`);
+  const g5 = new DepartureGate();
+  for (let i = 0; i < 30; i++) g5.step([0.8, 0, 0], i % 3 === 2); // handled every third second
+  check('handling clears the window', !g5.departed);
+  const g6 = new DepartureGate();
+  g6.force();
+  check('rider can force departure', g6.step(null, true));
+}
 
 console.log(failed ? `\n${failed} FAILED` : '\nall passed');
 if (failed) throw new Error(`${failed} checks failed`);
