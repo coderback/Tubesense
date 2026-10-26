@@ -342,12 +342,34 @@ knocks, placement, pressure and |B|. Tested on the iPhone 12 over its hotspot on
 stillness, pressure and |B| come through live. The knock detector is tuned on the rides' firm case knocks
 (peaks 30–46 m/s²); light knocks on a phone lying on a table (4–7 m/s²) stay below its 10 m/s² threshold.
 
-### Mobile app prototype (not yet run on a device)
+### Phone capture app (`mobile/`, extended after the 25 Oct submission)
 
-`mobile/` is a React Native / Expo capture app: the same per-second summaries from the phone's own
-motion sensors, magnetometer and barometer, posted to the web app's `/api/live/ingest`; no microphone.
-It type-checks, its maths passes its tests and it builds for iOS, but it has not run on a phone (Expo
-Go now needs an Expo account sign-in). Steps are in `mobile/README.md`.
+`mobile/` is a React Native / Expo app that turns the phone's own sensors into one summary row per
+second and posts it to the web app's `/api/live/ingest`. The prototype in the submission had never run
+on a phone. On 25 Oct, after the deadline, it was run on the iPhone 12 through Expo Go over the hotspot
+(motion 100 Hz, magnetometer 20 Hz, barometer 1 Hz, one row a second) and extended:
+
+- **Sound level.** Microphone samples are streamed into memory, A-weighted (within 0.05 dB of the
+  IEC 61672 curve up to 4 kHz at 48 kHz), summed for the second and dropped. Audio is never written
+  to a file or sent; each row carries only the level and the loudest 125 ms. Levels are dBFS (relative)
+  until calibrated in the app against a reference meter such as the NIOSH SLM app; then it shows
+  indicative dB(A). Not a certified meter.
+- **Frequency content.** Octave bands from 63 Hz to 8 kHz and the dominant frequency in 100–2000 Hz
+  with its prominence, defined as in `tubesense/noise.py`, for the corrugation question.
+- **Raw magnetometer** alongside the calibrated one, so live rows match the raw phyphox Central runs.
+- **The pipeline's 3–40 Hz vibration band.** It is sent for consistency with the pipeline, but the
+  stop detector keeps the simpler measure: on the 15 recorded rides it separated stopped from moving
+  slightly better (AUC 0.936 vs 0.918).
+- **Gravity direction and a "phone moved" flag** when the phone turns more than 30° in 10 s.
+- **A departure gate.** The ride starts when the phone feels the train pull away (a horizontal push
+  averaging ≥ 0.45 m/s² over 5 s, every second in the same direction, phone not handled), not on
+  vibration, which a hand-held phone also produces. All 29 recorded departures reached ≥ 0.62 m/s²
+  (median 1.21); in simulation, fidgeting and starting to walk do not trigger it. A **Train left**
+  button starts the ride by hand. Not yet tested on a train.
+- **An isometric 3D map** of the section (schematic line, generated buildings).
+
+It type-checks and its maths passes its tests (`npm test`). Steps and the row format are in
+`mobile/README.md` and `mobile/CONTRACT.md`.
 
 ### Terminal demo (earlier)
 
@@ -406,7 +428,9 @@ Summary below; the full data inventory, boundaries and retention are in [`docs/P
   al. (2017) found make speech almost unintelligible.
 - Gemini receives only public document text and summary statistics; Atlas holds only derived data
   and public documents. Rides streamed to Atlas carry a random trip id, never the ride name, and live
-  phone sensors send only per-second summaries (no microphone).
+  phone sensors send only per-second summaries. phyphox live capture uses no microphone; the phone app
+  (added after submission) sends a per-second sound level and octave bands computed on the phone, never
+  audio.
 - The ICO's video-surveillance guidance calls recording conversations between members of the public
   "highly intrusive", so the design keeps no audio at all.
 - Station labels currently come from the stop sequence.
