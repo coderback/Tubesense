@@ -14,6 +14,7 @@ draft; nothing is sent automatically.
 | **Live demo** | https://tubesense-production.up.railway.app (hosted copy; human approval and live phone sensors are switched off there and run on the presenter's laptop) |
 | **Demo video** | see *Submission* below |
 | **Run it locally** | `pip install -e .` then `PYTHONPATH=. python -m webapp.server` and open http://127.0.0.1:8770/#/demo (needs `.env` with `GEMINI_API_KEY`, `MONGODB_URI` for the live agent and Atlas parts) |
+| **Paper and deck** | [Technical paper (PDF, 3 pages)](docs/Tubesense_technical_paper.pdf) · [Deck (PDF)](docs/Tubesense_deck.pdf) · diagrams: [verification loop](docs/diagrams/verification_loop.png), [Atlas data flow](docs/diagrams/atlas_data_flow.png). Both as submitted on 25 Oct, so they predate the phone-app work described below |
 | **Results, GO and NO-GO** | [What works today](#what-works-today-and-the-evidence) · [`outputs/FINDINGS.md`](outputs/FINDINGS.md) |
 | **Gemini 4 Argon** | [Gemini models and agents used](#gemini-models-and-agents-used) · [Verification loop](#verification-loop) |
 | **MongoDB Atlas** (all six scored features) | [MongoDB Atlas](#mongodb-atlas) |
